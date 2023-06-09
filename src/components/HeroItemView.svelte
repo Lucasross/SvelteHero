@@ -1,11 +1,12 @@
 <script lang="ts">
     import { createEventDispatcher } from 'svelte';
-    import type Hero from "../data/Hero";
+    import type Hero from '../data/Hero';
+    import type { Writable } from 'svelte/store';
 
-    export let hero : Hero
+    export let hero : Writable<Hero>;
 
     let heroEdit : boolean = false
-    let heroNameInput : string = hero.name
+    let heroNameInput : string = $hero.name
 
     const dispatch = createEventDispatcher();
 
@@ -27,17 +28,17 @@
     </div>
     <div class="vertical-grid">
         {#if !heroEdit}
-           <h1 on:click={SwitchToEdit} on:keypress={null}>{hero.name}</h1>
+           <h1 on:click={SwitchToEdit} on:keypress={null}>{$hero.name}</h1>
         {:else}
         <h1>
             <form on:submit|preventDefault={SetName}>
-                <input type="text" name="{hero.name}" bind:value={heroNameInput}>
+                <input type="text" name="{$hero.name}" bind:value={heroNameInput}>
                 
             </form>
         </h1>
         {/if}
         <h2>
-            Warrior {hero.level}
+            Warrior {$hero.level}
         </h2>
         <h2>
             Sacred dragon's temple

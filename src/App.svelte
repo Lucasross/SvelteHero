@@ -1,23 +1,34 @@
 <script lang="ts">
-    import HeroItemView from "./components/HeroItemView.svelte";
-    import Hero from "./data/Hero";
+    import { writable } from "svelte/store";
+	import HeroItemView from "./components/HeroItemView.svelte";
+    import type Hero from "./data/Hero";
+	import { writableHero as hero } from "./store/Stores";
 
-	let name: string = "Lucas";
-	let hero: Hero = new Hero(14, "Derfi");
-
-	function handleClick() {
-		hero.level += 1;
+	function setLevel() {
+		hero.update(SetLevel);
 	}
 
-	function receive(event) {
-		hero.name = event.detail.name;
+	function setName(event) {
+		hero.update(h => SetName(h, event.detail.name));
 	}
+
+	function SetLevel(hero : Hero) : Hero {
+		hero.level = hero.level + 1;
+		return hero;
+	}
+
+	function SetName(hero: Hero, name: string) : Hero {
+		hero.name = name;
+		return hero;
+	}
+	
+	console.log($hero);
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<HeroItemView {hero} on:setName={receive}/>
-	<button on:click={handleClick}>
+	<HeroItemView hero={hero} on:setName={setName}/>
+	<button on:click={setLevel}>
 		Levelup
 	</button>
+	<p>Level : {$hero.level}</p>
 </main>

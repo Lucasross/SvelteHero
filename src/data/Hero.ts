@@ -1,9 +1,9 @@
 export default class Hero {
-    public level: number;
     public name: string;
+    public level: number;
 
-    constructor(level: number, name: string) {
-            this.level = level;
-            this.name = name;
+    constructor(name: string, level: number) {
+        this.name = name;
+        this.level = level;
     }
 }
