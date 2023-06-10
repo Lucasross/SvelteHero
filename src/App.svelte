@@ -25,10 +25,49 @@
 	console.log($hero);
 </script>
 
-<main>
-	<HeroItemView hero={hero} on:setName={setName}/>
-	<button on:click={setLevel}>
-		Levelup
-	</button>
-	<p>Level : {$hero.level}</p>
+<main class="main">
+	<content class="content">
+		<div class="sidecol">
+			
+		</div>
+		<div class="maincol">
+			<HeroItemView hero={hero} on:setName={setName}/>
+			<button on:click={setLevel}>
+				Levelup
+			</button>
+			<p>Level : {$hero.level}</p>
+		</div>
+		<div class="sidecol">
+	
+		</div>
+	</content>
 </main>
+
+<style>
+	.main {
+		margin-right: 10em;
+		margin-left: 10em;
+	}
+
+	.content {
+		display: flex;
+		width: 100%;
+		background-color: yellow;            /* non-essential decorative styles */
+	}
+
+	.sidecol {
+		flex: 1;                             /* THE KEY RULE */
+		height: 100%;
+		background-color: lightgreen;        /* non-essential decorative styles */
+		border: 1px solid black;             /* non-essential decorative styles */
+	}
+	
+	.maincol {
+		margin-left: 50px;
+		margin-right: 50px;
+		flex: 1.8;                             /* THE KEY RULE */
+		height: 100%;
+		background-color: lightgreen;        /* non-essential decorative styles */
+		border: 1px solid black;             /* non-essential decorative styles */
+	}
+</style>

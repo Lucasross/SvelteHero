@@ -56,7 +56,6 @@
         display: block;
     }
     .container {
-        background-color: blanchedalmond;
         border-radius: 0 1vw 1vw 0;
         /*padding: 10px;*/
         gap: 0.5vw;
