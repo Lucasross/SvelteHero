@@ -1,5 +1,6 @@
 <script lang="ts">
     import HeroesList from "./components/HeroesList.svelte";
+	import Area from "./components/Area.svelte";
 </script>
 
 <main class="main">
@@ -8,7 +9,7 @@
 			<HeroesList/>
 		</div>
 		<div class="maincol">
-
+			<Area/>
 		</div>
 		<div class="sidecol">
 	
