@@ -24,7 +24,7 @@
     }
 </script>
 
-<div class="container">
+<div class="container background_{index % 2}">
     <div>
         <img
             width="64px"
@@ -49,9 +49,9 @@
             </span>
         {/if}
         <p>
-            Warrior {hero.level}
+            Warrior - {hero.level}
         </p>
-        <p>Sacred dragon's temple</p>
+        <p>Beginner's area</p>
     </div>
 
     <div class="btn-container">
@@ -69,6 +69,12 @@
     }
     .container {
         display: flex;
+    }
+    .background_0 {
+        background-color: white;
+    }
+    .background_1 {
+        background-color: #f8f8f8;
     }
     .vertical-grid {
         display: flex;
