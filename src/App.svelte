@@ -1,16 +1,5 @@
 <script lang="ts">
     import HeroesList from "./components/HeroesList.svelte";
-import type Hero from "./data/Hero";
-	import { writableHero as hero } from "./store/Stores";
-
-	function setLevel() {
-		hero.update(SetLevel);
-	}
-
-	function SetLevel(hero : Hero) : Hero {
-		hero.level = hero.level + 1;
-		return hero;
-	}
 </script>
 
 <main class="main">
@@ -19,11 +8,7 @@ import type Hero from "./data/Hero";
 			<HeroesList/>
 		</div>
 		<div class="maincol">
-			
-			<button on:click={setLevel}>
-				Levelup
-			</button>
-			<p>Level : {$hero.level}</p>
+
 		</div>
 		<div class="sidecol">
 	

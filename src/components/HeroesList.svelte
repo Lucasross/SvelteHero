@@ -1,19 +1,18 @@
 <script lang="ts">
-    import type Hero from "../data/Hero";
-    import HeroItemView from "./HeroItemView.svelte";
-    import { writableHero as hero } from "../store/Stores";
+  import type Hero from "../data/Hero";
+  import HeroItemView from "./HeroItemView.svelte";
+  import { heroes } from "../store/Stores";
 
-    function setName(event) {
-		hero.update(h => SetName(h, event.detail.name));
-	}
+  function setName(event) {
+    heroes.update((h) => SetName(h, event));
 
-    function SetName(hero: Hero, name: string) : Hero {
-		hero.name = name;
-		return hero;
-	}
+    function SetName(heroes: Array<Hero>, event): Array<Hero> {
+      heroes[event.detail.index].name = event.detail.name;
+      return heroes;
+    }
+  }
 </script>
 
-<HeroItemView hero={hero} on:setName={setName}/>
-<HeroItemView hero={hero} on:setName={setName}/>
-<HeroItemView hero={hero} on:setName={setName}/>
-<HeroItemView hero={hero} on:setName={setName}/>
+{#each $heroes as hero, i}
+  <HeroItemView {hero} index={i} on:setName={setName} />
+{/each}

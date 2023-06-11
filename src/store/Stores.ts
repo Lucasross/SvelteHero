@@ -1,17 +1,18 @@
-import { readable, writable, type Readable } from "svelte/store";
+import { writable } from "svelte/store";
 import Hero from "../data/Hero";
 
 // Get stored object
-const key_hero : string = "key_hero";
-let storedHero : Hero = JSON.parse(localStorage.getItem(key_hero));
+const key_heroes: string = "key_heroes";
+let storedHero: Array<Hero> = JSON.parse(localStorage.getItem(key_heroes));
 
-if(storedHero == null)
-    storedHero = new Hero("Default", 1)
+if (storedHero == null) {
+    storedHero = new Array<Hero>(
+        new Hero("Loktar", 1),
+    )
+}
 
-// Export them as writable and readable
-export const writableHero = writable<Hero>(storedHero);
-export const readableHero : Readable<Hero> = readable<Hero>(storedHero);
+export const heroes = writable<Array<Hero>>(storedHero);
 
-writableHero.subscribe(value => {
-    localStorage.setItem(key_hero, JSON.stringify(value));
+heroes.subscribe(value => {
+    localStorage.setItem(key_heroes, JSON.stringify(value));
 });
