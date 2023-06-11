@@ -1,11 +1,12 @@
 <script lang="ts">
-    //import Area from "../data/Area";
-    //let area = new Area("Plain's of koloh", "area_plains_beginner");
+    import Area from "../data/Area";
     import Progressbar from "./generic/Progressbar.svelte";
     import Title from "./generic/Title.svelte";
     import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
-
+    
+    
+    export let area = new Area("Plains of koloh", "plains.jpg");
     
     let seconds = 1;
     let health = 100;
@@ -25,9 +26,9 @@
 </script>
 
 <div>
-    <Title label="Beginner's area" />
+    <Title label={area.name} />
     <div class="container">
-        <img src="pictures/plains.jpg" alt="area" />
+        <img src="{area.getPicture()}" alt="area" />
     </div>
     <div class="relative">
         <div class="absolute">

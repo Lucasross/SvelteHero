@@ -6,4 +6,8 @@ export default class Area {
         this.name = name;
         this.background = background;
     }
+
+    getPicture() : string {
+        return "pictures/areas/" + this.background;
+    }
 }
