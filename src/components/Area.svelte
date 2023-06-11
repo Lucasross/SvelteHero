@@ -1,12 +1,14 @@
 <script lang="ts">
-    import Area from "../data/Area";
+    import type AreaData from "../data/AreaData";
     import Progressbar from "./generic/Progressbar.svelte";
     import Title from "./generic/Title.svelte";
     import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
     
     
-    export let area = new Area("Plains of koloh", "plains.jpg");
+    export let area : AreaData;
+
+    console.log(area);
     
     let seconds = 1;
     let health = 100;
