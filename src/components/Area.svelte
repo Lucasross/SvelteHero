@@ -7,8 +7,6 @@
     
     
     export let area : AreaData;
-
-    console.log(area);
     
     let seconds = 1;
     let health = 100;
