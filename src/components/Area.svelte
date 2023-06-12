@@ -1,11 +1,10 @@
 <script lang="ts">
     import type AreaData from "../data/AreaData";
+    import type Monster from "../data/Monster";
     import Progressbar from "./generic/Progressbar.svelte";
     import Title from "./generic/Title.svelte";
     import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
-    import type Monster from "../data/Monster";
-    
     
     export let area : AreaData;
 
@@ -19,7 +18,7 @@
 	});
 
     setInterval(() => {
-        health -= 50;
+        health -= 10;
         if(health <= 0) {
             currentMonster = area.encounters[Math.floor(Math.random() * area.encounters.length)];
             health = currentMonster.health;

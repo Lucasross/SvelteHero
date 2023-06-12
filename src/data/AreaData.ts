@@ -3,11 +3,13 @@ import Monster from "./Monster";
 export default class AreaData {
     public static areas: AreaData[] = [];
 
+    public readonly id: string;
     public readonly name: string;
     public readonly background: string;
     public readonly encounters: Monster[];
 
     constructor(name: string, background: string, encounters: string[]) {
+        this.id = name;
         this.name = name;
         this.background = background;
         this.encounters = encounters.map(id => Monster.getById(id));

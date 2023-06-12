@@ -1,7 +1,6 @@
 <script lang="ts">
     import { createEventDispatcher } from "svelte";
     import type Hero from "../data/Hero";
-    import type { Writable } from "svelte/store";
 
     export let hero: Hero;
     export let index: number;
@@ -15,6 +14,12 @@
         heroEdit = false;
         dispatch("setName", {
             name: heroNameInput,
+            index: index,
+        });
+    }
+
+    function Send() {
+        dispatch("sendHero", {
             index: index,
         });
     }
@@ -49,13 +54,19 @@
             </span>
         {/if}
         <p>
-            Warrior - {hero.level}
+            Warrior {hero.level}
         </p>
-        <p>Beginner's area</p>
+        <p>{hero.getLocation()}</p>
     </div>
 
     <div class="btn-container">
-        <button>Send</button>
+        <button on:click|preventDefault={Send}>
+            {#if hero.isInLocation()}
+                Retrieve
+            {:else}
+                Send
+            {/if}
+        </button>
     </div>
 </div>
 
