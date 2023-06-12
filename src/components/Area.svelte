@@ -4,35 +4,44 @@
     import Title from "./generic/Title.svelte";
     import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
+    import type Monster from "../data/Monster";
     
     
     export let area : AreaData;
+
+    let currentMonster : Monster = area.encounters[Math.floor(Math.random() * area.encounters.length)];
     
     let seconds = 1;
-    let health = 100;
+    let health = currentMonster.health;
 	const progress = tweened(0, {
 		duration: 400,
 		easing: cubicOut
 	});
 
     setInterval(() => {
-        health -= 10;
-        if(health < 0) {
-            health = 100;
+        health -= 50;
+        if(health <= 0) {
+            currentMonster = area.encounters[Math.floor(Math.random() * area.encounters.length)];
+            health = currentMonster.health;
         }
-        progress.set(health);
+        progress.set((health/currentMonster.health) * 100);
     }, seconds * 1000);
 
 </script>
 
 <div>
     <Title label={area.name} />
+    <div class="relative">
+        <div class="absolute-monstersprite">
+            <img src="{currentMonster.getPicture()}" alt="monster"/>
+        </div>
+    </div>
     <div class="container">
         <img src="{area.getPicture()}" alt="area" />
     </div>
     <div class="relative">
-        <div class="absolute">
-            <Progressbar progress={$progress} height={30} text="{health}/100" />
+        <div class="absolute-healthbar">
+            <Progressbar progress={$progress} height={30} text="{health}/{currentMonster.health}" />
         </div>
     </div>
 </div>
@@ -47,10 +56,20 @@
     .relative {
         position: relative;
     }
-    .absolute {
+    .absolute-healthbar {
         position: absolute;
         width: 90%;
         top: -50px;
         left: 5%
+    }
+    .absolute-monstersprite {
+        position: absolute;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .absolute-monstersprite > img {
+        height: 200px;
+        display: block;
     }
 </style>

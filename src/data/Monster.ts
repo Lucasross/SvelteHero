@@ -7,9 +7,12 @@ export default class Monster {
     public health: number; // note that it's damage per seconds (dps)
     public readonly sprite: string; // path towards monster sprite inside public/pictures/monsters
 
-    constructor(iid: string, name: string, level: number, health: number, sprite: string) {
+    constructor(id: string, name: string, level: number, health: number, sprite: string) {
+        this.id = id;
         this.name = name;
         this.level = level;
+        this.health = health;
+        this.sprite = sprite;
     }
 
     getPicture(): string {
@@ -27,4 +30,4 @@ export default class Monster {
 }
 
 Monster.monsters.push(new Monster("slime-easy", "Slime", 1, 120, "slime-blue.png"));
-Monster.monsters.push(new Monster("snake-easy", "Snake", 1, 120, "snake-pink.png"));
+Monster.monsters.push(new Monster("snake-easy", "Snake", 1, 140, "snake-pink.png"));

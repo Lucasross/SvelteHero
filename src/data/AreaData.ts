@@ -1,4 +1,4 @@
-import type Monster from "./Monster";
+import Monster from "./Monster";
 
 export default class AreaData {
     public static areas: AreaData[] = [];
@@ -7,10 +7,10 @@ export default class AreaData {
     public readonly background: string;
     public readonly encounters: Monster[];
 
-    constructor(name: string, background: string, encounters: Monster[]) {
+    constructor(name: string, background: string, encounters: string[]) {
         this.name = name;
         this.background = background;
-        this.encounters = encounters;
+        this.encounters = encounters.map(id => Monster.getById(id));
     }
 
     getPicture(): string {
@@ -18,5 +18,5 @@ export default class AreaData {
     }
 }
 
-AreaData.areas.push(new AreaData("Plains of Koloh", "plains.jpg", null));
-AreaData.areas.push(new AreaData("Snowy mountains path", "mountains.jpg", null));
+AreaData.areas.push(new AreaData("Plains of Koloh", "plains.jpg", ["slime-easy", "snake-easy"]));
+AreaData.areas.push(new AreaData("Snowy mountains path", "mountains.jpg", ["slime-easy", "snake-easy"]));
