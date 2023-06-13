@@ -47,9 +47,9 @@ export default class Hero {
         return this;
     }
 
-    sendToGuild() {
-        AreaData.getById(this.area_id).leave(this);
+    sendToGuild(): Hero {
         this.area_id = null;
+        return this;
     }
 
     giveExp(exp: number): Hero {

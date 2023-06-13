@@ -1,5 +1,6 @@
 import { writable, type Writable } from "svelte/store";
 import Hero from "../data/Hero";
+import AreaData from "../data/AreaData";
 
 // Get stored object
 const key_heroes: string = "key_heroes";
@@ -14,7 +15,11 @@ if (rawHero == null) {
 } else {
     rawHero.forEach((h, i) => {
         let hero: Hero = new Hero(i, h.name, h.level, h.experience).Init(h.area_id);
-        storedHeroes.push(writable<Hero>(hero));
+        let writableHero = writable<Hero>(hero);
+        if(hero.isInLocation()) {
+            AreaData.getById(hero.area_id).enter(writableHero);
+        }
+        storedHeroes.push(writableHero);
     });
 }
 
