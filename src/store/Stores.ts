@@ -8,11 +8,11 @@ let storedHeroes : Array<Hero> = [];
 
 if (rawHero == null) {
     storedHeroes = new Array<Hero>(
-        new Hero("Loktar", 1),
+        new Hero("Loktar", 1, 0),
     )
 } else {
     rawHero.forEach(h => {
-        let hero: Hero = new Hero(h.name, h.level).Init(h.area_id);
+        let hero: Hero = new Hero(h.name, h.level, h.experience).Init(h.area_id);
         storedHeroes.push(hero);
     });
 }

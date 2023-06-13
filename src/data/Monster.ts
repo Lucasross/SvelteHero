@@ -6,6 +6,7 @@ export default class Monster {
     public readonly level: number;
     public readonly maxHealth: number; // note that it's damage per seconds (dps)
     public readonly sprite: string; // path towards monster sprite inside public/pictures/monsters
+    public readonly experience: number;
 
     public currentHealth: number; //run time value
 
@@ -16,6 +17,7 @@ export default class Monster {
         this.maxHealth = maxHealth;
         this.sprite = sprite;
 
+        this.experience = level * 10;
         this.currentHealth = maxHealth;
     }
 
