@@ -12,9 +12,7 @@ if (rawHero == null) {
     )
 } else {
     rawHero.forEach(h => {
-        let hero: Hero = new Hero(h.name, h.level);
-        hero.area_id = h.area_id;
-        console.log(hero);
+        let hero: Hero = new Hero(h.name, h.level).Init(h.area_id);
         storedHeroes.push(hero);
     });
 }

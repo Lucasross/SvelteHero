@@ -2,17 +2,21 @@ export default class Monster {
     public static monsters: Monster[] = [];
 
     public readonly id: string;
-    public name: string;
-    public level: number;
-    public health: number; // note that it's damage per seconds (dps)
+    public readonly name: string;
+    public readonly level: number;
+    public readonly maxHealth: number; // note that it's damage per seconds (dps)
     public readonly sprite: string; // path towards monster sprite inside public/pictures/monsters
 
-    constructor(id: string, name: string, level: number, health: number, sprite: string) {
+    public currentHealth: number; //run time value
+
+    constructor(id: string, name: string, level: number, maxHealth: number, sprite: string) {
         this.id = id;
         this.name = name;
         this.level = level;
-        this.health = health;
+        this.maxHealth = maxHealth;
         this.sprite = sprite;
+
+        this.currentHealth = maxHealth;
     }
 
     getPicture(): string {

@@ -1,4 +1,4 @@
-import type AreaData from "./AreaData";
+import AreaData from "./AreaData";
 
 export default class Hero {
     public name: string;
@@ -9,8 +9,19 @@ export default class Hero {
     constructor(name: string, level: number) {
         this.name = name;
         this.level = level;
-        this.attack = level * 5;
+        this.attack = level * 200;
         this.area_id = null;
+    }
+
+    // Act as a constructor
+    Init(area_id: string) : Hero {
+        this.area_id = area_id;
+        if(this.isInLocation()) {
+            this.sendToArea(AreaData.getById(this.area_id));
+        } else {
+            this.area_id = null;
+        }
+        return this;
     }
 
     getLocation() : string {
@@ -23,9 +34,11 @@ export default class Hero {
 
     sendToArea(area: AreaData) {
         this.area_id = area.id;
+        area.enter(this);
     }
 
     sendToGuild() {
+        AreaData.getById(this.area_id).leave(this);
         this.area_id = null;
     }
 }

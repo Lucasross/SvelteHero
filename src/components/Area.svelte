@@ -1,30 +1,28 @@
 <script lang="ts">
     import type AreaData from "../data/AreaData";
     import type Monster from "../data/Monster";
+
     import Progressbar from "./generic/Progressbar.svelte";
     import Title from "./generic/Title.svelte";
+
     import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
     
     export let area : AreaData;
-
-    let currentMonster : Monster = area.encounters[Math.floor(Math.random() * area.encounters.length)];
     
-    let seconds = 1;
-    let health = currentMonster.health;
-	const progress = tweened(0, {
+    let frameSpeed = 1; //in seconds
+	const progress = tweened(100, {
 		duration: 400,
 		easing: cubicOut
 	});
+    
+    let currentMonster: Monster = area.getMonster();
 
     setInterval(() => {
-        health -= 10;
-        if(health <= 0) {
-            currentMonster = area.encounters[Math.floor(Math.random() * area.encounters.length)];
-            health = currentMonster.health;
-        }
-        progress.set((health/currentMonster.health) * 100);
-    }, seconds * 1000);
+        area.update();
+        currentMonster = area.getMonster();
+        progress.set((currentMonster.currentHealth/currentMonster.maxHealth) * 100);
+    }, frameSpeed * 1000);
 
 </script>
 
@@ -40,7 +38,7 @@
     </div>
     <div class="relative">
         <div class="absolute-healthbar">
-            <Progressbar progress={$progress} height={30} text="{health}/{currentMonster.health}" />
+            <Progressbar progress={$progress} height={30} text="{currentMonster.currentHealth}/{currentMonster.maxHealth}" />
         </div>
     </div>
 </div>
