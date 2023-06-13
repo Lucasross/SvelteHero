@@ -9,7 +9,7 @@ export default class Hero {
     constructor(name: string, level: number) {
         this.name = name;
         this.level = level;
-        this.attack = level * 200;
+        this.attack = level * 30;
         this.area_id = null;
     }
 
