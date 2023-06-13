@@ -16,8 +16,8 @@
 
     function Send() {
         if($hero.isInLocation()) {
-            hero.update(h => h.sendToGuild());
             AreaData.getById($hero.area_id).leave(hero);
+            hero.update(h => h.sendToGuild());
         } else {
             hero.update(h => h.sendToArea(AreaData.areas[0]));
             AreaData.areas[0].enter(hero);
