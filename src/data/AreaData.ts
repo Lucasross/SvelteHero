@@ -1,3 +1,5 @@
+import type { Writable } from "svelte/store";
+import { get } from "svelte/store";
 import type Hero from "./Hero";
 import Monster from "./Monster";
 
@@ -31,11 +33,11 @@ export default class AreaData {
         this.area.update();
     }
 
-    enter(hero: Hero) {
+    enter(hero: Writable<Hero>) {
         this.area.enter(hero);
     } 
 
-    leave(hero: Hero) {
+    leave(hero: Writable<Hero>) {
         this.area.leave(hero);
     }
 
@@ -65,7 +67,7 @@ class AreaController {
     private readonly area: AreaData;
 
     private monster: Monster = undefined;
-    private heroes: Hero[] = [];
+    private heroes: Writable<Hero>[] = [];
 
     constructor(area: AreaData) {
         this.area = area;        
@@ -73,22 +75,22 @@ class AreaController {
     }
 
     update() {
-        let damages = this.heroes.reduce((damages, h) => damages + h.attack, 0);
+        let damages = this.heroes.reduce((damages, h) => damages + get(h).attack, 0);
 
         this.monster.currentHealth -= damages;
 
         if(this.monster.currentHealth <= 0) {
             this.monster.currentHealth = this.monster.maxHealth; // reset current health
-            this.heroes.forEach(h => h.giveExp(this.monster.experience));
+            this.heroes.forEach(h => h.update(h => h.giveExp(this.monster.experience)));
             this.setMonster(this.area.encounters[Math.floor(Math.random() * this.area.encounters.length)]);
         }
     }
 
-    enter(hero: Hero) {
+    enter(hero: Writable<Hero>) {
         this.heroes.push(hero);
     }
 
-    leave(hero: Hero) {
+    leave(hero: Writable<Hero>) {
         const index = this.heroes.indexOf(hero, 0);
         if (index > -1) {
             this.heroes.splice(index, 1);

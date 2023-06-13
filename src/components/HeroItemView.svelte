@@ -16,6 +16,7 @@
 
     function Send() {
         hero.update(h => h.sendToArea(AreaData.areas[0]));
+        AreaData.areas[0].enter(hero);
     }
 
     function SwitchToEdit() {

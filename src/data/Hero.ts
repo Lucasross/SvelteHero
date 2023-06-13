@@ -44,7 +44,6 @@ export default class Hero {
 
     sendToArea(area: AreaData) {
         this.area_id = area.id;
-        area.enter(this);
         return this;
     }
 
@@ -53,8 +52,9 @@ export default class Hero {
         this.area_id = null;
     }
 
-    giveExp(exp: number) {
+    giveExp(exp: number): Hero {
         this.experience += exp;
+        return this;
     }
 
     experienceToNextLevel(): number {
