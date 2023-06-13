@@ -1,27 +1,21 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
+    import AreaData from "../data/AreaData";
     import type Hero from "../data/Hero";
+    import type { Writable } from "svelte/store";
 
-    export let hero: Hero;
+    export let hero: Writable<Hero>;
     export let index: number;
 
     let heroEdit: boolean = false;
-    let heroNameInput: string = hero.name;
-
-    const dispatch = createEventDispatcher();
+    let heroNameInput: string = $hero.name;
 
     function SetName() {
         heroEdit = false;
-        dispatch("setName", {
-            name: heroNameInput,
-            index: index,
-        });
+        hero.update(h => h.setName(heroNameInput));
     }
 
     function Send() {
-        dispatch("sendHero", {
-            index: index,
-        });
+        hero.update(h => h.sendToArea(AreaData.areas[0]));
     }
 
     function SwitchToEdit() {
@@ -41,27 +35,27 @@
 
     <div class="vertical-grid">
         {#if !heroEdit}
-            <b><p on:click={SwitchToEdit} on:keypress={null}>{hero.name}</p></b>
+            <b><p on:click={SwitchToEdit} on:keypress={null}>{$hero.name}</p></b>
         {:else}
             <span>
                 <form on:submit|preventDefault={SetName}>
                     <input
                         type="text"
-                        name={hero.name}
+                        name={$hero.name}
                         bind:value={heroNameInput}
                     />
                 </form>
             </span>
         {/if}
         <p>
-            Warrior {hero.level} ({hero.experience}/{hero.experienceToNextLevel()})
+            Warrior {$hero.level} ({$hero.experience}/{$hero.experienceToNextLevel()})
         </p>
-        <p>{hero.getLocation()}</p>
+        <p>{$hero.getLocation()}</p>
     </div>
 
     <div class="btn-container">
         <button on:click|preventDefault={Send}>
-            {#if hero.isInLocation()}
+            {#if $hero.isInLocation()}
                 Retrieve
             {:else}
                 Send

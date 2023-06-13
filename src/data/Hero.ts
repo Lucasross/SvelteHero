@@ -1,13 +1,16 @@
 import AreaData from "./AreaData";
 
 export default class Hero {
+    public readonly saveIndex: number;
+    
     public name: string;
     public level: number;
     public experience: number;
     public attack: number; // note that it's damage per seconds (dps)
     public area_id: string | null; // reference to the area database
 
-    constructor(name: string, level: number, experience: number) {
+    constructor(saveIndex: number, name: string, level: number, experience: number) {
+        this.saveIndex = saveIndex;
         this.name = name;
         this.level = level;
         this.experience = experience;
@@ -26,6 +29,11 @@ export default class Hero {
         return this;
     }
 
+    setName(name: string) : Hero {
+        this.name = name;
+        return this;
+    }
+
     getLocation(): string {
         return this.isInLocation() ? this.area_id : "Guild hall";
     }
@@ -37,6 +45,7 @@ export default class Hero {
     sendToArea(area: AreaData) {
         this.area_id = area.id;
         area.enter(this);
+        return this;
     }
 
     sendToGuild() {
