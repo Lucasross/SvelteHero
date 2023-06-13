@@ -4,13 +4,13 @@ export default class Hero {
     public name: string;
     public level: number;
     public attack: number; // note that it's damage per seconds (dps)
-    public area_id: string; // reference to the area database 
+    public area_id: string | null; // reference to the area database 
 
     constructor(name: string, level: number) {
         this.name = name;
         this.level = level;
         this.attack = level * 5;
-        this.area_id = "";
+        this.area_id = null;
     }
 
     getLocation() : string {
@@ -18,7 +18,7 @@ export default class Hero {
     }
 
     isInLocation() : boolean {
-        return this.area_id != "";
+        return this.area_id != null;
     }
 
     sendToArea(area: AreaData) {
@@ -26,6 +26,6 @@ export default class Hero {
     }
 
     sendToGuild() {
-        this.area_id = undefined;
+        this.area_id = null;
     }
 }
