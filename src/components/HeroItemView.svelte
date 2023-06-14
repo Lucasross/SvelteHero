@@ -1,7 +1,9 @@
 <script lang="ts">
     import AreaData from "../data/AreaData";
     import type Hero from "../data/Hero";
-    import type { Writable } from "svelte/store";
+    import { get, type Writable } from "svelte/store";
+    import { area_id } from "../store/Stores";
+
 
     export let hero: Writable<Hero>;
     export let index: number;
@@ -19,7 +21,7 @@
             AreaData.getById($hero.area_id).leave(hero);
             hero.update(h => h.sendToGuild());
         } else {
-            hero.update(h => h.sendToArea(AreaData.areas[0]));
+            hero.update(h => h.sendToArea(AreaData.getById(get(area_id))));
             AreaData.areas[0].enter(hero);
         }
     }
