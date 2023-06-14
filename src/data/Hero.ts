@@ -59,7 +59,8 @@ export default class Hero {
             exp = exp * (1 - (diff / 5));
         
         this.experience += exp;
-        if (this.experience >= this.experienceToNextLevel()) {
+
+        while (this.experience >= this.experienceToNextLevel()) {
             this.levelup();
         }
         return this;

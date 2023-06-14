@@ -2,11 +2,21 @@
   import HeroItemView from "./HeroItemView.svelte";
   import { heroes } from "../store/Stores";
   import Title from "./generic/Title.svelte";
-  import AreaData from "../data/AreaData";
 </script>
 
-<Title label="Heroes" />
+<div >
+    <Title label="Heroes" />
+    <div class="border">
+        {#each heroes as hero, i}
+          <HeroItemView {hero} index={i}/>
+        {/each}
+    </div>
+</div>
 
-{#each heroes as hero, i}
-  <HeroItemView {hero} index={i}/>
-{/each}
+
+<style>
+  .border {
+    border: solid black 1px;
+    border-top: 0px;
+  }
+</style>

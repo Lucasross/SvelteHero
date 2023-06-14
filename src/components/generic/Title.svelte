@@ -15,6 +15,6 @@
         padding: 5px 0 5px 0;
         background-color: #d8eaea;
         text-align: center;
-        border-bottom: solid black 1px;
+        border: solid black 1px;
     }
 </style>

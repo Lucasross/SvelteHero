@@ -2,18 +2,21 @@
     import HeroesList from "./components/HeroesList.svelte";
 	import Area from "./components/Area.svelte";
 	import AreaData from "./data/AreaData";
+    import WorldMap from "./components/WorldMap.svelte";
+    import Title from "./components/generic/Title.svelte";
 </script>
 
 <main class="main">
 	<content class="content">
-		<div class="sidecol">
+		<div class="sidecol vertical-list">
 			<HeroesList/>
 		</div>
-		<div class="maincol">
-			<Area area={AreaData.areas[0]}/>
+		<div class="maincol vertical-list">
+			<Area area={AreaData.areas[1]}/>
+			<WorldMap/>
 		</div>
-		<div class="sidecol">
-	
+		<div class="sidecol vertical-list">
+			<Title label="Empty"/>
 		</div>
 	</content>
 </main>
@@ -30,16 +33,23 @@
 	}
 
 	.sidecol {
-		flex: 1;                             /* THE KEY RULE */
+		flex: 1;                             
 		height: 100%;
-		border: 1px solid black;             /* non-essential decorative styles */
 	}
-	
+
 	.maincol {
 		margin-left: 50px;
 		margin-right: 50px;
-		flex: 1.8;                             /* THE KEY RULE */
+		min-width: 500px;
+		flex: 1.8;                             
 		height: 100%;
-		border: 1px solid black;             /* non-essential decorative styles */
+	}
+
+	.vertical-list > :global(*) {
+		margin-bottom: 1em;
+	}
+
+	.vertical-list > :global(:last-child) {
+		margin-bottom: 0;
 	}
 </style>

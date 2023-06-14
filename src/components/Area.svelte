@@ -29,22 +29,28 @@
 
 <div>
     <Title label={area.name} />
-    <div class="relative">
-        <div class="absolute-monstersprite">
-            <img src="{currentMonster.getPicture()}" alt="monster"/>
+    <div class="template">
+        <div class="relative">
+            <div class="absolute-monstersprite">
+                <img src="{currentMonster.getPicture()}" alt="monster"/>
+            </div>
         </div>
-    </div>
-    <div class="container">
-        <img src="{area.getPicture()}" alt="area" />
-    </div>
-    <div class="relative">
-        <div class="absolute-healthbar">
-            <Progressbar progress={$progress} height={30} text="{currentMonster.currentHealth}/{currentMonster.maxHealth}" />
+        <div class="container">
+            <img src="{area.getPicture()}" alt="area" />
+        </div>
+        <div class="relative">
+            <div class="absolute-healthbar">
+                <Progressbar progress={$progress} height={30} text="{currentMonster.currentHealth}/{currentMonster.maxHealth}" />
+            </div>
         </div>
     </div>
 </div>
 
 <style>
+    .template {
+        border: solid black 1px;
+        border-top: 0px;
+    }
     .container > img {
         display: block;
         height: 250px;

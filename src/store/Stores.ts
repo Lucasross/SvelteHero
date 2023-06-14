@@ -2,8 +2,10 @@ import { writable, type Writable } from "svelte/store";
 import Hero from "../data/Hero";
 import AreaData from "../data/AreaData";
 
-// Get stored object
 const key_heroes: string = "key_heroes";
+const key_area: string = "key_area";
+
+// #region Hero
 let rawHero = JSON.parse(localStorage.getItem(key_heroes));
 let savedHeroes : Array<Hero> = [];
 let storedHeroes : Array<Writable<Hero>> = [];
@@ -29,6 +31,14 @@ storedHeroes.forEach(h => {
         localStorage.setItem(key_heroes, JSON.stringify(savedHeroes));
     })
 });
+// #endregion
 
+// #region Area
+let raw_area_id : string = localStorage.getItem(key_heroes);
+let stored_areaId = writable<string>(raw_area_id);
+
+stored_areaId.subscribe(id => localStorage.setItem(key_area, id))
+// #endregion
 
 export const heroes = storedHeroes;
+export const area_id = stored_areaId;
