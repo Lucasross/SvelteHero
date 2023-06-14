@@ -54,7 +54,7 @@
             </span>
         {/if}
         <p>
-            Warrior {$hero.level} ({$hero.experience}/{$hero.experienceToNextLevel()})
+            Warrior {$hero.level} ({Math.round($hero.experience)}/{$hero.experienceToNextLevel()})
         </p>
         <p>{$hero.getLocation()}</p>
     </div>
