@@ -42,6 +42,7 @@
     }
     .location:hover {
         background-color: #dbdbdbaa;
+        border: black solid 1px;
     }
     .location > p {
         font-size: x-small;
