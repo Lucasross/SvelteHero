@@ -55,7 +55,7 @@ export default class AreaData {
         let filtered = this.areas.filter(m => m.id == id);
 
         if (filtered.length == 0)
-            throw new Error("The following id '" + id + "' has no match in the monsters database.");
+            throw new Error("The following id '" + id + "' has no match in the area database.");
 
         return filtered[0];
     }

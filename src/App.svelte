@@ -4,6 +4,7 @@
 	import AreaData from "./data/AreaData";
     import WorldMap from "./components/WorldMap.svelte";
     import Title from "./components/generic/Title.svelte";
+	import { area_id } from "./store/Stores";
 </script>
 
 <main class="main">
@@ -12,7 +13,7 @@
 			<HeroesList/>
 		</div>
 		<div class="maincol vertical-list">
-			<Area area={AreaData.areas[1]}/>
+			<Area area={AreaData.getById($area_id)}/>
 			<WorldMap/>
 		</div>
 		<div class="sidecol vertical-list">

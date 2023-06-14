@@ -1,7 +1,6 @@
 <script lang="ts">
     import type AreaData from "../data/AreaData";
     import type Monster from "../data/Monster";
-    import { heroes } from "../store/Stores";
 
     import Progressbar from "./generic/Progressbar.svelte";
     import Title from "./generic/Title.svelte";
