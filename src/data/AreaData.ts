@@ -81,7 +81,7 @@ class AreaController {
 
         if(this.monster.currentHealth <= 0) {
             this.monster.currentHealth = this.monster.maxHealth; // reset current health
-            this.heroes.forEach(h => h.update(h => h.giveExp(this.monster.experience)));
+            this.heroes.forEach(h => h.update(h => h.giveExp(this.monster.experience, this.monster.level)));
             this.setMonster(this.area.encounters[Math.floor(Math.random() * this.area.encounters.length)]);
         }
     }

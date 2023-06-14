@@ -2,7 +2,7 @@ import AreaData from "./AreaData";
 
 export default class Hero {
     public readonly saveIndex: number;
-    
+
     public name: string;
     public level: number;
     public experience: number;
@@ -14,7 +14,7 @@ export default class Hero {
         this.name = name;
         this.level = level;
         this.experience = experience;
-        this.attack = level * 30;
+        this.attack = Hero.baseAttackForLevel(level);
         this.area_id = null;
     }
 
@@ -29,7 +29,7 @@ export default class Hero {
         return this;
     }
 
-    setName(name: string) : Hero {
+    setName(name: string): Hero {
         this.name = name;
         return this;
     }
@@ -52,12 +52,34 @@ export default class Hero {
         return this;
     }
 
-    giveExp(exp: number): Hero {
+    giveExp(exp: number, monsterLevel: number): Hero {
+        let diff: number = this.level - monsterLevel;
+
+        if (diff > 0)
+            exp = exp * (1 - (diff / 5));
+        
         this.experience += exp;
+        if (this.experience >= this.experienceToNextLevel()) {
+            this.levelup();
+        }
         return this;
     }
 
     experienceToNextLevel(): number {
-        return this.level * (100 * this.level);
+        return Hero.experienceForLevel(this.level);
+    }
+
+    private levelup() {
+        this.experience -= this.experienceToNextLevel();
+        this.level += 1;
+        this.attack = Hero.baseAttackForLevel(this.level);
+    }    
+
+    static experienceForLevel(level: number): number {
+        return level * (100 * level);
+    }
+
+    static baseAttackForLevel(level: number): number {
+        return level * 15;
     }
 }
