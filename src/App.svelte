@@ -31,6 +31,12 @@
 </main>
 
 <style>
+	:global(body) {
+		background-image: url(../pictures/pagebackground.jpg);
+		background-position: center top;
+    	background-size: 100% auto;
+	}
+
 	:global(body, *) {
 		margin: 0;
 	}
