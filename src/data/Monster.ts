@@ -1,3 +1,6 @@
+import type { Writable } from "svelte/store";
+import type Guild from "./Guild";
+
 export default class Monster {
     public static monsters: Monster[] = [];
 
@@ -7,6 +10,7 @@ export default class Monster {
     public readonly maxHealth: number; // note that it's damage per seconds (dps)
     public readonly sprite: string; // path towards monster sprite inside public/pictures/monsters
     public readonly experience: number;
+    public readonly gold: number;
 
     public currentHealth: number; //run time value
 
@@ -17,6 +21,7 @@ export default class Monster {
         this.maxHealth = maxHealth;
         this.sprite = sprite;
 
+        this.gold = Math.round(level * (5 + (level/2)));
         this.experience = level * 10;
         this.currentHealth = maxHealth;
     }
@@ -28,6 +33,13 @@ export default class Monster {
     
     getPicture(): string {
         return "pictures/monsters/" + this.sprite;
+    }
+
+    die(guild: Writable<Guild>)  {
+        let randomGold = (Math.random() * this.gold) - (this.gold / 2)
+        let givenGold = this.gold + randomGold;
+        guild.update(g => {g.gold += Math.round(givenGold); return g});
+        this.currentHealth = this.maxHealth;
     }
 
     static getById(id: string): Monster {

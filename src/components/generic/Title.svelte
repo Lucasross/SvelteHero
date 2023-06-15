@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { guild } from "../../store/Stores";
+
     export let label : String;
     export let enableGold : boolean = false;
 </script>
@@ -7,7 +9,7 @@
     <div class="title">
         {#if enableGold}
         <img style="display: inline-block" height="16px" src="pictures/cash.png" alt="cash"/> 
-        <p style="display:inline;">Golds</p>
+        <p style="display:inline;">{$guild.gold}</p>
         {/if}
     </div>
     <p class="title">{label}</p>

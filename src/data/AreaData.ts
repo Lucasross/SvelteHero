@@ -2,6 +2,7 @@ import type { Writable } from "svelte/store";
 import { get } from "svelte/store";
 import type Hero from "./Hero";
 import Monster from "./Monster";
+import type Guild from "./Guild";
 
 export default class AreaData {
     public static areas: AreaData[] = [];
@@ -39,8 +40,8 @@ export default class AreaData {
     // #endregion
 
     // #region Update
-    update() {
-        this.area.update();
+    update(guild: Writable<Guild>) {
+        this.area.update(guild);
     }
 
     enter(hero: Writable<Hero>) {
@@ -88,13 +89,13 @@ class AreaController {
         this.monster = area.encounters[Math.floor(Math.random() * area.encounters.length)];
     }
 
-    update() {
+    update(guild: Writable<Guild>) {
         let damages = this.heroes.reduce((damages, h) => damages + get(h).attack, 0);
 
         this.monster.currentHealth -= damages;
 
         if(this.monster.currentHealth <= 0) {
-            this.monster.currentHealth = this.monster.maxHealth; // reset current health
+            this.monster.die(guild);
             this.heroes.forEach(h => h.update(h => h.giveExp(this.monster.experience, this.monster.level)));
             this.setMonster(this.area.encounters[Math.floor(Math.random() * this.area.encounters.length)]);
         }

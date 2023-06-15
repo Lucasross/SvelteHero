@@ -4,12 +4,13 @@
 	import AreaData from "./data/AreaData";
 	import WorldMap from "./components/WorldMap.svelte";
 	import Title from "./components/generic/Title.svelte";
+	import { guild } from "./store/Stores";
 
 	let frameSpeed = 1; //in seconds
 	let area;
 
 	setInterval(() => {
-		AreaData.areas.filter((a) => a.needUpdate).forEach((a) => a.update());
+		AreaData.areas.filter((a) => a.needUpdate).forEach((a) => a.update(guild));
 		area.update();
 	}, frameSpeed * 1000);
 </script>
