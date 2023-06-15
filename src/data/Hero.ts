@@ -72,7 +72,7 @@ export default class Hero {
     }    
 
     static experienceForLevel(level: number): number {
-        return level * (100 * level);
+        return Math.round((level * 100 * (level / 15)) + 350 * level);
     }
 
     static baseAttackForLevel(level: number): number {

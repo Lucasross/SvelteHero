@@ -63,3 +63,5 @@ Monster.monsters.push(new Monster("wolf-easy", "Wolf", 3, 150, "wolf-brown.png")
 
 Monster.monsters.push(new Monster("snake-easy", "Snake", 4, 200, "snake-pink.png"));
 
+Monster.monsters.push(new Monster("demon-lord", "Demon Lord", 100, 456835, "demon-lord.png"));
+

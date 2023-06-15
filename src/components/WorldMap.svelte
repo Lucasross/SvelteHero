@@ -11,6 +11,7 @@
         <WorldMapLocation x={48} y={22} area_id={"Snowy mountains"}/>
         <WorldMapLocation x={28} y={34} area_id={"Plains of Koloh"}/>
         <WorldMapLocation x={9} y={32} area_id={"Dark forest"}/>
+        <WorldMapLocation x={36} y={0} area_id={"Demon's castle"}/>
     </div>
 </div>
 
