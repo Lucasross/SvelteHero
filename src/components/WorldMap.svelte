@@ -8,8 +8,9 @@
     <div class="template worldmap">
         <img src="pictures/regions/world_map.png" alt="world map">
         
-        <WorldMapLocation x={48} y={22} area_id={"Snowy mountains path"}/>
+        <WorldMapLocation x={48} y={22} area_id={"Snowy mountains"}/>
         <WorldMapLocation x={28} y={34} area_id={"Plains of Koloh"}/>
+        <WorldMapLocation x={9} y={32} area_id={"Dark forest"}/>
     </div>
 </div>
 
