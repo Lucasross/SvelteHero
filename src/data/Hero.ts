@@ -1,5 +1,3 @@
-import AreaData from "./AreaData";
-
 export default class Hero {
     public readonly saveIndex: number;
 
@@ -21,11 +19,8 @@ export default class Hero {
     // Act as a constructor
     Init(area_id: string): Hero {
         this.area_id = area_id;
-        if (this.isInLocation()) {
-            this.sendToArea(AreaData.getById(this.area_id));
-        } else {
+        if(area_id == undefined)
             this.area_id = null;
-        }
         return this;
     }
 
@@ -42,8 +37,8 @@ export default class Hero {
         return this.area_id != null;
     }
 
-    sendToArea(area: AreaData) {
-        this.area_id = area.id;
+    sendToArea(areaId: string) {
+        this.area_id = areaId;
         return this;
     }
 
