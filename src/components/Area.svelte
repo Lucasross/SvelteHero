@@ -37,7 +37,7 @@
 </script>
 
 <div>
-    <Title label={area.name} />
+    <Title enableGold={true} label={area.name} />
     <div class="template">
         <div class="relative">
             <div class="absolute-monstersprite">

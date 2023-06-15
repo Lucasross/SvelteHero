@@ -1,37 +1,39 @@
 <script lang="ts">
-    import HeroesList from "./components/HeroesList.svelte";
+	import HeroesList from "./components/HeroesList.svelte";
 	import Area from "./components/Area.svelte";
 	import AreaData from "./data/AreaData";
-    import WorldMap from "./components/WorldMap.svelte";
-    import Title from "./components/generic/Title.svelte";
+	import WorldMap from "./components/WorldMap.svelte";
+	import Title from "./components/generic/Title.svelte";
 
 	let frameSpeed = 1; //in seconds
 	let area;
 
 	setInterval(() => {
-
-		AreaData.areas.filter(a => a.needUpdate).forEach(a => a.update());
+		AreaData.areas.filter((a) => a.needUpdate).forEach((a) => a.update());
 		area.update();
-
-    }, frameSpeed * 1000);
+	}, frameSpeed * 1000);
 </script>
 
 <main class="main">
 	<content class="content">
 		<div class="sidecol vertical-list">
-			<HeroesList/>
+			<HeroesList />
 		</div>
 		<div class="maincol vertical-list">
-			<Area bind:this={area}/>
-			<WorldMap/>
+			<Area bind:this={area} />
+			<WorldMap />
 		</div>
 		<div class="sidecol vertical-list">
-			<Title label="Empty"/>
+			<Title label="Empty" />
 		</div>
 	</content>
 </main>
 
 <style>
+	:global(body, *) {
+		margin: 0;
+	}
+
 	.main {
 		margin-right: 10em;
 		margin-left: 10em;
@@ -43,7 +45,7 @@
 	}
 
 	.sidecol {
-		flex: 1;                             
+		flex: 1;
 		height: 100%;
 	}
 
@@ -51,7 +53,7 @@
 		margin-left: 50px;
 		margin-right: 50px;
 		min-width: 500px;
-		flex: 1.8;                             
+		flex: 1.8;
 		height: 100%;
 	}
 
