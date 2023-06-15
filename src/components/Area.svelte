@@ -1,21 +1,34 @@
 <script lang="ts">
-    import type AreaData from "../data/AreaData";
+    import AreaData from "../data/AreaData";
     import type Monster from "../data/Monster";
-
+        
     import Progressbar from "./generic/Progressbar.svelte";
     import Title from "./generic/Title.svelte";
-
-    import { tweened } from 'svelte/motion';
+    
+    import { area_id } from "../store/Stores";
+    import { tweened, type Tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
-    
-    export let area : AreaData;
 
-    const progress = tweened(100, {
-		duration: 400,
-		easing: cubicOut
-	});
-    
-    let currentMonster: Monster = area.getMonster();
+    let area : AreaData;
+    let currentMonster: Monster;
+    let progress : Tweened<number>;
+
+    area_id.subscribe(id => {
+        area = AreaData.getById(id);
+        onChangeScene();
+    })
+
+    function onChangeScene() {
+        progress = tweened(100, {
+            duration: 0,
+        });
+        currentMonster = area.getMonster();
+        update();
+        progress = tweened((currentMonster.currentHealth/currentMonster.maxHealth) * 100, {
+            duration: 400,
+            easing: cubicOut,
+        })
+    }
 
     export function update() {
         currentMonster = area.getMonster();

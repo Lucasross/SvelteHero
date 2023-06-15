@@ -21,6 +21,11 @@ export default class Monster {
         this.currentHealth = maxHealth;
     }
 
+    copy(): Monster
+    {
+        return new Monster(this.id, this.name, this.level, this.maxHealth, this.sprite);
+    }
+    
     getPicture(): string {
         return "pictures/monsters/" + this.sprite;
     }

@@ -4,7 +4,6 @@
 	import AreaData from "./data/AreaData";
     import WorldMap from "./components/WorldMap.svelte";
     import Title from "./components/generic/Title.svelte";
-	import { area_id } from "./store/Stores";
 
 	let frameSpeed = 1; //in seconds
 	let area;
@@ -23,7 +22,7 @@
 			<HeroesList/>
 		</div>
 		<div class="maincol vertical-list">
-			<Area bind:this={area} area={AreaData.getById($area_id)}/>
+			<Area bind:this={area}/>
 			<WorldMap/>
 		</div>
 		<div class="sidecol vertical-list">

@@ -17,7 +17,7 @@ export default class AreaData {
         this.id = name;
         this.name = name;
         this.background = background;
-        this.encounters = encounters.map(id => Monster.getById(id));
+        this.encounters = encounters.map(id => Monster.getById(id).copy());
 
         this.area = new AreaController(this);
     }
