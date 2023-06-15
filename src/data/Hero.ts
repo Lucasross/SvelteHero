@@ -78,4 +78,8 @@ export default class Hero {
     static baseAttackForLevel(level: number): number {
         return level * 15;
     }
+
+    static goldForNextHero(nbHero: number) {
+        return 5000*(Math.pow(nbHero, 3))+25000;
+    }
 }

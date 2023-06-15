@@ -32,10 +32,16 @@ if (rawHero == null) {
 storedHeroes.forEach(h => {
     h.subscribe(h => {
         savedHeroes[h.saveIndex] = h;
-        console.log(savedHeroes);
         localStorage.setItem(key_heroes, JSON.stringify(savedHeroes));
     })
 });
+
+export let createHero = () => {
+    let hero: Hero = new Hero(storedHeroes.length, "Charlie", 1, 0);
+    savedHeroes.push(hero);
+    storedHeroes.push(writable<Hero>(hero));
+    localStorage.setItem(key_heroes, JSON.stringify(savedHeroes));
+}
 // #endregion
 
 // #region Area
