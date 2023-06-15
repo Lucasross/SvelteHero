@@ -100,6 +100,7 @@
     }
     .btn-container {
         align-self: center;
+        font-size: small;
     }
     button {
         margin-right: 1em;
