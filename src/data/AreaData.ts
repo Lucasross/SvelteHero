@@ -26,6 +26,16 @@ export default class AreaData {
     getPicture(): string {
         return "pictures/areas/" + this.background;
     }
+
+    levelRange(): string {
+        const levels = this.encounters.map(m => m.level);
+        const min = Math.min(...levels);
+        const max = Math.max(...levels);
+        if(min == max)
+            return `Monsters level : ${min}`
+        else
+            return `Monsters levels : ${min} - ${max}`
+    }
     // #endregion
 
     // #region Update
@@ -114,5 +124,6 @@ class AreaController {
     }
 }
 
-AreaData.areas.push(new AreaData("Plains of Koloh", "plains.jpg", ["slime-easy", "snake-easy"]));
-AreaData.areas.push(new AreaData("Snowy mountains path", "mountains.jpg", ["slime-easy", "snake-easy"]));
+AreaData.areas.push(new AreaData("Plains of Koloh", "plains.jpg", ["piou-easy", "chicken-easy", "slime-easy"]));
+AreaData.areas.push(new AreaData("Snowy mountains", "mountains.jpg", ["beetle-easy", "slime-easy", "mushroom-easy"]));
+AreaData.areas.push(new AreaData("Dark forest", "forest.jpg", ["mushroom-easy", "wolf-easy", "snake-easy"]));

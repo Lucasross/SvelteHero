@@ -40,5 +40,14 @@ export default class Monster {
     }
 }
 
-Monster.monsters.push(new Monster("slime-easy", "Slime", 1, 120, "slime-blue.png"));
-Monster.monsters.push(new Monster("snake-easy", "Snake", 1, 140, "snake-pink.png"));
+Monster.monsters.push(new Monster("piou-easy", "Piou", 1, 80, "piou-yellow.png"));
+Monster.monsters.push(new Monster("chicken-easy", "Chicken", 1, 90, "chicken-white.png"));
+
+Monster.monsters.push(new Monster("beetle-easy", "Beetle", 2, 100, "beetle-blue.png"));
+Monster.monsters.push(new Monster("slime-easy", "Slime", 2, 120, "slime-blue.png"));
+Monster.monsters.push(new Monster("mushroom-easy", "Mushroom", 2, 120, "mushroom-green.png"));
+
+Monster.monsters.push(new Monster("wolf-easy", "Wolf", 3, 150, "wolf-brown.png"));
+
+Monster.monsters.push(new Monster("snake-easy", "Snake", 4, 200, "snake-pink.png"));
+
