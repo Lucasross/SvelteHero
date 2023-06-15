@@ -21,8 +21,9 @@
             AreaData.getById($hero.area_id).leave(hero);
             hero.update(h => h.sendToGuild());
         } else {
-            hero.update(h => h.sendToArea(AreaData.getById(get(area_id))));
-            AreaData.areas[0].enter(hero);
+            let targetArea: AreaData = AreaData.getById(get(area_id));
+            hero.update(h => h.sendToArea(targetArea));
+            targetArea.enter(hero);
         }
     }
 

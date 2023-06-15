@@ -15,10 +15,10 @@
 
     area_id.subscribe(id => {
         area = AreaData.getById(id);
-        onChangeScene();
+        onChangeArea();
     })
 
-    function onChangeScene() {
+    function onChangeArea() {
         progress = tweened(100, {
             duration: 0,
         });
