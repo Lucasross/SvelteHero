@@ -9,7 +9,7 @@
 
   function recruitHero() {
     if(get(guild).gold > Hero.goldForNextHero(heroes.length)) {
-      /*guild.update(g => g.recruit(heroes.length));*/
+      guild.update(g => g.recruit(heroes.length));
       createHero();
       heroes = heroesList;
     }
