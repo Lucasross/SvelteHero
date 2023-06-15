@@ -9,21 +9,18 @@
 	import { cubicOut } from 'svelte/easing';
     
     export let area : AreaData;
-    
-    let frameSpeed = 1; //in seconds
-	const progress = tweened(100, {
+
+    const progress = tweened(100, {
 		duration: 400,
 		easing: cubicOut
 	});
     
     let currentMonster: Monster = area.getMonster();
 
-    setInterval(() => {
-        area.update();
+    export function update() {
         currentMonster = area.getMonster();
         progress.set((currentMonster.currentHealth/currentMonster.maxHealth) * 100);
-    }, frameSpeed * 1000);
-
+    }
 </script>
 
 <div>

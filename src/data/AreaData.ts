@@ -48,6 +48,10 @@ export default class AreaData {
     getMonster() : Monster {
         return this.area.getMonster();
     }
+
+    needUpdate() : boolean {
+        return this.area.needUpdate();
+    }
     // #endregion
 
     // #region Static
@@ -103,6 +107,10 @@ class AreaController {
 
     getMonster() : Monster {
         return this.monster;
+    }
+
+    needUpdate() : boolean {
+        return this.heroes.length > 0;
     }
 }
 

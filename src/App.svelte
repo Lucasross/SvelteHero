@@ -5,6 +5,16 @@
     import WorldMap from "./components/WorldMap.svelte";
     import Title from "./components/generic/Title.svelte";
 	import { area_id } from "./store/Stores";
+
+	let frameSpeed = 1; //in seconds
+	let area;
+
+	setInterval(() => {
+
+		AreaData.areas.filter(a => a.needUpdate).forEach(a => a.update());
+		area.update();
+
+    }, frameSpeed * 1000);
 </script>
 
 <main class="main">
@@ -13,7 +23,7 @@
 			<HeroesList/>
 		</div>
 		<div class="maincol vertical-list">
-			<Area area={AreaData.getById($area_id)}/>
+			<Area bind:this={area} area={AreaData.getById($area_id)}/>
 			<WorldMap/>
 		</div>
 		<div class="sidecol vertical-list">
