@@ -1,38 +1,46 @@
 import type { Writable } from "svelte/store";
 import type Guild from "./Guild";
+import Sprite from "./generic/Sprite";
 
-export default class Monster {
+export default class Monster implements ISprite {
     public static monsters: Monster[] = [];
 
     public readonly id: string;
     public readonly name: string;
     public readonly level: number;
     public readonly maxHealth: number; // note that it's damage per seconds (dps)
-    public readonly sprite: string; // path towards monster sprite inside public/pictures/monsters
     public readonly experience: number;
     public readonly gold: number;
+    public readonly sprite: Sprite;
+    public readonly spriteFileName: string;
 
     public currentHealth: number; //run time value
 
-    constructor(id: string, name: string, level: number, maxHealth: number, sprite: string) {
+    constructor(id: string, name: string, level: number, maxHealth: number, spriteFileName: string) {
         this.id = id;
         this.name = name;
         this.level = level;
         this.maxHealth = maxHealth;
-        this.sprite = sprite;
 
         this.gold = Math.round(level * (5 + (level/2)));
         this.experience = level * 10;
         this.currentHealth = maxHealth;
+
+        this.spriteFileName = spriteFileName;
+        this.sprite = new Sprite(this.getFullPath(spriteFileName));
     }
 
     copy(): Monster
     {
-        return new Monster(this.id, this.name, this.level, this.maxHealth, this.sprite);
+        return new Monster(this.id, this.name, this.level, this.maxHealth, this.spriteFileName);
     }
     
-    getPicture(): string {
-        return "pictures/monsters/" + this.sprite;
+    private getFullPath(file: string): string {
+        return "pictures/monsters/" + file;
+    }
+
+    getSprite() {
+        return this.sprite.sprite;
     }
 
     die(guild: Writable<Guild>)  {
@@ -64,4 +72,3 @@ Monster.monsters.push(new Monster("wolf-easy", "Wolf", 3, 150, "wolf-brown.png")
 Monster.monsters.push(new Monster("snake-easy", "Snake", 4, 200, "snake-pink.png"));
 
 Monster.monsters.push(new Monster("demon-lord", "Demon Lord", 100, 456835, "demon-lord.png"));
-

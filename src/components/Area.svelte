@@ -8,6 +8,7 @@
     import { area_id } from "../store/Stores";
     import { tweened, type Tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
+    import Sprite from "./generic/Sprite.svelte";
 
     let area : AreaData;
     let currentMonster: Monster;
@@ -41,7 +42,7 @@
     <div class="template">
         <div class="relative">
             <div class="absolute-monstersprite">
-                <img src="{currentMonster.getPicture()}" alt="monster"/>
+                <Sprite sprite="{currentMonster.getSprite()}" alt="monster"/>
             </div>
         </div>
         <div class="container">
@@ -81,7 +82,7 @@
         display: flex;
         justify-content: center;
     }
-    .absolute-monstersprite > img {
+    :global(.absolute-monstersprite > img) {
         height: 200px;
         display: block;
     }
