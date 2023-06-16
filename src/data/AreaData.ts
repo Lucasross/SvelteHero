@@ -60,6 +60,10 @@ export default class AreaData {
         return this.area.getMonster();
     }
 
+    getAreaDps() : number {
+        return this.area.getAreaDps();
+    }
+
     needUpdate() : boolean {
         return this.area.needUpdate();
     }
@@ -90,7 +94,7 @@ class AreaController {
     }
 
     update(guild: Writable<Guild>) {
-        let damages = this.heroes.reduce((damages, h) => damages + get(h).attack, 0);
+        let damages = this.getAreaDps();
 
         this.monster.currentHealth -= damages;
 
@@ -99,6 +103,10 @@ class AreaController {
             this.heroes.forEach(h => h.update(h => h.giveExp(this.monster.experience, this.monster.level)));
             this.setMonster(this.area.encounters[Math.floor(Math.random() * this.area.encounters.length)]);
         }
+    }
+
+    getAreaDps() : number {
+        return this.heroes.reduce((damages, h) => damages + get(h).attack, 0)
     }
 
     enter(hero: Writable<Hero>) {

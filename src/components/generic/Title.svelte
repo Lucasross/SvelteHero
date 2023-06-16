@@ -1,19 +1,52 @@
 <script lang="ts">
-    import { guild } from "../../store/Stores";
+    import AreaData from "../../data/AreaData";
+    import { area_id, guild, heroes } from "../../store/Stores";
 
-    export let label : String;
-    export let enableGold : boolean = false;
+    export let label: String;
+    export let enableGold: boolean = false;
+    export let area: AreaData = null;
+
+    let dps = 0;
+
+    if (area != null) {
+        dps = area.getAreaDps();
+
+        heroes.forEach((h) =>
+            h.subscribe(h => {
+                dps = AreaData.getById($area_id).getAreaDps();
+            })
+        );
+
+        area_id.subscribe(a => {
+            dps = AreaData.getById(a).getAreaDps();
+        });
+    }
 </script>
 
 <div class="container">
     <div class="title">
         {#if enableGold}
-        <img style="display: inline-block" height="16px" src="pictures/cash.png" alt="cash"/> 
-        <p style="display:inline;">{$guild.gold}</p>
+            <img
+                style="display: inline-block"
+                height="16px"
+                src="pictures/cash.png"
+                alt="cash"
+            />
+            <p style="display:inline;">{$guild.gold}</p>
         {/if}
     </div>
     <p class="title">{label}</p>
-    <p class="title"></p>
+    <p class="title">
+        {#if area != null}
+            <img
+                style="display: inline-block"
+                height="16px"
+                src="pictures/damage-sword.png"
+                alt="sword"
+            />
+            <p style="display:inline;">{dps}</p>
+        {/if}
+    </p>
 </div>
 
 <style>
@@ -28,7 +61,7 @@
         background-color: #d8eaea;
     }
     .title {
-        flex:1;
+        flex: 1;
         text-align: center;
     }
 </style>

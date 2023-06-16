@@ -38,7 +38,7 @@
 </script>
 
 <div>
-    <Title enableGold={true} label={area.name} />
+    <Title enableGold={true} label={area.name} area={AreaData.getById($area_id)}/>
     <div class="template">
         <div class="relative">
             <div class="absolute-monstersprite">

@@ -22,8 +22,8 @@
             hero.update(h => h.sendToGuild());
         } else {
             let targetArea: AreaData = AreaData.getById(get(area_id));
-            hero.update(h => h.sendToArea(targetArea.id));
             targetArea.enter(hero);
+            hero.update(h => h.sendToArea(targetArea.id));
         }
     }
 
