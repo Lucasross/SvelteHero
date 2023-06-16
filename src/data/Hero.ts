@@ -50,7 +50,9 @@ export default class Hero {
     giveExp(exp: number, monsterLevel: number): Hero {
         let diff: number = this.level - monsterLevel;
 
-        if (diff > 0)
+        if(diff > 5)
+            exp = 0;
+        else if (diff > 0)
             exp = exp * (1 - (diff / 5));
         
         this.experience += Math.round(exp);
