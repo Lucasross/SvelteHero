@@ -148,6 +148,9 @@ class AreaController {
         if (index > -1) {
             this.heroes.splice(index, 1);
         }
+        if(this.heroes.length == 0) {
+            this.currentTimer = this.area.timePerMonster;
+        }
     }
 
     setMonster(monster: Monster) {
