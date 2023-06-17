@@ -11,14 +11,16 @@ export default class AreaData {
     public readonly name: string;
     public readonly background: string;
     public readonly encounters: Monster[];
+    public readonly timePerMonster: number | null;
 
     public area: AreaController;
 
-    constructor(name: string, background: string, encounters: string[]) {
+    constructor(name: string, background: string, encounters: string[], timePerMonster: number | null = null) {
         this.id = name;
         this.name = name;
         this.background = background;
         this.encounters = encounters.map(id => Monster.getById(id).copy());
+        this.timePerMonster = timePerMonster;
 
         this.area = new AreaController(this);
     }
@@ -32,10 +34,14 @@ export default class AreaData {
         const levels = this.encounters.map(m => m.level);
         const min = Math.min(...levels);
         const max = Math.max(...levels);
-        if(min == max)
+        if (min == max)
             return `Monsters level : ${min}`
         else
             return `Monsters levels : ${min} - ${max}`
+    }
+
+    isTimedArea(): boolean {
+        return this.timePerMonster != null
     }
     // #endregion
 
@@ -44,9 +50,13 @@ export default class AreaData {
         this.area.update(guild);
     }
 
+    updateTimer(deltaTime: number) {
+        this.area.updateTimer(deltaTime);
+    }
+
     enter(hero: Writable<Hero>) {
         this.area.enter(hero);
-    } 
+    }
 
     leave(hero: Writable<Hero>) {
         this.area.leave(hero);
@@ -56,15 +66,19 @@ export default class AreaData {
         this.area.setMonster(monster);
     }
 
-    getMonster() : Monster {
+    getMonster(): Monster {
         return this.area.getMonster();
     }
 
-    getAreaDps() : number {
+    getAreaDps(): number {
         return this.area.getAreaDps();
     }
 
-    needUpdate() : boolean {
+    getNormalizedTimer() {
+        return this.area.currentTimer / this.timePerMonster;
+    }
+
+    needUpdate(): boolean {
         return this.area.needUpdate();
     }
     // #endregion
@@ -87,10 +101,14 @@ class AreaController {
 
     private monster: Monster = undefined;
     private heroes: Writable<Hero>[] = [];
+    public currentTimer: number;
 
     constructor(area: AreaData) {
-        this.area = area;        
+        this.area = area;
         this.monster = area.encounters[Math.floor(Math.random() * area.encounters.length)];
+
+        if(area.isTimedArea())
+            this.currentTimer = area.timePerMonster;
     }
 
     update(guild: Writable<Guild>) {
@@ -98,14 +116,22 @@ class AreaController {
 
         this.monster.currentHealth -= damages;
 
-        if(this.monster.currentHealth <= 0) {
+        if (this.monster.currentHealth <= 0) {
             this.monster.die(guild);
             this.heroes.forEach(h => h.update(h => h.giveExp(this.monster.experience, this.monster.level)));
             this.setMonster(this.area.encounters[Math.floor(Math.random() * this.area.encounters.length)]);
         }
     }
 
-    getAreaDps() : number {
+    updateTimer(deltaTime: number) {
+        this.currentTimer -= deltaTime;
+        if(this.currentTimer <= 0) {
+            this.monster.currentHealth = this.monster.maxHealth;
+            this.currentTimer = this.area.timePerMonster;
+        }
+    }
+
+    getAreaDps(): number {
         return this.heroes.reduce((damages, h) => damages + get(h).attack, 0)
     }
 
@@ -124,11 +150,11 @@ class AreaController {
         this.monster = monster;
     }
 
-    getMonster() : Monster {
+    getMonster(): Monster {
         return this.monster;
     }
 
-    needUpdate() : boolean {
+    needUpdate(): boolean {
         return this.heroes.length > 0;
     }
 }
@@ -137,4 +163,4 @@ AreaData.areas.push(new AreaData("Plains of Koloh", "plains.jpg", ["piou-easy", 
 AreaData.areas.push(new AreaData("Snowy mountains", "mountains.jpg", ["beetle-easy", "slime-easy", "mushroom-easy"]));
 AreaData.areas.push(new AreaData("Dark forest", "forest.jpg", ["mushroom-easy", "wolf-easy", "snake-easy"]));
 
-AreaData.areas.push(new AreaData("Demon's castle", "darkcastle.jpg", ["demon-lord"]));
+AreaData.areas.push(new AreaData("Demon's castle", "darkcastle.jpg", ["demon-lord"], 60));

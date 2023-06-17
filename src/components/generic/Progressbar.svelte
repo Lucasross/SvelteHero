@@ -4,9 +4,10 @@
     export let textColor: string = "#fff";
     export let barColor: string = "#ff0000";
     export let text: string = "";
+    export let borderPixel: number = 2;
 </script>
 
-<div class="progressbar-wrapper" style="height: {height}px;">
+<div class="progressbar-wrapper" style="height: {height}px; border: solid black {borderPixel}px">
     <div
         class="progressbar"
         style="background-color: {barColor}CC; width:{progress}%"
