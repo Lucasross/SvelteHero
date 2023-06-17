@@ -37,7 +37,7 @@
         <img
             width="64px"
             height="64px"
-            src="pictures/warlord-helmet.png"
+            src="pictures/classes/warlord-helmet.png"
             alt="warlord"
         />
     </div>
