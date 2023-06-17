@@ -12,15 +12,17 @@ export default class AreaData {
     public readonly background: string;
     public readonly encounters: Monster[];
     public readonly timePerMonster: number | null;
+    public readonly iconPath: string;
 
     public area: AreaController;
 
-    constructor(name: string, background: string, encounters: string[], timePerMonster: number | null = null) {
+    constructor(name: string, background: string, encounters: string[], timePerMonster: number | null = null, iconPath: string = "compass.png") {
         this.id = name;
         this.name = name;
         this.background = background;
         this.encounters = encounters.map(id => Monster.getById(id).copy());
         this.timePerMonster = timePerMonster;
+        this.iconPath = iconPath;
 
         this.area = new AreaController(this);
     }
@@ -163,4 +165,4 @@ AreaData.areas.push(new AreaData("Plains of Koloh", "plains.jpg", ["piou-easy", 
 AreaData.areas.push(new AreaData("Snowy mountains", "mountains.jpg", ["beetle-easy", "slime-easy", "mushroom-easy"]));
 AreaData.areas.push(new AreaData("Dark forest", "forest.jpg", ["mushroom-easy", "wolf-easy", "snake-easy"]));
 
-AreaData.areas.push(new AreaData("Demon's castle", "darkcastle.jpg", ["demon-lord"], 60));
+AreaData.areas.push(new AreaData("Demon's castle", "darkcastle.jpg", ["demon-lord"], 60, "boss-skull.png"));

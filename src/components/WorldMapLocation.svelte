@@ -16,7 +16,7 @@
 
 <div class="location" style="top: {y}%; left: {x}%;" on:click={select} on:keydown={null}>
     <p title="{area.levelRange()}" use:tooltip>{area.name}</p>
-    <img title="{area.levelRange()}" use:tooltip width="24" src="pictures/regions/compass.png" alt="position">
+    <img title="{area.levelRange()}" use:tooltip width="24" src="pictures/regions/{area.iconPath}" alt="position">
 </div>
 
 <style>
