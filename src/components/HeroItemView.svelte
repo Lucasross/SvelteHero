@@ -3,6 +3,8 @@
     import type Hero from "../data/Hero";
     import { get, type Writable } from "svelte/store";
     import { area_id } from "../store/Stores";
+    import Modal from "./generic/Modal.svelte";
+    import Progressbar from "./generic/Progressbar.svelte";
 
 
     export let hero: Writable<Hero>;
@@ -30,9 +32,13 @@
     function SwitchToEdit() {
         heroEdit = true;
     }
+
+    // Modal
+
+    let showModal = false;
 </script>
 
-<div class="container background_{index % 2}">
+<div class="container background_{index % 2}" on:click={() => (showModal = true)} on:keydown={null} >
     <div>
         <img
             width="64px"
@@ -63,7 +69,7 @@
     </div>
 
     <div class="btn-container">
-        <button on:click|preventDefault={Send}>
+        <button on:click|preventDefault|stopPropagation={Send}>
             {#if $hero.isInLocation()}
                 Retrieve
             {:else}
@@ -72,6 +78,17 @@
         </button>
     </div>
 </div>
+
+<Modal bind:showModal >
+    <div class="hero-modal">
+        <h1>{$hero.name}</h1>
+        <h3>{$hero.getJob().name}</h3>
+        <div>
+            <p>Experiences : {$hero.experience}/{$hero.experienceToNextLevel()}</p>
+            <Progressbar height={10} barColor="#77CDF3" borderPixel={1} progress={($hero.experience/$hero.experienceToNextLevel()) * 100}/>
+        </div>
+    </div>
+</Modal>
 
 <style>
     * {
@@ -108,5 +125,8 @@
     }
     p {
         font-size: 0.8vw;
+    }
+    .hero-modal {
+        width: 20vw;
     }
 </style>
