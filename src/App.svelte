@@ -10,12 +10,12 @@
 	let area;
 
 	setInterval(() => {
-		AreaData.areas.filter((a) => a.needUpdate).forEach((a) => a.update(guild));
+		AreaData.areas.filter((a) => a.needUpdate()).forEach((a) => a.update(guild));
 		area.update();
 	}, frameSpeed * 1000);
 	
 	setInterval(() => {
-		AreaData.areas.filter((a) => a.needUpdate).forEach((a) => a.updateTimer(0.1));
+		AreaData.areas.filter((a) => a.needUpdate()).forEach((a) => a.updateTimer(0.1));
 		area.update();
 	}, 100) //update every 0.1s
 </script>
