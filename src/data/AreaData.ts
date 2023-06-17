@@ -120,7 +120,9 @@ class AreaController {
 
         if (this.monster.currentHealth <= 0) {
             this.monster.die(guild);
-            this.heroes.forEach(h => h.update(h => h.giveExp(this.monster.experience, this.monster.level)));
+            let heroTooHighLevel: boolean = this.heroes.map(h => get(h)).filter(h => (h.level - this.monster.level) > 20).length > 0;
+            let monsterExp: number = heroTooHighLevel ? 0 : this.monster.experience;
+            this.heroes.forEach(h => h.update(h => h.giveExp(monsterExp, this.monster.level)));
             this.setMonster(this.area.encounters[Math.floor(Math.random() * this.area.encounters.length)]);
         }
     }
