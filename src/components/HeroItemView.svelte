@@ -37,8 +37,8 @@
         <img
             width="64px"
             height="64px"
-            src="pictures/classes/warlord-helmet.png"
-            alt="warlord"
+            src={$hero.getJob().getPicture()}
+            alt={$hero.getJob().jobType.toString()}
         />
     </div>
 
@@ -57,7 +57,7 @@
             </span>
         {/if}
         <p>
-            Warrior {$hero.level} ({Math.round($hero.experience)}/{$hero.experienceToNextLevel()})
+            {$hero.getJob().name} {$hero.level} ({Math.round($hero.experience)}/{$hero.experienceToNextLevel()})
         </p>
         <p>{$hero.getLocation()}</p>
     </div>
