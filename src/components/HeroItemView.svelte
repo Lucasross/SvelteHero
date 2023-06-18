@@ -64,7 +64,7 @@
             </span>
         {/if}
         <p>
-            {$hero.getJob().name} {$hero.level} ({Math.round($hero.experience)}/{$hero.experienceToNextLevel()})
+            {$hero.getJob().name} - {$hero.level} ({($hero.experience/$hero.experienceToNextLevel()*100).toFixed(2)}%)
         </p>
         <p>{$hero.getLocation()}</p>
     </div>
