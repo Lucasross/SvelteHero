@@ -99,6 +99,7 @@
     {/if}
         <h3>{$hero.getJob().name} - {$hero.level}</h3> 
         <div>
+            <div class="space"/>
             <p>Experiences : {$hero.experience}/{$hero.experienceToNextLevel()} ({Math.round($hero.experience/$hero.experienceToNextLevel()*100)}%)</p>
             <Progressbar height={10} barColor="#77CDF3" borderPixel={1} progress={($hero.experience/$hero.experienceToNextLevel()) * 100}/>
             <div class="space"/>
@@ -146,9 +147,9 @@
         font-size: 0.8vw;
     }
     .hero-modal {
-        width: 20vw;
+        min-width: 22vw;
     }
     .space {
-        margin-bottom: 0.5vw;
+        margin-bottom: 0.35vw;
     }
 </style>
