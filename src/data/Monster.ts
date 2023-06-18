@@ -68,7 +68,14 @@ Monster.monsters.push(new Monster("slime-easy", "Slime", 2, 120, "slime-blue.png
 Monster.monsters.push(new Monster("mushroom-easy", "Mushroom", 2, 120, "mushroom-green.png"));
 
 Monster.monsters.push(new Monster("wolf-easy", "Wolf", 3, 150, "wolf-brown.png"));
+Monster.monsters.push(new Monster("plant-easy", "Angry plant", 3, 160, "plant-green.png"));
 
 Monster.monsters.push(new Monster("snake-easy", "Snake", 4, 200, "snake-pink.png"));
+Monster.monsters.push(new Monster("goblin-easy", "Goblin", 4, 200, "goblin-yellow.png"));
+Monster.monsters.push(new Monster("spirit-easy", "Fire spirit", 4, 180, "spirit-red.png"));
+
+Monster.monsters.push(new Monster("ogre-easy", "Ogre", 5, 320, "ogre-green.png"))
+
+Monster.monsters.push(new Monster("cerbere-easy", "Cerbere", 6, 450, "cerbere-white.png"));
 
 Monster.monsters.push(new Monster("demon-lord", "Demon Lord", 100, 456835, "demon-lord.png"));

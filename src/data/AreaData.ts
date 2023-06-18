@@ -167,7 +167,8 @@ class AreaController {
 }
 
 AreaData.areas.push(new AreaData("Plains of Koloh", "plains.jpg", ["piou-easy", "chicken-easy", "slime-easy"]));
-AreaData.areas.push(new AreaData("Snowy mountains", "mountains.jpg", ["beetle-easy", "slime-easy", "mushroom-easy"]));
+AreaData.areas.push(new AreaData("Snowy mountains", "mountains.jpg", ["beetle-easy", "slime-easy", "mushroom-easy", "plant-easy"]));
 AreaData.areas.push(new AreaData("Dark forest", "forest.jpg", ["mushroom-easy", "wolf-easy", "snake-easy"]));
+AreaData.areas.push(new AreaData("Keyns village", "ruinedvillage.jpg", ["goblin-easy", "spirit-easy", "ogre-easy", "cerbere-easy"]));
 
 AreaData.areas.push(new AreaData("Demon's castle", "darkcastle.jpg", ["demon-lord"], 60, "boss-skull.png"));

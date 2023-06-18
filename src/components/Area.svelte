@@ -29,7 +29,7 @@
         currentMonster = area.getMonster();
         update();
         progress = tweened((currentMonster.currentHealth / currentMonster.maxHealth) * 100, {
-            duration: 100,
+            duration: 400,
             easing: cubicOut,
         });
         progressTimer = tweened(area.getNormalizedTimer() * 100, {
