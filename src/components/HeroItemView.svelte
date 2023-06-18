@@ -50,11 +50,12 @@
 
     <div class="vertical-grid">
         {#if !heroEdit}
-            <b><p on:click={SwitchToEdit} on:keypress={null}>{$hero.name}</p></b>
+            <b><p on:click|stopPropagation={SwitchToEdit} on:keypress={null}>{$hero.name}</p></b>
         {:else}
-            <span>
+            <span on:click|stopPropagation={null} on:keypress={null}>
                 <form on:submit|preventDefault={SetName}>
-                    <input
+                    <!-- svelte-ignore a11y-autofocus -->
+                    <input autofocus
                         type="text"
                         name={$hero.name}
                         bind:value={heroNameInput}
