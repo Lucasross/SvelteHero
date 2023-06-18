@@ -81,11 +81,29 @@
 
 <Modal bind:showModal >
     <div class="hero-modal">
-        <h1>{$hero.name}</h1>
-        <h3>{$hero.getJob().name}</h3>
+        {#if !heroEdit}
+        <h1 on:click={SwitchToEdit} on:keypress={null}>{$hero.name}</h1>
+    {:else}
+        <span>
+            <form on:submit|preventDefault={SetName}>
+                <h1>
+                    <input
+                        type="text"
+                        name={$hero.name}
+                        bind:value={heroNameInput}
+                    />
+                </h1>
+            </form>
+        </span>
+    {/if}
+        <h3>{$hero.getJob().name} - {$hero.level}</h3> 
         <div>
-            <p>Experiences : {$hero.experience}/{$hero.experienceToNextLevel()}</p>
+            <p>Experiences : {$hero.experience}/{$hero.experienceToNextLevel()} ({Math.round($hero.experience/$hero.experienceToNextLevel()*100)}%)</p>
             <Progressbar height={10} barColor="#77CDF3" borderPixel={1} progress={($hero.experience/$hero.experienceToNextLevel()) * 100}/>
+            <div class="space"/>
+            <p>Location : {$hero.getLocation()} {$hero.isInLocation() ? "(farming...)" : "(waiting...)"}</p>
+            <div class="space"/>
+            <p>Damage : {$hero.attack}</p>
         </div>
     </div>
 </Modal>
@@ -128,5 +146,8 @@
     }
     .hero-modal {
         width: 20vw;
+    }
+    .space {
+        margin-bottom: 0.5vw;
     }
 </style>
