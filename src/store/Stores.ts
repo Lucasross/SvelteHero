@@ -15,11 +15,7 @@ let rawHero = JSON.parse(localStorage.getItem(key_heroes));
 let savedHeroes: Array<Hero> = [];
 let storedHeroes: Array<Writable<Hero>> = [];
 
-if (rawHero == null) {
-    storedHeroes = new Array<Writable<Hero>>(
-        writable<Hero>(new Hero(0, "Loktar", 1, 0, Jobs.Warrior)),
-    )
-} else {
+if (rawHero != null) {
     rawHero.forEach((h, i) => {
         let hero: Hero = new Hero(i, h.name, h.level, h.experience, Jobs[h.job as string]).Init(h.area_id);
         let writableHero = writable<Hero>(hero);
@@ -37,11 +33,12 @@ storedHeroes.forEach(h => {
     })
 });
 
-export let createHero = () => {
-    let hero: Hero = new Hero(storedHeroes.length, "Charlie", 1, 0, Jobs.Warrior);
+export let createHero = (name: string, job: Jobs, level: number = 1, experience: number = 0) => {
+    let hero: Hero = new Hero(storedHeroes.length, name, level, experience, job);
     savedHeroes.push(hero);
     storedHeroes.push(writable<Hero>(hero));
     localStorage.setItem(key_heroes, JSON.stringify(savedHeroes));
+    heroesUpdate.update(u => u = true);
 }
 // #endregion
 
@@ -71,3 +68,10 @@ storedGuild.subscribe(g => localStorage.setItem(key_guild, JSON.stringify(g)))
 export const area_id = stored_areaId;
 export const heroes = storedHeroes;
 export const guild = storedGuild;
+export const heroesUpdate = writable<boolean>(false);
+
+heroesUpdate.subscribe(u => {
+    if(u) {
+        setTimeout(() => u = false, 100);
+    }
+})

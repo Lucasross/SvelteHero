@@ -1,20 +1,27 @@
-<script>
+<script lang="ts">
 	export let showModal; // boolean
+	export var closable: boolean = true;
 
 	let dialog; // HTMLDialogElement
 
 	$: if (dialog && showModal) dialog.showModal();
+
+	export const close = () => {
+		dialog.close();
+	}
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <dialog
 	bind:this={dialog}
 	on:close={() => (showModal = false)}
-	on:click|self={() => dialog.close()}
+	on:click|self={() => closable ? dialog.close() : null}
 >
 	<div on:click|stopPropagation>
 		<slot />
-		<button on:click={() => dialog.close()}>❌</button>
+		{#if closable}
+			<button on:click={() => dialog.close()}>❌</button>
+		{/if}
 	</div>
 </dialog>
 

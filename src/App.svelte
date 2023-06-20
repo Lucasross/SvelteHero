@@ -22,9 +22,9 @@
 </script>
 
 <main class="main">
+	<CharacterCreation/>
 	<content class="content">
 		<div class="sidecol vertical-list">
-			<CharacterCreation/>
 			<HeroesList />
 		</div>
 		<div class="maincol vertical-list">

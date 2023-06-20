@@ -1,11 +1,20 @@
 <script lang="ts">
-import Job from "../../data/Job";
+    import { createEventDispatcher } from "svelte";
+    import Job, { Jobs } from "../../data/Job";
+    import { createHero } from "../../store/Stores";
 
-    let heroName;
-    let selectedJob;
+    let heroName = "Unknow";
+    let selectedJob = Job.jobs[Math.floor(Math.random() * Job.jobs.length)].name;
+
+    const dispatch = createEventDispatcher();
 
     function select(e, job: Job) {
         selectedJob = job.name;
+    }
+
+    function create() {
+        createHero(heroName, Jobs[selectedJob]);
+        dispatch('created');
     }
 </script>
 
@@ -23,8 +32,8 @@ import Job from "../../data/Job";
             </div>
         {/each}
     </div>
-    <button style="margin-top: 20px;">
-        Comfirm
+    <button style="margin-top: 20px;" on:click={create}>
+        Create <b>{heroName}</b> as a <b>{selectedJob}</b> ?
     </button>
 </div>
 

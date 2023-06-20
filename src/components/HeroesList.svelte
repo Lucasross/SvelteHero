@@ -1,17 +1,23 @@
 <script lang="ts">
   import HeroItemView from "./HeroItemView.svelte";
-  import { createHero, heroes as heroesList, guild } from "../store/Stores";
+  import { createHero, heroes as heroesList, guild, heroesUpdate } from "../store/Stores";
   import Title from "./generic/Title.svelte";
   import Hero from "../data/Hero";
   import { get } from "svelte/store";
+  import { Jobs } from "../data/Job";
 
   $: heroes = heroesList;
+
+  heroesUpdate.subscribe(u => {
+    if(u) {
+      heroes = heroesList;
+    }
+  });
 
   function recruitHero() {
     if(get(guild).gold > Hero.goldForNextHero(heroes.length)) {
       guild.update(g => g.recruit(heroes.length));
-      createHero();
-      heroes = heroesList;
+      createHero("Derfi", Jobs.Warrior);
     }
   }
 </script>
@@ -24,10 +30,14 @@
     {/each}
     <div class="recruit-container background-color-{heroes.length % 2}">
       <button on:click={recruitHero}> 
-        Recruit 
+        Recruit
         <br>
         <img width="16px" src="pictures/cash.png" alt="cash-icon" style="vertical-align: middle;"> 
-        {Hero.goldForNextHero(heroes.length).toLocaleString("fr-FR")}
+        {#if heroes.length > 0}
+          {Hero.goldForNextHero(heroes.length).toLocaleString("fr-FR")}
+        {:else}
+          Free
+        {/if}
       </button>
     </div>
   </div>
