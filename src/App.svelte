@@ -5,6 +5,7 @@
 	import WorldMap from "./components/WorldMap.svelte";
 	import Title from "./components/generic/Title.svelte";
 	import { guild } from "./store/Stores";
+    import CharacterCreation from "./components/CharacterCreation.svelte";
 
 	let frameSpeed = 1; //in seconds
 	let area;
@@ -23,6 +24,7 @@
 <main class="main">
 	<content class="content">
 		<div class="sidecol vertical-list">
+			<CharacterCreation/>
 			<HeroesList />
 		</div>
 		<div class="maincol vertical-list">
@@ -34,6 +36,7 @@
 		</div>
 	</content>
 </main>
+
 
 <style>
 	:global(body) {

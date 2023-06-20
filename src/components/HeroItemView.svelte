@@ -6,7 +6,6 @@
     import Modal from "./generic/Modal.svelte";
     import Progressbar from "./generic/Progressbar.svelte";
 
-
     export let hero: Writable<Hero>;
     export let index: number;
 
