@@ -5,8 +5,11 @@
   import Hero from "../data/Hero";
   import { get } from "svelte/store";
   import { Jobs } from "../data/Job";
+    import CharacterCreation from "./CharacterCreation.svelte";
 
   $: heroes = heroesList;
+
+  let showModal = false;
 
   heroesUpdate.subscribe(u => {
     if(u) {
@@ -16,13 +19,17 @@
 
   function recruitHero() {
     if(get(guild).gold > Hero.goldForNextHero(heroes.length)) {
-      guild.update(g => g.recruit(heroes.length));
-      createHero("Derfi", Jobs.Warrior);
+      showModal = true;
     }
+  }
+  
+  function onHeroCreated() {
+    guild.update(g => g.recruit(heroes.length - 1));
   }
 </script>
 
 <div>
+  <CharacterCreation bind:showModal closable={true} on:heroCreated={onHeroCreated}/>
   <Title label="Heroes" />
   <div class="border">
     {#each heroes as hero, i}
