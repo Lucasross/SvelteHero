@@ -24,7 +24,7 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		max-width: 32em;
+		max-width: 64em;
 		border-radius: 0.2em;
 		border: none;
 		padding: 0;
