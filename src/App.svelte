@@ -40,7 +40,7 @@
 
 <style>
 	:global(body) {
-		background-image: url(../pictures/pagebackground.jpg);
+		background: url(../pictures/pagebackground.jpg) no-repeat, no-repeat #000000;
 		background-position: center top;
     	background-size: 100% auto;
 	}
