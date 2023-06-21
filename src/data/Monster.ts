@@ -1,6 +1,8 @@
-import type { Writable } from "svelte/store";
+import { get, type Writable } from "svelte/store";
 import type Guild from "./Guild";
 import Sprite from "./generic/Sprite";
+import type Hero from "./Hero";
+import type { ISprite } from "./generic/ISprite";
 
 export default class Monster implements ISprite {
     public static monsters: Monster[] = [];
@@ -43,11 +45,26 @@ export default class Monster implements ISprite {
         return this.sprite.sprite;
     }
 
-    die(guild: Writable<Guild>)  {
+    die(guild: Writable<Guild>, heroesInvolved: Array<Writable<Hero>>)  {
+        // Give gold to the guild
         let randomGold = (Math.random() * this.gold) - (this.gold / 2)
         let givenGold = this.gold + randomGold;
         guild.update(g => {g.gold += Math.round(givenGold); return g});
+
+        // Give experience to the heroes
+        let heroTooHighLevel: boolean = heroesInvolved.map(h => get(h)).filter(h => (h.level - this.level) > 20).length > 0;
+        let monsterExp: number = heroTooHighLevel ? 0 : this.experience;
+        heroesInvolved.forEach(h => h.update(h => h.giveExp(monsterExp, this.level)));
+
         this.currentHealth = this.maxHealth;
+    }
+
+    damage(damage: number) {
+        this.currentHealth -= damage;
+    }
+
+    isDead(): boolean {
+        return this.currentHealth <= 0;
     }
 
     static getById(id: string): Monster {

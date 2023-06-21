@@ -5,7 +5,7 @@
     import Progressbar from "./generic/Progressbar.svelte";
     import Title from "./generic/Title.svelte";
 
-    import { area_id } from "../store/Stores";
+    import { area_id, guild } from "../store/Stores";
     import { tweened, type Tweened } from "svelte/motion";
     import { cubicOut } from "svelte/easing";
     import Sprite from "./generic/Sprite.svelte";
@@ -45,6 +45,14 @@
         progressTimer.set(area.getNormalizedTimer() * 100);
         progressTimerText = (area.getNormalizedTimer() * area.timePerMonster).toFixed(1);
     }
+
+    function DamageCurrentMonster() {
+        currentMonster.damage(5);
+        if(currentMonster.isDead()) {
+            currentMonster.die(guild, area.getHeroes())
+        }
+        update();
+    }
 </script>
 
 <div>
@@ -53,7 +61,8 @@
         label={area.name}
         area={AreaData.getById($area_id)}
     />
-    <div class="template">
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div class="template" on:click={DamageCurrentMonster}>
         <div class="relative">
             <div class="absolute-monstersprite">
                 <Sprite sprite={currentMonster.getSprite()} alt="monster" />

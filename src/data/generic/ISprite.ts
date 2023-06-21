@@ -1,3 +1,3 @@
-interface ISprite {
+export interface ISprite {
     getSprite(): Promise<any>;
 }

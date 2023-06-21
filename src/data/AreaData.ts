@@ -64,6 +64,10 @@ export default class AreaData {
         this.area.leave(hero);
     }
 
+    getHeroes() : Writable<Hero>[] {
+        return this.area.getHeroes();
+    }
+
     setMonster(monster: Monster) {
         this.area.setMonster(monster);
     }
@@ -116,13 +120,10 @@ class AreaController {
     update(guild: Writable<Guild>) {
         let damages = this.getAreaDps();
 
-        this.monster.currentHealth -= damages;
+        this.monster.damage(damages);
 
-        if (this.monster.currentHealth <= 0) {
-            this.monster.die(guild);
-            let heroTooHighLevel: boolean = this.heroes.map(h => get(h)).filter(h => (h.level - this.monster.level) > 20).length > 0;
-            let monsterExp: number = heroTooHighLevel ? 0 : this.monster.experience;
-            this.heroes.forEach(h => h.update(h => h.giveExp(monsterExp, this.monster.level)));
+        if (this.monster.isDead()) {
+            this.monster.die(guild, this.heroes);
             this.setMonster(this.area.encounters[Math.floor(Math.random() * this.area.encounters.length)]);
         }
     }
@@ -151,6 +152,10 @@ class AreaController {
         if(this.heroes.length == 0) {
             this.currentTimer = this.area.timePerMonster;
         }
+    }
+
+    getHeroes() : Writable<Hero>[] {
+        return this.heroes;
     }
 
     setMonster(monster: Monster) {
