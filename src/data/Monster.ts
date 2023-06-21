@@ -16,7 +16,7 @@ export default class Monster implements ISprite {
     public readonly sprite: Sprite;
     public readonly spriteFileName: string;
 
-    public currentHealth: number; //run time value
+    private currentHealth: number; //run time value
 
     constructor(id: string, name: string, level: number, maxHealth: number, spriteFileName: string) {
         this.id = id;
@@ -61,6 +61,15 @@ export default class Monster implements ISprite {
 
     damage(damage: number) {
         this.currentHealth -= damage;
+    }
+
+    getHealth() : number {
+        return this.currentHealth;
+    }
+
+    reset() {
+        console.log("reset");
+        this.currentHealth = this.maxHealth;
     }
 
     isDead(): boolean {

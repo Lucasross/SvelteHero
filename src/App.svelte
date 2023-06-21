@@ -8,7 +8,7 @@
     import CharacterCreation from "./components/CharacterCreation.svelte";
 
 	let frameSpeed = 1; //in seconds
-	let area;
+	let area : Area;
 
 	setInterval(() => {
 		AreaData.areas.filter((a) => a.needUpdate()).forEach((a) => a.update(guild));

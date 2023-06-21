@@ -129,9 +129,13 @@ class AreaController {
     }
 
     updateTimer(deltaTime: number) {
+        if(!this.area.isTimedArea())
+            return;
+            
         this.currentTimer -= deltaTime;
+
         if(this.currentTimer <= 0) {
-            this.monster.currentHealth = this.monster.maxHealth;
+            this.monster.reset();
             this.currentTimer = this.area.timePerMonster;
         }
     }

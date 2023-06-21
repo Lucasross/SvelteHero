@@ -25,10 +25,10 @@
     });
 
     function onChangeArea() {
-        progress = tweened(100, { duration: 0, });
+        progress = tweened(100, { duration: 0 });
         currentMonster = area.getMonster();
         update();
-        progress = tweened((currentMonster.currentHealth / currentMonster.maxHealth) * 100, {
+        progress = tweened((currentMonster.getHealth()  / currentMonster.maxHealth) * 100, {
             duration: 400,
             easing: cubicOut,
         });
@@ -40,8 +40,8 @@
 
     export function update() {
         currentMonster = area.getMonster();
-        progress.set((currentMonster.currentHealth / currentMonster.maxHealth) * 100);
-
+        progress.set((currentMonster.getHealth()  / currentMonster.maxHealth) * 100);
+        
         progressTimer.set(area.getNormalizedTimer() * 100);
         progressTimerText = (area.getNormalizedTimer() * area.timePerMonster).toFixed(1);
     }
@@ -89,7 +89,7 @@
                 <Progressbar
                     progress={$progress}
                     height={30}
-                    text="{currentMonster.currentHealth}/{currentMonster.maxHealth}"
+                    text="{currentMonster.getHealth() }/{currentMonster.maxHealth}"
                 />
             </div>
         </div>
