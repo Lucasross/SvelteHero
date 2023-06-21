@@ -68,7 +68,6 @@ export default class Monster implements ISprite {
     }
 
     reset() {
-        console.log("reset");
         this.currentHealth = this.maxHealth;
     }
 
