@@ -14,7 +14,7 @@
     }
 </script>
 
-<div class="location" style="top: {y}%; left: {x}%;" on:click={select} on:keydown={null}>
+<div class="location" class:selected={area.id == $storedArea} style="top: {y}%; left: {x}%;" on:click={select} on:keydown={null}>
     <p title="{area.levelRange()}" use:tooltip>{area.name}</p>
     <img title="{area.levelRange()}" use:tooltip width="24" src="pictures/regions/{area.iconPath}" alt="position">
 </div>
@@ -34,5 +34,9 @@
         font-weight: 800;
         margin: 0;
         padding: 0;
+    }
+    .selected {
+        border: orange solid 2px !important;
+        background-color: #c4c4c4aa;
     }
 </style>
