@@ -22,7 +22,7 @@
     <h1>Create your character</h1>
     <span>Name :</span>
     <!-- svelte-ignore a11y-autofocus -->
-    <input autofocus placeholder="(Ex. Derfi)" type="text" bind:value={heroName}/>
+    <input autofocus maxlength="16" placeholder="(Ex. Derfi)" type="text" bind:value={heroName}/>
     <div class="grid">
         {#each Job.jobs as job}
             <!-- svelte-ignore a11y-click-events-have-key-events -->

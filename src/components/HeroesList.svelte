@@ -1,11 +1,10 @@
 <script lang="ts">
   import HeroItemView from "./HeroItemView.svelte";
-  import { createHero, heroes as heroesList, guild, heroesUpdate } from "../store/Stores";
+  import { heroes as heroesList, guild, heroesUpdate } from "../store/Stores";
   import Title from "./generic/Title.svelte";
   import Hero from "../data/Hero";
   import { get } from "svelte/store";
-  import { Jobs } from "../data/Job";
-    import CharacterCreation from "./CharacterCreation.svelte";
+  import CharacterCreation from "./CharacterCreation.svelte";
 
   $: heroes = heroesList;
 

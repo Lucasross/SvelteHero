@@ -55,6 +55,7 @@
                 <form on:submit|preventDefault={SetName}>
                     <!-- svelte-ignore a11y-autofocus -->
                     <input autofocus
+                        maxlength="16"
                         type="text"
                         name={$hero.name}
                         bind:value={heroNameInput}
