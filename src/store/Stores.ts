@@ -59,10 +59,13 @@ let storedGuild: Writable<Guild>;
 
 if (rawGuild == null)
     storedGuild = writable<Guild>(new Guild(0));
-else
-    storedGuild = writable<Guild>(new Guild(rawGuild.gold));
+else 
+    storedGuild = writable<Guild>(new Guild(rawGuild.gold).init(rawGuild.savedInventory));
 
-storedGuild.subscribe(g => localStorage.setItem(key_guild, JSON.stringify(g)))
+storedGuild.subscribe(guild => {
+    guild.prepareForSave();
+    localStorage.setItem(key_guild, JSON.stringify(guild))
+})
 // #endregion 
 
 export const area_id = stored_areaId;

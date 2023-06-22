@@ -6,6 +6,7 @@
 	import Title from "./components/generic/Title.svelte";
 	import { guild } from "./store/Stores";
     import CharacterCreation from "./components/CharacterCreation.svelte";
+    import Inventory from "./components/Inventory.svelte";
 
 	let frameSpeed = 1; //in seconds
 	let area : Area;
@@ -32,7 +33,7 @@
 			<WorldMap />
 		</div>
 		<div class="sidecol vertical-list">
-			<Title label="Empty" />
+			<Inventory />
 		</div>
 	</content>
 </main>
