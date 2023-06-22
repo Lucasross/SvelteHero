@@ -15,18 +15,20 @@ export default class Monster implements ISprite {
     public readonly gold: number;
     public readonly sprite: Sprite;
     public readonly spriteFileName: string;
+    private readonly healthScale: number;
 
     private currentHealth: number; //run time value
 
-    constructor(id: string, name: string, level: number, maxHealth: number, spriteFileName: string) {
+    constructor(id: string, name: string, level: number, spriteFileName: string, healthScale: number = 1) {
         this.id = id;
         this.name = name;
         this.level = level;
-        this.maxHealth = maxHealth;
+        this.healthScale = healthScale;
+        this.maxHealth = Math.round(Monster.getMaxHealth(level) * healthScale);
 
         this.gold = Math.round(level * (5 + (level/2)));
         this.experience = level * 10;
-        this.currentHealth = maxHealth;
+        this.currentHealth = this.maxHealth;
 
         this.spriteFileName = spriteFileName;
         this.sprite = new Sprite(this.getFullPath(spriteFileName));
@@ -34,7 +36,7 @@ export default class Monster implements ISprite {
 
     copy(): Monster
     {
-        return new Monster(this.id, this.name, this.level, this.maxHealth, this.spriteFileName);
+        return new Monster(this.id, this.name, this.level, this.spriteFileName, this.healthScale);
     }
     
     private getFullPath(file: string): string {
@@ -83,24 +85,31 @@ export default class Monster implements ISprite {
 
         return filtered[0];
     }
+
+    static getMaxHealth(level: number): number  {
+        let a = 9.6;
+        let b = 33;
+        let c = 50; // I know it's useless for now
+        return a * Math.pow(level, 2) + b * level + c;
+    }
 }
 
-Monster.monsters.push(new Monster("piou-easy", "Piou", 1, 80, "piou-yellow.png"));
-Monster.monsters.push(new Monster("chicken-easy", "Chicken", 1, 90, "chicken-white.png"));
+Monster.monsters.push(new Monster("piou-easy", "Piou", 1, "piou-yellow.png"));
+Monster.monsters.push(new Monster("chicken-easy", "Chicken", 1, "chicken-white.png", 1.1));
 
-Monster.monsters.push(new Monster("beetle-easy", "Beetle", 2, 100, "beetle-blue.png"));
-Monster.monsters.push(new Monster("slime-easy", "Slime", 2, 120, "slime-blue.png"));
-Monster.monsters.push(new Monster("mushroom-easy", "Mushroom", 2, 120, "mushroom-green.png"));
+Monster.monsters.push(new Monster("beetle-easy", "Beetle", 2, "beetle-blue.png"));
+Monster.monsters.push(new Monster("slime-easy", "Slime", 2, "slime-blue.png", 1.1));
+Monster.monsters.push(new Monster("mushroom-easy", "Mushroom", 2, "mushroom-green.png", 1.15));
 
-Monster.monsters.push(new Monster("wolf-easy", "Wolf", 3, 150, "wolf-brown.png"));
-Monster.monsters.push(new Monster("plant-easy", "Angry plant", 3, 160, "plant-green.png"));
+Monster.monsters.push(new Monster("wolf-easy", "Wolf", 3, "wolf-brown.png"));
+Monster.monsters.push(new Monster("plant-easy", "Angry plant", 3, "plant-green.png", 1.1));
 
-Monster.monsters.push(new Monster("snake-easy", "Snake", 4, 200, "snake-pink.png"));
-Monster.monsters.push(new Monster("goblin-easy", "Goblin", 4, 200, "goblin-yellow.png"));
-Monster.monsters.push(new Monster("spirit-easy", "Fire spirit", 4, 180, "spirit-red.png"));
+Monster.monsters.push(new Monster("snake-easy", "Snake", 4, "snake-pink.png"));
+Monster.monsters.push(new Monster("goblin-easy", "Goblin", 4, "goblin-yellow.png", 1.1));
+Monster.monsters.push(new Monster("spirit-easy", "Fire spirit", 4, "spirit-red.png", 0.9));
 
-Monster.monsters.push(new Monster("ogre-easy", "Ogre", 5, 320, "ogre-green.png"))
+Monster.monsters.push(new Monster("ogre-easy", "Ogre", 5, "ogre-green.png", 1.2))
 
-Monster.monsters.push(new Monster("cerbere-easy", "Cerbere", 6, 450, "cerbere-white.png"));
+Monster.monsters.push(new Monster("cerbere-easy", "Cerbere", 6, "cerbere-white.png", 1.5));
 
-Monster.monsters.push(new Monster("demon-lord", "Demon Lord", 100, 456835, "demon-lord.png"));
+Monster.monsters.push(new Monster("demon-lord", "Demon Lord", 100, "demon-lord.png", 5));
