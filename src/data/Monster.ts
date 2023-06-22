@@ -27,7 +27,7 @@ export default class Monster implements ISprite {
         this.maxHealth = Math.round(Monster.getMaxHealth(level) * healthScale);
 
         this.gold = Math.round(level * (5 + (level/2)));
-        this.experience = level * 10;
+        this.experience = Math.round(level * 10 * this.experienceScalerBasedOnHealthScale(healthScale));
         this.currentHealth = this.maxHealth;
 
         this.spriteFileName = spriteFileName;
@@ -41,6 +41,10 @@ export default class Monster implements ISprite {
     
     private getFullPath(file: string): string {
         return "pictures/monsters/" + file;
+    }
+
+    private experienceScalerBasedOnHealthScale(healthScale: number): number {
+        return ((1 - healthScale) / 2) + healthScale;
     }
 
     getSprite() {
