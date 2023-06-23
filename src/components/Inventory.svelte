@@ -2,6 +2,7 @@
     import { onMount } from "svelte";
     import Title from "./generic/Title.svelte";
     import { guild } from "../store/Stores";
+    import tooltip from "../utility/Tooltip";
 
     let grid;
 
@@ -20,8 +21,8 @@
     <div bind:this={grid} class="grid grid-style">
         {#each [...$guild.inventory] as [key, value]}
         <div class="slot">
-            <img src="pictures/items/{key}.png" alt="iron"/>
-            <p>{value}</p>
+            <img title="{key} x{value}" use:tooltip src="pictures/items/{key}.png" alt="iron"/>
+            <p title="{key} x{value}" use:tooltip>{value}</p>
         </div>
         {/each}
         
