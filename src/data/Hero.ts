@@ -31,11 +31,18 @@ export default class Hero {
         this.job = Jobs[job];
     }
 
-    // Act as a constructor
-    Init(area_id: string): Hero {
+    // Act as a constructor from save
+    Init(area_id: string, weaponSlot, jewelrySlot, headSlot, bodySlot, footSlot): Hero {
         this.area_id = area_id;
         if (area_id == undefined)
             this.area_id = null;
+
+        this.weaponSlot.setById(weaponSlot.equipmentId);
+        this.jewelrySlot.setById(jewelrySlot.equipmentId);
+        this.headSlot.setById(headSlot.equipmentId);
+        this.bodySlot.setById(bodySlot.equipmentId);
+        this.footSlot.setById(footSlot.equipmentId);
+
         return this;
     }
 
@@ -162,7 +169,10 @@ class EquipmentSlot {
         this.slotType = slotType;
     }
 
-    public setById(equipmentId: string) {
+    public setById(equipmentId: string | null) {
+        if(equipmentId == null)
+            return;
+            
         this.set(Equipment.getById(equipmentId));
     }
 

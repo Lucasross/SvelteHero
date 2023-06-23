@@ -8,8 +8,6 @@ const key_heroes: string = "key_heroes";
 const key_area: string = "key_area";
 const key_guild: string = "key_guild";
 
-let x = AreaData.areas[0];
-
 // #region Hero
 let rawHero = JSON.parse(localStorage.getItem(key_heroes));
 let savedHeroes: Array<Hero> = [];
@@ -17,7 +15,7 @@ let storedHeroes: Array<Writable<Hero>> = [];
 
 if (rawHero != null) {
     rawHero.forEach((h, i) => {
-        let hero: Hero = new Hero(i, h.name, h.level, h.experience, Jobs[h.job as string]).Init(h.area_id);
+        let hero: Hero = new Hero(i, h.name, h.level, h.experience, Jobs[h.job as string]).Init(h.area_id, h.weaponSlot, h.jewelrySlot, h.headSlot, h.bodySlot, h.footSlot);
         let writableHero = writable<Hero>(hero);
         if (hero.isInLocation()) {
             AreaData.getById(hero.area_id).enter(writableHero);
