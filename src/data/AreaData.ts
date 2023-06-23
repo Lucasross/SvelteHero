@@ -39,11 +39,25 @@ export default class AreaData {
         if (min == max)
             return `Monsters level : ${min}`
         else
-            return `Monsters levels : ${min} - ${max}`
+            return `Levels : ${min} - ${max}`
+    }
+
+    expRange(): string {
+        const exps = this.encounters.map(m => m.experience);
+        const sum = exps.reduce((sum, current) => sum + current, 0);
+        const average = (sum / exps.length) || 0;
+
+            return `Experience: ~${average.toFixed(2)}/monster`
     }
 
     isTimedArea(): boolean {
         return this.timePerMonster != null
+    }
+
+    tooltip() {
+        return `<b>${this.name}</b><br>` +
+        this.levelRange() + "<br>" +
+        this.expRange(); 
     }
     // #endregion
 
