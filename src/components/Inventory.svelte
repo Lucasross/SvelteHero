@@ -4,6 +4,8 @@
     import { guild } from "../store/Stores";
     import tooltip from "../utility/Tooltip";
     import ContextMenu from "./generic/ContextMenu.svelte";
+    import Sprite from "./generic/Sprite.svelte";
+    import Equipment from "../data/Equipment";
 
     let grid;
     let contextMenu;
@@ -39,7 +41,7 @@
             {#each $guild.equipement as key}
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
                 <div on:click|preventDefault|stopPropagation={(e) => contextMenu.leftClickContextMenu(e)} class="slot">
-                    <img title="{key}" use:tooltip src="pictures/items/{key}.png" alt="{key}"/>
+                    <Sprite tooltipText="{key}" sprite={Equipment.getById(key).getSprite()}/>
                 </div>
             {/each}
 
