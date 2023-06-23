@@ -15,8 +15,8 @@
 </script>
 
 <div class="location" class:selected={area.id == $storedArea} style="top: {y}%; left: {x}%;" on:click={select} on:keydown={null}>
-    <p title={area.tooltip()} use:tooltip>{area.name}</p>
-    <img title={area.tooltip()} use:tooltip width="24" src="pictures/regions/{area.iconPath}" alt="position">
+    <p title={area.tooltip(area_id == $storedArea)} use:tooltip>{area.name}</p>
+    <img title={area.tooltip(area_id == $storedArea)} use:tooltip width="24" src="pictures/regions/{area.iconPath}" alt="position">
 </div>
 
 <style>
