@@ -3,8 +3,10 @@
     import Title from "./generic/Title.svelte";
     import { guild } from "../store/Stores";
     import tooltip from "../utility/Tooltip";
+    import ContextMenu from "./generic/ContextMenu.svelte";
 
     let grid;
+    let contextMenu;
 
     onMount(async () => {
         resizeItem();
@@ -18,9 +20,11 @@
 <svelte:window on:resize={resizeItem}></svelte:window>
 <div class="template">
     <Title label="Inventory" />
+    <ContextMenu bind:this={contextMenu}/>
     <div bind:this={grid} class="grid grid-style">
         {#each [...$guild.inventory] as [key, value]}
-        <div class="slot">
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <div on:click|preventDefault|stopPropagation={(e) => contextMenu.leftClickContextMenu(e)} class="slot">
             <img title="{key} x{value}" use:tooltip src="pictures/items/{key}.png" alt="iron"/>
             <p title="{key} x{value}" use:tooltip>{value}</p>
         </div>
