@@ -1,3 +1,4 @@
+import { Utility } from "../utility/Utility";
 import Job, { Jobs } from "./Job";
 
 export default class Hero {
@@ -86,7 +87,10 @@ export default class Hero {
     }
 
     static baseAttackForLevel(level: number): number {
-        return level * 15;
+        let a = 0.4;
+        let b = 21.6;
+        let c = 20;
+        return Math.round(Utility.Quadratic(a, b , c, level));
     }
 
     static goldForNextHero(nbHero: number) {

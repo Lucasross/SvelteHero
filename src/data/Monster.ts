@@ -3,6 +3,7 @@ import type Guild from "./Guild";
 import Sprite from "./generic/Sprite";
 import type Hero from "./Hero";
 import type { ISprite } from "./generic/ISprite";
+import { Utility } from "../utility/Utility";
 
 export default class Monster implements ISprite {
     public static monsters: Monster[] = [];
@@ -93,8 +94,8 @@ export default class Monster implements ISprite {
     static getMaxHealth(level: number): number  {
         let a = 9.6;
         let b = 33;
-        let c = 50; // I know it's useless for now
-        return a * Math.pow(level, 2) + b * level + c;
+        let c = 50;
+        return Utility.Quadratic(a, b , c, level);
     }
 }
 
