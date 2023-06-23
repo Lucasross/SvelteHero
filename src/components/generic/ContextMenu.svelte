@@ -28,14 +28,11 @@
             pos.y = pos.y - menu.h
         if (browser.w -  pos.x < menu.w)
             pos.x = pos.x - menu.w
-
-        console.log(showMenu);
     }
     function onPageClick(e){
         // To make context menu disappear when
         // mouse is clicked outside context menu
         showMenu = false;
-        console.log(showMenu)
     }
     function getContextMenuDimension(node){
         // This function will get context menu dimension
