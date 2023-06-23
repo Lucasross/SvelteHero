@@ -3,6 +3,7 @@ import Hero from "./Hero";
 export default class Guild {
     public gold: number;
     public inventory: Map<string, number>;
+    public equipement: string[] = [];
 
     private savedInventory; // used in save
 
@@ -10,7 +11,12 @@ export default class Guild {
         this.gold = gold;
         this.inventory = new Map<string, number>();
         this.inventory.set('Iron', 3);
-        this.inventory.set('Ardanium', 1);
+        this.inventory.set('Ardanium', 0);
+
+        this.equipement.push("Iron");
+        this.equipement.push("Iron");
+        this.equipement.push("Iron");
+        this.equipement.push("Iron");
     }
 
     init(savedInventory) : Guild {

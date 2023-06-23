@@ -34,6 +34,7 @@
 		</div>
 		<div class="sidecol vertical-list">
 			<Inventory />
+			<Inventory isItems={false}/>
 		</div>
 	</content>
 </main>

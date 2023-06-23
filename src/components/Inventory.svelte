@@ -8,6 +8,8 @@
     let grid;
     let contextMenu;
 
+    export let isItems: boolean = true;
+
     onMount(async () => {
         resizeItem();
     })
@@ -19,17 +21,29 @@
 
 <svelte:window on:resize={resizeItem}></svelte:window>
 <div class="template">
-    <Title label="Inventory" />
+    <Title label="{isItems ? "Inventory" : "Equipment"}" />
     <ContextMenu bind:this={contextMenu}/>
     <div bind:this={grid} class="grid grid-style">
-        {#each [...$guild.inventory] as [key, value]}
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <div on:click|preventDefault|stopPropagation={(e) => contextMenu.leftClickContextMenu(e)} class="slot">
-            <img title="{key} x{value}" use:tooltip src="pictures/items/{key}.png" alt="iron"/>
-            <p title="{key} x{value}" use:tooltip>{value}</p>
-        </div>
-        {/each}
-        
+        {#if isItems}
+
+            {#each [...$guild.inventory] as [key, value]}
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <div on:click|preventDefault|stopPropagation={(e) => contextMenu.leftClickContextMenu(e)} class="slot">
+                    <img title="{key} x{value}" use:tooltip src="pictures/items/{key}.png" alt="{key}"/>
+                    <p title="{key} x{value}" use:tooltip>{value}</p>
+                </div>
+            {/each}
+
+        {:else}
+
+            {#each $guild.equipement as key}
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <div on:click|preventDefault|stopPropagation={(e) => contextMenu.leftClickContextMenu(e)} class="slot">
+                    <img title="{key}" use:tooltip src="pictures/items/{key}.png" alt="{key}"/>
+                </div>
+            {/each}
+
+        {/if}
     </div>
 </div>
 
