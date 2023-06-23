@@ -54,8 +54,8 @@ export default class AreaData {
         return this.timePerMonster != null
     }
 
-    tooltip() {
-        return `<b>${this.name}</b><br>` +
+    tooltip(isPlayerHere: boolean = false) {
+        return `<b>${this.name}</b>${isPlayerHere ? "<i> (you are here)</i>" : ""}<br>` +
         this.levelRange() + "<br>" +
         this.expRange(); 
     }
