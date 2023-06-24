@@ -72,10 +72,42 @@ export class DamagePercentEffect extends StatEffect {
     }
 } 
 
+export class ExperienceRawEffect extends StatEffect {
+
+    constructor(value: number) {
+        super(EffectType.DamageRaw, value);
+    }
+
+    toShortString(): string {
+        return `+${this.value} experience`;
+    }
+
+    toLongString(): string {
+        return `Increase experience gained by <b>+${this.value}.</b>`;
+    }
+} 
+
+export class ExperiencePercentEffect extends StatEffect {
+
+    constructor(value: number) {
+        super(EffectType.DamagePercent, value);
+    }
+
+    toShortString(): string {
+        return `+${Math.round(this.value * 100)}% experience`;
+    }
+
+    toLongString(): string {
+        return `Increase experience gained by <b>${Math.round(this.value * 100)}%</b>.`;
+    }
+} 
+
 export enum EffectType {
     GoldRaw,
     GoldPercent,
     DamageRaw,
     DamagePercent,
+    ExperienceRaw,
+    ExperiencePercent,
 }
 

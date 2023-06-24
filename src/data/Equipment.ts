@@ -1,6 +1,6 @@
 import EquipmentSet from "./EquipmentSet";
 import Loot from "./Loot";
-import StatEffect, { DamagePercentEffect, DamageRawEffect, GoldRawEffect } from "./StatEffect";
+import StatEffect, { DamagePercentEffect, DamageRawEffect, ExperiencePercentEffect, GoldRawEffect } from "./StatEffect";
 
 export default class Equipment extends Loot {
     public static equipments: Equipment[] = [];
@@ -57,6 +57,6 @@ export enum SlotType {
 }
 
 Equipment.equipments.push(new Equipment("Templar Helmet", "close_helmet", 5, "The Ancient Templar", [new DamageRawEffect(5), new GoldRawEffect(5)]));
-Equipment.equipments.push(new Equipment("Templar Robe", "cloth_robe", 5, "The Ancient Templar", [new DamageRawEffect(5)]));
+Equipment.equipments.push(new Equipment("Templar Robe", "cloth_robe", 5, "The Ancient Templar", [new DamageRawEffect(5), new ExperiencePercentEffect(0.1)]));
 Equipment.equipments.push(new Equipment("Templar Necklace", "necklace_losange", 5, "The Ancient Templar", [new GoldRawEffect(10)]));
 Equipment.equipments.push(new Equipment("Templar Tower Shield", "tower_shield", 5, "The Ancient Templar", [new DamagePercentEffect(0.05)]));

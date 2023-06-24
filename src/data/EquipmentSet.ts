@@ -1,6 +1,6 @@
 import Equipment from "./Equipment";
 import type Hero from "./Hero";
-import StatEffect, { DamageRawEffect, GoldPercentEffect, GoldRawEffect } from "./StatEffect";
+import StatEffect, { DamageRawEffect, ExperienceRawEffect, GoldPercentEffect, GoldRawEffect } from "./StatEffect";
 
 export default class EquipmentSet {
     public static sets: EquipmentSet[] = []; 
@@ -54,6 +54,7 @@ export default class EquipmentSet {
 EquipmentSet.sets.push(new EquipmentSet("The Ancient Templar",
     new Map<number, StatEffect>([
         [2, new GoldPercentEffect(0.05)],
+        [3, new ExperienceRawEffect(100)],
         [4, new DamageRawEffect(50)]
     ])
 ))
