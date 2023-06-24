@@ -28,7 +28,7 @@ export default class Monster implements ISprite {
         this.maxHealth = Math.round(Monster.getMaxHealth(level) * healthScale);
 
         this.gold = Math.round(level * (5 + (level/2)));
-        this.experience = Math.round(level * 10 * this.experienceScalerBasedOnHealthScale(healthScale));
+        this.experience = Math.round(Monster.getBaseExperience(level) * this.experienceScalerBasedOnHealthScale(healthScale));
         this.currentHealth = this.maxHealth;
 
         this.spriteFileName = spriteFileName;
@@ -91,11 +91,18 @@ export default class Monster implements ISprite {
         return filtered[0];
     }
 
+    static getBaseExperience(level: number): number {
+        let a = 0.83;
+        let b = 8.6;
+        let c = 160;
+        return Utility.Quadratic(a, b, c, level);
+    }
+
     static getMaxHealth(level: number): number  {
         let a = 9.6;
         let b = 33;
         let c = 50;
-        return Utility.Quadratic(a, b , c, level);
+        return Utility.Quadratic(a, b, c, level);
     }
 }
 

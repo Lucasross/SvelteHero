@@ -153,7 +153,12 @@ export default class Hero {
     }
 
     static experienceForLevel(level: number): number {
-        return Math.round((level * 100 * (level / 15)) + 350 * level);
+        let a = 6.5;
+        let b = 55.5;
+        let c = 86;
+        let d = 70;
+        let e = 500;
+        return  Math.round(Utility.Polynome4(a, b, c, d, e, level));
     }
 
     static baseAttackForLevel(level: number): number {
