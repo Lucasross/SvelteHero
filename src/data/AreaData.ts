@@ -47,7 +47,7 @@ export default class AreaData {
         const sum = exps.reduce((sum, current) => sum + current, 0);
         const average = (sum / exps.length) || 0;
 
-            return `Experience: ~${average.toFixed(2)}/monster`
+        return `Experience: ~${average.toFixed(2)}/monster`
     }
 
     isTimedArea(): boolean {
@@ -56,8 +56,8 @@ export default class AreaData {
 
     tooltip(isPlayerHere: boolean = false) {
         return `<b>${this.name}</b>${isPlayerHere ? "<i> (you are here)</i>" : ""}<br>` +
-        this.levelRange() + "<br>" +
-        this.expRange(); 
+            this.levelRange() + "<br>" +
+            this.expRange();
     }
     // #endregion
 
@@ -78,7 +78,7 @@ export default class AreaData {
         this.area.leave(hero);
     }
 
-    getHeroes() : Writable<Hero>[] {
+    getHeroes(): Writable<Hero>[] {
         return this.area.getHeroes();
     }
 
@@ -127,7 +127,7 @@ class AreaController {
         this.area = area;
         this.monster = area.encounters[Math.floor(Math.random() * area.encounters.length)];
 
-        if(area.isTimedArea())
+        if (area.isTimedArea())
             this.currentTimer = area.timePerMonster;
     }
 
@@ -143,12 +143,12 @@ class AreaController {
     }
 
     updateTimer(deltaTime: number) {
-        if(!this.area.isTimedArea())
+        if (!this.area.isTimedArea())
             return;
-            
+
         this.currentTimer -= deltaTime;
 
-        if(this.currentTimer <= 0) {
+        if (this.currentTimer <= 0) {
             this.monster.reset();
             this.currentTimer = this.area.timePerMonster;
         }
@@ -167,12 +167,12 @@ class AreaController {
         if (index > -1) {
             this.heroes.splice(index, 1);
         }
-        if(this.heroes.length == 0) {
+        if (this.heroes.length == 0) {
             this.currentTimer = this.area.timePerMonster;
         }
     }
 
-    getHeroes() : Writable<Hero>[] {
+    getHeroes(): Writable<Hero>[] {
         return this.heroes;
     }
 
@@ -189,9 +189,36 @@ class AreaController {
     }
 }
 
-AreaData.areas.push(new AreaData("Plains of Koloh", "plains.jpg", ["piou-easy", "chicken-easy", "slime-easy"]));
-AreaData.areas.push(new AreaData("Snowy mountains", "mountains.jpg", ["beetle-easy", "slime-easy", "mushroom-easy", "plant-easy"]));
-AreaData.areas.push(new AreaData("Dark forest", "forest.jpg", ["mushroom-easy", "wolf-easy", "snake-easy"]));
-AreaData.areas.push(new AreaData("Keyns village", "ruinedvillage.jpg", ["goblin-easy", "spirit-easy", "ogre-easy", "cerbere-easy"]));
+AreaData.areas.push(new AreaData("Plains of Koloh", "plains.jpg",
+    [
+        "piou-easy",
+        "chicken-easy",
+        "slime-easy",
+    ]));
+    
+    AreaData.areas.push(new AreaData("Snowy mountains", "mountains.jpg",
+    [
+        "wolf-easy",
+        "beetle-easy",
+    ]));
 
-AreaData.areas.push(new AreaData("Demon's castle", "darkcastle.jpg", ["demon-lord"], 60, "boss-skull.png"));
+AreaData.areas.push(new AreaData("Dark forest", "forest.jpg",
+    [
+        "mushroom-easy",
+        "plant-easy",
+        "snake-easy"
+    ]));
+
+AreaData.areas.push(new AreaData("Keyns village", "ruinedvillage.jpg",
+    [
+        "goblin-easy",
+        "spirit-easy",
+        "ogre-easy",
+        "cerbere-easy"
+    ]));
+
+AreaData.areas.push(new AreaData("Demon's castle", "darkcastle.jpg",
+    [
+        "demon-lord"
+    ], 
+    60, "boss-skull.png"));

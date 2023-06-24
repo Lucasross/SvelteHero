@@ -102,19 +102,22 @@ export default class Monster implements ISprite {
 Monster.monsters.push(new Monster("piou-easy", "Piou", 1, "piou-yellow.png"));
 Monster.monsters.push(new Monster("chicken-easy", "Chicken", 1, "chicken-white.png", 1.1));
 
-Monster.monsters.push(new Monster("beetle-easy", "Beetle", 2, "beetle-blue.png"));
 Monster.monsters.push(new Monster("slime-easy", "Slime", 2, "slime-blue.png", 1.1));
-Monster.monsters.push(new Monster("mushroom-easy", "Mushroom", 2, "mushroom-green.png", 1.15));
 
-Monster.monsters.push(new Monster("wolf-easy", "Wolf", 3, "wolf-brown.png"));
-Monster.monsters.push(new Monster("plant-easy", "Angry plant", 3, "plant-green.png", 1.1));
+Monster.monsters.push(new Monster("beetle-easy", "Beetle", 3, "beetle-blue.png"));
 
-Monster.monsters.push(new Monster("snake-easy", "Snake", 4, "snake-pink.png"));
-Monster.monsters.push(new Monster("goblin-easy", "Goblin", 4, "goblin-yellow.png", 1.1));
-Monster.monsters.push(new Monster("spirit-easy", "Fire spirit", 4, "spirit-red.png", 0.9));
+Monster.monsters.push(new Monster("wolf-easy", "Wolf", 4, "wolf-brown.png"));
+Monster.monsters.push(new Monster("mushroom-easy", "Mushroom", 4, "mushroom-green.png", 1.15));
 
-Monster.monsters.push(new Monster("ogre-easy", "Ogre", 5, "ogre-green.png", 1.2))
+Monster.monsters.push(new Monster("plant-easy", "Angry plant", 5, "plant-green.png", 1.1));
 
-Monster.monsters.push(new Monster("cerbere-easy", "Cerbere", 6, "cerbere-white.png", 1.5));
+Monster.monsters.push(new Monster("snake-easy", "Snake", 6, "snake-pink.png"));
+
+Monster.monsters.push(new Monster("spirit-easy", "Fire spirit", 7, "spirit-red.png", 0.9));
+Monster.monsters.push(new Monster("goblin-easy", "Goblin", 7, "goblin-yellow.png", 1.1));
+
+Monster.monsters.push(new Monster("ogre-easy", "Ogre", 8, "ogre-green.png", 1.2))
+
+Monster.monsters.push(new Monster("cerbere-easy", "Cerbere", 10, "cerbere-white.png", 1.5));
 
 Monster.monsters.push(new Monster("demon-lord", "Demon Lord", 100, "demon-lord.png", 5));
