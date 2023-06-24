@@ -6,9 +6,13 @@
     import ContextMenu from "./generic/ContextMenu.svelte";
     import Sprite from "./generic/Sprite.svelte";
     import Equipment from "../data/Equipment";
+    import EquipmentSelection from "./modal/EquipmentSelection.svelte";
+    import Modal from "./generic/Modal.svelte";
 
     let grid;
     let contextMenu;
+    $: selectedEquipment = null;
+    $: showEquipmentModal = false;
 
     export let isItems: boolean = true;
 
@@ -19,12 +23,62 @@
     function resizeItem() {
         grid.style.setProperty('--grid-item-height', grid.firstChild.offsetWidth + 'px');
     }
+
+    function openContextMenu(e, equipmentId: string) {
+        selectedEquipment = Equipment.getById(equipmentId);
+        contextMenu.leftClickContextMenu(e);
+    }
+
+    function equip() {
+        showEquipmentModal = true;
+    }
+
+    function test() {
+        alert("wip");
+    }
+
+    let menuItems = [
+        {
+            'name': 'equip',
+            'onClick': equip,
+            'displayText': "Equip",
+            'class': 'fa-solid fa-shirt',
+            'style': ''
+        },
+        {
+            'name': 'upgrade',
+            'onClick': test,
+            'displayText': "Upgrade",
+            'class': 'fa-solid fa-hammer',
+            'style': ''
+        },
+        {
+            'name': 'craft',
+            'onClick': test,
+            'displayText': "Craft",
+            'class': 'fa-solid fa-screwdriver-wrench',
+            'style': ''
+        },
+        {
+            'name': 'hr',
+        },
+        {
+            'name': 'Sell',
+            'onClick': test,
+            'displayText': "Sell",
+            'class': 'fa-solid fa-coins',
+            'style': 'color: #fcba03',
+        },
+    ]
 </script>
 
 <svelte:window on:resize={resizeItem}></svelte:window>
 <div class="template">
     <Title label="{isItems ? "Inventory" : "Equipment"}" />
-    <ContextMenu bind:this={contextMenu}/>
+    <ContextMenu bind:this={contextMenu} menuItems={menuItems}/>
+    <Modal bind:showModal={showEquipmentModal}>
+        <EquipmentSelection equipment={selectedEquipment} />
+    </Modal>
     <div bind:this={grid} class="grid grid-style">
         {#if isItems}
 
@@ -40,7 +94,7 @@
 
             {#each $guild.equipement as key}
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
-                <div on:click|preventDefault|stopPropagation={(e) => contextMenu.leftClickContextMenu(e)} class="slot">
+                <div on:click|preventDefault|stopPropagation={(e) => openContextMenu(e, key)} class="slot">
                     <Sprite tooltipText="{Equipment.getById(key).getTooltip()}" sprite={Equipment.getById(key).getSprite()}/>
                 </div>
             {/each}

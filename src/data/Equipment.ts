@@ -10,11 +10,12 @@ export default class Equipment extends Loot {
     public readonly setId: string | null;
     public readonly statEffects: StatEffect[]; 
 
-    constructor(name: string, spriteName: string, levelRequired: number, setId: string = null, statEffects: StatEffect[] = []) {
+    constructor(name: string, slotType: SlotType, spriteName: string, levelRequired: number, setId: string = null, statEffects: StatEffect[] = []) {
         super(name, spriteName);
         this.levelRequired = levelRequired;
         this.setId = setId;
         this.statEffects = statEffects;
+        this.slotType = slotType;
     }
     
     protected picturesPath(): string {
@@ -56,7 +57,7 @@ export enum SlotType {
     Foot,
 }
 
-Equipment.equipments.push(new Equipment("Templar Helmet", "close_helmet", 5, "The Ancient Templar", [new DamageRawEffect(5), new GoldRawEffect(5)]));
-Equipment.equipments.push(new Equipment("Templar Robe", "cloth_robe", 5, "The Ancient Templar", [new DamageRawEffect(5), new ExperiencePercentEffect(0.1)]));
-Equipment.equipments.push(new Equipment("Templar Necklace", "necklace_losange", 5, "The Ancient Templar", [new GoldRawEffect(10)]));
-Equipment.equipments.push(new Equipment("Templar Tower Shield", "tower_shield", 5, "The Ancient Templar", [new DamagePercentEffect(0.05)]));
+Equipment.equipments.push(new Equipment("Templar Helmet", SlotType.Head, "close_helmet", 5, "The Ancient Templar", [new DamageRawEffect(5), new GoldRawEffect(5)]));
+Equipment.equipments.push(new Equipment("Templar Robe",  SlotType.Body, "cloth_robe", 5, "The Ancient Templar", [new DamageRawEffect(5), new ExperiencePercentEffect(0.1)]));
+Equipment.equipments.push(new Equipment("Templar Necklace",  SlotType.Jewelry, "necklace_losange", 5, "The Ancient Templar", [new GoldRawEffect(10)]));
+Equipment.equipments.push(new Equipment("Templar Tower Shield",  SlotType.Weapon, "tower_shield", 5, "The Ancient Templar", [new DamagePercentEffect(0.05)]));

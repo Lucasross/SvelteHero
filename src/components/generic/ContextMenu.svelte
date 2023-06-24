@@ -8,6 +8,8 @@
     // showMenu is state of context-menu visibility
     $: showMenu = false;
 
+    export let menuItems;
+
     export function leftClickContextMenu(e){
         showMenu = true
         browser = {
@@ -44,45 +46,6 @@
             w: width
         }
     }
-    function
-     test(){
-        alert("This feature is still under development. Sorry :'(");
-    }
-
-    let menuItems = [
-        {
-            'name': 'equip',
-            'onClick': test,
-            'displayText': "Equip",
-            'class': 'fa-solid fa-shirt',
-            'style': ''
-        },
-        {
-            'name': 'upgrade',
-            'onClick': test,
-            'displayText': "Upgrade",
-            'class': 'fa-solid fa-hammer',
-            'style': ''
-        },
-        {
-            'name': 'craft',
-            'onClick': test,
-            'displayText': "Craft",
-            'class': 'fa-solid fa-screwdriver-wrench',
-            'style': ''
-        },
-        {
-            'name': 'hr',
-        },
-        {
-            'name': 'Sell',
-            'onClick': test,
-            'displayText': "Sell",
-            'class': 'fa-solid fa-coins',
-            'style': 'color: #fcba03',
-        },
-    ]
-
 </script>
 
 <svelte:head>

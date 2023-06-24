@@ -3,7 +3,7 @@
     import Job, { Jobs } from "../../data/Job";
     import { createHero } from "../../store/Stores";
 
-    let heroName = "Unknow";
+    let heroName = "Unknown";
     let selectedJob = Job.jobs[Math.floor(Math.random() * Job.jobs.length)].name;
 
     const dispatch = createEventDispatcher();
