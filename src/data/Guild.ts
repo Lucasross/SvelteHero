@@ -13,10 +13,10 @@ export default class Guild {
         this.inventory.set('Iron', 3);
         this.inventory.set('Ardanium', 0);
 
-        this.equipement.push("Helmet");
-        this.equipement.push("Robe");
-        this.equipement.push("Necklace");
-        this.equipement.push("Tower Shield");
+        this.equipement.push("Templar Helmet");
+        this.equipement.push("Templar Robe");
+        this.equipement.push("Templar Necklace");
+        this.equipement.push("Templar Tower Shield");
     }
 
     init(savedInventory) : Guild {

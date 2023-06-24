@@ -41,7 +41,7 @@
             {#each $guild.equipement as key}
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
                 <div on:click|preventDefault|stopPropagation={(e) => contextMenu.leftClickContextMenu(e)} class="slot">
-                    <Sprite tooltipText="{key}" sprite={Equipment.getById(key).getSprite()}/>
+                    <Sprite tooltipText="{Equipment.getById(key).getTooltip()}" sprite={Equipment.getById(key).getSprite()}/>
                 </div>
             {/each}
 

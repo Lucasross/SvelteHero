@@ -4,6 +4,7 @@ import Equipment from "./Equipment";
 import { SlotType } from "./Equipment";
 import Job, { Jobs } from "./Job";
 import type Guild from "./Guild";
+import type EquipmentSet from "./EquipmentSet";
 
 export default class Hero {
     public readonly saveIndex: number;
@@ -120,6 +121,14 @@ export default class Hero {
             }
             return g;
         })
+    }
+
+    getEquipedOfSet(set: EquipmentSet) : Equipment[] {
+        return this.equipments().filter(s => s.get().setId == set.id).map(s => s.get());
+    }
+
+    equipments() : EquipmentSlot[] {
+        return [this.weaponSlot, this.jewelrySlot, this.headSlot, this.bodySlot, this.footSlot];
     }
 
     private getSlot(slot: SlotType) : EquipmentSlot {
