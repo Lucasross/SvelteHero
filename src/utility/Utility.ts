@@ -10,4 +10,8 @@ export class Utility {
     public static Polynome4(a: number, b: number, c: number, d: number, e: number, x: number) {
         return a * Math.pow(x, 4) + this.Polynome3(b, c, d, e, x);
     } 
+
+    public static enumKeys<O extends object, K extends keyof O = keyof O>(obj: O): K[] {
+        return Object.keys(obj).filter(k => Number.isNaN(+k)) as K[];
+    }
 }

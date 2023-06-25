@@ -5,6 +5,7 @@ import { SlotType } from "./Equipment";
 import Job, { Jobs } from "./Job";
 import type Guild from "./Guild";
 import type EquipmentSet from "./EquipmentSet";
+import { EffectType } from "./StatEffect";
 
 export default class Hero {
     public readonly saveIndex: number;
@@ -15,6 +16,8 @@ export default class Hero {
     public attack: number; // note that it's damage per seconds (dps)
     public area_id: string | null; // reference to the area database
     private readonly job: string;
+
+    public statData: Map<EffectType, number> = new Map<EffectType, number>();
 
     public weaponSlot : EquipmentSlot = new EquipmentSlot(SlotType.Weapon);
     public jewelrySlot : EquipmentSlot = new EquipmentSlot(SlotType.Jewelry);
@@ -30,6 +33,10 @@ export default class Hero {
         this.attack = Hero.baseAttackForLevel(level);
         this.area_id = null;
         this.job = Jobs[job];
+
+        for (const value of Utility.enumKeys(EffectType)) {
+            this.statData.set(EffectType[value], 0);
+        }
     }
 
     // Act as a constructor from save
@@ -43,6 +50,8 @@ export default class Hero {
         this.headSlot.setById(headSlot.equipmentId);
         this.bodySlot.setById(bodySlot.equipmentId);
         this.footSlot.setById(footSlot.equipmentId);
+
+        this.computeEquipmentValue();
 
         return this;
     }
@@ -129,6 +138,28 @@ export default class Hero {
 
     equipments() : EquipmentSlot[] {
         return [this.weaponSlot, this.jewelrySlot, this.headSlot, this.bodySlot, this.footSlot];
+    }
+
+    computeEquipmentValue() {
+        this.statData.clear();
+
+        // Handle equipment value
+        this.equipments().filter(s => !s.empty()).forEach(s => {
+            s.equipment.statEffects.forEach(e => {
+                this.statData.set(e.type, this.statData[e.type] + e.value);
+            });          
+        })
+
+        // Handle set value
+        let sets: Map<string, number> = new Map<string, number>();
+        this.equipments().filter(s => !s.empty() && s.equipment.setId != null).forEach(s => {
+            if(sets.has(s.equipment.setId)) {
+                sets.set(s.equipment.setId, sets.get(s.equipment.setId) + 1);
+            } else {
+                sets.set(s.equipment.setId, 1);
+            }
+        });
+        console.log([...sets]);
     }
 
     private getSlot(slot: SlotType) : EquipmentSlot {
