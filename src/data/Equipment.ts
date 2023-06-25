@@ -1,4 +1,5 @@
 import EquipmentSet from "./EquipmentSet";
+import type Hero from "./Hero";
 import Loot from "./Loot";
 import StatEffect, { DamagePercentEffect, DamageRawEffect, ExperiencePercentEffect, GoldRawEffect } from "./StatEffect";
 
@@ -22,7 +23,7 @@ export default class Equipment extends Loot {
         return "equipments";
     }
 
-    getTooltip(): string {
+    getTooltip(hero: Hero = null): string {
         let tooltip: string;
 
         tooltip = `<b>${this.name}</b><br>`
@@ -34,7 +35,7 @@ export default class Equipment extends Loot {
 
         if(this.setId != null) {
             tooltip += "<br>"
-            tooltip += EquipmentSet.getById(this.setId).toLongString(null);
+            tooltip += EquipmentSet.getById(this.setId).toLongString(hero);
         }
 
         return tooltip;

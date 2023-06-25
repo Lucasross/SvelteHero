@@ -5,12 +5,16 @@
     import { area_id } from "../store/Stores";
     import Modal from "./generic/Modal.svelte";
     import Progressbar from "./generic/Progressbar.svelte";
+    import HeroEquipment from "./generic/HeroEquipment.svelte";
 
     export let hero: Writable<Hero>;
     export let index: number;
-
+    
     let heroEdit: boolean = false;
     let heroNameInput: string = $hero.name;
+    let showModal = false;
+    let heroEquipment: HeroEquipment;
+    $: showModal, heroEquipment?.reset();
 
     function SetName() {
         heroEdit = false;
@@ -31,10 +35,6 @@
     function SwitchToEdit() {
         heroEdit = true;
     }
-
-    // Modal
-
-    let showModal = false;
 </script>
 
 <div class="container background_{index % 2}" on:click={() => (showModal = true)} on:keydown={null} >
@@ -106,6 +106,8 @@
             <p>Location : {$hero.getLocation()} {$hero.isInLocation() ? "(farming...)" : "(waiting...)"}</p>
             <div class="space"/>
             <p>Damage : {$hero.attack}</p>
+
+            <HeroEquipment bind:this={heroEquipment} hero={hero}/>
         </div>
     </div>
 </Modal>

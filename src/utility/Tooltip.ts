@@ -1,7 +1,6 @@
 import Tooltip from '../components/generic/Tooltip.svelte';
 
 export default function tooltip(element) {
-    let div;
     let title;
     let tooltipComponent;
     function mouseOver(event) {
@@ -27,7 +26,6 @@ export default function tooltip(element) {
     }
     function mouseLeave() {
         tooltipComponent.$destroy();
-        // NOTE: restore the `title` attribute
         element.setAttribute('title', title);
     }
 

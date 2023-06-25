@@ -11,6 +11,7 @@
 
     let grid;
     let contextMenu;
+    let equipModal: Modal;
     $: selectedEquipment = null;
     $: showEquipmentModal = false;
 
@@ -76,8 +77,8 @@
 <div class="template">
     <Title label="{isItems ? "Inventory" : "Equipment"}" />
     <ContextMenu bind:this={contextMenu} menuItems={menuItems}/>
-    <Modal bind:showModal={showEquipmentModal}>
-        <EquipmentSelection equipment={selectedEquipment} />
+    <Modal bind:this={equipModal} bind:showModal={showEquipmentModal}>
+        <EquipmentSelection equipment={selectedEquipment} on:equip={() => equipModal.close()}/>
     </Modal>
     <div bind:this={grid} class="grid grid-style">
         {#if isItems}

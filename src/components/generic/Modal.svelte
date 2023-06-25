@@ -72,6 +72,7 @@
 		padding-right: 0.3vw;
 		background-color: #00000000;
 	}
+	
 	button:hover {
 		background-color: #00000066;
 	}

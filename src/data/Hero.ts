@@ -102,7 +102,7 @@ export default class Hero {
                 if(oldEquipment != null) {
                     g.equipement.push(oldEquipment.id);
                 }
-                g.equipement = g.equipement.splice(g.equipement.indexOf(equipment.id), 1);
+                g.equipement.splice(g.equipement.indexOf(equipment.id), 1);
                 return g;
             })
 
@@ -124,7 +124,7 @@ export default class Hero {
     }
 
     getEquipedOfSet(set: EquipmentSet) : Equipment[] {
-        return this.equipments().filter(s => s.get().setId == set.id).map(s => s.get());
+        return this.equipments().filter(s => !s.empty() && s.get().setId == set.id).map(s => s.get());
     }
 
     equipments() : EquipmentSlot[] {
@@ -191,7 +191,7 @@ class EquipmentSlot {
     }
 
     public set(equipment: Equipment) : Equipment {
-        let oldEquipment = equipment;
+        let oldEquipment = this.equipment;
 
         this.equipment = equipment;
         this.equipmentId = equipment == null ? null : equipment.id;
@@ -201,5 +201,9 @@ class EquipmentSlot {
 
     public get(): Equipment {
         return this.equipment;
+    }
+
+    public empty(): boolean {
+        return this.get() == null;
     }
 }

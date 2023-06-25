@@ -3,6 +3,9 @@
     import type Equipment from "../../data/Equipment";
     import { guild, heroes as heroesList, heroesUpdate } from "../../store/Stores";
     import type Hero from "../../data/Hero";
+    import { createEventDispatcher } from 'svelte';
+
+    const dispatch = createEventDispatcher();
 
     $: heroes = heroesList;
 
@@ -19,7 +22,7 @@
             h.equip(equipment, guild)
             return h;
         });
-        
+        dispatch("equip");
     }
 </script>
 
