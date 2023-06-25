@@ -93,8 +93,8 @@ export default class Monster implements ISprite {
 
     static getBaseExperience(level: number): number {
         let a = 0.83;
-        let b = 8.6;
-        let c = 160;
+        let b = 66;
+        let c = 110;
         return Utility.Quadratic(a, b, c, level);
     }
 
