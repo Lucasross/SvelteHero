@@ -30,7 +30,7 @@ export class GoldRawEffect extends StatEffect {
 export class GoldPercentEffect extends StatEffect {
 
     constructor(value: number) {
-        super(EffectType.GoldRaw, value);
+        super(EffectType.GoldPercent, value);
     }
 
     toShortString(): string {
@@ -75,7 +75,7 @@ export class DamagePercentEffect extends StatEffect {
 export class ExperienceRawEffect extends StatEffect {
 
     constructor(value: number) {
-        super(EffectType.DamageRaw, value);
+        super(EffectType.ExperienceRaw, value);
     }
 
     toShortString(): string {
@@ -90,7 +90,7 @@ export class ExperienceRawEffect extends StatEffect {
 export class ExperiencePercentEffect extends StatEffect {
 
     constructor(value: number) {
-        super(EffectType.DamagePercent, value);
+        super(EffectType.ExperiencePercent, value);
     }
 
     toShortString(): string {
@@ -103,11 +103,11 @@ export class ExperiencePercentEffect extends StatEffect {
 } 
 
 export enum EffectType {
-    GoldRaw,
-    GoldPercent,
-    DamageRaw,
-    DamagePercent,
-    ExperienceRaw,
-    ExperiencePercent,
+    GoldRaw = "Gold Raw",
+    GoldPercent = "Gold Percent",
+    DamageRaw = "Damage Raw",
+    DamagePercent = "Damage Percent",
+    ExperienceRaw = "Experience Raw",
+    ExperiencePercent = "Experience Percent",
 }
 

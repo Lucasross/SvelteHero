@@ -4,8 +4,8 @@ import Equipment from "./Equipment";
 import { SlotType } from "./Equipment";
 import Job, { Jobs } from "./Job";
 import type Guild from "./Guild";
-import type EquipmentSet from "./EquipmentSet";
-import { EffectType } from "./StatEffect";
+import EquipmentSet from "./EquipmentSet";
+import StatEffect, { EffectType } from "./StatEffect";
 
 export default class Hero {
     public readonly saveIndex: number;
@@ -146,20 +146,23 @@ export default class Hero {
         // Handle equipment value
         this.equipments().filter(s => !s.empty()).forEach(s => {
             s.equipment.statEffects.forEach(e => {
-                this.statData.set(e.type, this.statData[e.type] + e.value);
+                Utility.setOrAdd(this.statData, e.type, e.value);
             });          
         })
 
         // Handle set value
         let sets: Map<string, number> = new Map<string, number>();
         this.equipments().filter(s => !s.empty() && s.equipment.setId != null).forEach(s => {
-            if(sets.has(s.equipment.setId)) {
-                sets.set(s.equipment.setId, sets.get(s.equipment.setId) + 1);
-            } else {
-                sets.set(s.equipment.setId, 1);
-            }
+            Utility.setOrAdd(sets, s.equipment.setId, 1);
         });
-        console.log([...sets]);
+        sets.forEach((nbSetItem: number, setId: string) => {
+            EquipmentSet.getById(setId).effects.forEach((setEffect: StatEffect, setRank: number) => {
+                if(setRank <= nbSetItem)
+                    Utility.setOrAdd(this.statData, setEffect.type, setEffect.value);
+            }); 
+        });
+
+        console.log(this.statData);
     }
 
     private getSlot(slot: SlotType) : EquipmentSlot {

@@ -14,4 +14,12 @@ export class Utility {
     public static enumKeys<O extends object, K extends keyof O = keyof O>(obj: O): K[] {
         return Object.keys(obj).filter(k => Number.isNaN(+k)) as K[];
     }
+
+    public static setOrAdd<T, K>(map: Map<T, K>, key, value) {
+        if(map.has(key)) {
+            map.set(key, map.get(key) + value);
+        } else {
+            map.set(key, value);
+        }
+    }
 }
