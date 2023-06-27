@@ -4,6 +4,7 @@ import Sprite from "./generic/Sprite";
 import type Hero from "./Hero";
 import type { ISprite } from "./generic/ISprite";
 import { Utility } from "../utility/Utility";
+import { EffectType } from "./StatEffect";
 
 export default class Monster implements ISprite {
     public static monsters: Monster[] = [];
@@ -56,7 +57,10 @@ export default class Monster implements ISprite {
         // Give gold to the guild
         let randomGold = (Math.random() * this.gold) - (this.gold / 2)
         let givenGold = this.gold + randomGold;
-        guild.update(g => {g.gold += Math.round(givenGold); return g});
+        let rawGoldBonus = heroesInvolved.reduce((rawGoldBonus, h) => rawGoldBonus + get(h).getStat(EffectType.GoldRaw), 0);
+        let percentGoldBonus = heroesInvolved.reduce((rawGoldBonus, h) => rawGoldBonus + get(h).getStat(EffectType.GoldPercent), 0);
+        let givenGoldWithBonus = (givenGold + rawGoldBonus) * (1 + percentGoldBonus);
+        guild.update(g => {g.gold += Math.round(givenGoldWithBonus); return g});
 
         // Give experience to the heroes
         let heroTooHighLevel: boolean = heroesInvolved.map(h => get(h)).filter(h => (h.level - this.level) > 20).length > 0;
