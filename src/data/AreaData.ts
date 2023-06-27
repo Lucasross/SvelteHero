@@ -155,7 +155,7 @@ class AreaController {
     }
 
     getAreaDps(): number {
-        return this.heroes.reduce((damages, h) => damages + get(h).attack, 0)
+        return this.heroes.reduce((damages, h) => damages + get(h).getAttack(), 0)
     }
 
     enter(hero: Writable<Hero>) {

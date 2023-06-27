@@ -87,7 +87,9 @@ export default class Hero {
         else if (diff > 0)
             exp = exp * (1 - (diff / 5));
 
-        this.experience += Math.round(exp);
+        let stattedExp = (exp + this.getStat(EffectType.ExperienceRaw)) * (1 + this.getStat(EffectType.ExperiencePercent));
+
+        this.experience += Math.round(stattedExp);
 
         while (this.experience >= this.experienceToNextLevel()) {
             this.levelup();
@@ -115,6 +117,7 @@ export default class Hero {
                 return g;
             })
 
+            this.computeEquipmentValue();
             return true;
         }
 
@@ -123,6 +126,7 @@ export default class Hero {
 
     unequip(slot: SlotType, guild: Writable<Guild>) {
         let oldEquipment = this.getSlot(slot).set(null);
+        this.computeEquipmentValue();
 
         guild.update(g => {
             if(oldEquipment != null) {
@@ -161,8 +165,18 @@ export default class Hero {
                     Utility.setOrAdd(this.statData, setEffect.type, setEffect.value);
             }); 
         });
+    }
 
-        console.log(this.statData);
+    getAttack() {
+        return Math.round((this.attack + this.getStat(EffectType.DamageRaw)) * (1 + this.getStat(EffectType.DamagePercent)));
+    }
+
+    getStat(type: EffectType): number {
+        let value = this.statData.get(type);
+        if(isNaN(value))
+            return 0;
+        else
+            return value;
     }
 
     private getSlot(slot: SlotType) : EquipmentSlot {

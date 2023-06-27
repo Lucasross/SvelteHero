@@ -6,6 +6,7 @@
     import Modal from "./generic/Modal.svelte";
     import Progressbar from "./generic/Progressbar.svelte";
     import HeroEquipment from "./generic/HeroEquipment.svelte";
+    import { EffectType } from "../data/StatEffect";
 
     export let hero: Writable<Hero>;
     export let index: number;
@@ -105,7 +106,11 @@
             <div class="space"/>
             <p>Location : {$hero.getLocation()} {$hero.isInLocation() ? "(farming...)" : "(waiting...)"}</p>
             <div class="space"/>
-            <p>Damage : {$hero.attack}</p>
+            <p>Damage : {$hero.getAttack()} (({$hero.attack} + {$hero.getStat(EffectType.DamageRaw)}) * {1 + $hero.getStat(EffectType.DamagePercent)})</p>
+            <div class="space"/>
+            <p>Experience : (x + {$hero.getStat(EffectType.ExperienceRaw)}) * {1 + $hero.getStat(EffectType.ExperiencePercent)}</p>
+            <div class="space"/>
+            <p>Gold : (x + {$hero.getStat(EffectType.GoldRaw)}) * {1 + $hero.getStat(EffectType.GoldPercent)}</p>
 
             <HeroEquipment bind:this={heroEquipment} hero={hero}/>
         </div>
