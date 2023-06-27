@@ -58,7 +58,7 @@ let storedGuild: Writable<Guild>;
 if (rawGuild == null)
     storedGuild = writable<Guild>(new Guild(0));
 else 
-    storedGuild = writable<Guild>(new Guild(rawGuild.gold).init(rawGuild.savedInventory));
+    storedGuild = writable<Guild>(new Guild(rawGuild.gold).init(rawGuild.savedInventory, rawGuild.equipment));
 
 storedGuild.subscribe(guild => {
     guild.prepareForSave();

@@ -1,3 +1,4 @@
+import { Utility } from "../utility/Utility";
 import type { ISprite } from "./generic/ISprite";
 import Sprite from "./generic/Sprite";
 
@@ -6,11 +7,13 @@ export default abstract class Loot implements ISprite {
     public readonly name: string;
     public readonly spriteName: string;
     public readonly sprite: Sprite;
+    public readonly gold: number;
 
-    constructor(name: string, spriteName: string) {
+    constructor(name: string, spriteName: string, gold: number) {
         this.id = name;
         this.name = name;
         this.spriteName = spriteName;
+        this.gold = Math.floor(gold);
         this.sprite = new Sprite(this.getFullPath(spriteName));
     }
 
@@ -18,6 +21,14 @@ export default abstract class Loot implements ISprite {
 
     getSprite(): Promise<any> {
         return this.sprite.sprite;
+    }
+
+    public static golfForLevel(level: number) {
+        let a: number = 0.01;
+        let b: number = 0.04;
+        let c: number = 6;
+        let d: number = 190;
+        return Utility.Polynome3(a, b, c, d, level);
     }
 
     protected static getLootById<T extends Loot>(database: T[], id: string, debugName: string = "loots"): T {

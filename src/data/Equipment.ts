@@ -1,3 +1,4 @@
+import { Utility } from "../utility/Utility";
 import EquipmentSet from "./EquipmentSet";
 import type Hero from "./Hero";
 import Loot from "./Loot";
@@ -12,7 +13,7 @@ export default class Equipment extends Loot {
     public readonly statEffects: StatEffect[]; 
 
     constructor(name: string, slotType: SlotType, spriteName: string, levelRequired: number, setId: string = null, statEffects: StatEffect[] = []) {
-        super(name, spriteName);
+        super(name, spriteName, Loot.golfForLevel(levelRequired));
         this.levelRequired = levelRequired;
         this.setId = setId;
         this.statEffects = statEffects;

@@ -8,10 +8,12 @@
     import Equipment from "../data/Equipment";
     import EquipmentSelection from "./modal/EquipmentSelection.svelte";
     import Modal from "./generic/Modal.svelte";
+    import { afterUpdate, subscribe } from "svelte/internal";
 
     let grid;
     let contextMenu;
     let equipModal: Modal;
+    let mounted: boolean = false;
     $: selectedEquipment = null;
     $: showEquipmentModal = false;
 
@@ -19,6 +21,12 @@
 
     onMount(async () => {
         resizeItem();
+        mounted = true;
+    })
+
+    afterUpdate(() => {
+        if(mounted)
+            resizeItem();
     })
 
     function resizeItem() {
@@ -34,7 +42,15 @@
         showEquipmentModal = true;
     }
 
-    function test() {
+    function sell() {
+        guild.update(g => {
+            g.gold += selectedEquipment.gold;
+            g.equipment.splice(g.equipment.indexOf(selectedEquipment.id), 1);
+            return g;
+        })
+    }
+
+    function wip() {
         alert("wip");
     }
 
@@ -48,14 +64,14 @@
         },
         {
             'name': 'upgrade',
-            'onClick': test,
+            'onClick': wip,
             'displayText': "Upgrade",
             'class': 'fa-solid fa-hammer',
             'style': ''
         },
         {
             'name': 'craft',
-            'onClick': test,
+            'onClick': wip,
             'displayText': "Craft",
             'class': 'fa-solid fa-screwdriver-wrench',
             'style': ''
@@ -65,7 +81,7 @@
         },
         {
             'name': 'Sell',
-            'onClick': test,
+            'onClick': sell,
             'displayText': "Sell",
             'class': 'fa-solid fa-coins',
             'style': 'color: #fcba03',
@@ -93,13 +109,12 @@
 
         {:else}
 
-            {#each $guild.equipement as key}
+            {#each $guild.equipment as key}
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
                 <div on:click|preventDefault|stopPropagation={(e) => openContextMenu(e, key)} class="slot">
                     <Sprite tooltipText="{Equipment.getById(key).getTooltip()}" sprite={Equipment.getById(key).getSprite()}/>
                 </div>
             {/each}
-
         {/if}
     </div>
 </div>

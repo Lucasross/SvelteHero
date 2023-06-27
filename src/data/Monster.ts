@@ -5,6 +5,8 @@ import type Hero from "./Hero";
 import type { ISprite } from "./generic/ISprite";
 import { Utility } from "../utility/Utility";
 import { EffectType } from "./StatEffect";
+import LootTable from "./LootTable";
+import Equipment from "./Equipment";
 
 export default class Monster implements ISprite {
     public static monsters: Monster[] = [];
@@ -18,15 +20,17 @@ export default class Monster implements ISprite {
     public readonly sprite: Sprite;
     public readonly spriteFileName: string;
     private readonly healthScale: number;
+    private readonly lootTable: LootTable;
 
     private currentHealth: number; //run time value
 
-    constructor(id: string, name: string, level: number, spriteFileName: string, healthScale: number = 1) {
+    constructor(id: string, name: string, level: number, spriteFileName: string, healthScale: number = 1, lootTable: LootTable = null) {
         this.id = id;
         this.name = name;
         this.level = level;
         this.healthScale = healthScale;
         this.maxHealth = Math.round(Monster.getMaxHealth(level) * healthScale);
+        this.lootTable = lootTable;
 
         this.gold = Math.round(level * (5 + (level/2)));
         this.experience = Math.round(Monster.getBaseExperience(level) * this.experienceScalerBasedOnHealthScale(healthScale));
@@ -38,7 +42,7 @@ export default class Monster implements ISprite {
 
     copy(): Monster
     {
-        return new Monster(this.id, this.name, this.level, this.spriteFileName, this.healthScale);
+        return new Monster(this.id, this.name, this.level, this.spriteFileName, this.healthScale, this.lootTable);
     }
     
     private getFullPath(file: string): string {
@@ -66,6 +70,17 @@ export default class Monster implements ISprite {
         let heroTooHighLevel: boolean = heroesInvolved.map(h => get(h)).filter(h => (h.level - this.level) > 20).length > 0;
         let monsterExp: number = heroTooHighLevel ? 0 : this.experience;
         heroesInvolved.forEach(h => h.update(h => h.giveExp(monsterExp, this.level)));
+        
+        // Try loot from table
+        if(this.lootTable != null) {
+            let loot = this.lootTable.TryLoot();
+            if(loot != null) {
+                guild.update(g => {
+                    g.equipment.push(loot.id);
+                    return g;
+                })
+            }
+        }
 
         this.currentHealth = this.maxHealth;
     }
@@ -110,7 +125,7 @@ export default class Monster implements ISprite {
     }
 }
 
-Monster.monsters.push(new Monster("piou-easy", "Piou", 1, "piou-yellow.png"));
+Monster.monsters.push(new Monster("piou-easy", "Piou", 1, "piou-yellow.png", 1, new LootTable([Equipment.getById("Templar Helmet")], 100)));
 Monster.monsters.push(new Monster("chicken-easy", "Chicken", 1, "chicken-white.png", 1.1));
 
 Monster.monsters.push(new Monster("slime-easy", "Slime", 2, "slime-blue.png", 1.1));

@@ -12,5 +12,5 @@ export default class Item extends Loot {
     }
 }
 
-Item.items.push(new Item("Iron", "iron"));
-Item.items.push(new Item("Ardanium", "ardanium"));
+Item.items.push(new Item("Iron", "iron", Loot.golfForLevel(5) / 3));
+Item.items.push(new Item("Ardanium", "ardanium", Loot.golfForLevel(40) / 3));
