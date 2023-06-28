@@ -13,6 +13,7 @@
         <WorldMapLocation x={9} y={32} area_id={"Dark forest"}/>
         <WorldMapLocation x={36} y={0} area_id={"Demon's castle"}/>
         <WorldMapLocation x={33} y={56} area_id={"Keyns village"}/>
+        <WorldMapLocation x={72} y={34} area_id={"Fire's plains"}/>
     </div>
 </div>
 

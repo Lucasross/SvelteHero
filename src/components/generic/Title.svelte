@@ -1,10 +1,12 @@
 <script lang="ts">
+    import { createEventDispatcher } from "svelte";
     import AreaData from "../../data/AreaData";
     import { area_id, guild, heroes } from "../../store/Stores";
 
     export let label: String;
     export let enableGold: boolean = false;
     export let area: AreaData = null;
+    export let sellAll: boolean = null;
 
     let dps = 0;
 
@@ -20,6 +22,12 @@
         area_id.subscribe(a => {
             dps = AreaData.getById(a).getAreaDps();
         });
+    }
+
+    const dispatch = createEventDispatcher();
+    
+    function sellAllItem() {
+        dispatch('sellAll');
     }
 </script>
 
@@ -46,6 +54,9 @@
             />
             <p style="display:inline;">{dps}</p>
         {/if}
+        {#if sellAll != null}
+            <button on:click={sellAllItem}><i class="fa-solid fa-coins" style="color: #fcba03"></i> All</button>
+        {/if}
     </p>
 </div>
 
@@ -63,5 +74,9 @@
     .title {
         flex: 1;
         text-align: center;
+    }
+    button {
+        font-size: small;
+        padding: 0px 5px;
     }
 </style>

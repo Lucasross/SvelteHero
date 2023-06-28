@@ -111,9 +111,9 @@ export default class Hero {
 
             guild.update(g => {
                 if(oldEquipment != null) {
-                    g.equipement.push(oldEquipment.id);
+                    g.equipment.push(oldEquipment.id);
                 }
-                g.equipement.splice(g.equipement.indexOf(equipment.id), 1);
+                g.equipment.splice(g.equipment.indexOf(equipment.id), 1);
                 return g;
             })
 
@@ -130,7 +130,7 @@ export default class Hero {
 
         guild.update(g => {
             if(oldEquipment != null) {
-                g.equipement.push(oldEquipment.id);
+                g.equipment.push(oldEquipment.id);
             }
             return g;
         })

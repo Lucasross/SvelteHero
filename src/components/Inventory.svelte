@@ -9,6 +9,8 @@
     import EquipmentSelection from "./modal/EquipmentSelection.svelte";
     import Modal from "./generic/Modal.svelte";
     import { afterUpdate, subscribe } from "svelte/internal";
+    import type Guild from "../data/Guild";
+    import type Loot from "../data/Loot";
 
     let grid;
     let contextMenu;
@@ -44,10 +46,14 @@
 
     function sell() {
         guild.update(g => {
-            g.gold += selectedEquipment.gold;
-            g.equipment.splice(g.equipment.indexOf(selectedEquipment.id), 1);
+            sellLoot(selectedEquipment, g);
             return g;
         })
+    }
+
+    function sellLoot(loot: Loot, guild: Guild) {
+        guild.gold += loot.gold;
+        guild.equipment.splice(guild.equipment.indexOf(loot.id), 1);
     }
 
     function wip() {
@@ -87,11 +93,27 @@
             'style': 'color: #fcba03',
         },
     ]
+
+    function sellAll() {
+        if(isItems) {
+            console.log("Sell all items not implemente");
+        } else {
+            guild.update(g => {
+                g.equipment.forEach(eId => {
+                    let l: Loot = Equipment.getById(eId);
+                    g.gold += l.gold;
+                    g.equipment[g.equipment.indexOf(l.id)] = null;
+                });
+                g.equipment = g.equipment.filter(e => e != null);
+                return g;
+            });
+        }
+    }
 </script>
 
 <svelte:window on:resize={resizeItem}></svelte:window>
 <div class="template">
-    <Title label="{isItems ? "Inventory" : "Equipment"}" />
+    <Title label="{isItems ? "Inventory" : "Equipment"}" sellAll={true} on:sellAll={sellAll}/>
     <ContextMenu bind:this={contextMenu} menuItems={menuItems}/>
     <Modal bind:this={equipModal} bind:showModal={showEquipmentModal}>
         <EquipmentSelection equipment={selectedEquipment} on:equip={() => equipModal.close()}/>

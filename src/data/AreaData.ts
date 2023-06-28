@@ -137,6 +137,9 @@ class AreaController {
         this.monster.damage(damages);
 
         if (this.monster.isDead()) {
+            if(this.area.isTimedArea())
+                this.currentTimer = this.area.timePerMonster;
+
             this.monster.die(guild, this.heroes);
             this.setMonster(this.area.encounters[Math.floor(Math.random() * this.area.encounters.length)]);
         }
@@ -216,6 +219,12 @@ AreaData.areas.push(new AreaData("Keyns village", "ruinedvillage.jpg",
         "ogre-easy",
         "cerbere-easy"
     ]));
+
+    AreaData.areas.push(new AreaData("Fire's plains", "volcano.jpg",
+    [
+        "sorcerer-boss"
+    ], 
+    60, "boss-skull.png"));
 
 AreaData.areas.push(new AreaData("Demon's castle", "darkcastle.jpg",
     [
