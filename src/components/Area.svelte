@@ -47,7 +47,7 @@
     }
 
     function DamageCurrentMonster() {
-        currentMonster.damage(5);
+        currentMonster.damage(Math.round(5 + area.getAreaDps() * 0.1));
         if(currentMonster.isDead()) {
             currentMonster.die(guild, area.getHeroes())
         }

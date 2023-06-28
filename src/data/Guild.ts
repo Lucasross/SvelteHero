@@ -11,12 +11,7 @@ export default class Guild {
         this.gold = gold;
         this.inventory = new Map<string, number>();
         this.inventory.set('Iron', 3);
-        this.inventory.set('Ardanium', 0);
-
-        this.equipment.push("Templar Helmet");
-        this.equipment.push("Templar Robe");
-        this.equipment.push("Templar Necklace");
-        this.equipment.push("Templar Tower Shield");
+        this.inventory.set('Ardanium', 1);
     }
 
     init(savedInventory, equipment) : Guild {
