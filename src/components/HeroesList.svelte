@@ -5,6 +5,7 @@
   import Hero from "../data/Hero";
   import { get } from "svelte/store";
   import CharacterCreation from "./CharacterCreation.svelte";
+    import Button from "./generic/Button.svelte";
 
   $: heroes = heroesList;
 

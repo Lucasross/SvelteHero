@@ -55,7 +55,7 @@
             <p style="display:inline;">{dps}</p>
         {/if}
         {#if sellAll != null}
-            <button on:click={sellAllItem}><i class="fa-solid fa-coins" style="color: #fcba03"></i> All</button>
+            <button on:click={sellAllItem}><i class="fa-solid fa-coins" style="color: #fcba03"></i>All</button>
         {/if}
     </p>
 </div>
@@ -63,20 +63,19 @@
 <style>
     * {
         margin: 0;
-        padding: 0;
     }
     .container {
         display: flex;
         border: solid black 1px;
         padding: 5px 0 5px 0;
         background-color: #d8eaea;
+        align-items: center;
     }
     .title {
         flex: 1;
         text-align: center;
     }
-    button {
-        font-size: small;
-        padding: 0px 5px;
+    i {
+        margin-right: 3px;
     }
 </style>

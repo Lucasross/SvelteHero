@@ -63,12 +63,14 @@
 		}
 	}
 	button {
+		all: unset;
 		position: absolute;
 		top: 0;
 		left: 100%;
 		transform: translate(-100%, 0%);
 		border: none;
 		margin: 0;
+		padding: 4px;
 		padding-right: 0.3vw;
 		background-color: #00000000;
 	}

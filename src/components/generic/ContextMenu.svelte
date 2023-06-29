@@ -90,6 +90,9 @@
         list-style-type: none;
         width: 1fr;
     }
+    button {
+        all: inherit;
+    }
     ul li button{
         font-size: 1rem;
         color: #222;

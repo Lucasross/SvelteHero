@@ -7,6 +7,7 @@
     import Progressbar from "./generic/Progressbar.svelte";
     import HeroEquipment from "./generic/HeroEquipment.svelte";
     import { EffectType } from "../data/StatEffect";
+    import Button from "./generic/Button.svelte";
 
     export let hero: Writable<Hero>;
     export let index: number;
