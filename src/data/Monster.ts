@@ -150,9 +150,9 @@ Monster.monsters.push(new Monster("snake-easy", "Snake", 6, "snake-pink.png",1, 
 Monster.monsters.push(new Monster("spirit-easy", "Fire spirit", 7, "spirit-red.png", 0.9, new LootTable(templarSet, 2)));
 Monster.monsters.push(new Monster("goblin-easy", "Goblin", 7, "goblin-yellow.png", 1.1, new LootTable(templarSet, 2)));
 
-Monster.monsters.push(new Monster("ogre-easy", "Ogre", 8, "ogre-green.png", 1.2, new LootTable(templarSet, 5)))
+Monster.monsters.push(new Monster("ogre-easy", "Ogre", 8, "ogre-green.png", 1.2, new LootTable(templarSet, 3)))
 
-Monster.monsters.push(new Monster("cerbere-easy", "Cerbere", 10, "cerbere-white.png", 1.5, new LootTable(templarSet, 10)));
+Monster.monsters.push(new Monster("cerbere-easy", "Cerbere", 10, "cerbere-white.png", 1.5, new LootTable(templarSet, 5)));
 
 Monster.monsters.push(new Monster("sorcerer-boss", "Red sorcerer", 15, "sorcerer-red.png", 30, new LootTable(templarSet, 20)));
 
