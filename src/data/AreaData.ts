@@ -3,13 +3,15 @@ import { get } from "svelte/store";
 import type Hero from "./Hero";
 import Monster from "./Monster";
 import type Guild from "./Guild";
+import Sprite from "./generic/Sprite";
+import type { ISprite } from "./generic/ISprite";
 
-export default class AreaData {
+export default class AreaData implements ISprite {
     public static areas: AreaData[] = [];
 
     public readonly id: string;
     public readonly name: string;
-    public readonly background: string;
+    public readonly background: Sprite;
     public readonly encounters: Monster[];
     public readonly timePerMonster: number | null;
     public readonly iconPath: string;
@@ -19,7 +21,7 @@ export default class AreaData {
     constructor(name: string, background: string, encounters: string[], timePerMonster: number | null = null, iconPath: string = "compass.png") {
         this.id = name;
         this.name = name;
-        this.background = background;
+        this.background = new Sprite(this.getFullPath(background));
         this.encounters = encounters.map(id => Monster.getById(id).copy());
         this.timePerMonster = timePerMonster;
         this.iconPath = iconPath;
@@ -28,8 +30,12 @@ export default class AreaData {
     }
 
     // #region Data
-    getPicture(): string {
-        return "pictures/areas/" + this.background;
+    getFullPath(path: string): string {
+        return "pictures/areas/" + path;
+    }
+
+    getSprite(): Promise<any> {
+        return this.background.get();
     }
 
     levelRange(): string {

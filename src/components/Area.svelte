@@ -2,13 +2,13 @@
     import AreaData from "../data/AreaData";
     import type Monster from "../data/Monster";
 
+    import Sprite from "./generic/Sprite.svelte";
     import Progressbar from "./generic/Progressbar.svelte";
     import Title from "./generic/Title.svelte";
 
     import { area_id, guild } from "../store/Stores";
     import { tweened, type Tweened } from "svelte/motion";
     import { cubicOut } from "svelte/easing";
-    import Sprite from "./generic/Sprite.svelte";
 
     let area: AreaData = AreaData.getById($area_id);
     let currentMonster: Monster;
@@ -81,8 +81,8 @@
                 </div>
             </div>
         {/if}
-        <div class="container">
-            <img src={area.getPicture()} alt="area" />
+        <div class="container-area">
+            <Sprite sprite={area.getSprite()} alt="{area.name}" />
         </div>
         <div class="relative">
             <div class="absolute-healthbar">
@@ -101,7 +101,7 @@
         border: solid black 1px;
         border-top: 0px;
     }
-    .container > img {
+    :global(.container-area > img) {
         display: block;
         height: 250px;
         width: 100%;
