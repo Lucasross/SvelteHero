@@ -36,7 +36,13 @@
             <p style="margin-left: 20px">{get(hero).name}</p>
             <p>{get(hero).getJob().name}</p>
             <p style="text-align:end; margin-right: 50px">{get(hero).level}</p>
-            <button on:click={() => equipItem(hero)}>Equip</button>
+            <button on:click={() => equipItem(hero)} disabled={!get(hero).canEquip(equipment)}>
+                {#if !get(hero).canEquip(equipment)}
+                    Low level
+                {:else}
+                    Equip
+                {/if}
+            </button>
         </div>
         {/each}
     </div>
@@ -53,7 +59,7 @@
     .hero {
         vertical-align: middle;
         display: grid;
-        grid-template-columns: 40px 150px 150px auto auto;
+        grid-template-columns: 40px 150px 150px 150px auto;
     }
     .hero:hover {
         background-color: #ccc;

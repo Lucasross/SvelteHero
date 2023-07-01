@@ -105,8 +105,15 @@ export default class Hero {
         return Job.getById(Jobs[this.job]);
     }
 
+    canEquip(equipment: Equipment): boolean {
+        if(equipment == null)
+            return false;
+
+        return this.level >= equipment.levelRequired;
+    }
+
     equip(equipment: Equipment, guild: Writable<Guild>) : boolean {
-        if(this.level >= equipment.levelRequired) {
+        if(this.canEquip(equipment)) {
             let oldEquipment: Equipment = this.getSlot(equipment.slotType).set(equipment);
 
             guild.update(g => {

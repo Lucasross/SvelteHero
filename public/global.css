@@ -52,6 +52,7 @@ button {
 
 button:disabled {
 	color: #999;
+	border: 1px solid rgb(249, 136, 136) !important; 
 }
 
 button:not(:disabled):active {
