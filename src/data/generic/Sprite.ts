@@ -1,9 +1,9 @@
 export default class Sprite {
-    public readonly spritePath: string;
-    public readonly sprite: Promise<any>;
+    private readonly spritePath: string;
+    private sprite: Promise<any>;
 
     constructor(path: string) {
-        this.sprite = fetch(path).then(r => r.blob().then(r => this.LoadSprite(r)));
+        this.spritePath = path;
     }
 
     LoadSprite(blob) {
@@ -12,5 +12,13 @@ export default class Sprite {
             reader.onloadend = () => resolve(reader.result);
             reader.readAsDataURL(blob);
         });
+    }
+
+    public get(): Promise<any> {
+        if(this.sprite == null) {
+            this.sprite = fetch(this.spritePath).then(r => r.blob().then(r => this.LoadSprite(r)));
+        }
+        
+        return this.sprite;
     }
 }

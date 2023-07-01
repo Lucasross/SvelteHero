@@ -20,7 +20,7 @@ export default abstract class Loot implements ISprite {
     protected abstract picturesPath(): string; 
 
     getSprite(): Promise<any> {
-        return this.sprite.sprite;
+        return this.sprite.get();
     }
 
     public static golfForLevel(level: number) {

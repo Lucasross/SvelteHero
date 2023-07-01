@@ -54,7 +54,7 @@ export default class Monster implements ISprite {
     }
 
     getSprite() {
-        return this.sprite.sprite;
+        return this.sprite.get();
     }
 
     die(guild: Writable<Guild>, heroesInvolved: Array<Writable<Hero>>)  {
