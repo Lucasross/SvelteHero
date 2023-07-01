@@ -33,7 +33,7 @@
         {/each}
     </div>
     <button style="margin-top: 20px;" on:click={create}>
-        Create <b>{heroName}</b> as a <b>{selectedJob}</b> ?
+        Create <b>{heroName}</b> as a <b>{selectedJob}</b>?
     </button>
 </div>
 
