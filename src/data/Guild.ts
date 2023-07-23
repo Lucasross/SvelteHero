@@ -1,4 +1,6 @@
+import { Utility } from "../utility/Utility";
 import Hero from "./Hero";
+import type Loot from "./Loot";
 
 export default class Guild {
     public gold: number;
@@ -10,14 +12,16 @@ export default class Guild {
     constructor(gold: number) {
         this.gold = gold;
         this.inventory = new Map<string, number>();
-        this.inventory.set('Iron', 3);
-        this.inventory.set('Ardanium', 1);
     }
 
     init(savedInventory, equipment) : Guild {
         this.inventory = new Map(JSON.parse(savedInventory));
         this.equipment = equipment == null ? [] : equipment;
         return this;
+    }
+
+    public addItem(loot: Loot) {
+        Utility.setOrAdd(this.inventory, loot.id, 1);
     }
 
     prepareForSave() {

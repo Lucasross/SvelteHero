@@ -8,16 +8,19 @@ export default abstract class Loot implements ISprite {
     public readonly spriteName: string;
     public readonly sprite: Sprite;
     public readonly gold: number;
+    public readonly lootWeight: number;
 
-    constructor(name: string, spriteName: string, gold: number) {
+    constructor(name: string, spriteName: string, gold: number, lootWeight: number) {
         this.id = name;
         this.name = name;
         this.spriteName = spriteName;
         this.gold = Math.floor(gold);
+        this.lootWeight = lootWeight;
         this.sprite = new Sprite(this.getFullPath(spriteName));
     }
 
     protected abstract picturesPath(): string; 
+    public abstract getType(): LootType;
 
     getSprite(): Promise<any> {
         return this.sprite.get();
@@ -43,4 +46,9 @@ export default abstract class Loot implements ISprite {
     private getFullPath(file: string): string {
         return `pictures/${this.picturesPath()}/${file}.png`;
     }
+}
+
+export enum LootType {
+    Equipment,
+    Item,
 }

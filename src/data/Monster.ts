@@ -7,6 +7,7 @@ import { Utility } from "../utility/Utility";
 import { EffectType } from "./StatEffect";
 import LootTable from "./LootTable";
 import Equipment from "./Equipment";
+import { LootType } from "./Loot";
 
 export default class Monster implements ISprite {
     public static monsters: Monster[] = [];
@@ -76,7 +77,10 @@ export default class Monster implements ISprite {
             let loot = this.lootTable.TryLoot();
             if(loot != null) {
                 guild.update(g => {
-                    g.equipment.push(loot.id);
+                    if(loot.getType() == LootType.Equipment)
+                        g.equipment.push(loot.id);
+                    else
+                        g.addItem(loot);
                     return g;
                 })
             }
@@ -125,35 +129,27 @@ export default class Monster implements ISprite {
     }
 }
 
-let templarSet =
-    [
-        Equipment.getById("Templar Helmet"),
-        Equipment.getById("Templar Robe"),
-        Equipment.getById("Templar Necklace"),
-        Equipment.getById("Templar Tower Shield"),
-    ];
+Monster.monsters.push(new Monster("piou-easy", "Piou", 1, "piou-yellow.png", 1, LootTable.normal_10));
+Monster.monsters.push(new Monster("chicken-easy", "Chicken", 1, "chicken-white.png", 1.1, LootTable.normal_10));
 
-Monster.monsters.push(new Monster("piou-easy", "Piou", 1, "piou-yellow.png", 1, new LootTable(templarSet, 1)));
-Monster.monsters.push(new Monster("chicken-easy", "Chicken", 1, "chicken-white.png", 1.1, new LootTable(templarSet, 1)));
+Monster.monsters.push(new Monster("slime-easy", "Slime", 2, "slime-blue.png", 1.1, LootTable.normal_10));
 
-Monster.monsters.push(new Monster("slime-easy", "Slime", 2, "slime-blue.png", 1.1, new LootTable(templarSet, 1)));
+Monster.monsters.push(new Monster("beetle-easy", "Beetle", 3, "beetle-blue.png", 1, LootTable.normal_10));
 
-Monster.monsters.push(new Monster("beetle-easy", "Beetle", 3, "beetle-blue.png", 1, new LootTable(templarSet, 1)));
+Monster.monsters.push(new Monster("wolf-easy", "Wolf", 4, "wolf-brown.png", 1, LootTable.normal_10));
+Monster.monsters.push(new Monster("mushroom-easy", "Mushroom", 4, "mushroom-green.png", 1.15, LootTable.normal_10));
 
-Monster.monsters.push(new Monster("wolf-easy", "Wolf", 4, "wolf-brown.png", 1, new LootTable(templarSet, 1.5)));
-Monster.monsters.push(new Monster("mushroom-easy", "Mushroom", 4, "mushroom-green.png", 1.15, new LootTable(templarSet, 1.5)));
+Monster.monsters.push(new Monster("plant-easy", "Angry plant", 5, "plant-green.png", 1.1, LootTable.normal_10));
 
-Monster.monsters.push(new Monster("plant-easy", "Angry plant", 5, "plant-green.png", 1.1, new LootTable(templarSet, 1.5)));
+Monster.monsters.push(new Monster("snake-easy", "Snake", 6, "snake-pink.png",1, LootTable.normal_10));
 
-Monster.monsters.push(new Monster("snake-easy", "Snake", 6, "snake-pink.png",1, new LootTable(templarSet, 2)));
+Monster.monsters.push(new Monster("spirit-easy", "Fire spirit", 7, "spirit-red.png", 0.9, LootTable.normal_10));
+Monster.monsters.push(new Monster("goblin-easy", "Goblin", 7, "goblin-yellow.png", 1.1, LootTable.normal_10));
 
-Monster.monsters.push(new Monster("spirit-easy", "Fire spirit", 7, "spirit-red.png", 0.9, new LootTable(templarSet, 2)));
-Monster.monsters.push(new Monster("goblin-easy", "Goblin", 7, "goblin-yellow.png", 1.1, new LootTable(templarSet, 2)));
+Monster.monsters.push(new Monster("ogre-easy", "Ogre", 8, "ogre-green.png", 1.2, LootTable.normal_10))
 
-Monster.monsters.push(new Monster("ogre-easy", "Ogre", 8, "ogre-green.png", 1.2, new LootTable(templarSet, 3)))
+Monster.monsters.push(new Monster("cerbere-easy", "Cerbere", 10, "cerbere-white.png", 1.5, LootTable.normal_10));
 
-Monster.monsters.push(new Monster("cerbere-easy", "Cerbere", 10, "cerbere-white.png", 1.5, new LootTable(templarSet, 5)));
-
-Monster.monsters.push(new Monster("sorcerer-boss", "Red sorcerer", 15, "sorcerer-red.png", 30, new LootTable(templarSet, 20)));
+Monster.monsters.push(new Monster("sorcerer-boss", "Red sorcerer", 15, "sorcerer-red.png", 30, LootTable.normal_10));
 
 Monster.monsters.push(new Monster("demon-lord", "Demon Lord", 100, "demon-lord.png", 50));
