@@ -2,6 +2,7 @@
     import { createEventDispatcher } from "svelte";
     import AreaData from "../../data/AreaData";
     import { area_id, guild, heroes } from "../../store/Stores";
+    import { get } from "svelte/store";
 
     export let label: String;
     export let enableGold: boolean = false;
@@ -25,6 +26,31 @@
     }
 
     const dispatch = createEventDispatcher();
+
+    let goldDisplay: HTMLParagraphElement;
+    let prevGold: number;
+    prevGold = get(guild).gold;
+
+    guild.subscribe(g => {
+        if(goldDisplay != null && prevGold != g.gold) {
+            let delta = Math.abs(g.gold - prevGold);
+            let sign : string = prevGold < g.gold ? "+" : "-";
+
+            const span = document.createElement("span");
+            const value = document.createTextNode(`${sign}${delta}`);
+            
+            span.classList.add("goldAnim");
+            
+            span.appendChild(value);
+            goldDisplay.appendChild(span);  
+            
+            prevGold = g.gold;
+
+            setTimeout(s => {
+                s.remove();
+            }, 850, span);
+        }
+    })
     
     function sellAllItem() {
         dispatch('sellAll');
@@ -40,7 +66,9 @@
                 src="pictures/cash.png"
                 alt="cash"
             />
-            <p style="display:inline;">{$guild.gold}</p>
+            <p class="gold-animation-container" bind:this={goldDisplay}>
+                {$guild.gold}
+            </p>
         {/if}
     </div>
     <p class="title">{label}</p>
@@ -77,5 +105,29 @@
     }
     i {
         margin-right: 3px;
+    }
+    .gold-animation-container {
+        display: inline;
+        position: relative;
+    }
+    :global(.goldAnim) {
+        animation: fadeInMoveUp 0.9s;
+        font-size: small;
+        position: absolute;
+    }
+
+    @keyframes fadeInMoveUp {
+        0% { 
+            opacity: 1;
+            bottom: 0px;
+        }
+        15% { 
+            opacity: 1;
+            bottom: 0px;
+        }
+        100% { 
+            opacity: 0; 
+            bottom: 25px;
+        }
     }
 </style>
