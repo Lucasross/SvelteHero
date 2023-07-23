@@ -178,5 +178,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
     }
 </style>

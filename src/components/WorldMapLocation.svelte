@@ -24,6 +24,7 @@
         position: absolute;
         width: 60px;
         text-align: center;
+        cursor: pointer;
     }
     .location:hover {
         background-color: #c4c4c4aa;
