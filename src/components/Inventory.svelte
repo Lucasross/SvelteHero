@@ -100,13 +100,6 @@
             style: "",
         },
         {
-            name: "craft",
-            onClick: wip,
-            displayText: "Craft",
-            class: "fa-solid fa-screwdriver-wrench",
-            style: "",
-        },
-        {
             name: "hr",
         },
         {
