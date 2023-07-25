@@ -43,18 +43,19 @@ export default class LootTable {
         const sum = list.reduce((sum, current) => sum + current.lootWeight, 0);
         const randomRoll = Math.random() * sum;
         var currentSum = 0;
+        var targetLoot: Loot = null;
         
         list.forEach(e => {
-            if(currentSum < randomRoll) {
-                return e;
-            }
+            if(targetLoot != null) return;
+            
             currentSum += e.lootWeight;
+            if(randomRoll < currentSum) targetLoot = e;
         });
 
-        return list[list.length - 1];
+        return targetLoot == null ? list[list.length - 1] : targetLoot;
     }
 
-    public static readonly normal_10 = new LootTable(EquipmentSet.templarSet, Item.upgrade10, 1, 4, 5);
+    public static readonly normal_10 = new LootTable(EquipmentSet.templarSet, Item.upgrade10, 1, 4, 10);
     public static readonly elite_10 = new LootTable(null, Item.upgrade10, 0, 1, 20); 
     public static readonly boss_10 = new LootTable(EquipmentSet.templarSet, null, 1, 0, 40); 
 }
