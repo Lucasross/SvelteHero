@@ -59,11 +59,14 @@ export default class Equipment extends Loot {
 }
 
 export enum SlotType {
-    Weapon,
-    Jewelry,
-    Head,
-    Body,
-    Foot,
+    Weapon = 1 << 1,
+    Jewelry = 1 << 2,
+    Head = 1 << 3,
+    Body = 1 << 4,
+    Foot = 1 << 5,
+
+    Clothing = Head | Body | Foot,
+    All = Weapon | Jewelry | Head | Body | Foot, 
 }
 
 Equipment.equipments.push(new Equipment("Templar Helmet", SlotType.Head, "close_helmet", 5, 2, "The Ancient Templar", [new DamageRawEffect(5), new GoldRawEffect(5)]));
