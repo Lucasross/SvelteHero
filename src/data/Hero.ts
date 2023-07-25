@@ -83,7 +83,7 @@ export default class Hero {
         let diff: number = this.level - monsterLevel;
 
         if (diff > 5 || diff < -5)
-            exp = 0;
+            return this;
         else if (diff > 0)
             exp = exp * (1 - (diff / 5));
 
