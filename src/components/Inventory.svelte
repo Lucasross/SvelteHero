@@ -13,6 +13,7 @@
     import type Loot from "../data/Loot";
     import Item from "../data/Item";
     import { Utility } from "../utility/Utility";
+    import UpgradeRecipe from "../data/UpgradeRecipe";
 
     let grid;
     let contextMenu;
@@ -80,6 +81,11 @@
         }
     }
 
+    function upgrade() {
+        var x = UpgradeRecipe.getRecipeFor(selectedEquipment);
+        console.log(x);
+    }
+
     function wip() {
         alert("wip");
     }
@@ -94,9 +100,16 @@
         },
         {
             name: "upgrade",
-            onClick: wip,
+            onClick: upgrade,
             displayText: "Upgrade",
             class: "fa-solid fa-hammer",
+            style: "",
+        }, 
+        {
+            name: "dismantle",
+            onClick: wip,
+            displayText: "Dismantle",
+            class: "fa-solid screwdriver-wrench",
             style: "",
         },
         {
