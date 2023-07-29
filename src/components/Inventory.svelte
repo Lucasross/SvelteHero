@@ -122,6 +122,16 @@
             class: "fa-solid fa-coins",
             style: "color: #fcba03",
         },
+        {
+            name: "hr",
+        },
+        {
+            name: "Lock",
+            onClick: wip,
+            displayText: "Lock",
+            class: "fa-solid fa-lock",
+            style: "color: #5c5c5c",
+        },
     ];
 
     let menuItems = [
