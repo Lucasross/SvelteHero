@@ -5,20 +5,21 @@
     import tooltip from "../utility/Tooltip";
     import ContextMenu from "./generic/ContextMenu.svelte";
     import Sprite from "./generic/Sprite.svelte";
-    import Equipment from "../data/Equipment";
     import EquipmentSelection from "./modal/EquipmentSelection.svelte";
     import Modal from "./generic/Modal.svelte";
-    import { afterUpdate, subscribe } from "svelte/internal";
+    import { afterUpdate } from "svelte/internal";
     import type Guild from "../data/Guild";
     import type Loot from "../data/Loot";
     import Item from "../data/Item";
     import { Utility } from "../utility/Utility";
     import UpgradeRecipe from "../data/UpgradeRecipe";
+    import type { InventoryEquipment } from "../data/Guild";
 
     let grid;
     let contextMenu;
     let equipModal: Modal;
     let mounted: boolean = false;
+    let selectedEquipment: InventoryEquipment;
     $: selectedEquipment = null;
     $: selectedItem = null;
     $: showEquipmentModal = false;
@@ -41,8 +42,8 @@
         );
     }
 
-    function openEquipmentContextMenu(e, equipmentId: string) {
-        selectedEquipment = Equipment.getById(equipmentId);
+    function openEquipmentContextMenu(e, invEquipment: InventoryEquipment) {
+        selectedEquipment = invEquipment;
         contextMenu.leftClickContextMenu(e);
     }
 
@@ -69,9 +70,9 @@
         });
     }
 
-    function sellEquipment(loot: Loot, guild: Guild) {
-        guild.gold += loot.gold;
-        guild.equipment.splice(guild.equipment.indexOf(loot.id), 1);
+    function sellEquipment(invEquipment: InventoryEquipment, guild: Guild) {
+        guild.gold += invEquipment.getEquipment().gold;
+        guild.removeEquipment(invEquipment);
     }
 
     function sellItems(loot: Loot, guild: Guild, amount: number) {
@@ -82,8 +83,7 @@
     }
 
     function upgrade() {
-        var x = UpgradeRecipe.getRecipeFor(selectedEquipment);
-        console.log(x);
+        var x = UpgradeRecipe.getRecipeFor(selectedEquipment.getEquipment());
     }
 
     function wip() {
@@ -102,14 +102,14 @@
             name: "upgrade",
             onClick: upgrade,
             displayText: "Upgrade",
-            class: "fa-solid fa-hammer",
+            class: "fa-solid fa-screwdriver-wrench",
             style: "",
         }, 
         {
             name: "dismantle",
             onClick: wip,
             displayText: "Dismantle",
-            class: "fa-solid screwdriver-wrench",
+            class: "fa-solid fa-hammer",
             style: "",
         },
         {
@@ -160,10 +160,9 @@
 
     function sellAll() {
         guild.update((g) => {
-            g.equipment.forEach((eId) => {
-                let l: Loot = Equipment.getById(eId);
-                g.gold += l.gold;
-                g.equipment[g.equipment.indexOf(l.id)] = null;
+            g.equipment.forEach((invEquipment) => {
+                g.gold += invEquipment.getEquipment().gold;
+                g.nullifyEquipment(invEquipment);
             });
             g.equipment = g.equipment.filter((e) => e != null);
             return g;
@@ -195,7 +194,7 @@
     />
     <Modal bind:this={equipModal} bind:showModal={showEquipmentModal}>
         <EquipmentSelection
-            equipment={selectedEquipment}
+            inventoryEquipment={selectedEquipment}
             on:equip={() => equipModal.close()}
         />
     </Modal>
@@ -226,8 +225,8 @@
                     class="slot"
                 >
                     <Sprite
-                        tooltipText={Equipment.getById(key).getTooltip()}
-                        sprite={Equipment.getById(key).getSprite()}
+                        tooltipText={key.getEquipment().getTooltip()}
+                        sprite={key.getEquipment().getSprite()}
                     />
                 </div>
             {/each}

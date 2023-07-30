@@ -1,4 +1,5 @@
 export default abstract class StatEffect {
+    public static readonly statMultiplierByLevel: number = 0.25;
     
     public type: EffectType;
     public value: number;
@@ -10,6 +11,7 @@ export default abstract class StatEffect {
 
     abstract toShortString(): string;
     abstract toLongString(): string;
+    abstract upgrade(upgradeLevel: number): StatEffect;
 }
 
 export class GoldRawEffect extends StatEffect {
@@ -25,11 +27,16 @@ export class GoldRawEffect extends StatEffect {
     toLongString(): string {
         return `Increase gold found on the area this hero stand by <b>+${this.value}.</b>`;
     }
+
+    upgrade(upgradeLevel: number): StatEffect {
+        let upgradedValue: number = this.value * (1 + (StatEffect.statMultiplierByLevel * upgradeLevel));
+        return new GoldRawEffect(upgradedValue);  
+    }
 } 
 
 export class GoldPercentEffect extends StatEffect {
 
-    constructor(value: number) {
+     constructor(value: number) {
         super(EffectType.GoldPercent, value);
     }
 
@@ -39,6 +46,11 @@ export class GoldPercentEffect extends StatEffect {
 
     toLongString(): string {
         return `Increase gold found on the area this hero stand by <b>${Math.round(this.value * 100)}%</b>.`;
+    }
+
+    upgrade(upgradeLevel: number): StatEffect {
+        let upgradedValue: number = this.value * (1 + (StatEffect.statMultiplierByLevel * upgradeLevel));
+        return new GoldPercentEffect(upgradedValue);  
     }
 } 
 
@@ -55,6 +67,11 @@ export class DamageRawEffect extends StatEffect {
     toLongString(): string {
         return `Increase damage dealt by <b>+${this.value}.</b>`;
     }
+    
+    upgrade(upgradeLevel: number): StatEffect {
+        let upgradedValue: number = this.value * (1 + (StatEffect.statMultiplierByLevel * upgradeLevel));
+        return new DamageRawEffect(upgradedValue);  
+    }
 } 
 
 export class DamagePercentEffect extends StatEffect {
@@ -69,6 +86,11 @@ export class DamagePercentEffect extends StatEffect {
 
     toLongString(): string {
         return `Increase damage dealt by <b>${Math.round(this.value * 100)}%</b>.`;
+    }
+
+    upgrade(upgradeLevel: number): StatEffect {
+        let upgradedValue: number = this.value * (1 + (StatEffect.statMultiplierByLevel * upgradeLevel));
+        return new DamagePercentEffect(upgradedValue);  
     }
 } 
 
@@ -85,6 +107,11 @@ export class ExperienceRawEffect extends StatEffect {
     toLongString(): string {
         return `Increase experience gained by <b>+${this.value}.</b>`;
     }
+
+    upgrade(upgradeLevel: number): StatEffect {
+        let upgradedValue: number = this.value * (1 + (StatEffect.statMultiplierByLevel * upgradeLevel));
+        return new ExperienceRawEffect(upgradedValue);  
+    }
 } 
 
 export class ExperiencePercentEffect extends StatEffect {
@@ -99,6 +126,11 @@ export class ExperiencePercentEffect extends StatEffect {
 
     toLongString(): string {
         return `Increase experience gained by <b>${Math.round(this.value * 100)}%</b>.`;
+    }
+
+    upgrade(upgradeLevel: number): StatEffect {
+        let upgradedValue: number = this.value * (1 + (StatEffect.statMultiplierByLevel * upgradeLevel));
+        return new ExperiencePercentEffect(upgradedValue);  
     }
 } 
 

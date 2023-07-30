@@ -1,9 +1,9 @@
 import Equipment from "./Equipment";
 import type Hero from "./Hero";
-import StatEffect, { DamageRawEffect, ExperienceRawEffect, GoldPercentEffect, GoldRawEffect } from "./StatEffect";
+import StatEffect, { DamageRawEffect, ExperienceRawEffect, GoldPercentEffect } from "./StatEffect";
 
 export default class EquipmentSet {
-    public static sets: EquipmentSet[] = []; 
+    public static sets: EquipmentSet[] = [];
 
     public id: string;
     public name: string;
@@ -19,11 +19,11 @@ export default class EquipmentSet {
         let str: string
         let equiped: Equipment[] = hero == null ? null : hero.getEquipedOfSet(this);
         let fullset: Equipment[] = Equipment.getEquipmentOfSet(this);
-        
+
         str = `<b>${this.name}</b> (${hero == null ? 0 : equiped.length}/${fullset.length})<br>`;
 
         for (let equipement of fullset) {
-            if(hero != null && equiped.some(e => e.id == equipement.id)) {
+            if (hero != null && equiped.some(e => e.id == equipement.id)) {
                 str += ` · <b>${equipement.name}</b><br>`
             } else {
                 str += ` · ${equipement.name}<br>`;

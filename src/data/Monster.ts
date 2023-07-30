@@ -79,7 +79,7 @@ export default class Monster implements ISprite {
             if(loot != null) {
                 guild.update(g => {
                     if(loot.getType() == LootType.Equipment)
-                        g.equipment.push(loot.id);
+                        g.addEquipmentById(loot.id);
                     else
                         g.addItem(loot);
                     return g;

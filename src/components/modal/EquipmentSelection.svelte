@@ -4,6 +4,7 @@
     import { guild, heroes as heroesList, heroesUpdate } from "../../store/Stores";
     import type Hero from "../../data/Hero";
     import { createEventDispatcher } from 'svelte';
+    import type { InventoryEquipment } from "../../data/Guild";
 
     const dispatch = createEventDispatcher();
 
@@ -15,11 +16,11 @@
         }
     })
 
-    export let equipment: Equipment;
+    export let inventoryEquipment: InventoryEquipment;
 
     function equipItem(hero: Writable<Hero>) {
         hero.update(h => {
-            h.equip(equipment, guild)
+            h.equip(inventoryEquipment, guild)
             return h;
         });
         dispatch("equip");
@@ -27,7 +28,7 @@
 </script>
 
 <div class="container">
-    {@html equipment != null ? equipment.getTooltip() : "" }
+    {@html inventoryEquipment != null ? inventoryEquipment.getEquipment().getTooltip() : "" }
     <hr>
     <div class="hero-container">
         {#each heroes as hero, i}
@@ -36,8 +37,8 @@
             <p style="margin-left: 20px">{get(hero).name}</p>
             <p>{get(hero).getJob().name}</p>
             <p style="text-align:end; margin-right: 50px">{get(hero).level}</p>
-            <button on:click={() => equipItem(hero)} disabled={!get(hero).canEquip(equipment)}>
-                {#if !get(hero).canEquip(equipment)}
+            <button on:click={() => equipItem(hero)} disabled={!get(hero).canEquip(inventoryEquipment?.getEquipment())}>
+                {#if !get(hero).canEquip(inventoryEquipment?.getEquipment())}
                     Low level
                 {:else}
                     Equip

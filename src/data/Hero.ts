@@ -1,11 +1,12 @@
 import type { Writable } from "svelte/store";
 import { Utility } from "../utility/Utility";
-import Equipment from "./Equipment";
+import type Equipment from "./Equipment";
 import { SlotType } from "./Equipment";
 import Job, { Jobs } from "./Job";
 import type Guild from "./Guild";
 import EquipmentSet from "./EquipmentSet";
 import StatEffect, { EffectType } from "./StatEffect";
+import { InventoryEquipment } from "./Guild";
 
 export default class Hero {
     public readonly saveIndex: number;
@@ -19,11 +20,11 @@ export default class Hero {
 
     public statData: Map<EffectType, number> = new Map<EffectType, number>();
 
-    public weaponSlot : EquipmentSlot = new EquipmentSlot(SlotType.Weapon);
-    public jewelrySlot : EquipmentSlot = new EquipmentSlot(SlotType.Jewelry);
-    public headSlot : EquipmentSlot = new EquipmentSlot(SlotType.Head);
-    public bodySlot : EquipmentSlot = new EquipmentSlot(SlotType.Body);
-    public footSlot : EquipmentSlot = new EquipmentSlot(SlotType.Foot);
+    public weaponSlot: EquipmentSlot = new EquipmentSlot(SlotType.Weapon);
+    public jewelrySlot: EquipmentSlot = new EquipmentSlot(SlotType.Jewelry);
+    public headSlot: EquipmentSlot = new EquipmentSlot(SlotType.Head);
+    public bodySlot: EquipmentSlot = new EquipmentSlot(SlotType.Body);
+    public footSlot: EquipmentSlot = new EquipmentSlot(SlotType.Foot);
 
     constructor(saveIndex: number, name: string, level: number, experience: number, job: Jobs) {
         this.saveIndex = saveIndex;
@@ -45,11 +46,11 @@ export default class Hero {
         if (area_id == undefined)
             this.area_id = null;
 
-        this.weaponSlot.setById(weaponSlot.equipmentId);
-        this.jewelrySlot.setById(jewelrySlot.equipmentId);
-        this.headSlot.setById(headSlot.equipmentId);
-        this.bodySlot.setById(bodySlot.equipmentId);
-        this.footSlot.setById(footSlot.equipmentId);
+        this.weaponSlot.set(new InventoryEquipment(weaponSlot.equipmentId).init(weaponSlot.upgradeLevel, weaponSlot.lock));
+        this.jewelrySlot.set(new InventoryEquipment(jewelrySlot.equipmentId).init(jewelrySlot.upgradeLevel, jewelrySlot.lock));
+        this.headSlot.set(new InventoryEquipment(headSlot.equipmentId).init(headSlot.upgradeLevel, headSlot.lock));
+        this.bodySlot.set(new InventoryEquipment(bodySlot.equipmentId).init(bodySlot.upgradeLevel, bodySlot.lock));
+        this.footSlot.set(new InventoryEquipment(footSlot.equipmentId).init(footSlot.upgradeLevel, footSlot.lock));
 
         this.computeEquipmentValue();
 
@@ -101,26 +102,30 @@ export default class Hero {
         return Hero.experienceForLevel(this.level);
     }
 
-    getJob() : Job {
+    getJob(): Job {
         return Job.getById(Jobs[this.job]);
     }
 
     canEquip(equipment: Equipment): boolean {
-        if(equipment == null)
+        console.log(equipment);
+        if (equipment == null)
             return false;
 
         return this.level >= equipment.levelRequired;
     }
 
-    equip(equipment: Equipment, guild: Writable<Guild>) : boolean {
-        if(this.canEquip(equipment)) {
-            let oldEquipment: Equipment = this.getSlot(equipment.slotType).set(equipment);
+    equip(invEquipment: InventoryEquipment, guild: Writable<Guild>): boolean {
+
+        let equipment = invEquipment.getEquipment();
+
+        if (this.canEquip(equipment)) {
+            let oldEquipment: InventoryEquipment = this.getSlot(equipment.slotType).set(invEquipment);
 
             guild.update(g => {
-                if(oldEquipment != null) {
-                    g.equipment.push(oldEquipment.id);
+                if (oldEquipment != null) {
+                    g.addEquipment(oldEquipment);
                 }
-                g.equipment.splice(g.equipment.indexOf(equipment.id), 1);
+                g.removeEquipment(invEquipment);
                 return g;
             })
 
@@ -136,18 +141,18 @@ export default class Hero {
         this.computeEquipmentValue();
 
         guild.update(g => {
-            if(oldEquipment != null) {
-                g.equipment.push(oldEquipment.id);
+            if (oldEquipment != null) {
+                g.addEquipmentById(oldEquipment.equipment);
             }
             return g;
         })
     }
 
-    getEquipedOfSet(set: EquipmentSet) : Equipment[] {
-        return this.equipments().filter(s => !s.empty() && s.get().setId == set.id).map(s => s.get());
+    getEquipedOfSet(set: EquipmentSet): Equipment[] {
+        return this.equipments().filter(s => !s.empty() && s.get().getEquipment().setId == set.id).map(s => s.get().getEquipment());
     }
 
-    equipments() : EquipmentSlot[] {
+    equipments(): EquipmentSlot[] {
         return [this.weaponSlot, this.jewelrySlot, this.headSlot, this.bodySlot, this.footSlot];
     }
 
@@ -156,21 +161,21 @@ export default class Hero {
 
         // Handle equipment value
         this.equipments().filter(s => !s.empty()).forEach(s => {
-            s.equipment.statEffects.forEach(e => {
+            s.equipment.getStatsEffects().forEach(e => {
                 Utility.setOrAdd(this.statData, e.type, e.value);
-            });          
+            });
         })
 
         // Handle set value
         let sets: Map<string, number> = new Map<string, number>();
-        this.equipments().filter(s => !s.empty() && s.equipment.setId != null).forEach(s => {
-            Utility.setOrAdd(sets, s.equipment.setId, 1);
+        this.equipments().filter(s => !s.empty() && s.equipment.getEquipment().setId != null).forEach(s => {
+            Utility.setOrAdd(sets, s.equipment.getEquipment().setId, 1);
         });
         sets.forEach((nbSetItem: number, setId: string) => {
             EquipmentSet.getById(setId).effects.forEach((setEffect: StatEffect, setRank: number) => {
-                if(setRank <= nbSetItem)
+                if (setRank <= nbSetItem)
                     Utility.setOrAdd(this.statData, setEffect.type, setEffect.value);
-            }); 
+            });
         });
     }
 
@@ -180,14 +185,14 @@ export default class Hero {
 
     getStat(type: EffectType): number {
         let value = this.statData.get(type);
-        if(isNaN(value))
+        if (isNaN(value))
             return 0;
         else
             return value;
     }
 
-    private getSlot(slot: SlotType) : EquipmentSlot {
-        switch(slot) {
+    private getSlot(slot: SlotType): EquipmentSlot {
+        switch (slot) {
             case SlotType.Weapon:
                 return this.weaponSlot;
             case SlotType.Jewelry:
@@ -213,14 +218,14 @@ export default class Hero {
         let c = 86;
         let d = 70;
         let e = 500;
-        return  Math.round(Utility.Polynome4(a, b, c, d, e, level));
+        return Math.round(Utility.Polynome4(a, b, c, d, e, level));
     }
 
     static baseAttackForLevel(level: number): number {
         let a = 0.4;
         let b = 21.6;
         let c = 20;
-        return Math.round(Utility.Quadratic(a, b , c, level));
+        return Math.round(Utility.Quadratic(a, b, c, level));
     }
 
     static goldForNextHero(nbHero: number) {
@@ -231,34 +236,25 @@ export default class Hero {
 class EquipmentSlot {
     public readonly slotType: SlotType;
 
-    public equipment: Equipment | null = null;
-    public equipmentId: string | null = null;
+    public equipment: InventoryEquipment | null = null;
 
     constructor(slotType: SlotType) {
         this.slotType = slotType;
     }
 
-    public setById(equipmentId: string | null) {
-        if(equipmentId == null)
-            return;
-            
-        this.set(Equipment.getById(equipmentId));
-    }
-
-    public set(equipment: Equipment) : Equipment {
+    public set(invEquipment: InventoryEquipment): InventoryEquipment {
         let oldEquipment = this.equipment;
 
-        this.equipment = equipment;
-        this.equipmentId = equipment == null ? null : equipment.id;
+        this.equipment = invEquipment;
 
         return oldEquipment;
     }
 
-    public get(): Equipment {
+    public get(): InventoryEquipment {
         return this.equipment;
     }
 
     public empty(): boolean {
-        return this.get() == null;
+        return this.get().equipment == null;
     }
 }

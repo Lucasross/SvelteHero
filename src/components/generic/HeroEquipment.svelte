@@ -39,8 +39,8 @@
             {#if !slot.empty()}
 
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
-                <div on:mousedown|preventDefault={e => show(slot.get(), e)} class:selected={selectedId == slot.get().id} class="slot">
-                    <Sprite sprite={slot.get().getSprite()}/>
+                <div on:mousedown|preventDefault={e => show(slot.get().getEquipment(), e)} class:selected={selectedId == slot.get().equipment} class="slot">
+                    <Sprite sprite={slot.get().getEquipment().getSprite()}/>
                 </div>
 
             {:else}
