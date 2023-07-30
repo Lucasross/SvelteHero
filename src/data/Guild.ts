@@ -37,8 +37,8 @@ export default class Guild {
 
 
     // #region Equipment
-    public getEquipment(id: string): InventoryEquipment {
-        return null;
+    public getEquipment(e: InventoryEquipment): InventoryEquipment {
+        return this.equipment[this.equipment.indexOf(e)];
     }
 
     public addEquipmentById(id: string) {
@@ -47,10 +47,6 @@ export default class Guild {
 
     public addEquipment(invEquipment: InventoryEquipment) {
         this.equipment.push(invEquipment);
-    }
-
-    public removeEquipmentById(id: string) {
-        this.removeEquipment(this.getEquipment(id));
     }
 
     public removeEquipment(e: InventoryEquipment) {

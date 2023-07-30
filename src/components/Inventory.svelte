@@ -86,6 +86,13 @@
         var x = UpgradeRecipe.getRecipeFor(selectedEquipment.getEquipment());
     }
 
+    function lock() {
+        guild.update((g) => {
+            g.getEquipment(selectedEquipment).lock = !g.getEquipment(selectedEquipment).lock;
+            return g;
+        });
+    }
+
     function wip() {
         alert("wip");
     }
@@ -127,7 +134,7 @@
         },
         {
             name: "Lock",
-            onClick: wip,
+            onClick: lock,
             displayText: "Lock",
             class: "fa-solid fa-lock",
             style: "color: #5c5c5c",
@@ -223,6 +230,7 @@
                     on:click|preventDefault|stopPropagation={(e) =>
                         openEquipmentContextMenu(e, key)}
                     class="slot"
+                    class:lock={key.lock}
                 >
                     <Sprite
                         tooltipText={key.getEquipment().getTooltip()}
@@ -280,5 +288,9 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
+    }
+
+    .lock {
+        border: 1px solid red !important;
     }
 </style>
