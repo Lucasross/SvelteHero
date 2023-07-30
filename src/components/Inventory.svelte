@@ -167,7 +167,7 @@
 
     function sellAll() {
         guild.update((g) => {
-            g.equipment.forEach((invEquipment) => {
+            g.equipment.filter(ie => !ie.lock).forEach((invEquipment) => {
                 g.gold += invEquipment.getEquipment().gold;
                 g.nullifyEquipment(invEquipment);
             });
@@ -233,7 +233,7 @@
                     class:lock={key.lock}
                 >
                     <Sprite
-                        tooltipText={key.getEquipment().getTooltip()}
+                        tooltipText={key.getEquipment().getTooltip(null, key.getStatsEffects(), key.upgradeLevel)}
                         sprite={key.getEquipment().getSprite()}
                     />
                 </div>

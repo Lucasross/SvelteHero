@@ -32,6 +32,7 @@
 	<content class="content">
 		<div class="sidecol vertical-list">
 			<HeroesList />
+			<Inventory isItems={false}/>
 		</div>
 		<div class="maincol vertical-list">
 			<Area bind:this={area} />
@@ -39,7 +40,6 @@
 		</div>
 		<div class="sidecol vertical-list">
 			<Inventory />
-			<Inventory isItems={false}/>
 		</div>
 	</content>
 </main>

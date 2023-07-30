@@ -23,13 +23,18 @@ export default class Equipment extends Loot {
         return "equipments";
     }
 
-    getTooltip(hero: Hero = null): string {
+    getTooltip(hero: Hero = null, statEffects: StatEffect[] = null, upgradeLevel: number = 0): string {
         let tooltip: string;
 
-        tooltip = `<b>${this.name}</b><br>`
-        tooltip += "Level " + this.levelRequired + "<br>";
+        if(upgradeLevel == 0) {
+            tooltip = `<b>${this.name}</b><br>`
+        } else {
+            tooltip = `<span style="color:${this.getColorByLevel(upgradeLevel)}"><b>${this.name} +${upgradeLevel}</b></span><br>`
+        }
+
+        tooltip += `Level ${this.levelRequired} - ${SlotType[this.slotType]} <br>`;
         
-        for (let effect of this.statEffects) {
+        for (let effect of (statEffects != null ? statEffects : this.statEffects)) {
             tooltip += effect.toShortString() + "<br>";
         }
 
@@ -39,6 +44,15 @@ export default class Equipment extends Loot {
         }
 
         return tooltip;
+    }
+
+    private getColorByLevel(upgradeLevel: number) {
+        switch(upgradeLevel) {
+            case 1: return "#17d914";
+            case 2: return "#1479d9";
+            case 3: return "#a119b5";
+            case 4: return "#c92e16";
+        }
     }
 
     public getType(): LootType {
