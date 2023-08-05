@@ -101,16 +101,22 @@
         <h3>{$hero.getJob().name} - {$hero.level}</h3> 
         <div>
             <div class="space"/>
-            <p>Experiences : {$hero.experience}/{$hero.experienceToNextLevel()} ({Math.round($hero.experience/$hero.experienceToNextLevel()*100)}%)</p>
+            <p>{$hero.getLocation()} {$hero.isInLocation() ? "(farming...)" : "(waiting...)"}</p>
+            <div class="space"/>
+            <p>{$hero.experience}/{$hero.experienceToNextLevel()} ({Math.round($hero.experience/$hero.experienceToNextLevel()*100)}%)</p>
             <Progressbar height={10} barColor="#77CDF3" borderPixel={1} progress={($hero.experience/$hero.experienceToNextLevel()) * 100}/>
             <div class="space"/>
-            <p>Location : {$hero.getLocation()} {$hero.isInLocation() ? "(farming...)" : "(waiting...)"}</p>
+            <p>Damage : {$hero.getAttack()}</p>
             <div class="space"/>
-            <p>Damage : {$hero.getAttack()} (({$hero.attack} + {$hero.getStat(EffectType.DamageRaw)}) * {1 + $hero.getStat(EffectType.DamagePercent)})</p>
+            <p><b>Bonus :</b></p>
+            <p>Experience : +{($hero.getStat(EffectType.ExperiencePercent)) * 100}%</p>
+            <p>Flat Experience : +{$hero.getStat(EffectType.ExperienceRaw)}</p>
             <div class="space"/>
-            <p>Experience : (x + {$hero.getStat(EffectType.ExperienceRaw)}) * {1 + $hero.getStat(EffectType.ExperiencePercent)}</p>
+            <p>Gold : +{$hero.getStat(EffectType.GoldPercent) * 100}</p>
+            <p>Flat Gold : +{$hero.getStat(EffectType.GoldRaw)}</p>
             <div class="space"/>
-            <p>Gold : (x + {$hero.getStat(EffectType.GoldRaw)}) * {1 + $hero.getStat(EffectType.GoldPercent)}</p>
+            <p>Damage : +{$hero.getStat(EffectType.DamagePercent) * 100}</p>
+            <p>Flat Damage : +{$hero.getStat(EffectType.DamageRaw)}</p>
 
             <HeroEquipment bind:this={heroEquipment} hero={hero}/>
         </div>
