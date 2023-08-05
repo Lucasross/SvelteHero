@@ -46,11 +46,15 @@ export default class Guild {
     }
 
     public addEquipment(invEquipment: InventoryEquipment) {
+        if(invEquipment == null || invEquipment.equipment == undefined) {
+            console.log("Error: trying to add a null inventory equipment to the guild.");
+            return;
+        }
         this.equipment.push(invEquipment);
     }
 
     public removeEquipment(e: InventoryEquipment) {
-        this.equipment = this.equipment.splice(this.equipment.indexOf(e), 1);
+        this.equipment.splice(this.equipment.indexOf(e), 1);
     }
 
     public nullifyEquipment(e: InventoryEquipment) {

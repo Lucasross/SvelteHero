@@ -4,6 +4,7 @@
     import type Equipment from "../../data/Equipment";
     import Sprite from "./Sprite.svelte";
     import { guild } from "../../store/Stores";
+    import type { InventoryEquipment } from "../../data/Guild";
 
     export let hero: Writable<Hero>;
     let equipmentDetail: HTMLDivElement;
@@ -14,18 +15,18 @@
         selectedId = null;
     }
 
-    function show(equipment: Equipment, e) {
+    function show(invEquipment: InventoryEquipment, e) {
         if(e.button === 0) {
-            if(selectedId != equipment.id) {
-                equipmentDetail.innerHTML = equipment.getTooltip(get(hero));
-                selectedId = equipment.id;
+            if(selectedId != invEquipment.equipment) {
+                equipmentDetail.innerHTML = invEquipment.getEquipment().getTooltip(get(hero), invEquipment.getStatsEffects(), invEquipment.upgradeLevel);
+                selectedId = invEquipment.equipment;
             } else {
                 equipmentDetail.innerHTML = "Click on an equipment to show detail.";
                 selectedId = null;
             }
         } else if (e.button === 2 || e == null) {
             hero.update(h => {
-                h.unequip(equipment.slotType, guild);
+                h.unequip(invEquipment.getEquipment().slotType, guild);
                 return h;
             })
         }
@@ -39,7 +40,7 @@
             {#if !slot.empty()}
 
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
-                <div on:mousedown|preventDefault={e => show(slot.get().getEquipment(), e)} class:selected={selectedId == slot.get().equipment} class="slot">
+                <div on:mousedown|preventDefault={e => show(slot.get(), e)} class:selected={selectedId == slot.get().equipment} class="slot">
                     <Sprite sprite={slot.get().getEquipment().getSprite()}/>
                 </div>
 

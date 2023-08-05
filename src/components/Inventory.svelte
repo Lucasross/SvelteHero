@@ -14,6 +14,7 @@
     import { Utility } from "../utility/Utility";
     import UpgradeRecipe from "../data/UpgradeRecipe";
     import type { InventoryEquipment } from "../data/Guild";
+    import { get } from "svelte/store";
 
     let grid;
     let contextMenu;

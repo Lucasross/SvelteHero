@@ -10,6 +10,7 @@
 
     $: heroes = heroesList;
 
+
     heroesUpdate.subscribe(u => {
         if(u) {
             heroes = heroesList;

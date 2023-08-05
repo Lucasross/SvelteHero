@@ -43,15 +43,33 @@ export default class Hero {
     // Act as a constructor from save
     Init(area_id: string, weaponSlot, jewelrySlot, headSlot, bodySlot, footSlot): Hero {
         this.area_id = area_id;
-        if (area_id == undefined)
-            this.area_id = null;
+        if (area_id == undefined) this.area_id = null;
 
-        this.weaponSlot.set(new InventoryEquipment(weaponSlot.equipmentId).init(weaponSlot.upgradeLevel, weaponSlot.lock));
-        this.jewelrySlot.set(new InventoryEquipment(jewelrySlot.equipmentId).init(jewelrySlot.upgradeLevel, jewelrySlot.lock));
-        this.headSlot.set(new InventoryEquipment(headSlot.equipmentId).init(headSlot.upgradeLevel, headSlot.lock));
-        this.bodySlot.set(new InventoryEquipment(bodySlot.equipmentId).init(bodySlot.upgradeLevel, bodySlot.lock));
-        this.footSlot.set(new InventoryEquipment(footSlot.equipmentId).init(footSlot.upgradeLevel, footSlot.lock));
-
+        if(weaponSlot.equipment != null)
+            this.weaponSlot.set(new InventoryEquipment(weaponSlot.equipment.equipment).init(weaponSlot.equipment.upgradeLevel, weaponSlot.equipment.lock));
+        else
+            this.weaponSlot.set(null);
+        
+        if(jewelrySlot.equipment != null)
+            this.jewelrySlot.set(new InventoryEquipment(jewelrySlot.equipment.equipment).init(jewelrySlot.equipment.upgradeLevel, jewelrySlot.equipment.lock));
+        else
+            this.jewelrySlot.set(null);
+        
+        if(headSlot.equipment != null)
+            this.headSlot.set(new InventoryEquipment(headSlot.equipment.equipment).init(headSlot.equipment.upgradeLevel, headSlot.equipment.lock));
+        else
+            this.headSlot.set(null);
+        
+        if(bodySlot.equipment != null)
+            this.bodySlot.set(new InventoryEquipment(bodySlot.equipment.equipment).init(bodySlot.equipment.upgradeLevel, bodySlot.equipment.lock));
+        else
+            this.bodySlot.set(null);
+        
+        if(footSlot.equipment != null)
+            this.footSlot.set(new InventoryEquipment(footSlot.equipment.equipment).init(footSlot.equipment.upgradeLevel, footSlot.equipment.lock));
+        else
+            this.footSlot.set(null);
+        
         this.computeEquipmentValue();
 
         return this;
@@ -107,7 +125,6 @@ export default class Hero {
     }
 
     canEquip(equipment: Equipment): boolean {
-        console.log(equipment);
         if (equipment == null)
             return false;
 
@@ -115,14 +132,13 @@ export default class Hero {
     }
 
     equip(invEquipment: InventoryEquipment, guild: Writable<Guild>): boolean {
-
         let equipment = invEquipment.getEquipment();
 
         if (this.canEquip(equipment)) {
             let oldEquipment: InventoryEquipment = this.getSlot(equipment.slotType).set(invEquipment);
 
             guild.update(g => {
-                if (oldEquipment != null) {
+                if (oldEquipment != null && oldEquipment.equipment != null) {
                     g.addEquipment(oldEquipment);
                 }
                 g.removeEquipment(invEquipment);
@@ -142,7 +158,7 @@ export default class Hero {
 
         guild.update(g => {
             if (oldEquipment != null) {
-                g.addEquipmentById(oldEquipment.equipment);
+                g.addEquipment(oldEquipment);
             }
             return g;
         })
@@ -236,10 +252,11 @@ export default class Hero {
 class EquipmentSlot {
     public readonly slotType: SlotType;
 
-    public equipment: InventoryEquipment | null = null;
+    public equipment: InventoryEquipment;
 
     constructor(slotType: SlotType) {
         this.slotType = slotType;
+        this.equipment = null;
     }
 
     public set(invEquipment: InventoryEquipment): InventoryEquipment {
@@ -255,6 +272,7 @@ class EquipmentSlot {
     }
 
     public empty(): boolean {
-        return this.get().equipment == null;
+        let invEquipment: InventoryEquipment = this.get();
+        return invEquipment == null || invEquipment.equipment == null;
     }
 }
