@@ -22,4 +22,8 @@ export class Utility {
             map.set(key, value);
         }
     }
+
+    public static zip(array1, array2) {
+        return array1.map((key, index) => ({ [key]: array2[index] }));
+    }
 }

@@ -94,7 +94,7 @@ export class InventoryEquipment {
         return Equipment.getById(this.equipment);
     }
 
-    public getStatsEffects(): StatEffect[] {
+    public getStatsEffects(upgradeTarget: number = this.upgradeLevel): StatEffect[] {
         if(this.upgradeLevel == 0)
             return this.getEquipment().statEffects;
 

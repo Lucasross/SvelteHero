@@ -14,16 +14,18 @@
     import { Utility } from "../utility/Utility";
     import UpgradeRecipe from "../data/UpgradeRecipe";
     import type { InventoryEquipment } from "../data/Guild";
-    import { get } from "svelte/store";
+    import EquipmentUpgrade from "./modal/EquipmentUpgrade.svelte";
 
     let grid;
     let contextMenu;
     let equipModal: Modal;
+    let upgradeModal: Modal;
     let mounted: boolean = false;
     let selectedEquipment: InventoryEquipment;
     $: selectedEquipment = null;
     $: selectedItem = null;
     $: showEquipmentModal = false;
+    $: showUpgradeModal = false;
 
     export let isItems: boolean = true;
 
@@ -85,6 +87,7 @@
 
     function upgrade() {
         var x = UpgradeRecipe.getRecipeFor(selectedEquipment.getEquipment());
+        showUpgradeModal = true;
     }
 
     function lock() {
@@ -204,6 +207,11 @@
         <EquipmentSelection
             inventoryEquipment={selectedEquipment}
             on:equip={() => equipModal.close()}
+        />
+    </Modal>
+    <Modal bind:this={upgradeModal} bind:showModal={showUpgradeModal}>
+        <EquipmentUpgrade
+            target={selectedEquipment}
         />
     </Modal>
     <div bind:this={grid} class="grid grid-style">

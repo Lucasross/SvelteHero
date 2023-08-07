@@ -1,6 +1,5 @@
 <script lang="ts">
     import { get, type Writable } from "svelte/store";
-    import type Equipment from "../../data/Equipment";
     import { guild, heroes as heroesList, heroesUpdate } from "../../store/Stores";
     import type Hero from "../../data/Hero";
     import { createEventDispatcher } from 'svelte';
