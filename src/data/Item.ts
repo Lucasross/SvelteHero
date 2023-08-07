@@ -11,6 +11,10 @@ export default class Item extends Loot {
         return LootType.Item;
     }
 
+    public getTooltip(): string {
+        return `${this.name}<br>Price : ${this.gold}`;
+    } 
+
     public static getById(id: string): Item {
         return Loot.getLootById<Item>(Item.items, id, "items");
     }
@@ -18,6 +22,7 @@ export default class Item extends Loot {
     public static toItemList(id: string[]): Item[] {
         return id.map(id => this.getById(id));
     }
+
 
     public static readonly upgrade10 = ["Iron"]
 }
