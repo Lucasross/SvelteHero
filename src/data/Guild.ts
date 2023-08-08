@@ -96,7 +96,7 @@ export class InventoryEquipment {
 
     public getStatsEffects(): StatEffect[] {
         if(this.upgradeLevel == 0)
-            return null;
+            return this.getEquipment().statEffects;
 
         let statEffect: StatEffect[] = [];
 
