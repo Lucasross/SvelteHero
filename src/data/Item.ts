@@ -11,8 +11,9 @@ export default class Item extends Loot {
         return LootType.Item;
     }
 
-    public getTooltip(): string {
-        return `${this.name}<br>Price : ${this.gold}`;
+    public getTooltip(amount: number = 0): string {
+        return `${this.name} (x${amount})
+        <br><i class="fa-solid fa-coins" style="color: #fcba03"></i> ${this.gold} (${this.gold * amount})`;
     } 
 
     public static getById(id: string): Item {

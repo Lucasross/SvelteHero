@@ -216,7 +216,7 @@
                     class="slot"
                 >
                     <img
-                        title={Item.getById(key).getTooltip()}
+                        title={Item.getById(key).getTooltip(value)}
                         use:tooltip
                         src="pictures/items/{key}.png"
                         alt={key}
