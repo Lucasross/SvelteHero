@@ -9,7 +9,7 @@
     <div class="slot">
         <Sprite sprite={target?.getEquipment().getSprite()}/>
     </div>
-    {@html target?.getEquipment().getTooltipDifference(target.getStatsEffects(), target.getStatsEffects(target.upgradeLevel + 1), target.upgradeLevel)}
+    {@html target != null ? target.getEquipment().getTooltipDifference(target.getStatsEffects(), target.getStatsEffects(target.upgradeLevel + 1), target.upgradeLevel) : ""}
 </div>
 
 <style>

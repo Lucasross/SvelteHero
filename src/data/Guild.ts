@@ -101,7 +101,7 @@ export class InventoryEquipment {
         let statEffect: StatEffect[] = [];
 
         this.getEquipment().statEffects.forEach(s => {
-            statEffect.push(s.upgrade(this.upgradeLevel));
+            statEffect.push(s.upgrade(upgradeTarget));
         });
 
         return statEffect;

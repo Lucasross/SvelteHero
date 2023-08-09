@@ -50,19 +50,18 @@ export default class Equipment extends Loot {
     getTooltipDifference(originStats: StatEffect[], endingEffects: StatEffect[], currentLevel: number) {
         let tooltip: string;
         let nextLevel: number = currentLevel + 1;
-        let stats = Utility.zip(originStats, endingEffects);
-        console.log(stats);
+        let stats: [StatEffect, StatEffect][] = Utility.zip(originStats, endingEffects);
 
         if(currentLevel == 0) {
-            tooltip = `<b>${this.name}</b> -> <span style="color:${this.getColorByLevel(nextLevel)}">${this.name} +${nextLevel}</span><br>`
+            tooltip = `<b>${this.name}</b> -> <b><span style="color:${this.getColorByLevel(nextLevel)}">${this.name} +${nextLevel}</span></b><br>`
         } else {
-            tooltip = `<span style="color:${this.getColorByLevel(currentLevel)}"><b>${this.name} +${currentLevel} <span style="color:${this.getColorByLevel(nextLevel)}">-> ${nextLevel}</color></b></span><br>`
+            tooltip = `<span style="color:${this.getColorByLevel(currentLevel)}"><b>${this.name} +${currentLevel}</b><span style="color:${this.getColorByLevel(nextLevel)}">-> <b>${nextLevel}</b></color></span><br>`
         }
-
+        
         tooltip += `Level ${this.levelRequired} - ${SlotType[this.slotType]} <br>`;
         
-        for (let effect of (originStats != null ? originStats : this.statEffects)) {
-            tooltip += effect.toShortString() + "->" + + "<br>";
+        for (let duo of stats) {
+            tooltip += "+" + duo[0].value + " -> <b>" + duo[1].toShortString() + "</b><br>";
         }
 
         if(this.setId != null) {
