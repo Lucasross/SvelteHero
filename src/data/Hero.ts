@@ -245,7 +245,7 @@ export default class Hero {
     }
 
     static goldForNextHero(nbHero: number) {
-        return 5000 * (Math.pow(nbHero, 3)) + 25000;
+        return Utility.Polynome4(80, 740, 7160, 1, 45000, nbHero);
     }
 }
 
