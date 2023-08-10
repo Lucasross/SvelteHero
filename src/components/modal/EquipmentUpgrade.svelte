@@ -1,6 +1,5 @@
 <script lang="ts">
     import type { InventoryEquipment } from "../../data/Guild";
-    import UpgradeRecipe from "../../data/UpgradeRecipe";
     import Sprite from "../generic/Sprite.svelte";
 
     export let target: InventoryEquipment;
@@ -11,11 +10,6 @@
         <Sprite sprite={target?.getEquipment().getSprite()}/>
     </div>
     {@html target != null ? target.getEquipment().getTooltipDifference(target.getStatsEffects(), target.getStatsEffects(target.upgradeLevel + 1), target.upgradeLevel) : ""}
-    {#if target != null}
-        {#each UpgradeRecipe.getRecipeFor(target?.getEquipment()) as element}
-            element
-        {/each}
-    {/if}
 </div>
 
 <style>
