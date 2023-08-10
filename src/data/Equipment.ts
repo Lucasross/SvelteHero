@@ -55,7 +55,7 @@ export default class Equipment extends Loot {
         if(currentLevel == 0) {
             tooltip = `<b>${this.name}</b> -> <b><span style="color:${this.getColorByLevel(nextLevel)}">${this.name} +${nextLevel}</span></b><br>`
         } else {
-            tooltip = `<span style="color:${this.getColorByLevel(currentLevel)}"><b>${this.name} +${currentLevel}</b><span style="color:${this.getColorByLevel(nextLevel)}">-> <b>${nextLevel}</b></color></span><br>`
+            tooltip = `<span style="color:${this.getColorByLevel(currentLevel)}"><b>${this.name} +${currentLevel}</b></span> -> <span style="color:${this.getColorByLevel(nextLevel)}"><b>${nextLevel}</b></color></span><br>`
         }
         
         tooltip += `Level ${this.levelRequired} - ${SlotType[this.slotType]} <br>`;

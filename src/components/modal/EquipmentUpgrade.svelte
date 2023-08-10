@@ -1,13 +1,17 @@
 <script lang="ts">
     import { element } from "svelte/internal";
     import type { InventoryEquipment } from "../../data/Guild";
-    import UpgradeRecipe from "../../data/UpgradeRecipe";
+    import UpgradeRecipe, { ExportRecipe } from "../../data/UpgradeRecipe";
     import Item from "../../data/Item";
     import Sprite from "../generic/Sprite.svelte";
     import { guild } from "../../store/Stores";
-    import { get } from "svelte/store";
+    import { Utility } from "../../utility/Utility";
 
     export let target: InventoryEquipment;
+    let recipe: ExportRecipe;
+
+    $: target = target;
+    $: recipe = target != null ? UpgradeRecipe.getRecipeFor(target) : null;
 </script>
 
 <div class="container">
@@ -18,13 +22,17 @@
     <hr>
     <h3>Upgrade Recipe</h3>
     {#if target != null}
-        {#each UpgradeRecipe.getRecipeFor(target?.getEquipment()) as element}
+        {#each recipe.recipes as element }
         <div class="recipe-container">
             <p style="font-size:xx-large"><b>·</b></p>
             <Sprite sprite={Item.getById(element[0]).getSprite()}/>
-            <p style="font-size:large">{$guild.inventory.get(element[0])} / {element[1]}</p>
+            <p style="font-size:large; margin-left: 5px">{Utility.SafeGet($guild.inventory, element[0], 0)} / {element[1]}</p>
         </div>
         {/each}
+        <div class="recipe-container">
+            <p style="font-size:xx-large"><b>·</b></p> 
+            <p style="font-size:large;"><i class="fa-solid fa-coins" style="color:#fcba03; margin-left: 5px"></i> {recipe.gold}</p>
+        </div>
     {/if}
 </div>
 
@@ -48,7 +56,6 @@
     .recipe-container {
         display:flex; 
         flex-direction: row; 
-        /* justify-content: center;  */
         align-items: center;
     }
 

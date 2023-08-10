@@ -12,7 +12,6 @@
     import type Loot from "../data/Loot";
     import Item from "../data/Item";
     import { Utility } from "../utility/Utility";
-    import UpgradeRecipe from "../data/UpgradeRecipe";
     import type { InventoryEquipment } from "../data/Guild";
     import EquipmentUpgrade from "./modal/EquipmentUpgrade.svelte";
 
@@ -86,7 +85,6 @@
     }
 
     function upgrade() {
-        var x = UpgradeRecipe.getRecipeFor(selectedEquipment.getEquipment());
         showUpgradeModal = true;
     }
 

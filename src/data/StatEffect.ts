@@ -44,7 +44,7 @@ export class GoldPercentEffect extends StatEffect {
     }
 
     toValueString(): string {
-        return `+${(this.value * 100).toString()}%`;
+        return `+${(this.value * 100).toFixed(0)}%`;
     }
 
     toShortString(): string {
@@ -88,7 +88,7 @@ export class DamagePercentEffect extends StatEffect {
     }
 
     toValueString(): string {
-        return `+${(this.value * 100).toString()}%`;
+        return `+${(this.value * 100).toFixed(0)}%`;
     }
 
     toShortString(): string {
@@ -132,7 +132,7 @@ export class ExperiencePercentEffect extends StatEffect {
     }
 
     toValueString(): string {
-        return `+${(this.value * 100).toString()}%`;
+        return `+${(this.value * 100).toFixed(0)}%`;
     }
 
     toShortString(): string {

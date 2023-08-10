@@ -23,6 +23,14 @@ export class Utility {
         }
     }
 
+    public static SafeGet<T, K>(map: Map<T, K>, key: T, _default: K): K {
+        if (map.has(key)) {
+            return map.get(key)
+        } else {
+            return _default;
+        }
+    }
+
     public static zip(array1, array2) {
         return array1.map((element, index) => {
             return [element, array2[index]];
