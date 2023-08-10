@@ -32,4 +32,4 @@ export default class UpgradeRecipe {
     }
 }
 
-UpgradeRecipe.recipes.push(new UpgradeRecipe(1, 10, SlotType.All, [["Iron", 5]]))
+UpgradeRecipe.recipes.push(new UpgradeRecipe(1, 10, SlotType.All, [["Iron", 5], ["Ardanium", 1]]))

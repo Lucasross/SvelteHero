@@ -61,7 +61,7 @@ export default class Equipment extends Loot {
         tooltip += `Level ${this.levelRequired} - ${SlotType[this.slotType]} <br>`;
         
         for (let duo of stats) {
-            tooltip += "+" + duo[0].value + " -> <b>" + duo[1].toShortString() + "</b><br>";
+            tooltip += `${duo[0].toValueString()} -> <b><span style="color:${this.getColorByLevel(nextLevel)}">${duo[1].toShortString()}</b></span><br>`;
         }
 
         if(this.setId != null) {
