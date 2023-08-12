@@ -1,29 +1,40 @@
 <script lang="ts">
-    import { element } from "svelte/internal";
     import type { InventoryEquipment } from "../../data/Guild";
     import UpgradeRecipe, { ExportRecipe } from "../../data/UpgradeRecipe";
     import Item from "../../data/Item";
     import Sprite from "../generic/Sprite.svelte";
     import { guild } from "../../store/Stores";
     import { Utility } from "../../utility/Utility";
+    import { createEventDispatcher } from "svelte";
 
     export let target: InventoryEquipment;
     let recipe: ExportRecipe;
 
     $: target = target;
     $: recipe = target != null ? UpgradeRecipe.getRecipeFor(target) : null;
+
+    const dispatch = createEventDispatcher();
+
+    function UpgradeTarget() {
+        if($guild.canCraftRecipe(recipe)) {
+            guild.update(g => g.upgradeEquipment(target));
+        }
+        dispatch("craft");
+    }
 </script>
 
+{#if target != null && target.upgradeLevel < 4}
 <div class="container">
     <div class="slot">
         <Sprite sprite={target?.getEquipment().getSprite()}/>
     </div>
-    {@html target != null ? target.getEquipment().getTooltipDifference(target.getStatsEffects(), target.getStatsEffects(target.upgradeLevel + 1), target.upgradeLevel) : ""}
+    {@html target.getEquipment().getTooltipDifference(target.getStatsEffects(), target.getStatsEffects(target.upgradeLevel + 1), target.upgradeLevel)}
     <hr>
-    <h3>Upgrade Recipe</h3>
-    {#if target != null}
-        {#each recipe.recipes as element }
-        <div class="recipe-container">
+    <div class="recipe-container">
+        <h3>Upgrade Recipe</h3>
+    </div>
+    {#each recipe.recipes as element }
+    <div class="recipe-container">
             <p style="font-size:xx-large"><b>·</b></p>
             <Sprite sprite={Item.getById(element[0]).getSprite()}/>
             <p style="font-size:large; margin-left: 5px">{Utility.SafeGet($guild.inventory, element[0], 0)} / {element[1]}</p>
@@ -31,10 +42,13 @@
         {/each}
         <div class="recipe-container">
             <p style="font-size:xx-large"><b>·</b></p> 
-            <p style="font-size:large;"><i class="fa-solid fa-coins" style="color:#fcba03; margin-left: 5px"></i> {recipe.gold}</p>
+            <p style="font-size:large;"><i class="fa-solid fa-coins" style="color:#fcba03; margin: 0 5px 0 5px"></i> {recipe.gold}</p>
         </div>
-    {/if}
+        <div class="recipe-container">
+            <button on:click={UpgradeTarget} disabled={!$guild.canCraftRecipe(recipe)}>Upgrade</button>
+        </div>
 </div>
+{/if}
 
 <style>
     .container {

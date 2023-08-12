@@ -3,7 +3,7 @@ import Equipment from "./Equipment";
 import Hero from "./Hero";
 import type Loot from "./Loot";
 import type StatEffect from "./StatEffect";
-import UpgradeRecipe from "./UpgradeRecipe";
+import type { ExportRecipe } from "./UpgradeRecipe";
 
 export default class Guild {
     public gold: number;
@@ -31,10 +31,23 @@ export default class Guild {
         return this;
     }
 
+    public canCraftRecipe(recipe: ExportRecipe): boolean {
+        return this.hasItems(recipe.recipes) && this.hasGold(recipe.gold);
+    }
+
     public addItem(loot: Loot) {
         Utility.setOrAdd(this.inventory, loot.id, 1);
     }
 
+    public hasItems(items: [string, number][]): boolean {
+        return items.every(item => {
+            return this.inventory.has(item[0]) && this.inventory.get(item[0]) > item[1];
+        });
+    }
+
+    public hasGold(amount: number) {
+        return this.gold > amount;
+    }
 
     // #region Equipment
     public getEquipment(e: InventoryEquipment): InventoryEquipment {
@@ -59,6 +72,11 @@ export default class Guild {
 
     public nullifyEquipment(e: InventoryEquipment) {
         this.equipment[this.equipment.indexOf(e)] = null;
+    }
+
+    public upgradeEquipment(e: InventoryEquipment): Guild {
+        this.getEquipment(e).upgradeLevel += 1;
+        return this;
     }
     //#endregion
 

@@ -85,7 +85,10 @@
     }
 
     function upgrade() {
-        showUpgradeModal = true;
+        if(selectedEquipment.upgradeLevel < 4)
+            showUpgradeModal = true;
+        else
+            alert("Equipment is already maxed.")
     }
 
     function lock() {
@@ -210,6 +213,7 @@
     <Modal bind:this={upgradeModal} bind:showModal={showUpgradeModal}>
         <EquipmentUpgrade
             target={selectedEquipment}
+            on:craft={() => upgradeModal.close()}
         />
     </Modal>
     <div bind:this={grid} class="grid grid-style">
