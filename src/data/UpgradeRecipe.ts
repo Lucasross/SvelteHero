@@ -70,4 +70,4 @@ export class ExportRecipe {
     }
 }
 
-UpgradeRecipe.recipes.push(new UpgradeRecipe(1, 10, SlotType.All, 5000, [["Iron", 5]]))
+UpgradeRecipe.recipes.push(new UpgradeRecipe(1, 10, SlotType.All, 5000, [["Jabacite", 5]]))

@@ -25,8 +25,8 @@ export default class Item extends Loot {
     }
 
 
-    public static readonly upgrade10 = ["Iron"]
+    public static readonly upgrade10 = ["jabacite"]
 }
 
-Item.items.push(new Item("Iron", "iron", Loot.golfForLevel(5) / 3, 4));
+Item.items.push(new Item("Jabacite", "jabacite", Loot.golfForLevel(5) / 3, 4));
 Item.items.push(new Item("Ardanium", "ardanium", Loot.golfForLevel(40) / 3, 4));
