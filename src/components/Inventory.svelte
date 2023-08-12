@@ -14,6 +14,7 @@
     import { Utility } from "../utility/Utility";
     import type { InventoryEquipment } from "../data/Guild";
     import EquipmentUpgrade from "./modal/EquipmentUpgrade.svelte";
+    import UpgradeRecipe, { ExportRecipe } from "../data/UpgradeRecipe";
 
     let grid;
     let contextMenu;
@@ -58,6 +59,27 @@
         showEquipmentModal = true;
     }
 
+    function dismantle() {
+        if(selectedEquipment.lock) {
+            alert("This equipment can't be dismantle as it is lock, unlock it and try again.");
+            return;
+        }
+
+        let recipe: ExportRecipe = UpgradeRecipe.getDismantleFor(selectedEquipment);
+        guild.update(g => {
+            // Add all items from recipe (divided by 2)
+            recipe.recipes.forEach(item => {
+                for (let i = 0; i < item[1]; i++) {
+                    g.addItem(Item.getById(item[0]));                   
+                }
+            });
+
+            //Remove equipment from guild
+            g.removeEquipment(selectedEquipment);
+            return g;
+        })
+    }
+
     function sell() {
         guild.update((g) => {
             sellEquipment(selectedEquipment, g);
@@ -98,10 +120,6 @@
         });
     }
 
-    function wip() {
-        alert("wip");
-    }
-
     let menuEquipment = [
         {
             name: "equip",
@@ -119,7 +137,7 @@
         }, 
         {
             name: "dismantle",
-            onClick: wip,
+            onClick: dismantle,
             displayText: "Dismantle",
             class: "fa-solid fa-hammer",
             style: "",

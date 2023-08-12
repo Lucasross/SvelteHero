@@ -41,6 +41,23 @@ export default class UpgradeRecipe {
 
         return new ExportRecipe(ratioRecipe, cost);
     }
+
+    public static getDismantleFor(invEquipment: InventoryEquipment) : ExportRecipe {
+        var equipment = invEquipment.getEquipment();
+        
+        var recipe: UpgradeRecipe = this.recipes.find(r => r.IsFor(equipment));
+
+        if(recipe == undefined) {
+            throw new Error(`No upgrade recipe found for ${equipment.name} (Lv.${equipment.levelRequired}, Slot:${equipment.slotType})`)
+        }
+
+        if(invEquipment.upgradeLevel == 0)
+            return new ExportRecipe(recipe.recipes.map(([s, n]) => [s, Math.ceil(n / 2) ]), 0);
+
+        var ratioRecipe: [string, number][] = recipe.recipes.map(([s, n]) => [s, Math.ceil(n * (invEquipment.upgradeLevel) / 2) ])
+
+        return new ExportRecipe(ratioRecipe, 0);
+    }
 }
 
 export class ExportRecipe {
