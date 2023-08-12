@@ -113,9 +113,6 @@ export class InventoryEquipment {
     }
 
     public getStatsEffects(upgradeTarget: number = this.upgradeLevel): StatEffect[] {
-        if(this.upgradeLevel == 0)
-            return this.getEquipment().statEffects;
-
         let statEffect: StatEffect[] = [];
 
         this.getEquipment().statEffects.forEach(s => {
