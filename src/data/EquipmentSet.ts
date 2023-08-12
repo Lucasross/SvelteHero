@@ -50,7 +50,7 @@ export default class EquipmentSet {
         return filtered[0];
     }
 
-    public static readonly templarSet = ["Templar Helmet", "Templar Robe", "Templar Necklace", "Templar Tower Shield"];
+    public static readonly templarSet = ["Templar Helmet", "Templar Robe", "Templar Necklace", "Templar Sword"];
 }
 
 EquipmentSet.sets.push(new EquipmentSet("The Ancient Templar",

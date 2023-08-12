@@ -112,4 +112,4 @@ export enum SlotType {
 Equipment.equipments.push(new Equipment("Templar Helmet", SlotType.Head, "close_helmet", 5, 2, "The Ancient Templar", [new DamageRawEffect(5), new GoldRawEffect(5)]));
 Equipment.equipments.push(new Equipment("Templar Robe",  SlotType.Body, "cloth_robe", 5, 2, "The Ancient Templar", [new DamageRawEffect(5), new ExperiencePercentEffect(0.1)]));
 Equipment.equipments.push(new Equipment("Templar Necklace",  SlotType.Jewelry, "necklace_losange", 5, 1, "The Ancient Templar", [new GoldRawEffect(10)]));
-Equipment.equipments.push(new Equipment("Templar Tower Shield",  SlotType.Weapon, "tower_shield", 5, 1, "The Ancient Templar", [new DamagePercentEffect(0.05)]));
+Equipment.equipments.push(new Equipment("Templar Sword",  SlotType.Weapon, "sword/simple", 5, 1, "The Ancient Templar", [new DamagePercentEffect(0.05)]));
