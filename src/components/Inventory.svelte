@@ -12,18 +12,19 @@
     import type Loot from "../data/Loot";
     import Item from "../data/Item";
     import { Utility } from "../utility/Utility";
-    import UpgradeRecipe from "../data/UpgradeRecipe";
     import type { InventoryEquipment } from "../data/Guild";
-    import { get } from "svelte/store";
+    import EquipmentUpgrade from "./modal/EquipmentUpgrade.svelte";
 
     let grid;
     let contextMenu;
     let equipModal: Modal;
+    let upgradeModal: Modal;
     let mounted: boolean = false;
     let selectedEquipment: InventoryEquipment;
     $: selectedEquipment = null;
     $: selectedItem = null;
     $: showEquipmentModal = false;
+    $: showUpgradeModal = false;
 
     export let isItems: boolean = true;
 
@@ -84,7 +85,10 @@
     }
 
     function upgrade() {
-        var x = UpgradeRecipe.getRecipeFor(selectedEquipment.getEquipment());
+        if(selectedEquipment.upgradeLevel < 4)
+            showUpgradeModal = true;
+        else
+            alert("Equipment is already maxed.")
     }
 
     function lock() {
@@ -204,6 +208,12 @@
         <EquipmentSelection
             inventoryEquipment={selectedEquipment}
             on:equip={() => equipModal.close()}
+        />
+    </Modal>
+    <Modal bind:this={upgradeModal} bind:showModal={showUpgradeModal}>
+        <EquipmentUpgrade
+            target={selectedEquipment}
+            on:craft={() => upgradeModal.close()}
         />
     </Modal>
     <div bind:this={grid} class="grid grid-style">

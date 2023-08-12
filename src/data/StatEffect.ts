@@ -9,6 +9,9 @@ export default abstract class StatEffect {
         this.value = value;
     }
 
+    toValueString(): string {
+        return this.value.toString();
+    }
     abstract toShortString(): string;
     abstract toLongString(): string;
     abstract upgrade(upgradeLevel: number): StatEffect;
@@ -38,6 +41,10 @@ export class GoldPercentEffect extends StatEffect {
 
      constructor(value: number) {
         super(EffectType.GoldPercent, value);
+    }
+
+    toValueString(): string {
+        return `+${(this.value * 100).toFixed(0)}%`;
     }
 
     toShortString(): string {
@@ -80,6 +87,10 @@ export class DamagePercentEffect extends StatEffect {
         super(EffectType.DamagePercent, value);
     }
 
+    toValueString(): string {
+        return `+${(this.value * 100).toFixed(0)}%`;
+    }
+
     toShortString(): string {
         return `+${Math.round(this.value * 100)}% damage`;
     }
@@ -118,6 +129,10 @@ export class ExperiencePercentEffect extends StatEffect {
 
     constructor(value: number) {
         super(EffectType.ExperiencePercent, value);
+    }
+
+    toValueString(): string {
+        return `+${(this.value * 100).toFixed(0)}%`;
     }
 
     toShortString(): string {

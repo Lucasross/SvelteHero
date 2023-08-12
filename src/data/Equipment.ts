@@ -1,3 +1,4 @@
+import { Utility } from "../utility/Utility";
 import EquipmentSet from "./EquipmentSet";
 import type Hero from "./Hero";
 import Loot, { LootType } from "./Loot";
@@ -41,6 +42,31 @@ export default class Equipment extends Loot {
         if(this.setId != null) {
             tooltip += "<br>"
             tooltip += EquipmentSet.getById(this.setId).toLongString(hero);
+        }
+
+        return tooltip;
+    }
+
+    getTooltipDifference(originStats: StatEffect[], endingEffects: StatEffect[], currentLevel: number) {
+        let tooltip: string;
+        let nextLevel: number = currentLevel + 1;
+        let stats: [StatEffect, StatEffect][] = Utility.zip(originStats, endingEffects);
+
+        if(currentLevel == 0) {
+            tooltip = `<b>${this.name}</b> -> <b><span style="color:${this.getColorByLevel(nextLevel)}">${this.name} +${nextLevel}</span></b><br>`
+        } else {
+            tooltip = `<span style="color:${this.getColorByLevel(currentLevel)}"><b>${this.name} +${currentLevel}</b></span> -> <span style="color:${this.getColorByLevel(nextLevel)}"><b>${nextLevel}</b></color></span><br>`
+        }
+        
+        tooltip += `Level ${this.levelRequired} - ${SlotType[this.slotType]} <br>`;
+        
+        for (let duo of stats) {
+            tooltip += `${duo[0].toValueString()} -> <b><span style="color:${this.getColorByLevel(nextLevel)}">${duo[1].toShortString()}</b></span><br>`;
+        }
+
+        if(this.setId != null) {
+            tooltip += "<br>"
+            tooltip += EquipmentSet.getById(this.setId).toLongString(null);
         }
 
         return tooltip;
