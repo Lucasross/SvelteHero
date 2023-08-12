@@ -50,10 +50,10 @@ export default class EquipmentSet {
         return filtered[0];
     }
 
-    public static readonly templarSet = ["Templar Helmet", "Templar Robe", "Templar Necklace", "Templar Sword"];
+    public static readonly trainingDummySet = ["Training Boots", "Training Shirt", "Training Ring", "Training Sword"];
 }
 
-EquipmentSet.sets.push(new EquipmentSet("The Ancient Templar",
+EquipmentSet.sets.push(new EquipmentSet("Training Dummy",
     new Map<number, StatEffect>([
         [2, new GoldPercentEffect(0.05)],
         [3, new ExperienceRawEffect(100)],
