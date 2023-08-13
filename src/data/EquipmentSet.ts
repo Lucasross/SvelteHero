@@ -51,8 +51,8 @@ export default class EquipmentSet {
     }
 
     public static readonly trainingDummySet = ["Training Boots", "Training Shirt", "Training Ring", "Training Sword"];
-    public static readonly electricPowerSet = ["Flashing Brogues", "Spinner Headset", "Leddy Surcoat"];
-    public static readonly plagueInfestationSet = ["Squashing Footwraps", "Rat's wish", "Infinite Slicer"];
+    public static readonly electricPowerSet = ["Electric Brogues", "Electric Headset", "Electric Surcoat"];
+    public static readonly plagueInfestationSet = ["Plague Footwraps", "Plague Damnation", "Plague Slicer"];
 }
 
 EquipmentSet.sets.push(new EquipmentSet("Training Dummy",

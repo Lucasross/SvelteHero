@@ -158,25 +158,25 @@ Monster.monsters.push(new Monster("sorcerer-boss", "Gohugu", 12, "sorcerer-red",
 //#endregion
 
 //#region Level 11 - 20
-Monster.monsters.push(new Monster("bat-easy", "Bat", 13, "bat_dark", 0.8));
+Monster.monsters.push(new Monster("bat-easy", "Bat", 13, "bat_dark", 0.8, LootTable.normal_20));
 
-Monster.monsters.push(new Monster("cloud-easy", "Cloud", 14, "cloud_purple", 1));
-Monster.monsters.push(new Monster("slime-medium", "Corrupted Slime", 14, "slime_gray", 1.2));
+Monster.monsters.push(new Monster("cloud-easy", "Cloud", 14, "cloud_purple", 1, LootTable.normal_20));
+Monster.monsters.push(new Monster("slime-medium", "Corrupted Slime", 14, "slime_gray", 1.2, LootTable.normal_20));
 
-Monster.monsters.push(new Monster("soldier-easy", "Soldier", 15, "soldier_gray", 1.5));
-Monster.monsters.push(new Monster("zombie-easy", "Zombie", 15, "zombie_green", 1));
+Monster.monsters.push(new Monster("soldier-easy", "Soldier", 15, "soldier_gray", 1.5, LootTable.normal_20));
+Monster.monsters.push(new Monster("zombie-easy", "Zombie", 15, "zombie_green", 1, LootTable.normal_20));
 
-Monster.monsters.push(new Monster("spirit-medium", "Phantom Spirit", 16, "spirit_purple", 0.9));
+Monster.monsters.push(new Monster("spirit-medium", "Phantom Spirit", 16, "spirit_purple", 0.9, LootTable.normal_20));
 
-Monster.monsters.push(new Monster("reaper-easy", "Reaper", 17, "reaper_purple", 1.2));
+Monster.monsters.push(new Monster("reaper-easy", "Reaper", 17, "reaper_purple", 1.2, LootTable.normal_20));
 
-Monster.monsters.push(new Monster("feline-easy", "Feline", 18, "feline_brown", 1));
-Monster.monsters.push(new Monster("boxcat-easy", "Boxing cat", 18, "boxcat_blue", 1));
+Monster.monsters.push(new Monster("feline-easy", "Feline", 18, "feline_brown", 1, LootTable.normal_20));
+Monster.monsters.push(new Monster("boxcat-easy", "Boxing cat", 18, "boxcat_blue", 1, LootTable.normal_20));
 
-Monster.monsters.push(new Monster("rat-elite-easy", "Chief rat", 19, "mouse_gray", 5));
-Monster.monsters.push(new Monster("rat-elite-medium", "Commander rat", 20, "mouse_brown", 6));
+Monster.monsters.push(new Monster("rat-elite-easy", "Chief rat", 19, "mouse_gray", 5, LootTable.elite_20));
+Monster.monsters.push(new Monster("rat-elite-medium", "Commander rat", 20, "mouse_brown", 6, LootTable.elite_20));
 
-Monster.monsters.push(new Monster("rat-boss", "Ratto Kingu", 22, "mouse_purple", 35));
+Monster.monsters.push(new Monster("rat-boss", "Ratto Kingu", 22, "mouse_purple", 35, LootTable.boss_20));
 //#endregion
 
 Monster.monsters.push(new Monster("demon-lord", "Demon Lord", 100, "demon-lord", 50));

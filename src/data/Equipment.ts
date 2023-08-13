@@ -121,13 +121,13 @@ Equipment.equipments.push(new Equipment("Fine Blade",  SlotType.Weapon, "sword/s
 //#endregion
 
 //#region 11 - 20
-Equipment.equipments.push(new Equipment("Flashing Brogues", SlotType.Foot, "feet/elf_purple", 13, 2, "Electric Power", [new ExperienceRawEffect(150), new GoldRawEffect(15)]));
-Equipment.equipments.push(new Equipment("Spinner Headset", SlotType.Head, "head/metal_hat", 14, 2, "Electric Power", [new DamageRawEffect(150)]));
-Equipment.equipments.push(new Equipment("Leddy Surcoat", SlotType.Body, "body/pink_armor", 15, 1, "Electric Power", [new ExperiencePercentEffect(0.1), new GoldPercentEffect(0.1)]));
+Equipment.equipments.push(new Equipment("Electric Brogues", SlotType.Foot, "feet/elf_purple", 13, 2, "Electric Power", [new ExperienceRawEffect(150), new GoldRawEffect(15)]));
+Equipment.equipments.push(new Equipment("Electric Headset", SlotType.Head, "head/metal_hat", 14, 2, "Electric Power", [new DamageRawEffect(150)]));
+Equipment.equipments.push(new Equipment("Electric Surcoat", SlotType.Body, "body/pink_armor", 15, 1, "Electric Power", [new ExperiencePercentEffect(0.1), new GoldPercentEffect(0.1)]));
 
-Equipment.equipments.push(new Equipment("Squashing Footwraps", SlotType.Foot, "feet/basic_leather_dark", 18, 1, "Plague Infestation", [new DamageRawEffect(40), new ExperienceRawEffect(50)]));
-Equipment.equipments.push(new Equipment("Rat's wish", SlotType.Jewelry, "jewelry/pendant_mutisha", 19, 1, "Plague Infestation", [new DamageRawEffect(40), new ExperiencePercentEffect(0.05)]));
-Equipment.equipments.push(new Equipment("Infinite Slicer", SlotType.Weapon, "sword/baffle", 20, 1, "Plague Infestation", [new DamageRawEffect(150)]));
+Equipment.equipments.push(new Equipment("Plague Footwraps", SlotType.Foot, "feet/basic_leather_dark", 18, 1, "Plague Infestation", [new DamageRawEffect(40), new ExperienceRawEffect(50)]));
+Equipment.equipments.push(new Equipment("Plague Damnation", SlotType.Jewelry, "jewelry/pendant_mutisha", 19, 1, "Plague Infestation", [new DamageRawEffect(40), new ExperiencePercentEffect(0.05)]));
+Equipment.equipments.push(new Equipment("Plague Slicer", SlotType.Weapon, "sword/baffle", 20, 1, "Plague Infestation", [new DamageRawEffect(150)]));
 
 Equipment.equipments.push(new Equipment("Fur coat", SlotType.Body, "body/jacket_gray", 17, 2, null, [new ExperienceRawEffect(200), new GoldRawEffect(50)]));
 Equipment.equipments.push(new Equipment("Gold ring", SlotType.Jewelry, "jewelry/ring_gold_big", 20, 1, null, [new GoldPercentEffect(0.25)]));
