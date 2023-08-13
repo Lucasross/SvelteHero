@@ -198,42 +198,38 @@ class AreaController {
     }
 }
 
-AreaData.areas.push(new AreaData("Plains of Koloh", "plains.jpg",
+AreaData.areas.push(new AreaData("Training center", "training_camp.jpg",
+    [
+        "dummy-easy",
+    ]));
+
+AreaData.areas.push(new AreaData("Koloh's plains", "plains.jpg",
     [
         "piou-easy",
         "chicken-easy",
         "slime-easy",
-    ]));
-    
-    AreaData.areas.push(new AreaData("Snowy mountains", "mountains.jpg",
-    [
-        "wolf-easy",
         "beetle-easy",
+        "mushroom-easy",
     ]));
 
 AreaData.areas.push(new AreaData("Dark forest", "forest.jpg",
     [
-        "mushroom-easy",
+        "wolf-easy",
         "plant-easy",
-        "snake-easy"
-    ]));
-
-AreaData.areas.push(new AreaData("Keyns village", "ruinedvillage.jpg",
-    [
+        "snake-easy",
         "goblin-easy",
-        "spirit-easy",
-        "ogre-easy",
-        "cerbere-easy"
     ]));
 
-    AreaData.areas.push(new AreaData("Fire's plains", "volcano.jpg",
+AreaData.areas.push(new AreaData("Keyn's village", "desert_hood.jpg",
     [
-        "sorcerer-boss"
-    ], 
-    60, "boss-skull.png"));
+        "spirit-elite",
+        "ogre-elite",
+        "cerbere-elite"
+    ],
+    30, "elite_helm.png"));
 
-AreaData.areas.push(new AreaData("Demon's castle", "darkcastle.jpg",
+AreaData.areas.push(new AreaData("Keyn's lair", "desert_capital.jpg",
     [
-        "demon-lord"
-    ], 
-    60, "boss-skull.png"));
+        "sorcerer-boss",
+    ],
+    60, "boss_skull.png"));

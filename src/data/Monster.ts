@@ -37,7 +37,7 @@ export default class Monster implements ISprite {
         this.experience = Math.round(Monster.getBaseExperience(level) * this.experienceScalerBasedOnHealthScale(healthScale));
         this.currentHealth = this.maxHealth;
 
-        this.spriteFileName = spriteFileName;
+        this.spriteFileName = spriteFileName + ".png";
         this.sprite = new Sprite(this.getFullPath(spriteFileName));
     }
 
@@ -130,27 +130,31 @@ export default class Monster implements ISprite {
     }
 }
 
-Monster.monsters.push(new Monster("piou-easy", "Piou", 1, "piou-yellow.png", 1, LootTable.normal_10));
-Monster.monsters.push(new Monster("chicken-easy", "Chicken", 1, "chicken-white.png", 1.1, LootTable.normal_10));
+//#region Level 1 - 10
+Monster.monsters.push(new Monster("dummy-easy", "Wood dummy", 1, "dummy_white", 1, LootTable.normal_10))
 
-Monster.monsters.push(new Monster("slime-easy", "Slime", 2, "slime-blue.png", 1.1, LootTable.normal_10));
+Monster.monsters.push(new Monster("piou-easy", "Piou", 2, "piou-yellow", 1, LootTable.normal_10));
 
-Monster.monsters.push(new Monster("beetle-easy", "Beetle", 3, "beetle-blue.png", 1, LootTable.normal_10));
+Monster.monsters.push(new Monster("chicken-easy", "Chicken", 3, "chicken-white", 1.1, LootTable.normal_10));
+Monster.monsters.push(new Monster("slime-easy", "Slime", 3, "slime-blue", 1.1, LootTable.normal_10));
 
-Monster.monsters.push(new Monster("wolf-easy", "Wolf", 4, "wolf-brown.png", 1, LootTable.normal_10));
-Monster.monsters.push(new Monster("mushroom-easy", "Mushroom", 4, "mushroom-green.png", 1.15, LootTable.normal_10));
+Monster.monsters.push(new Monster("beetle-easy", "Beetle", 4, "beetle-blue", 1, LootTable.normal_10));
 
-Monster.monsters.push(new Monster("plant-easy", "Angry plant", 5, "plant-green.png", 1.1, LootTable.normal_10));
+Monster.monsters.push(new Monster("mushroom-easy", "Mushroom", 5, "mushroom-green", 1.15, LootTable.normal_10));
+Monster.monsters.push(new Monster("wolf-easy", "Wolf", 5, "wolf-brown", 1, LootTable.normal_10));
 
-Monster.monsters.push(new Monster("snake-easy", "Snake", 6, "snake-pink.png",1, LootTable.normal_10));
+Monster.monsters.push(new Monster("plant-easy", "Angry plant", 6, "plant-green", 1.1, LootTable.normal_10));
 
-Monster.monsters.push(new Monster("spirit-easy", "Fire spirit", 7, "spirit-red.png", 0.9, LootTable.normal_10));
-Monster.monsters.push(new Monster("goblin-easy", "Goblin", 7, "goblin-yellow.png", 1.1, LootTable.normal_10));
+Monster.monsters.push(new Monster("snake-easy", "Snake", 7, "snake-pink",1, LootTable.normal_10));
 
-Monster.monsters.push(new Monster("ogre-easy", "Ogre", 8, "ogre-green.png", 1.2, LootTable.normal_10))
+Monster.monsters.push(new Monster("goblin-easy", "Goblin", 8, "goblin-yellow.", 1.1, LootTable.normal_10));
+Monster.monsters.push(new Monster("spirit-elite", "Fire spirit", 8, "spirit-red", 3, LootTable.elite_10));
 
-Monster.monsters.push(new Monster("cerbere-easy", "Cerbere", 10, "cerbere-white.png", 1.5, LootTable.normal_10));
+Monster.monsters.push(new Monster("ogre-elite", "Ogre", 9, "ogre-green", 3, LootTable.elite_10));
 
-Monster.monsters.push(new Monster("sorcerer-boss", "Red sorcerer", 15, "sorcerer-red.png", 30, LootTable.normal_10));
+Monster.monsters.push(new Monster("cerbere-elite", "Cerbere", 10, "cerbere-white", 4, LootTable.elite_10));
 
-Monster.monsters.push(new Monster("demon-lord", "Demon Lord", 100, "demon-lord.png", 50));
+Monster.monsters.push(new Monster("sorcerer-boss", "Red sorcerer", 12, "sorcerer-red", 30, LootTable.boss_10));
+//#endregion
+
+Monster.monsters.push(new Monster("demon-lord", "Demon Lord", 100, "demon-lord", 50));

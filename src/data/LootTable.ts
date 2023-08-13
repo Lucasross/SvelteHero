@@ -56,7 +56,7 @@ export default class LootTable {
     }
 
     public static readonly normal_10 = new LootTable(EquipmentSet.trainingDummySet, Item.upgrade10, 1, 5, 2.5);
-    public static readonly elite_10 = new LootTable(null, Item.upgrade10, 0, 1, 20); 
-    public static readonly boss_10 = new LootTable(EquipmentSet.trainingDummySet, null, 1, 0, 25); 
+    public static readonly elite_10 = new LootTable(EquipmentSet.trainingDummySet.concat(["Fine Blade"]), Item.upgrade10, 1, 2, 15); 
+    public static readonly boss_10 = new LootTable(EquipmentSet.trainingDummySet.concat(["Fine Blade"]), null, 1, 0, 25); 
 }
 

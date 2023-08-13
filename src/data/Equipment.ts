@@ -113,3 +113,4 @@ Equipment.equipments.push(new Equipment("Training Boots", SlotType.Foot, "feet/b
 Equipment.equipments.push(new Equipment("Training Shirt",  SlotType.Body, "body/shirt_light", 5, 2, "Training Dummy", [new DamageRawEffect(5), new ExperiencePercentEffect(0.1)]));
 Equipment.equipments.push(new Equipment("Training Ring",  SlotType.Jewelry, "jewelry/ring_silver_basic", 5, 1, "Training Dummy", [new GoldRawEffect(10)]));
 Equipment.equipments.push(new Equipment("Training Sword",  SlotType.Weapon, "sword/simple", 5, 1, "Training Dummy", [new DamagePercentEffect(0.05)]));
+Equipment.equipments.push(new Equipment("Fine Blade",  SlotType.Weapon, "sword/skinner", 10, 1, null, [new DamagePercentEffect(0.1), new DamageRawEffect(75)]));

@@ -8,12 +8,11 @@
     <div class="template worldmap">
         <img src="pictures/regions/world_map.png" alt="world map">
         
-        <WorldMapLocation x={48} y={22} area_id={"Snowy mountains"}/>
-        <WorldMapLocation x={28} y={34} area_id={"Plains of Koloh"}/>
+        <WorldMapLocation x={28} y={34} area_id={"Training center"}/>
+        <WorldMapLocation x={36} y={26} area_id={"Koloh's plains"}/>
         <WorldMapLocation x={9} y={32} area_id={"Dark forest"}/>
-        <WorldMapLocation x={36} y={0} area_id={"Demon's castle"}/>
-        <WorldMapLocation x={33} y={56} area_id={"Keyns village"}/>
-        <WorldMapLocation x={72} y={34} area_id={"Fire's plains"}/>
+        <WorldMapLocation x={33} y={56} area_id={"Keyn's village"}/>
+        <WorldMapLocation x={24} y={62} area_id={"Keyn's lair"}/>
     </div>
 </div>
 
