@@ -44,11 +44,11 @@ export class GoldPercentEffect extends StatEffect {
     }
 
     toValueString(): string {
-        return `+${(this.value * 100).toFixed(0)}%`;
+        return `+${(this.value * 100).toPrecision(2)}%`;
     }
 
     toShortString(): string {
-        return `+${Math.round(this.value * 100)}% gold`;
+        return `+${(this.value * 100).toPrecision(2)}% gold`;
     }
 
     toLongString(): string {
@@ -88,11 +88,11 @@ export class DamagePercentEffect extends StatEffect {
     }
 
     toValueString(): string {
-        return `+${(this.value * 100).toFixed(0)}%`;
+        return `+${(this.value * 100).toPrecision(2)}%`;
     }
 
     toShortString(): string {
-        return `+${Math.round(this.value * 100)}% damage`;
+        return `+${(this.value * 100).toPrecision(2)}% damage`;
     }
 
     toLongString(): string {
@@ -132,11 +132,11 @@ export class ExperiencePercentEffect extends StatEffect {
     }
 
     toValueString(): string {
-        return `+${(this.value * 100).toFixed(0)}%`;
+        return `+${(this.value * 100).toPrecision(2)}%`;
     }
 
     toShortString(): string {
-        return `+${Math.round(this.value * 100)}% experience`;
+        return `+${(this.value * 100).toPrecision(2)}% experience`;
     }
 
     toLongString(): string {
