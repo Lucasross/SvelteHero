@@ -36,7 +36,7 @@ export default class UpgradeRecipe {
             throw new Error(`No upgrade recipe found for ${equipment.name} (Lv.${equipment.levelRequired}, Slot:${equipment.slotType})`)
         }
 
-        var ratioRecipe: [string, number][] = recipe.recipes.map(([s, n]) => [s, Math.ceil(n * (invEquipment.upgradeLevel+1))])
+        var ratioRecipe: [string, number][] = recipe.recipes.map(([s, n]) => [s, Math.floor(n * (invEquipment.upgradeLevel+1))])
         var cost: number = Math.ceil(recipe.gold * (invEquipment.upgradeLevel+1));
 
         return new ExportRecipe(ratioRecipe, cost);
@@ -54,7 +54,7 @@ export default class UpgradeRecipe {
         if(invEquipment.upgradeLevel == 0)
             return new ExportRecipe(recipe.recipes.map(([s, n]) => [s, Math.ceil(n / 2) ]), 0);
 
-        var ratioRecipe: [string, number][] = recipe.recipes.map(([s, n]) => [s, Math.ceil(n * (invEquipment.upgradeLevel) / 2) ])
+        var ratioRecipe: [string, number][] = recipe.recipes.map(([s, n]) => [s, Math.floor(n * (invEquipment.upgradeLevel) / 2) ])
 
         return new ExportRecipe(ratioRecipe, 0);
     }

@@ -34,19 +34,21 @@
         <h3>Upgrade Recipe</h3>
     </div>
     {#each recipe.recipes as element }
-    <div class="recipe-container">
+        {#if element[1] > 0}
+        <div class="recipe-container">
             <p style="font-size:xx-large"><b>·</b></p>
             <Sprite sprite={Item.getById(element[0]).getSprite()}/>
             <p style="font-size:large; margin-left: 5px">{Utility.SafeGet($guild.inventory, element[0], 0)} / {element[1]}</p>
         </div>
-        {/each}
-        <div class="recipe-container">
-            <p style="font-size:xx-large"><b>·</b></p> 
-            <p style="font-size:large;"><i class="fa-solid fa-coins" style="color:#fcba03; margin: 0 5px 0 5px"></i> {recipe.gold}</p>
-        </div>
-        <div class="recipe-container">
-            <button on:click={UpgradeTarget} disabled={!$guild.canCraftRecipe(recipe)}>Upgrade</button>
-        </div>
+        {/if}
+    {/each}
+    <div class="recipe-container">
+        <p style="font-size:xx-large"><b>·</b></p> 
+        <p style="font-size:large;"><i class="fa-solid fa-coins" style="color:#fcba03; margin: 0 5px 0 5px"></i> {recipe.gold}</p>
+    </div>
+    <div class="recipe-container">
+        <button on:click={UpgradeTarget} disabled={!$guild.canCraftRecipe(recipe)}>Upgrade</button>
+    </div>
 </div>
 {/if}
 
