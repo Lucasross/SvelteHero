@@ -2,7 +2,7 @@ import { Utility } from "../utility/Utility";
 import EquipmentSet from "./EquipmentSet";
 import type Hero from "./Hero";
 import Loot, { LootType } from "./Loot";
-import StatEffect, { DamagePercentEffect, DamageRawEffect, ExperiencePercentEffect, GoldRawEffect } from "./StatEffect";
+import StatEffect, { DamagePercentEffect, DamageRawEffect, ExperiencePercentEffect, ExperienceRawEffect, GoldPercentEffect, GoldRawEffect } from "./StatEffect";
 
 export default class Equipment extends Loot {
     public static equipments: Equipment[] = [];
@@ -96,6 +96,9 @@ export default class Equipment extends Loot {
     public static toEquipmentList(id: string[]): Equipment[] {
         return id.map(id => this.getById(id));
     }
+
+    public static readonly random10 = ["Fine Blade"];
+    public static readonly random20 = ["Fur coat", "Gold ring", "Thunder Slash"];
 }
 
 export enum SlotType {
@@ -109,8 +112,25 @@ export enum SlotType {
     All = Weapon | Jewelry | Head | Body | Foot, 
 }
 
+//#region 1 - 10
 Equipment.equipments.push(new Equipment("Training Boots", SlotType.Foot, "feet/basic_big", 5, 2, "Training Dummy", [new DamageRawEffect(5), new GoldRawEffect(5)]));
 Equipment.equipments.push(new Equipment("Training Shirt",  SlotType.Body, "body/shirt_light", 5, 2, "Training Dummy", [new DamageRawEffect(5), new ExperiencePercentEffect(0.1)]));
 Equipment.equipments.push(new Equipment("Training Ring",  SlotType.Jewelry, "jewelry/ring_silver_basic", 5, 1, "Training Dummy", [new GoldRawEffect(10)]));
 Equipment.equipments.push(new Equipment("Training Sword",  SlotType.Weapon, "sword/simple", 5, 1, "Training Dummy", [new DamagePercentEffect(0.05)]));
 Equipment.equipments.push(new Equipment("Fine Blade",  SlotType.Weapon, "sword/skinner", 10, 1, null, [new DamagePercentEffect(0.1), new DamageRawEffect(75)]));
+//#endregion
+
+//#region 11 - 20
+Equipment.equipments.push(new Equipment("Flashing Brogues", SlotType.Foot, "feet/elf_purple", 13, 2, "Electric Power", [new ExperienceRawEffect(150), new GoldRawEffect(15)]));
+Equipment.equipments.push(new Equipment("Spinner Headset", SlotType.Head, "head/metal_hat", 14, 2, "Electric Power", [new DamageRawEffect(150)]));
+Equipment.equipments.push(new Equipment("Leddy Surcoat", SlotType.Body, "body/pink_armor", 15, 1, "Electric Power", [new ExperiencePercentEffect(0.1), new GoldPercentEffect(0.1)]));
+
+Equipment.equipments.push(new Equipment("Squashing Footwraps", SlotType.Foot, "feet/basic_leather_dark", 18, 1, "Plague Infestation", [new DamageRawEffect(40), new ExperienceRawEffect(50)]));
+Equipment.equipments.push(new Equipment("Rat's wish", SlotType.Jewelry, "jewelry/pendant_mutisha", 19, 1, "Plague Infestation", [new DamageRawEffect(40), new ExperiencePercentEffect(0.05)]));
+Equipment.equipments.push(new Equipment("Infinite Slicer", SlotType.Weapon, "sword/baffle", 20, 1, "Plague Infestation", [new DamageRawEffect(150)]));
+
+Equipment.equipments.push(new Equipment("Fur coat", SlotType.Body, "body/jacket_gray", 17, 2, null, [new ExperienceRawEffect(200), new GoldRawEffect(50)]));
+Equipment.equipments.push(new Equipment("Gold ring", SlotType.Jewelry, "jewelry/ring_gold_big", 20, 1, null, [new GoldPercentEffect(0.25)]));
+Equipment.equipments.push(new Equipment("Thunder Slash", SlotType.Weapon, "body/aura_thunder", 20, 2, null, [new ExperienceRawEffect(200), new ExperiencePercentEffect(0.1)]));
+//#endregion
+

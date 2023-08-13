@@ -199,6 +199,7 @@ class AreaController {
     }
 }
 
+//#region 1 - 10
 AreaData.areas.push(new AreaData("Training center", "training_camp.jpg",
     [
         "dummy-easy",
@@ -232,5 +233,42 @@ AreaData.areas.push(new AreaData("Keyn's village", "desert_hood.jpg",
 AreaData.areas.push(new AreaData("Keyn's lair", "desert_capital.jpg",
     [
         "sorcerer-boss",
+    ],
+    60, "boss_skull.png"));
+//#endregion
+
+AreaData.areas.push(new AreaData("Walker Bridge", "neon_bridge.jpg",
+    [
+        "bat-easy",
+        "cloud-easy",
+        "slime-medium",
+        "soldier-easy",
+    ]));
+
+AreaData.areas.push(new AreaData("Neon City", "neon_city.jpg",
+    [
+        "zombie-easy",
+        "soldier-easy",
+        "spirit-medium",
+        "reaper-easy",
+    ]));
+
+AreaData.areas.push(new AreaData("Neon Harbour", "neon_harbour.jpg",
+    [
+        "reaper-easy",
+        "feline-easy",
+        "boxcat-easy",
+    ]));
+
+AreaData.areas.push(new AreaData("The Undergrounds", "neon_underground.jpg",
+    [
+        "rat-elite-easy",
+        "rat-elite-medium",
+    ],
+    30, "elite_helm.png"));
+
+AreaData.areas.push(new AreaData("The pit", "neon_pit.jpg",
+    [
+        "rat-boss",
     ],
     60, "boss_skull.png"));

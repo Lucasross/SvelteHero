@@ -8,11 +8,19 @@
     <div class="template worldmap">
         <img src="pictures/regions/world_map.png" alt="world map">
         
+        <!-- Level 1 - 10 -->
         <WorldMapLocation x={28} y={34} area_id={"Training center"}/>
         <WorldMapLocation x={36} y={26} area_id={"Koloh's plains"}/>
         <WorldMapLocation x={9} y={32} area_id={"Dark forest"}/>
         <WorldMapLocation x={33} y={56} area_id={"Keyn's village"}/>
         <WorldMapLocation x={24} y={62} area_id={"Keyn's lair"}/>
+
+        <!-- Level 11 - 20 -->
+        <WorldMapLocation x={55} y={46} area_id={"Walker Bridge"}/>
+        <WorldMapLocation x={67} y={57} area_id={"Neon City"}/>
+        <WorldMapLocation x={58} y={70} area_id={"Neon Harbour"}/>
+        <WorldMapLocation x={76} y={64} area_id={"The Undergrounds"}/>
+        <WorldMapLocation x={71} y={76} area_id={"The pit"}/>
     </div>
 </div>
 

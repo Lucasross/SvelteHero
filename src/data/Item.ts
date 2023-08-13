@@ -26,7 +26,12 @@ export default class Item extends Loot {
 
 
     public static readonly upgrade10 = ["Granacier", "Jabacite"]
+    public static readonly upgrade20 = ["Primavite", "Patium", "Morvite"]
 }
 
 Item.items.push(new Item("Jabacite", "jabacite", Loot.golfForLevel(5) / 3, 1));
 Item.items.push(new Item("Granacier", "granacier", Loot.golfForLevel(5) / 5, 2));
+
+Item.items.push(new Item("Primavite", "primavite", Loot.golfForLevel(15), 1));
+Item.items.push(new Item("Patium", "patium", Loot.golfForLevel(15) / 2.5, 2));
+Item.items.push(new Item("Morvite", "morvite", Loot.golfForLevel(15) / 5, 4));

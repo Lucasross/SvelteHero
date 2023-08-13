@@ -1,6 +1,6 @@
 import Equipment from "./Equipment";
 import type Hero from "./Hero";
-import StatEffect, { DamageRawEffect, ExperienceRawEffect, GoldPercentEffect } from "./StatEffect";
+import StatEffect, { DamagePercentEffect, DamageRawEffect, ExperiencePercentEffect, ExperienceRawEffect, GoldPercentEffect } from "./StatEffect";
 
 export default class EquipmentSet {
     public static sets: EquipmentSet[] = [];
@@ -51,6 +51,8 @@ export default class EquipmentSet {
     }
 
     public static readonly trainingDummySet = ["Training Boots", "Training Shirt", "Training Ring", "Training Sword"];
+    public static readonly electricPowerSet = ["Flashing Brogues", "Spinner Headset", "Leddy Surcoat"];
+    public static readonly plagueInfestationSet = ["Squashing Footwraps", "Rat's wish", "Infinite Slicer"];
 }
 
 EquipmentSet.sets.push(new EquipmentSet("Training Dummy",
@@ -58,5 +60,19 @@ EquipmentSet.sets.push(new EquipmentSet("Training Dummy",
         [2, new GoldPercentEffect(0.05)],
         [3, new ExperienceRawEffect(100)],
         [4, new DamageRawEffect(50)]
+    ])
+))
+
+EquipmentSet.sets.push(new EquipmentSet("Electric Power",
+    new Map<number, StatEffect>([
+        [2, new GoldPercentEffect(0.25)],
+        [3, new ExperiencePercentEffect(0.25)],
+    ])
+))
+
+EquipmentSet.sets.push(new EquipmentSet("Plague Infestation",
+    new Map<number, StatEffect>([
+        [2, new DamageRawEffect(150)],
+        [3, new DamagePercentEffect(0.15)],
     ])
 ))
