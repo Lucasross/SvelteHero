@@ -178,6 +178,7 @@ class AreaController {
         }
         if (this.heroes.length == 0) {
             this.currentTimer = this.area.timePerMonster;
+            this.getMonster().reset();
         }
     }
 
