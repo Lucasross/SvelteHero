@@ -55,11 +55,11 @@ export default class LootTable {
         return targetLoot == null ? list[list.length - 1] : targetLoot;
     }
 
-    public static readonly normal_10 = new LootTable(EquipmentSet.trainingDummySet, Item.upgrade10, 1, 5, 2.5);
+    public static readonly normal_10 = new LootTable(EquipmentSet.trainingDummySet, Item.upgrade10, 1, 4, 3);
     public static readonly elite_10 = new LootTable(EquipmentSet.trainingDummySet.concat(Equipment.random10), Item.upgrade10, 1, 2, 15); 
     public static readonly boss_10 = new LootTable(EquipmentSet.trainingDummySet.concat(Equipment.random10), null, 1, 0, 25);
 
-    public static readonly normal_20 = new LootTable(EquipmentSet.electricPowerSet.concat(Equipment.random20), Item.upgrade20, 1, 5, 2);
+    public static readonly normal_20 = new LootTable(EquipmentSet.electricPowerSet.concat(Equipment.random20), Item.upgrade20, 1, 4, 2);
     public static readonly elite_20 = new LootTable(EquipmentSet.plagueInfestationSet.concat(Equipment.random20), Item.upgrade20, 1, 2, 10);
     public static readonly boss_20 = new LootTable(EquipmentSet.plagueInfestationSet, null, 1, 0, 25);
 }
