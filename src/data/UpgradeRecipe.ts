@@ -52,7 +52,7 @@ export default class UpgradeRecipe {
         }
 
         if(invEquipment.upgradeLevel == 0)
-            return new ExportRecipe(recipe.recipes.map(([s, n]) => [s, Math.ceil(n / 2) ]), 0);
+            return new ExportRecipe(recipe.recipes.map(([s, n]) => [s, Math.floor(n / 2) ]), 0);
 
         var ratioRecipe: [string, number][] = recipe.recipes.map(([s, n]) => [s, Math.floor(n * (invEquipment.upgradeLevel) / 2) ])
 
