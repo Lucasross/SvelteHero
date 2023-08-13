@@ -147,7 +147,7 @@ Monster.monsters.push(new Monster("plant-easy", "Angry plant", 6, "plant-green",
 
 Monster.monsters.push(new Monster("snake-easy", "Snake", 7, "snake-pink",1, LootTable.normal_10));
 
-Monster.monsters.push(new Monster("goblin-easy", "Goblin", 8, "goblin-yellow.", 1.1, LootTable.normal_10));
+Monster.monsters.push(new Monster("goblin-easy", "Goblin", 8, "goblin-yellow", 1.1, LootTable.normal_10));
 Monster.monsters.push(new Monster("spirit-elite", "Fire spirit", 8, "spirit-red", 3, LootTable.elite_10));
 
 Monster.monsters.push(new Monster("ogre-elite", "Ogre", 9, "ogre-green", 3, LootTable.elite_10));
