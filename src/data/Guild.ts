@@ -1,6 +1,7 @@
 import { Utility } from "../utility/Utility";
 import Equipment from "./Equipment";
 import Hero from "./Hero";
+import Item from "./Item";
 import type Loot from "./Loot";
 import type StatEffect from "./StatEffect";
 import type { ExportRecipe } from "./UpgradeRecipe";
@@ -37,6 +38,14 @@ export default class Guild {
 
     public addItem(loot: Loot) {
         Utility.setOrAdd(this.inventory, loot.id, 1);
+    }
+
+    public removeItem(loot: Loot) {
+        Utility.setOrAdd(this.inventory, loot.id, -1);
+    }
+
+    public removeItemBatch(loot: Loot, amount: number) {
+        Utility.setOrAdd(this.inventory, loot.id, -amount);
     }
 
     public hasItems(items: [string, number][]): boolean {
@@ -76,6 +85,14 @@ export default class Guild {
 
     public upgradeEquipment(e: InventoryEquipment): Guild {
         this.getEquipment(e).upgradeLevel += 1;
+        return this;
+    }
+
+    public removeRecipeItems(recipe: ExportRecipe): Guild {
+        recipe.recipes.forEach(r => {
+            this.removeItemBatch(Item.getById(r[0]), r[1]);
+        })
+        this.gold -= recipe.gold;
         return this;
     }
     //#endregion

@@ -17,7 +17,7 @@
 
     function UpgradeTarget() {
         if($guild.canCraftRecipe(recipe)) {
-            guild.update(g => g.upgradeEquipment(target));
+            guild.update(g => g.upgradeEquipment(target).removeRecipeItems(recipe));
         }
         dispatch("craft");
     }
