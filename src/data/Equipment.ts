@@ -131,6 +131,6 @@ Equipment.equipments.push(new Equipment("Plague Slicer", SlotType.Weapon, "sword
 
 Equipment.equipments.push(new Equipment("Fur coat", SlotType.Body, "body/jacket_gray", 17, 2, null, [new ExperienceRawEffect(200), new GoldRawEffect(50)]));
 Equipment.equipments.push(new Equipment("Gold ring", SlotType.Jewelry, "jewelry/ring_gold_big", 20, 1, null, [new GoldPercentEffect(0.25)]));
-Equipment.equipments.push(new Equipment("Thunder Slash", SlotType.Weapon, "body/aura_thunder", 20, 2, null, [new ExperienceRawEffect(200), new ExperiencePercentEffect(0.1)]));
+Equipment.equipments.push(new Equipment("Thunder Slash", SlotType.Weapon, "sword/aura_thunder", 20, 2, null, [new ExperienceRawEffect(200), new ExperiencePercentEffect(0.1)]));
 //#endregion
 
