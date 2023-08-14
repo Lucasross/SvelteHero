@@ -72,4 +72,6 @@ export class ExportRecipe {
 
 UpgradeRecipe.recipes.push(new UpgradeRecipe(1, 10, SlotType.All, 5000, [["Granacier", 4], ["Jabacite", 0.5]]))
 
-UpgradeRecipe.recipes.push(new UpgradeRecipe(11, 20, SlotType.All, 11500, [["Morvite", 3], ["Patium", 1], ["Primavite", 0.5]]))
+UpgradeRecipe.recipes.push(new UpgradeRecipe(11, 20, SlotType.All, 13500, [["Morvite", 3], ["Patium", 1], ["Primavite", 0.5]]))
+
+UpgradeRecipe.recipes.push(new UpgradeRecipe(11, 20, SlotType.All, 24700, [["Pepitium", 5], ["Patium", 1.35], ["Primavite", 0.25]]))
