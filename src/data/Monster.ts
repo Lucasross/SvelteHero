@@ -51,7 +51,7 @@ export default class Monster implements ISprite {
     }
 
     private experienceScalerBasedOnHealthScale(healthScale: number): number {
-        return ((1 - healthScale) / 2) + healthScale;
+        return 1.3 * healthScale;
     }
 
     getSprite() {
@@ -196,5 +196,5 @@ Monster.monsters.push(new Monster("egg-easy", "Hatching Dragon", 27, "egg_red", 
 Monster.monsters.push(new Monster("spirit-pyro", "Spirit of flames", 29, "spirit_red", 0.9, LootTable.normal_30_pyro));
 Monster.monsters.push(new Monster("cerbere-pyro", "Pyro-Cerbere", 30, "cerbere_red", 2.5, LootTable.normal_30_pyro));
 
-Monster.monsters.push(new Monster("griffin-boss", "Grigama", 32, "griffin_red", 35, LootTable.boss_30_pyro));
+Monster.monsters.push(new Monster("griffin-boss", "Grigama", 32, "griffin_red", 30, LootTable.boss_30_pyro));
 //#endregion
