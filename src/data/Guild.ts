@@ -125,6 +125,10 @@ export class InventoryEquipment {
         return this;
     }
 
+    public getNicifiedName(): string {
+        return `<b><span style="color:${Equipment.getColorByLevel(this.upgradeLevel)}">${this.getEquipment().name} +${this.upgradeLevel}</span></b>`
+    }
+
     public getEquipment(): Equipment {
         return Equipment.getById(this.equipment);
     }

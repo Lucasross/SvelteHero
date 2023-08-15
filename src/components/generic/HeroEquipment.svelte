@@ -1,28 +1,25 @@
 <script lang="ts">
     import { get, type Writable } from "svelte/store";
     import type Hero from "../../data/Hero";
-    import type Equipment from "../../data/Equipment";
+    import { SlotType } from "../../data/Equipment";
     import Sprite from "./Sprite.svelte";
     import { guild } from "../../store/Stores";
     import type { InventoryEquipment } from "../../data/Guild";
 
     export let hero: Writable<Hero>;
     let equipmentDetail: HTMLDivElement;
-    let selectedId: string = null;
+    var selectedEquipment: InventoryEquipment;
 
     export const reset = () => {
-        equipmentDetail.innerHTML = "Click on an equipment to show detail.";
-        selectedId = null;
+        selectedEquipment = null;
     }
 
     function show(invEquipment: InventoryEquipment, e) {
         if(e.button === 0) {
-            if(selectedId != invEquipment.equipment) {
-                equipmentDetail.innerHTML = invEquipment.getEquipment().getTooltip(get(hero), invEquipment.getStatsEffects(), invEquipment.upgradeLevel);
-                selectedId = invEquipment.equipment;
+            if(selectedEquipment != invEquipment) {
+                selectedEquipment = invEquipment;
             } else {
-                equipmentDetail.innerHTML = "Click on an equipment to show detail.";
-                selectedId = null;
+                selectedEquipment = null;
             }
         } else if (e.button === 2 || e == null) {
             hero.update(h => {
@@ -40,7 +37,7 @@
             {#if !slot.empty()}
 
                 <!-- svelte-ignore a11y-click-events-have-key-events -->
-                <div on:mousedown|preventDefault={e => show(slot.get(), e)} class:selected={selectedId == slot.get().equipment} class="slot">
+                <div on:mousedown|preventDefault={e => show(slot.get(), e)} class:selected={selectedEquipment == slot.equipment} class="slot">
                     <Sprite sprite={slot.get().getEquipment().getSprite()}/>
                 </div>
 
@@ -56,7 +53,19 @@
 
     <hr>
     <div bind:this={equipmentDetail}>
-        Click on an equipment to show detail.
+        {#if selectedEquipment == null}
+            Left click on an equipment to show/hide detail.<br>
+            Right click ton un-equip.
+            {#each $hero.equipments() as slot}
+                {#if !slot.empty()}
+                    <p><b>· </b>{@html slot.get().getNicifiedName()}</p>
+                {:else}
+                    <p><b>· </b>Empty - {SlotType[slot.slotType]}</p>
+                {/if}
+            {/each}
+        {:else}
+            {@html selectedEquipment.getEquipment().getTooltip(get(hero), selectedEquipment.getStatsEffects(), selectedEquipment.upgradeLevel)}
+        {/if}
     </div>
 </div>
 

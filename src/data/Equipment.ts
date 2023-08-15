@@ -30,7 +30,7 @@ export default class Equipment extends Loot {
         if(upgradeLevel == 0) {
             tooltip = `<b>${this.name}</b><br>`
         } else {
-            tooltip = `<span style="color:${this.getColorByLevel(upgradeLevel)}"><b>${this.name} +${upgradeLevel}</b></span><br>`
+            tooltip = `<span style="color:${Equipment.getColorByLevel(upgradeLevel)}"><b>${this.name} +${upgradeLevel}</b></span><br>`
         }
 
         tooltip += `Level ${this.levelRequired} - ${SlotType[this.slotType]} <br>`;
@@ -53,15 +53,15 @@ export default class Equipment extends Loot {
         let stats: [StatEffect, StatEffect][] = Utility.zip(originStats, endingEffects);
 
         if(currentLevel == 0) {
-            tooltip = `<b>${this.name}</b> -> <b><span style="color:${this.getColorByLevel(nextLevel)}">${this.name} +${nextLevel}</span></b><br>`
+            tooltip = `<b>${this.name}</b> -> <b><span style="color:${Equipment.getColorByLevel(nextLevel)}">${this.name} +${nextLevel}</span></b><br>`
         } else {
-            tooltip = `<span style="color:${this.getColorByLevel(currentLevel)}"><b>${this.name} +${currentLevel}</b></span> -> <span style="color:${this.getColorByLevel(nextLevel)}"><b>${nextLevel}</b></color></span><br>`
+            tooltip = `<span style="color:${Equipment.getColorByLevel(currentLevel)}"><b>${this.name} +${currentLevel}</b></span> -> <span style="color:${Equipment.getColorByLevel(nextLevel)}"><b>${nextLevel}</b></color></span><br>`
         }
         
         tooltip += `Level ${this.levelRequired} - ${SlotType[this.slotType]} <br>`;
         
         for (let duo of stats) {
-            tooltip += `${duo[0].toValueString()} -> <b><span style="color:${this.getColorByLevel(nextLevel)}">${duo[1].toShortString()}</b></span><br>`;
+            tooltip += `${duo[0].toValueString()} -> <b><span style="color:${Equipment.getColorByLevel(nextLevel)}">${duo[1].toShortString()}</b></span><br>`;
         }
 
         if(this.setId != null) {
@@ -72,7 +72,7 @@ export default class Equipment extends Loot {
         return tooltip;
     }
 
-    private getColorByLevel(upgradeLevel: number) {
+    public static getColorByLevel(upgradeLevel: number) {
         switch(upgradeLevel) {
             case 1: return "#17d914";
             case 2: return "#1479d9";
