@@ -9,8 +9,8 @@
         <img src="pictures/regions/world_map.png" alt="world map">
         
         <!-- Level 1 - 10 -->
-        <WorldMapLocation x={28} y={34} area_id={"Training center"}/>
-        <WorldMapLocation x={36} y={26} area_id={"Koloh's plains"}/>
+        <WorldMapLocation x={24} y={30} area_id={"Training center"}/>
+        <WorldMapLocation x={20} y={16} area_id={"Koloh's plains"}/>
         <WorldMapLocation x={9} y={32} area_id={"Dark forest"}/>
         <WorldMapLocation x={33} y={56} area_id={"Keyn's village"}/>
         <WorldMapLocation x={24} y={62} area_id={"Keyn's lair"}/>
