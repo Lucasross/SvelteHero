@@ -311,3 +311,26 @@ AreaData.areas.push(new AreaData("Implosion Point", "volcano.jpg",
 ],
 60, "boss_skull.png"));
 //#endregion
+
+//#region 31 - 40
+AreaData.areas.push(new AreaData("Toori's passage", "fog_torii.jpg",
+[
+    "dummy-easy",
+]));
+
+AreaData.areas.push(new AreaData("Disillusion city", "fog_city.jpg",
+[
+    "dummy-easy",
+]));
+
+AreaData.areas.push(new AreaData("Tower of contemplations", "fog_capital.jpg",
+[
+    "dummy-easy",
+],
+30, "elite_helm.png"));
+
+AreaData.areas.push(new AreaData("Ice's path", "mountains_ice.jpg",
+[
+    "dummy-easy",
+]));
+//#endregion

@@ -29,6 +29,11 @@
         <WorldMapLocation x={78} y={28} area_id={"Fire's path"}/>
         <WorldMapLocation x={72} y={18} area_id={"Implosion Point"}/>
 
+        <!-- Level 31 - 40 -->
+        <WorldMapLocation x={46} y={23} area_id={"Toori's passage"}/>
+        <WorldMapLocation x={40} y={13} area_id={"Disillusion city"}/>
+        <WorldMapLocation x={36} y={0} area_id={"Tower of contemplations"}/>
+        <WorldMapLocation x={50} y={8} area_id={"Ice's path"}/>
     </div>
 </div>
 
