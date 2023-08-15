@@ -81,12 +81,12 @@ EquipmentSet.sets.push(new EquipmentSet("Plague Infestation",
 
 EquipmentSet.sets.push(new EquipmentSet("Aqua Vanity",
     new Map<number, StatEffect>([
-        [2, new DamagePercentEffect(0.2)],
+        [2, new DamagePercentEffect(0.25)],
     ])
 ))
 
 EquipmentSet.sets.push(new EquipmentSet("Pyro Vanisher",
     new Map<number, StatEffect>([
-        [2, new DamagePercentEffect(0.2)],
+        [2, new DamagePercentEffect(0.25)],
     ])
 ))
