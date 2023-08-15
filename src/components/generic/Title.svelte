@@ -67,7 +67,7 @@
                 alt="cash"
             />
             <p class="gold-animation-container" bind:this={goldDisplay}>
-                {$guild.gold}
+                {Math.floor($guild.gold)}
             </p>
         {/if}
     </div>
