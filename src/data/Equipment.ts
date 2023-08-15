@@ -99,6 +99,8 @@ export default class Equipment extends Loot {
 
     public static readonly random10 = ["Fine Blade"];
     public static readonly random20 = ["Fur coat", "Gold ring", "Thunder Slash"];
+    public static readonly random30_aqua = ["Silver Ring", "Closest to Depth"];
+    public static readonly random30_pyro = ["Rocky Helmet", "Climbers"];
 }
 
 export enum SlotType {
@@ -132,5 +134,18 @@ Equipment.equipments.push(new Equipment("Plague Slicer", SlotType.Weapon, "sword
 Equipment.equipments.push(new Equipment("Fur coat", SlotType.Body, "body/jacket_gray", 17, 2, null, [new ExperienceRawEffect(200), new GoldRawEffect(50)]));
 Equipment.equipments.push(new Equipment("Gold ring", SlotType.Jewelry, "jewelry/ring_gold_big", 20, 1, null, [new GoldPercentEffect(0.25)]));
 Equipment.equipments.push(new Equipment("Thunder Slash", SlotType.Weapon, "sword/aura_thunder", 20, 2, null, [new ExperienceRawEffect(200), new ExperiencePercentEffect(0.1)]));
+//#endregion
+
+//#region 21 - 30
+Equipment.equipments.push(new Equipment("Aqua Diamond", SlotType.Weapon, "jewelry/ring_diamond", 24, 1, null, [new DamagePercentEffect(0.15), new ExperiencePercentEffect(0.15), new GoldPercentEffect(0.15)]));
+Equipment.equipments.push(new Equipment("Aqua Destroyer", SlotType.Jewelry, "sword/aqua_destroyer", 26, 1, null, [new DamagePercentEffect(0.1), new ExperiencePercentEffect(0.15), new GoldPercentEffect(0.2)]));
+
+Equipment.equipments.push(new Equipment("Pyro Walker", SlotType.Foot, "feet/simple_armored", 26, 1, null, [new DamagePercentEffect(0.1), new ExperiencePercentEffect(0.15), new GoldPercentEffect(0.2)]));
+Equipment.equipments.push(new Equipment("Pyro Chestplate", SlotType.Body, "body/breastplate_red", 27, 1, null, [new DamagePercentEffect(0.1), new ExperiencePercentEffect(0.15), new GoldPercentEffect(0.2)]));
+
+Equipment.equipments.push(new Equipment("Closest to Depth", SlotType.Foot, "Feet/ring_silver", 23, 3, null, [new GoldRawEffect(250), new GoldPercentEffect(0.2)]));
+Equipment.equipments.push(new Equipment("Rocky Helmet", SlotType.Head, "head/studded_helmet", 24, 2, null, [new DamagePercentEffect(0.25)]));
+Equipment.equipments.push(new Equipment("Climbers", SlotType.Foot, "head/studded_helmet", 25, 2, null, [new ExperienceRawEffect(600), new GoldRawEffect(300)]));
+Equipment.equipments.push(new Equipment("Silver Ring", SlotType.Jewelry, "jewelry/ring_silver", 28, 2, null, [new GoldPercentEffect(0.2), new GoldRawEffect(50), new DamageRawEffect(300)]));
 //#endregion
 

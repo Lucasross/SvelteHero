@@ -148,7 +148,7 @@ Monster.monsters.push(new Monster("plant-easy", "Angry plant", 6, "plant-green",
 Monster.monsters.push(new Monster("snake-easy", "Snake", 7, "snake-pink",1, LootTable.normal_10));
 
 Monster.monsters.push(new Monster("goblin-easy", "Goblin", 8, "goblin-yellow", 1.1, LootTable.normal_10));
-Monster.monsters.push(new Monster("spirit-elite", "Fire spirit", 8, "spirit-red", 3, LootTable.elite_10));
+Monster.monsters.push(new Monster("spirit-elite", "Fire spirit", 8, "spirit_red", 3, LootTable.elite_10));
 
 Monster.monsters.push(new Monster("ogre-elite", "Ogre", 9, "ogre-green", 3, LootTable.elite_10));
 
@@ -179,4 +179,22 @@ Monster.monsters.push(new Monster("rat-elite-medium", "Commander rat", 20, "mous
 Monster.monsters.push(new Monster("rat-boss", "Ratto Kingu", 22, "mouse_purple", 35, LootTable.boss_20));
 //#endregion
 
-Monster.monsters.push(new Monster("demon-lord", "Demon Lord", 100, "demon-lord", 50));
+//#region 21 - 30
+Monster.monsters.push(new Monster("goblin-aqua", "Aqua goblin", 22, "goblin_blue", 1, LootTable.normal_30_aqua));
+Monster.monsters.push(new Monster("jellyfish-easy", "Jellyfish", 23, "jellyfish_cyan", 0.9, LootTable.normal_30_aqua));
+Monster.monsters.push(new Monster("eyed-easy", "Eyed terror", 24, "oneeyed_blue", 1.2, LootTable.normal_30_aqua));
+
+Monster.monsters.push(new Monster("jellyfish-corrupted", "Corrupted Jellyfish", 25, "jellyfish_purple", 6, LootTable.elite_30_aqua));
+Monster.monsters.push(new Monster("mimic-aqua", "Aqua mimic", 26, "mimic_blue", 7, LootTable.elite_30_aqua));
+Monster.monsters.push(new Monster("spirit-aqua", "Aqua spirit", 26, "spirit_blue", 5, LootTable.elite_30_aqua));
+
+Monster.monsters.push(new Monster("chicken-medium", "Explosive Chicken", 24, "chicken_red", 1, LootTable.normal_30_pyro));
+Monster.monsters.push(new Monster("piou-pyro", "Explosive Piou", 24, "piou_red", 1, LootTable.normal_30_pyro));
+Monster.monsters.push(new Monster("boxcat_medium", "Boxing cat", 26, "boxcat_red", 1.3, LootTable.normal_30_pyro));
+
+Monster.monsters.push(new Monster("egg-easy", "Hatching Dragon", 27, "egg_red", 0.8, LootTable.normal_30_pyro));
+Monster.monsters.push(new Monster("spirit-pyro", "Spirit of flames", 29, "spirit_red", 0.9, LootTable.normal_30_pyro));
+Monster.monsters.push(new Monster("cerbere-pyro", "Pyro-Cerbere", 30, "cerbere_red", 2.5, LootTable.normal_30_pyro));
+
+Monster.monsters.push(new Monster("griffin-boss", "Grigama", 32, "griffin_red", 35, LootTable.boss_30_pyro));
+//#endregion

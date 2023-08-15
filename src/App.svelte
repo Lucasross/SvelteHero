@@ -37,6 +37,7 @@
 		<div class="maincol vertical-list">
 			<Area bind:this={area} />
 			<WorldMap />
+			<div style="margin-bottom: 100px"/>
 		</div>
 		<div class="sidecol vertical-list">
 			<Inventory />

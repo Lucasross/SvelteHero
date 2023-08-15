@@ -40,7 +40,7 @@
         <br>
         <img width="16px" src="pictures/cash.png" alt="cash-icon" style="vertical-align: middle;"> 
         {#if heroes.length > 0}
-          {Hero.goldForNextHero(heroes.length).toLocaleString("fr-FR")}
+          {Math.ceil(Hero.goldForNextHero(heroes.length)).toLocaleString("fr-FR")}
         {:else}
           Free
         {/if}

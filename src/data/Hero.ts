@@ -244,8 +244,12 @@ export default class Hero {
         return Math.round(Utility.Quadratic(a, b, c, level));
     }
 
+    //Formula: cx^{3}+ae^{bx}
+    //a = 10 000
+    //b = 0.7
+    //c = 70 000
     static goldForNextHero(nbHero: number) {
-        return 5000 * (Math.pow(nbHero, 3)) + 25000;
+        return 70_000 * Math.pow(nbHero, 3) + Utility.Exp(10_000, 0.7, nbHero);
     }
 }
 

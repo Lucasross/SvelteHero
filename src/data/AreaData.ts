@@ -237,6 +237,7 @@ AreaData.areas.push(new AreaData("Keyn's lair", "desert_capital.jpg",
     60, "boss_skull.png"));
 //#endregion
 
+//#region 11 - 20
 AreaData.areas.push(new AreaData("Walker Bridge", "neon_bridge.jpg",
     [
         "bat-easy",
@@ -272,3 +273,41 @@ AreaData.areas.push(new AreaData("The pit", "neon_pit.jpg",
         "rat-boss",
     ],
     60, "boss_skull.png"));
+    //#endregion
+
+//#region 21 - 30
+AreaData.areas.push(new AreaData("Wrecker Sea", "aqua_sea.jpg",
+[
+    "goblin-aqua",
+    "jellyfish-easy",
+    "eyed-easy",
+]));
+
+AreaData.areas.push(new AreaData("Hall of Corals", "aqua_capital.jpg",
+[
+    "jellyfish-corrupted",
+    "mimic-aqua",
+    "spirit-aqua",
+],
+30, "elite_helm.png"));
+
+AreaData.areas.push(new AreaData("Moppei's village", "volcano_village.jpg",
+[
+    "chicken-medium",
+    "piou-pyro",
+    "boxcat_medium",
+]));
+
+AreaData.areas.push(new AreaData("Fire's path", "volcano_fireplace.jpg",
+[
+    "egg-easy",
+    "spirit-pyro",
+    "cerbere-pyro",
+]));
+
+AreaData.areas.push(new AreaData("Implosion Point", "volcano.jpg",
+[
+    "griffin-boss",
+],
+60, "boss_skull.png"));
+//#endregion

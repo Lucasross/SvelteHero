@@ -21,6 +21,14 @@
         <WorldMapLocation x={58} y={70} area_id={"Neon Harbour"}/>
         <WorldMapLocation x={76} y={64} area_id={"The Undergrounds"}/>
         <WorldMapLocation x={71} y={76} area_id={"The pit"}/>
+
+        <!-- Level 21 - 30 -->
+        <WorldMapLocation x={36} y={79} area_id={"Wrecker Sea"}/>
+        <WorldMapLocation x={28} y={82} area_id={"Hall of Corals"}/>
+        <WorldMapLocation x={71} y={34} area_id={"Moppei's village"}/>
+        <WorldMapLocation x={78} y={28} area_id={"Fire's path"}/>
+        <WorldMapLocation x={72} y={18} area_id={"Implosion Point"}/>
+
     </div>
 </div>
 

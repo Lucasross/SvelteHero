@@ -11,6 +11,10 @@ export class Utility {
         return a * Math.pow(x, 4) + this.Polynome3(b, c, d, e, x);
     }
 
+    public static Exp(a: number, b: number, x: number) {
+        return a * Math.exp(b * x);
+    }
+
     public static enumKeys<O extends object, K extends keyof O = keyof O>(obj: O): K[] {
         return Object.keys(obj).filter(k => Number.isNaN(+k)) as K[];
     }
