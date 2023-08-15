@@ -145,7 +145,7 @@ Equipment.equipments.push(new Equipment("Pyro Chestplate", SlotType.Body, "body/
 
 Equipment.equipments.push(new Equipment("Closest to Depth", SlotType.Foot, "feet/basic_metal", 23, 3, null, [new GoldRawEffect(250), new GoldPercentEffect(0.2)]));
 Equipment.equipments.push(new Equipment("Rocky Helmet", SlotType.Head, "head/studded_helmet", 24, 2, null, [new DamagePercentEffect(0.25)]));
-Equipment.equipments.push(new Equipment("Climbers", SlotType.Foot, "head/chainmail_boots", 25, 2, null, [new ExperienceRawEffect(600), new GoldRawEffect(300)]));
+Equipment.equipments.push(new Equipment("Climbers", SlotType.Foot, "feet/chainmail_boots", 25, 2, null, [new ExperienceRawEffect(600), new GoldRawEffect(300)]));
 Equipment.equipments.push(new Equipment("Silver Ring", SlotType.Jewelry, "jewelry/ring_silver", 28, 2, null, [new GoldPercentEffect(0.2), new GoldRawEffect(50), new DamageRawEffect(300)]));
 //#endregion
 
