@@ -43,7 +43,7 @@ export let createHero = (name: string, job: Jobs, level: number = 1, experience:
 // #region Area
 let raw_area_id: string = localStorage.getItem(key_area);
 if (raw_area_id == null) {
-    raw_area_id = "Plains of Koloh"
+    raw_area_id = "Training center"
 }
 
 let stored_areaId = writable<string>(raw_area_id);
