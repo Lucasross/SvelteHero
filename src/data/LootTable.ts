@@ -63,10 +63,12 @@ export default class LootTable {
     public static readonly elite_20 = new LootTable(EquipmentSet.plagueInfestationSet.concat(Equipment.random20), Item.upgrade20, 1, 2, 10);
     public static readonly boss_20 = new LootTable(EquipmentSet.plagueInfestationSet, null, 1, 0, 25);
 
-    public static readonly normal_30_aqua = new LootTable(EquipmentSet.AquaVanitySet.concat(Equipment.random30_aqua), Item.upgrade30, 1, 5, 1.8);
+    public static readonly normal_30_aqua = new LootTable(EquipmentSet.AquaVanitySet.concat(Equipment.random30_aqua), Item.upgrade30, 1, 6, 1.8);
     public static readonly elite_30_aqua = new LootTable(EquipmentSet.AquaVanitySet.concat(Equipment.random30_aqua), Item.upgrade30, 1, 1, 20);
-
     public static readonly normal_30_pyro = new LootTable(EquipmentSet.PyroVanisherSet.concat(Equipment.random30_pyro), Item.upgrade30, 1, 5, 1.8);
     public static readonly boss_30_pyro = new LootTable(EquipmentSet.PyroVanisherSet, Item.upgrade30, 1, 0, 30);
+
+    public static readonly normal_40 = new LootTable(null, Item.upgrade40, 1, 1, 4);
+
 }
 

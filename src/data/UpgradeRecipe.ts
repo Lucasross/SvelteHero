@@ -75,3 +75,5 @@ UpgradeRecipe.recipes.push(new UpgradeRecipe(1, 10, SlotType.All, 5000, [["Grana
 UpgradeRecipe.recipes.push(new UpgradeRecipe(11, 20, SlotType.All, 13500, [["Morvite", 3], ["Patium", 1], ["Primavite", 0.5]]))
 
 UpgradeRecipe.recipes.push(new UpgradeRecipe(21, 30, SlotType.All, 24700, [["Pepitium", 5], ["Patium", 1.35], ["Primavite", 0.25]]))
+
+UpgradeRecipe.recipes.push(new UpgradeRecipe(31, 40, SlotType.All, 51300, [["Corite", 4], ["Lunacier", 2], ["Carapium", 0.33]]))

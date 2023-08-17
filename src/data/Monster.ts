@@ -147,7 +147,7 @@ Monster.monsters.push(new Monster("plant-easy", "Angry plant", 6, "plant-green",
 
 Monster.monsters.push(new Monster("snake-easy", "Snake", 7, "snake-pink",1, LootTable.normal_10));
 
-Monster.monsters.push(new Monster("goblin-easy", "Goblin", 8, "goblin-yellow", 1.1, LootTable.normal_10));
+Monster.monsters.push(new Monster("goblin-easy", "Goblin", 8, "goblin_yellow", 1.1, LootTable.normal_10));
 Monster.monsters.push(new Monster("spirit-elite", "Fire spirit", 8, "spirit_red", 3, LootTable.elite_10));
 
 Monster.monsters.push(new Monster("ogre-elite", "Ogre", 9, "ogre-green", 3, LootTable.elite_10));
@@ -198,3 +198,20 @@ Monster.monsters.push(new Monster("cerbere-pyro", "Pyro-Cerbere", 30, "cerbere_r
 
 Monster.monsters.push(new Monster("griffin-boss", "Grigama", 32, "griffin_red", 30, LootTable.boss_30_pyro));
 //#endregion
+
+//#region 31 - 40
+Monster.monsters.push(new Monster("dummy-medium", "Enchanted Dummy", 32, "dummy_blue", 0.5, LootTable.normal_40));
+Monster.monsters.push(new Monster("cloud-medium", "Dark Cloud", 33, "cloud_gray", 1, LootTable.normal_40));
+Monster.monsters.push(new Monster("ghost-medium", "Enchanted Ghost", 34, "ghost_blue", 1, LootTable.normal_40));
+Monster.monsters.push(new Monster("bat-medium", "Dark Bat", 35, "bat_dark", 0.8, LootTable.normal_40));
+Monster.monsters.push(new Monster("feline-medium", "Chief Feline", 36, "feline_white", 1, LootTable.normal_40));
+Monster.monsters.push(new Monster("highghost-easy", "High Ghost", 37, "highghost_white", 1.2, LootTable.normal_40));
+Monster.monsters.push(new Monster("zombie-medium", "Zombie", 38, "zombie_green", 1, LootTable.normal_40));
+Monster.monsters.push(new Monster("eyed-medium", "Enchanted Eyed Terror", 39, "oneeyed_blue_white", 1.2, LootTable.normal_40));
+Monster.monsters.push(new Monster("goblin-hard", "Enchanted Goblin", 39, "goblin_blue", 1.3, LootTable.normal_40));
+Monster.monsters.push(new Monster("oni-easy", "Oni", 40, "oni_blue", 2, LootTable.normal_40));
+//#endregion
+
+// after
+Monster.monsters.push(new Monster("enchanter-boss", "Gavin, The Enchanter", 45, "sorcerer_black", 30, null)); //boss
+Monster.monsters.push(new Monster("green-dragon-boss", "Rayse, The Guardian", 45, "dragon_green", 30, null)); //boss

@@ -149,3 +149,11 @@ Equipment.equipments.push(new Equipment("Climbers", SlotType.Foot, "feet/chainma
 Equipment.equipments.push(new Equipment("Silver Ring", SlotType.Jewelry, "jewelry/ring_silver", 28, 2, null, [new GoldPercentEffect(0.2), new GoldRawEffect(50), new DamageRawEffect(300)]));
 //#endregion
 
+//#region 31 - 40
+Equipment.equipments.push(new Equipment("__name__", SlotType.Weapon, "sword/double_guarded", 23, 3, null, []));
+Equipment.equipments.push(new Equipment("__name__", SlotType.Jewelry, "jewelry/basic_metal", 23, 3, null, []));
+Equipment.equipments.push(new Equipment("__name__", SlotType.Head, "head/basic_metal", 23, 3, null, []));
+Equipment.equipments.push(new Equipment("__name__", SlotType.Body, "body/basic_metal", 23, 3, null, []));
+Equipment.equipments.push(new Equipment("__name__", SlotType.Foot, "feet/basic_metal", 23, 3, null, []));
+Equipment.equipments.push(new Equipment("__name__", SlotType.Weapon, "sword/basic_metal", 23, 3, null, []));
+//#endregion
