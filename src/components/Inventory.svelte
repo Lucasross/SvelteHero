@@ -243,10 +243,9 @@
                         openItemContextMenu(e, key)}
                     class="slot"
                 >
-                    <img
-                        title={Item.getById(key).getTooltip(value)}
-                        use:tooltip
-                        src="pictures/items/{key}.png"
+                    <Sprite
+                        sprite={Item.getById(key).getSprite()}
+                        tooltipText={Item.getById(key).getTooltip(value)}
                         alt={key}
                     />
                     <p title="{key} x{value}" use:tooltip>{value}</p>
