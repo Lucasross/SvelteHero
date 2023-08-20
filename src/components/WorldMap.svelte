@@ -34,6 +34,14 @@
         <WorldMapLocation x={40} y={13} area_id={"Disillusion city"}/>
         <WorldMapLocation x={36} y={0} area_id={"Tower of contemplations"}/>
         <WorldMapLocation x={50} y={8} area_id={"Ice's path"}/>
+
+        <!-- Level 41 - 50 -->
+        <WorldMapLocation x={65} y={4} area_id={"Valley of ice"}/>
+        <WorldMapLocation x={82} y={0} area_id={"Island of risk"}/>
+        <WorldMapLocation x={8} y={17} area_id={"Island of savagery"}/>
+        <WorldMapLocation x={6} y={69} area_id={"Island of dispair"}/>
+        <WorldMapLocation x={44} y={38} area_id={"Meteor site"}/>
+
     </div>
 </div>
 

@@ -77,3 +77,5 @@ UpgradeRecipe.recipes.push(new UpgradeRecipe(11, 20, SlotType.All, 13500, [["Mor
 UpgradeRecipe.recipes.push(new UpgradeRecipe(21, 30, SlotType.All, 24700, [["Pepitium", 5], ["Patium", 1.35], ["Primavite", 0.25]]))
 
 UpgradeRecipe.recipes.push(new UpgradeRecipe(31, 40, SlotType.All, 51300, [["Corite", 4], ["Lunacier", 2], ["Carapium", 0.33]]))
+
+UpgradeRecipe.recipes.push(new UpgradeRecipe(41, 50, SlotType.All, 125000, [["Seed of risk", 1], ["Seed of savagery", 1], ["Seed of dispair", 1], ["Shaanah's echos", 0.25]]))

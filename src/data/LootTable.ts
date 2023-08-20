@@ -68,7 +68,8 @@ export default class LootTable {
     public static readonly normal_30_pyro = new LootTable(EquipmentSet.PyroVanisherSet.concat(Equipment.random30_pyro), Item.upgrade30, 1, 5, 1.8);
     public static readonly boss_30_pyro = new LootTable(EquipmentSet.PyroVanisherSet, Item.upgrade30, 1, 0, 30);
 
-    public static readonly normal_40 = new LootTable(null, Item.upgrade40, 1, 1, 4);
-
+    public static readonly normal_40 = new LootTable(EquipmentSet.MistyMirageSet.concat(Equipment.random40), Item.upgrade40, 1, 3, 4);
+    public static readonly normal_40_plus = new LootTable(EquipmentSet.MistyMirageSet.concat(Equipment.random40), Item.upgrade40, 1, 3, 8);
+    public static readonly boss_40 = new LootTable(EquipmentSet.MistyMirageSet, Item.upgrade40, 1, 1, 25);
 }
 

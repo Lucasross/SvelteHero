@@ -101,6 +101,7 @@ export default class Equipment extends Loot {
     public static readonly random20 = ["Fur coat", "Gold ring", "Thunder Slash"];
     public static readonly random30_aqua = ["Silver Ring", "Closest to Depth"];
     public static readonly random30_pyro = ["Rocky Helmet", "Climbers"];
+    public static readonly random40 = ["Core Slicer", "Stealth White Coat"];
 }
 
 export enum SlotType {
@@ -150,10 +151,11 @@ Equipment.equipments.push(new Equipment("Silver Ring", SlotType.Jewelry, "jewelr
 //#endregion
 
 //#region 31 - 40
-Equipment.equipments.push(new Equipment("__name__", SlotType.Weapon, "sword/double_guarded", 23, 3, null, []));
-Equipment.equipments.push(new Equipment("__name__", SlotType.Jewelry, "jewelry/basic_metal", 23, 3, null, []));
-Equipment.equipments.push(new Equipment("__name__", SlotType.Head, "head/basic_metal", 23, 3, null, []));
-Equipment.equipments.push(new Equipment("__name__", SlotType.Body, "body/basic_metal", 23, 3, null, []));
-Equipment.equipments.push(new Equipment("__name__", SlotType.Foot, "feet/basic_metal", 23, 3, null, []));
-Equipment.equipments.push(new Equipment("__name__", SlotType.Weapon, "sword/basic_metal", 23, 3, null, []));
+Equipment.equipments.push(new Equipment("Misty Vision", SlotType.Head, "head/warrior_flag", 31, 1, "Misty Mirage", [new GoldPercentEffect(0.1), new ExperiencePercentEffect(0.2)]));
+Equipment.equipments.push(new Equipment("Misty Trace", SlotType.Foot, "feet/basic_shell", 33, 1, "Misty Mirage", [new ExperienceRawEffect(1000)]));
+Equipment.equipments.push(new Equipment("Misty Pendulum", SlotType.Jewelry, "jewelry/pendulum", 34, 1, "Misty Mirage", [new DamagePercentEffect(0.2), new GoldRawEffect(25)]));
+Equipment.equipments.push(new Equipment("Misty Pest", SlotType.Weapon, "sword/bones", 36, 1, "Misty Mirage", [new DamageRawEffect(200), new ExperiencePercentEffect(0.1)]));
+
+Equipment.equipments.push(new Equipment("Core Slicer", SlotType.Weapon, "sword/double_guarded", 32, 3, null, [new DamageRawEffect(300), new DamagePercentEffect(0.05)]));
+Equipment.equipments.push(new Equipment("Stealth White Coat", SlotType.Body, "body/stealth_coat_white", 36, 3, null, [new GoldRawEffect(250)]));
 //#endregion

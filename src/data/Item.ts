@@ -45,3 +45,8 @@ Item.items.push(new Item("Triarite", "triarite", Loot.golfForLevel(25) / 2, 1));
 Item.items.push(new Item("Corite", "corite", Loot.golfForLevel(35) / 5, 4));
 Item.items.push(new Item("Lunacier", "lunacier", Loot.golfForLevel(35) / 3, 3));
 Item.items.push(new Item("Carapium", "carapium", Loot.golfForLevel(35) / 2, 1));
+
+Item.items.push(new Item("Seed of risk", "exalde", Loot.golfForLevel(45) * 2, 1));
+Item.items.push(new Item("Seed of savagery", "florathril", Loot.golfForLevel(45) * 2, 1));
+Item.items.push(new Item("Seed of dispair", "ambricite", Loot.golfForLevel(45) * 2, 1));
+Item.items.push(new Item("Shaanah's echos", "vionatite", Loot.golfForLevel(55) * 4, 1));

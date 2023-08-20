@@ -55,7 +55,7 @@ export default class EquipmentSet {
     public static readonly plagueInfestationSet = ["Plague Footwraps", "Plague Damnation", "Plague Slicer"];
     public static readonly AquaVanitySet = ["Aqua Destroyer", "Aqua Bubbles"];
     public static readonly PyroVanisherSet = ["Pyro Walker", "Pyro Chestplate"];
-    public static readonly MistyMirageSet = ["Pyro Walker", "Pyro Chestplate"];
+    public static readonly MistyMirageSet = ["Misty Vision", "Misty Trace", "Misty Pendulum", "Misty Pest"];
 }
 
 EquipmentSet.sets.push(new EquipmentSet("Training Dummy",
@@ -97,5 +97,15 @@ EquipmentSet.sets.push(new EquipmentSet("Misty Mirage",
         [2, new DamagePercentEffect(0.35)],
         [4, new ExperiencePercentEffect(0.4)],
         [3, new DamageRawEffect(1000)],
+    ])
+))
+
+
+EquipmentSet.sets.push(new EquipmentSet("Island Mystery",
+    new Map<number, StatEffect>([
+        [2, new DamageRawEffect(500)],
+        [3, new DamageRawEffect(1000)],
+        [4, new DamageRawEffect(1500)],
+        [5, new DamagePercentEffect(0.5)],
     ])
 ))

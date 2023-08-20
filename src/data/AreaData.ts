@@ -341,3 +341,34 @@ AreaData.areas.push(new AreaData("Ice's path", "mountains_ice.jpg",
     "oni-easy",
 ]));
 //#endregion
+
+//#region 41 - 50
+AreaData.areas.push(new AreaData("Valley of ice", "ice_valley.jpg",
+[
+    "spirit-ice",
+    "scorpio-easy",
+    "oni-easy-2",
+    "bear-easy",
+]));
+AreaData.areas.push(new AreaData("Island of risk", "ice_island.jpg",
+[
+    "aspect-risk",
+],
+60, "boss_skull.png"));
+AreaData.areas.push(new AreaData("Island of savagery", "forest_island.jpg",
+[
+    "aspect-savagery",
+],
+60, "boss_skull.png"));
+
+AreaData.areas.push(new AreaData("Island of dispair", "desert_island.jpg",
+[
+    "aspect-dispair",
+],
+60, "boss_skull.png"));
+AreaData.areas.push(new AreaData("Meteor site", "crater.jpg",
+[
+    "shaanah-past",
+],
+60, "boss_skull.png"));
+//#endregion

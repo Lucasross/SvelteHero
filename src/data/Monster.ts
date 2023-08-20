@@ -207,11 +207,23 @@ Monster.monsters.push(new Monster("bat-medium", "Dark Bat", 35, "bat_dark", 0.8,
 Monster.monsters.push(new Monster("feline-medium", "Chief Feline", 36, "feline_white", 1, LootTable.normal_40));
 Monster.monsters.push(new Monster("highghost-easy", "High Ghost", 37, "highghost_white", 1.2, LootTable.normal_40));
 Monster.monsters.push(new Monster("zombie-medium", "Zombie", 38, "zombie_green", 1, LootTable.normal_40));
-Monster.monsters.push(new Monster("eyed-medium", "Enchanted Eyed Terror", 39, "oneeyed_blue_white", 1.2, LootTable.normal_40));
+Monster.monsters.push(new Monster("eyed-medium", "Enchanted Eyed Terror", 38, "oneeyed_blue_white", 1.2, LootTable.normal_40));
 Monster.monsters.push(new Monster("goblin-hard", "Enchanted Goblin", 39, "goblin_blue", 1.3, LootTable.normal_40));
 Monster.monsters.push(new Monster("oni-easy", "Oni", 40, "oni_blue", 2, LootTable.normal_40));
+
+Monster.monsters.push(new Monster("enchanter-boss", "Gavin, The Enchanter", 42, "sorcerer_black", 30, LootTable.boss_40));
+Monster.monsters.push(new Monster("green-dragon-boss", "Rayse, The Guardian", 42, "dragon_green", 30, LootTable.boss_40));
 //#endregion
 
-// after
-Monster.monsters.push(new Monster("enchanter-boss", "Gavin, The Enchanter", 45, "sorcerer_black", 30, null)); //boss
-Monster.monsters.push(new Monster("green-dragon-boss", "Rayse, The Guardian", 45, "dragon_green", 30, null)); //boss
+//#region 41 - 50
+Monster.monsters.push(new Monster("spirit-ice", "Ice Spirit", 41, "spirit_blue", 0.8, LootTable.normal_40));
+Monster.monsters.push(new Monster("scorpio-easy", "Cavernal Scorpio", 42, "scorpion_blue", 1.1,  LootTable.normal_40_plus));
+Monster.monsters.push(new Monster("oni-easy-2", "Captain Oni", 43, "oni_blue", 1.8, LootTable.normal_40_plus));
+Monster.monsters.push(new Monster("bear-easy", "Artic Bear", 44, "bear_white", 1.5, LootTable.normal_40_plus));
+
+Monster.monsters.push(new Monster("aspect-risk", "Risk's Aspect", 45, "ent_white", 40, null));
+Monster.monsters.push(new Monster("aspect-savagery", "Savagery's Aspect", 45, "ent_green", 40, null));
+Monster.monsters.push(new Monster("aspect-dispair", "Dispair's Aspect", 45, "ent_orange", 40, null));
+
+Monster.monsters.push(new Monster("shaanah-past", "Past's Shaanah", 55, "demon-lord", 100, null));
+//#endregion
