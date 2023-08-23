@@ -221,9 +221,9 @@ Monster.monsters.push(new Monster("scorpio-easy", "Cavernal Scorpio", 42, "scorp
 Monster.monsters.push(new Monster("oni-easy-2", "Captain Oni", 43, "oni_blue", 1.8, LootTable.normal_40_plus));
 Monster.monsters.push(new Monster("bear-easy", "Artic Bear", 44, "bear_white", 1.5, LootTable.normal_40_plus));
 
-Monster.monsters.push(new Monster("aspect-risk", "Risk's Aspect", 45, "ent_white", 40, null));
-Monster.monsters.push(new Monster("aspect-savagery", "Savagery's Aspect", 45, "ent_green", 40, null));
-Monster.monsters.push(new Monster("aspect-dispair", "Dispair's Aspect", 45, "ent_orange", 40, null));
+Monster.monsters.push(new Monster("aspect-risk", "Risk's Aspect", 45, "ent_white", 40, LootTable.island_boss_50));
+Monster.monsters.push(new Monster("aspect-savagery", "Savagery's Aspect", 45, "ent_green", 40, LootTable.island_boss_50));
+Monster.monsters.push(new Monster("aspect-dispair", "Dispair's Aspect", 45, "ent_orange", 40, LootTable.island_boss_50));
 
-Monster.monsters.push(new Monster("shaanah-past", "Past's Shaanah", 55, "demon-lord", 100, null));
+Monster.monsters.push(new Monster("shaanah-past", "Past's Shaanah", 55, "demon-lord", 100, LootTable.shaanah_boss_50));
 //#endregion

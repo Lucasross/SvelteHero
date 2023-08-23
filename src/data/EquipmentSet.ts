@@ -56,6 +56,7 @@ export default class EquipmentSet {
     public static readonly AquaVanitySet = ["Aqua Destroyer", "Aqua Bubbles"];
     public static readonly PyroVanisherSet = ["Pyro Walker", "Pyro Chestplate"];
     public static readonly MistyMirageSet = ["Misty Vision", "Misty Trace", "Misty Pendulum", "Misty Pest"];
+    public static readonly IslandMysterySet = ["Mystery Key-Sword", "Mystery Shuriken", "Mystery Horns", "Mystery Guards", "Mystery Traveller"];
 }
 
 EquipmentSet.sets.push(new EquipmentSet("Training Dummy",

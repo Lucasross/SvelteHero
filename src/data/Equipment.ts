@@ -159,3 +159,11 @@ Equipment.equipments.push(new Equipment("Misty Pest", SlotType.Weapon, "sword/bo
 Equipment.equipments.push(new Equipment("Core Slicer", SlotType.Weapon, "sword/double_guarded", 32, 3, null, [new DamageRawEffect(300), new DamagePercentEffect(0.05)]));
 Equipment.equipments.push(new Equipment("Stealth White Coat", SlotType.Body, "body/stealth_coat_white", 36, 3, null, [new GoldRawEffect(250)]));
 //#endregion
+
+//#region 41 - 50
+Equipment.equipments.push(new Equipment("Mystery Key-Sword", SlotType.Weapon, "weapon/key", 45, 1, "Island Mystery", [new DamageRawEffect(500)]));
+Equipment.equipments.push(new Equipment("Mystery Shuriken", SlotType.Jewelry, "jewelry/earring_shuriken", 45, 1, "Island Mystery", [new DamagePercentEffect(0.1), new DamageRawEffect(150)]));
+Equipment.equipments.push(new Equipment("Mystery Horns", SlotType.Head, "head/barbarian", 45, 1, "Island Mystery", [new DamageRawEffect(300)]));
+Equipment.equipments.push(new Equipment("Mystery Guards", SlotType.Body, "body/worked_jacket_alt", 45, 1, "Island Mystery", [new ExperiencePercentEffect(0.2)]));
+Equipment.equipments.push(new Equipment("Mystery Traveller", SlotType.Foot, "foot/studded_boots", 45, 1, "Island Mystery", [new GoldRawEffect(0.2)]));
+//#endregion

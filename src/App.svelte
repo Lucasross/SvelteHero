@@ -31,7 +31,7 @@
 	<CharacterCreation/>
 	<content class="content">
 		<div class="sidecol vertical-list">
-			<HeroesList />
+			<Inventory />
 			<Inventory isItems={false}/>
 		</div>
 		<div class="maincol vertical-list">
@@ -40,7 +40,7 @@
 			<div style="margin-bottom: 100px"/>
 		</div>
 		<div class="sidecol vertical-list">
-			<Inventory />
+			<HeroesList />
 		</div>
 	</content>
 </main>

@@ -71,5 +71,8 @@ export default class LootTable {
     public static readonly normal_40 = new LootTable(EquipmentSet.MistyMirageSet.concat(Equipment.random40), Item.upgrade40, 1, 3, 4);
     public static readonly normal_40_plus = new LootTable(EquipmentSet.MistyMirageSet.concat(Equipment.random40), Item.upgrade40, 1, 3, 8);
     public static readonly boss_40 = new LootTable(EquipmentSet.MistyMirageSet, Item.upgrade40, 1, 1, 25);
+
+    public static readonly island_boss_50 = new LootTable(EquipmentSet.IslandMysterySet, Item.upgrade50_island, 1, 2, 3)
+    public static readonly shaanah_boss_50 = new LootTable(EquipmentSet.IslandMysterySet, Item.upgrade50_shaanah, 1, 2, 5)
 }
 
