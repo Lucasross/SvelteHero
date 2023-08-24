@@ -3,7 +3,6 @@
 	import Area from "./components/Area.svelte";
 	import AreaData from "./data/AreaData";
 	import WorldMap from "./components/WorldMap.svelte";
-	import Title from "./components/generic/Title.svelte";
 	import { guild } from "./store/Stores";
     import CharacterCreation from "./components/CharacterCreation.svelte";
     import Inventory from "./components/Inventory.svelte";
@@ -31,7 +30,7 @@
 	<CharacterCreation/>
 	<content class="content">
 		<div class="sidecol vertical-list">
-			<Inventory />
+			<HeroesList />
 			<Inventory isItems={false}/>
 		</div>
 		<div class="maincol vertical-list">
@@ -40,7 +39,7 @@
 			<div style="margin-bottom: 100px"/>
 		</div>
 		<div class="sidecol vertical-list">
-			<HeroesList />
+			<Inventory />
 		</div>
 	</content>
 </main>

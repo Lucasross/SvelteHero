@@ -87,7 +87,19 @@ export default class Monster implements ISprite {
             }
         }
 
+        // Try special action when monster die
+        this.TrySpecialAction(guild);
+
+        // Reset
         this.currentHealth = this.maxHealth;
+    }
+
+    private TrySpecialAction(guild: Writable<Guild>) {
+        switch (this.id) {
+            case "shaanah-past":
+                guild.update(g => g.SetShaanahPastFlag(true));
+                break;
+        }
     }
 
     damage(damage: number) {

@@ -8,6 +8,7 @@
     export let enableGold: boolean = false;
     export let area: AreaData = null;
     export let sellAll: boolean = null;
+    export let world: boolean = false;
 
     let dps = 0;
 
@@ -55,6 +56,10 @@
     function sellAllItem() {
         dispatch('sellAll');
     }
+
+    function travelTo() {
+        alert("Ekosma continent will coming soon !");
+    }
 </script>
 
 <div class="container">
@@ -84,6 +89,9 @@
         {/if}
         {#if sellAll != null}
             <button on:click={sellAllItem}><i class="fa-solid fa-coins" style="color: #fcba03"></i>All</button>
+        {/if}
+        {#if world && $guild.GetShaanahPastFlag()}
+            <button on:click={travelTo}>Ekosma <i class="fa-solid fa-arrow-right"></i></button>
         {/if}
     </p>
 </div>
