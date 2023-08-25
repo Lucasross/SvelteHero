@@ -15,16 +15,20 @@ export default class AreaData implements ISprite {
     public readonly encounters: Monster[];
     public readonly timePerMonster: number | null;
     public readonly iconPath: string;
+    public readonly xPos: number;
+    public readonly yPos: number;
 
     public area: AreaController;
 
-    constructor(name: string, background: string, encounters: string[], timePerMonster: number | null = null, iconPath: string = "compass.png") {
+    constructor(name: string, background: string, encounters: string[], xPos: number, yPos: number, timePerMonster: number | null = null, iconPath: string = "compass.png") {
         this.id = name;
         this.name = name;
         this.background = new Sprite(this.getFullPath(background));
         this.encounters = encounters.map(id => Monster.getById(id).copy());
         this.timePerMonster = timePerMonster;
         this.iconPath = iconPath;
+        this.xPos = xPos;
+        this.yPos = yPos;
 
         this.area = new AreaController(this);
     }
@@ -203,7 +207,7 @@ class AreaController {
 AreaData.areas.push(new AreaData("Training center", "training_camp.jpg",
     [
         "dummy-easy",
-    ]));
+    ], 24, 30));
 
 AreaData.areas.push(new AreaData("Koloh's plains", "plains.jpg",
     [
@@ -212,7 +216,7 @@ AreaData.areas.push(new AreaData("Koloh's plains", "plains.jpg",
         "slime-easy",
         "beetle-easy",
         "mushroom-easy",
-    ]));
+    ], 20, 16));
 
 AreaData.areas.push(new AreaData("Dark forest", "forest.jpg",
     [
@@ -220,20 +224,20 @@ AreaData.areas.push(new AreaData("Dark forest", "forest.jpg",
         "plant-easy",
         "snake-easy",
         "goblin-easy",
-    ]));
+    ], 9, 32));
 
 AreaData.areas.push(new AreaData("Keyn's village", "desert_hood.jpg",
     [
         "spirit-elite",
         "ogre-elite",
         "cerbere-elite"
-    ],
+    ], 33, 56,
     30, "elite_helm.png"));
 
 AreaData.areas.push(new AreaData("Keyn's lair", "desert_capital.jpg",
     [
         "sorcerer-boss",
-    ],
+    ], 24, 62,
     60, "boss_skull.png"));
 //#endregion
 
@@ -244,7 +248,7 @@ AreaData.areas.push(new AreaData("Walker Bridge", "neon_bridge.jpg",
         "cloud-easy",
         "slime-medium",
         "soldier-easy",
-    ]));
+    ], 55, 46));
 
 AreaData.areas.push(new AreaData("Neon City", "neon_city.jpg",
     [
@@ -252,26 +256,26 @@ AreaData.areas.push(new AreaData("Neon City", "neon_city.jpg",
         "soldier-easy",
         "spirit-medium",
         "reaper-easy",
-    ]));
+    ], 67, 57));
 
 AreaData.areas.push(new AreaData("Neon Harbour", "neon_harbour.jpg",
     [
         "reaper-easy",
         "feline-easy",
         "boxcat-easy",
-    ]));
+    ], 58, 70));
 
 AreaData.areas.push(new AreaData("The Undergrounds", "neon_underground.jpg",
     [
         "rat-elite-easy",
         "rat-elite-medium",
-    ],
+    ], 76, 64,
     30, "elite_helm.png"));
 
 AreaData.areas.push(new AreaData("The pit", "neon_pit.jpg",
     [
         "rat-boss",
-    ],
+    ], 71, 76,
     60, "boss_skull.png"));
     //#endregion
 
@@ -281,14 +285,14 @@ AreaData.areas.push(new AreaData("Wrecker Sea", "aqua_sea.jpg",
     "goblin-aqua",
     "jellyfish-easy",
     "eyed-easy",
-]));
+], 36, 79));
 
 AreaData.areas.push(new AreaData("Hall of Corals", "aqua_capital.jpg",
 [
     "jellyfish-corrupted",
     "mimic-aqua",
     "spirit-aqua",
-],
+], 28, 82,
 30, "elite_helm.png"));
 
 AreaData.areas.push(new AreaData("Moppei's village", "volcano_village.jpg",
@@ -296,19 +300,19 @@ AreaData.areas.push(new AreaData("Moppei's village", "volcano_village.jpg",
     "chicken-medium",
     "piou-pyro",
     "boxcat_medium",
-]));
+], 71, 34));
 
 AreaData.areas.push(new AreaData("Fire's path", "volcano_fireplace.jpg",
 [
     "egg-easy",
     "spirit-pyro",
     "cerbere-pyro",
-]));
+], 78, 28));
 
 AreaData.areas.push(new AreaData("Implosion Point", "volcano.jpg",
 [
     "griffin-boss",
-],
+], 72, 18,
 60, "boss_skull.png"));
 //#endregion
 
@@ -318,20 +322,20 @@ AreaData.areas.push(new AreaData("Toori's passage", "fog_torii.jpg",
     "dummy-medium",
     "cloud-medium",
     "ghost-medium",
-]));
+], 46, 23));
 
 AreaData.areas.push(new AreaData("Disillusion city", "fog_city.jpg",
 [
     "bat-medium",
     "feline-medium",
     "highghost-easy",
-]));
+], 40, 13));
 
 AreaData.areas.push(new AreaData("Tower of contemplations", "fog_capital.jpg",
 [
     "enchanter-boss",
     "green-dragon-boss",
-],
+], 36, 0,
 60, "boss_skull.png"));
 
 AreaData.areas.push(new AreaData("Ice's path", "mountains_ice.jpg",
@@ -339,7 +343,7 @@ AreaData.areas.push(new AreaData("Ice's path", "mountains_ice.jpg",
     "eyed-medium",
     "goblin-hard",
     "oni-easy",
-]));
+], 50, 8));
 //#endregion
 
 //#region 41 - 50
@@ -349,26 +353,26 @@ AreaData.areas.push(new AreaData("Valley of ice", "ice_valley.jpg",
     "scorpio-easy",
     "oni-easy-2",
     "bear-easy",
-]));
+], 65, 4));
 AreaData.areas.push(new AreaData("Island of risk", "ice_island.jpg",
 [
     "aspect-risk",
-],
+], 82, 0,
 60, "boss_skull.png"));
 AreaData.areas.push(new AreaData("Island of savagery", "forest_island.jpg",
 [
     "aspect-savagery",
-],
+], 8, 17,
 60, "boss_skull.png"));
 
 AreaData.areas.push(new AreaData("Island of dispair", "desert_island.jpg",
 [
     "aspect-dispair",
-],
+], 6, 69,
 60, "boss_skull.png"));
 AreaData.areas.push(new AreaData("Meteor site", "crater.jpg",
 [
     "shaanah-past",
-],
+], 44, 38,
 60, "boss_skull.png"));
 //#endregion

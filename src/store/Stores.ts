@@ -7,6 +7,7 @@ import { Jobs } from "../data/Job";
 const key_heroes: string = "key_heroes";
 const key_area: string = "key_area";
 const key_guild: string = "key_guild";
+const key_region: string = "key_region";
 
 // #region Hero
 let rawHero = JSON.parse(localStorage.getItem(key_heroes));
@@ -51,6 +52,17 @@ let stored_areaId = writable<string>(raw_area_id);
 stored_areaId.subscribe(id => localStorage.setItem(key_area, id))
 // #endregion
 
+// #region Region
+let raw_region_id: string = localStorage.getItem(key_region);
+if (raw_region_id == null) {
+    raw_region_id = "Meivin"
+}
+
+let stored_regionId = writable<string>(raw_region_id);
+
+stored_regionId.subscribe(id => localStorage.setItem(key_region, id))
+// #endregion
+
 // #region Guild
 let rawGuild = JSON.parse(localStorage.getItem(key_guild));
 let storedGuild: Writable<Guild>;
@@ -67,6 +79,7 @@ storedGuild.subscribe(guild => {
 // #endregion 
 
 export const area_id = stored_areaId;
+export const region_id = stored_regionId;
 export const heroes = storedHeroes;
 export const guild = storedGuild;
 export const heroesUpdate = writable<boolean>(false);
