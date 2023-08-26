@@ -382,4 +382,163 @@ AreaData.areas.push(new AreaData("Pirate Bay", "pirate_bay.jpg",
 [
     "dummy-pirate",
 ], 9, 66.5));
+
+AreaData.areas.push(new AreaData("Desert Labyrinth", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 18, 43));
+
+AreaData.areas.push(new AreaData("Desertic lands", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 4, 48));
+
+AreaData.areas.push(new AreaData("Dry rivers", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 32, 48));
+
+AreaData.areas.push(new AreaData("Insectoid Tower", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 7, 33,
+30, "elite_helm.png"));
+//#endregion
+
+//#region 61 - 70
+AreaData.areas.push(new AreaData("Astral South Side", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 34, 34));
+
+AreaData.areas.push(new AreaData("Astral North Side", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 36, 22));
+
+AreaData.areas.push(new AreaData("Etheral lands", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 16, 22));
+
+AreaData.areas.push(new AreaData("Lava rivers", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 27, 15));
+
+AreaData.areas.push(new AreaData("Dragon's Lands", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 21, 0,
+60, "boss_skull.png"));
+
+AreaData.areas.push(new AreaData("Cavernal path", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 42, 10));
+//#endregion
+
+//#region 71 - 80
+AreaData.areas.push(new AreaData("Snows's den", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 48, 1,
+30, "elite_helm.png"));
+
+AreaData.areas.push(new AreaData("Frozen river", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 50, 18));
+
+AreaData.areas.push(new AreaData("Antinomian Tunnel", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 58, 10));
+
+AreaData.areas.push(new AreaData("Buried village", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 68, 8));
+
+AreaData.areas.push(new AreaData("Newborn oasis", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 77, 10));
+
+AreaData.areas.push(new AreaData("Azoktun's sepulchre", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 73, 0,
+30, "elite_helm.png"));
+
+AreaData.areas.push(new AreaData("Extinct volcano", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 80, 20));
+
+AreaData.areas.push(new AreaData("Fairies dream", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 72, 26));
+//#endregion
+
+//#region 81 - 90
+AreaData.areas.push(new AreaData("Waterfall of time", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 63, 35));
+
+AreaData.areas.push(new AreaData("Yggdrasil sprout", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 85, 35));
+
+AreaData.areas.push(new AreaData("Devastated plains", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 76, 52));
+
+AreaData.areas.push(new AreaData("Open-pit mines", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 80, 64));
+
+AreaData.areas.push(new AreaData("World's edge", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 86, 56));
+
+AreaData.areas.push(new AreaData("Arid beach", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 65, 59));
+
+AreaData.areas.push(new AreaData("The Observatory", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 56, 50,
+30, "elite_helm.png"));
+
+AreaData.areas.push(new AreaData("Cosmic Bridge", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 58, 63));
+
+AreaData.areas.push(new AreaData("Shaanah's stronghold", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 48, 57,
+30, "elite_helm.png"));
+
+AreaData.areas.push(new AreaData("Whirlwind Typhoon", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 46, 46,
+60, "boss_skull.png"));
+
+AreaData.areas.push(new AreaData("Hot Spring", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 40, 69,
+60, "boss_skull.png"));
 //#endregion
