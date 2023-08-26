@@ -376,3 +376,10 @@ AreaData.areas.push(new AreaData("Meteor site", "crater.jpg",
 ], 44, 38,
 60, "boss_skull.png"));
 //#endregion
+
+//#region 51 - 60
+AreaData.areas.push(new AreaData("Pirate Bay", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 9, 66.5));
+//#endregion

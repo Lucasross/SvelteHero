@@ -239,3 +239,8 @@ Monster.monsters.push(new Monster("aspect-dispair", "Dispair's Aspect", 45, "ent
 
 Monster.monsters.push(new Monster("shaanah-past", "Past's Shaanah", 55, "demon-lord", 100, LootTable.shaanah_boss_50));
 //#endregion
+
+//#region 51 - 60
+Monster.monsters.push(new Monster("dummy-pirate", "Pirate dummy", 50, "dummy_white", 1, null))
+
+//#endregion

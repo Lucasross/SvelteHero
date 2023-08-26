@@ -1,8 +1,9 @@
 import AreaData from "./AreaData";
+import type Guild from "./Guild";
 import type { ISprite } from "./generic/ISprite";
 import Sprite from "./generic/Sprite";
 
-export default class RegionData implements ISprite {
+export default abstract class RegionData implements ISprite {
     public static regions: RegionData[] = [];
 
     public readonly id: string;
@@ -10,16 +11,48 @@ export default class RegionData implements ISprite {
     public readonly areas: AreaData[] = [];
     public readonly sprite: Sprite;
 
-    constructor(id: string, areas : string[], spritePath: string) {
+    public readonly leftRegion: string;
+    public readonly rightRegion: string;
+
+    constructor(id: string, leftRegion: string, rightRegion: string, areas : string[], spritePath: string) {
         this.id = id;
         this.name = id;
+        this.leftRegion = leftRegion;
+        this.rightRegion = rightRegion;
         this.areas = areas.map(id => AreaData.getById(id));
         this.sprite = new Sprite(this.getFullPath(spritePath));
     }
 
+    protected abstract isUnlocked(guild: Guild);
+
     private getFullPath(spriteName: string) {
         return "pictures/regions/" + spriteName + ".png";
     }
+
+    public hasLeftRegion() {
+        return this.leftRegion != null;
+    }
+
+    public hasRightRegion() {
+        return this.rightRegion != null;
+    }
+
+    public leftRegionUnlocked(guild : Guild) : boolean {
+        return this.hasLeftRegion() && RegionData.getById(this.leftRegion).isUnlocked(guild);
+    }
+
+    public rightRegionUnlocked(guild : Guild) : boolean {
+        return this.hasRightRegion() && RegionData.getById(this.rightRegion).isUnlocked(guild);
+    }
+
+    public getLeftRegion() {
+        return RegionData.getById(this.leftRegion);
+    }
+
+    public getRightRegion() {
+        return RegionData.getById(this.rightRegion);
+    }
+
 
     getSprite(): Promise<any> {
         return this.sprite.get();
@@ -35,7 +68,29 @@ export default class RegionData implements ISprite {
     }
 }
 
-RegionData.regions.push(new RegionData("Meivin",
+class MeivinRegion extends RegionData {
+
+    constructor(leftRegion: string, rightRegion: string, areas : string[], spritePath: string) {
+        super("Meivin", leftRegion, rightRegion, areas, spritePath);    
+    }
+
+    protected isUnlocked(guild: Guild) {
+        return true;
+    }
+}
+
+class EkosmaRegion extends RegionData {
+
+    constructor(leftRegion: string, rightRegion: string, areas : string[], spritePath: string) {
+        super("Ekosma", leftRegion, rightRegion, areas, spritePath);    
+    }
+
+    protected isUnlocked(guild: Guild) {
+        return guild.GetShaanahPastFlag();
+    }
+}
+
+RegionData.regions.push(new MeivinRegion(null, "Ekosma",
 [
     "Training center",
     "Koloh's plains",
@@ -66,3 +121,8 @@ RegionData.regions.push(new RegionData("Meivin",
     "Island of dispair",
     "Meteor site",
 ], "world_map"))
+
+RegionData.regions.push(new EkosmaRegion("Meivin", null,
+[
+    "Pirate Bay",
+], "world_map_ekosma"))

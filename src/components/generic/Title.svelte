@@ -1,16 +1,18 @@
 <script lang="ts">
     import { createEventDispatcher } from "svelte";
     import AreaData from "../../data/AreaData";
-    import { area_id, guild, heroes } from "../../store/Stores";
+    import { area_id, region_id, guild, heroes } from "../../store/Stores";
     import { get } from "svelte/store";
+    import type RegionData from "../../data/RegionData";
 
     export let label: String;
     export let enableGold: boolean = false;
     export let area: AreaData = null;
     export let sellAll: boolean = null;
-    export let world: boolean = false;
+    export let regionData: RegionData = null;
 
     let dps = 0;
+    $:region = regionData;
 
     if (area != null) {
         dps = area.getAreaDps();
@@ -57,8 +59,10 @@
         dispatch('sellAll');
     }
 
-    function travelTo() {
-        alert("Ekosma continent will coming soon !");
+    function travelTo(regionId: string) {
+        dispatch('travel', {
+            regionId: regionId
+        });
     }
 </script>
 
@@ -75,6 +79,9 @@
                 {$guild.gold.toFixed(0)}
             </p>
         {/if}
+        {#if region != null && region.hasLeftRegion() && region.leftRegionUnlocked($guild)}
+            <button on:click={() => travelTo(region.leftRegion)}><i class="fa-solid fa-arrow-left"></i> {region.getLeftRegion().name}</button>
+        {/if}
     </div>
     <p class="title">{label}</p>
     <p class="title">
@@ -90,8 +97,8 @@
         {#if sellAll != null}
             <button on:click={sellAllItem}><i class="fa-solid fa-coins" style="color: #fcba03"></i>All</button>
         {/if}
-        {#if world && $guild.GetShaanahPastFlag()}
-            <button on:click={travelTo}>Ekosma <i class="fa-solid fa-arrow-right"></i></button>
+        {#if region != null && region.hasRightRegion() && region.rightRegionUnlocked($guild)}
+            <button on:click={() => travelTo(region.rightRegion)}>{region.getRightRegion().name} <i class="fa-solid fa-arrow-right"></i></button>
         {/if}
     </p>
 </div>
