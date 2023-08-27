@@ -79,3 +79,13 @@ UpgradeRecipe.recipes.push(new UpgradeRecipe(21, 30, SlotType.All, 24700, [["Pep
 UpgradeRecipe.recipes.push(new UpgradeRecipe(31, 40, SlotType.All, 51300, [["Corite", 4], ["Lunacier", 2], ["Carapium", 0.33]]))
 
 UpgradeRecipe.recipes.push(new UpgradeRecipe(41, 50, SlotType.All, 125000, [["Seed of risk", 1], ["Seed of savagery", 1], ["Seed of dispair", 1], ["Shaanah's echos", 0.25]]))
+
+UpgradeRecipe.recipes.push(new UpgradeRecipe(51, 60, SlotType.All, 151000, [["Desert Pearl", 2], ["Red Mushes", 3], ["Dry Branch", 3.5]]))
+
+UpgradeRecipe.recipes.push(new UpgradeRecipe(61, 70, SlotType.All, 225000, [["Ancient Flame", 1], ["Dandacier", 4], ["Cosmic Energy", 2.34]]))
+
+UpgradeRecipe.recipes.push(new UpgradeRecipe(71, 80, SlotType.All, 565000, [["Crystalized Snow", 4], ["Sadanite", 4], ["Sand gems", 1.5]]))
+
+UpgradeRecipe.recipes.push(new UpgradeRecipe(81, 85, SlotType.All, 1295000, [["Magic bark", 3], ["Kathril", 2], ["Fairy gems", 2], ["Magic ore", 1]]))
+
+UpgradeRecipe.recipes.push(new UpgradeRecipe(86, 90, SlotType.All, 2765000, [["Magic ore", 3], ["Ancient Fossil", 2], ["Sharp water", 3], ["Shaanah's soul", 0.25]]))
