@@ -165,5 +165,63 @@ Equipment.equipments.push(new Equipment("Mystery Key-Sword", SlotType.Weapon, "w
 Equipment.equipments.push(new Equipment("Mystery Shuriken", SlotType.Jewelry, "jewelry/earring_shuriken", 45, 1, "Island Mystery", [new DamagePercentEffect(0.1), new DamageRawEffect(150)]));
 Equipment.equipments.push(new Equipment("Mystery Horns", SlotType.Head, "head/barbarian", 45, 1, "Island Mystery", [new DamageRawEffect(300)]));
 Equipment.equipments.push(new Equipment("Mystery Guards", SlotType.Body, "body/worked_jacket_alt", 45, 1, "Island Mystery", [new ExperiencePercentEffect(0.2)]));
-Equipment.equipments.push(new Equipment("Mystery Traveller", SlotType.Foot, "foot/studded_boots", 45, 1, "Island Mystery", [new GoldRawEffect(0.2)]));
+Equipment.equipments.push(new Equipment("Mystery Traveller", SlotType.Foot, "foot/studded_boots", 45, 1, "Island Mystery", [new GoldPercentEffect(0.2)]));
+//#endregion
+
+//#region 51 - 60
+Equipment.equipments.push(new Equipment("Dried Shoes", SlotType.Foot, "__sprite__", 52, 2, null, [new ExperiencePercentEffect(0.2)]));
+
+Equipment.equipments.push(new Equipment("Pirates Wooden Leg", SlotType.Foot, "__sprite__", 50, 1, "Pirates Treasure", [new GoldRawEffect(500)]));
+Equipment.equipments.push(new Equipment("Pirates Cutlasses", SlotType.Weapon, "__sprite__", 51, 1, "Pirates Treasure", [new DamageRawEffect(1000)]));
+Equipment.equipments.push(new Equipment("Straw Hat", SlotType.Head, "__sprite__", 53, 1, "Pirates Treasure", [new ExperiencePercentEffect(0.5), new DamagePercentEffect(0.1)]));
+
+Equipment.equipments.push(new Equipment("The Dart", SlotType.Jewelry, "__sprite__", 57, 2, "Mandible and Dart", [new DamagePercentEffect(0.2)]));
+Equipment.equipments.push(new Equipment("The Mandibule", SlotType.Head, "__sprite__", 59, 2, "Mandible and Dart", [new DamageRawEffect(1500)]));
+
+Equipment.equipments.push(new Equipment("Ethereal Aspect", SlotType.Body, "__sprite__", 56, 2, null, [new ExperienceRawEffect(2500), new DamageRawEffect(1000)]));
+Equipment.equipments.push(new Equipment("Delusion Breaker", SlotType.Weapon, "__sprite__", 58, 2, null, [new DamagePercentEffect(0.2), new ExperienceRawEffect(2000)]));
+//#endregion
+
+//#region 61 - 80
+Equipment.equipments.push(new Equipment("Thermal Vest", SlotType.Body, "__sprite__", 62, 2, null, [new ExperienceRawEffect(3000), new GoldPercentEffect(0.2)]));
+Equipment.equipments.push(new Equipment("Lava Rock Pendant", SlotType.Jewelry, "__sprite__", 68, 2, null, [new DamagePercentEffect(0.25), new DamageRawEffect(1500)]));
+Equipment.equipments.push(new Equipment("Fluffy Ear Cover", SlotType.Head, "__sprite__", 73, 2, null, [new GoldRawEffect(3000), new ExperienceRawEffect(2500)]));
+Equipment.equipments.push(new Equipment("Flask", SlotType.Jewelry, "__sprite__", 76, 2, null, [new DamageRawEffect(3000)]));
+Equipment.equipments.push(new Equipment("Bones Fragment", SlotType.Body, "__sprite__", 79, 2, null, [new DamageRawEffect(3500), new ExperiencePercentEffect(0.35)]));
+
+Equipment.equipments.push(new Equipment("Cristalized Chilblain", SlotType.Weapon, "Cristalized Essence", 71, 1, null, [new DamagePercentEffect(0.3)]));
+Equipment.equipments.push(new Equipment("Cristalized Cleats", SlotType.Foot, "Cristalized Essence", 73, 1, null, [new DamageRawEffect(2500), new ExperienceRawEffect(3000)]));
+
+Equipment.equipments.push(new Equipment("Astral Urbans", SlotType.Foot, "__sprite__", 63, 1, "Astral Rush", [new ExperiencePercentEffect(0.2)]));
+Equipment.equipments.push(new Equipment("Astral Glasses", SlotType.Head, "__sprite__", 65, 1, "Astral Rush", [new GoldRawEffect(2500), new DamageRawEffect(1000)]));
+Equipment.equipments.push(new Equipment("Astral Coat", SlotType.Body, "__sprite__", 66, 1, "Astral Rush", [new DamageRawEffect(1200)]));
+
+Equipment.equipments.push(new Equipment("Triumvirat Inferno", SlotType.Foot, "__sprite__", 65, 1, "Triumvirat", [new DamageRawEffect(3000)]));
+Equipment.equipments.push(new Equipment("Triumvirat Frostbites", SlotType.Head, "__sprite__", 70, 1, "Triumvirat", [new ExperienceRawEffect(4000)]));
+Equipment.equipments.push(new Equipment("Triumvirat Silica", SlotType.Body, "__sprite__", 75, 1, "Triumvirat", [new GoldRawEffect(5000)]));
+Equipment.equipments.push(new Equipment("Triumvirat Catalyser", SlotType.Jewelry, "__sprite__", 80, 1, "Triumvirat", [new DamagePercentEffect(0.33), new ExperiencePercentEffect(0.33), new GoldPercentEffect(0.33)]));
+//#endregion
+
+//#region 81 - 90
+Equipment.equipments.push(new Equipment("Fairy Nightmare", SlotType.Body, "__sprite__", 81, 1, "Fairy Dust", [new DamageRawEffect(2500)]));
+Equipment.equipments.push(new Equipment("Fairy Crusher", SlotType.Foot, "__sprite__", 83, 1, "Fairy Dust", [new GoldRawEffect(3500)]));
+
+Equipment.equipments.push(new Equipment("Aura of Shadow", SlotType.Jewelry, "__sprite__", 84, 1, "Heavy Aura", [new ExperiencePercentEffect(0.3), new GoldRawEffect(5000)]));
+Equipment.equipments.push(new Equipment("Aura of Death", SlotType.Body, "__sprite__", 85, 1, "Heavy Aura", [new DamageRawEffect(4500)]));
+Equipment.equipments.push(new Equipment("Aura of Unease", SlotType.Head, "__sprite__", 86, 1, "Heavy Aura", [new ExperienceRawEffect(9000)]));
+Equipment.equipments.push(new Equipment("Aura of Destruction", SlotType.Weapon, "__sprite__", 88, 1, "Heavy Aura", [new DamageRawEffect(5000), new DamagePercentEffect(0.2)]));
+
+Equipment.equipments.push(new Equipment("Eternal Leaf", SlotType.Jewelry, "__sprite__", 82, 2, null, [new DamageRawEffect(3000), new ExperienceRawEffect(7500)]));
+Equipment.equipments.push(new Equipment("Thorns Plate", SlotType.Body, "__sprite__", 83, 2, null, [new DamagePercentEffect(0.4), new DamageRawEffect(2000)]));
+Equipment.equipments.push(new Equipment("Infused pickaxe", SlotType.Weapon, "__sprite__", 84, 2, null, [new DamageRawEffect(5000), new GoldPercentEffect(0.4)]));
+Equipment.equipments.push(new Equipment("Antlers", SlotType.Head, "__sprite__", 85, 2, null, [new ExperiencePercentEffect(0.4), new ExperienceRawEffect(5000), new DamageRawEffect(1250)]));
+Equipment.equipments.push(new Equipment("Dark Walker", SlotType.Foot, "__sprite__", 86, 2, null, [new ExperiencePercentEffect(0.4), new GoldRawEffect(10000)]));
+Equipment.equipments.push(new Equipment("Lost Hopes", SlotType.Jewelry, "__sprite__", 87, 2, null, [new ExperiencePercentEffect(0.3), new ExperienceRawEffect(20000)]));
+Equipment.equipments.push(new Equipment("Last View", SlotType.Head, "__sprite__", 89, 2, null, [new ExperienceRawEffect(10000), new ExperiencePercentEffect(0.2), new DamageRawEffect(4500), new DamagePercentEffect(0.25), new GoldRawEffect(3500), new DamagePercentEffect(0.3)]));
+
+Equipment.equipments.push(new Equipment("Cosmic Punition", SlotType.Weapon, "__sprite__", 90, 1, "Cosmic Energy", [new DamageRawEffect(3500), new ExperienceRawEffect(5000)]));
+Equipment.equipments.push(new Equipment("Cosmic Power", SlotType.Jewelry, "__sprite__", 90, 1, "Cosmic Energy", [new DamageRawEffect(2000), new DamagePercentEffect(0.2)]));
+Equipment.equipments.push(new Equipment("Cosmic Eclipse", SlotType.Head, "__sprite__", 90, 1, "Cosmic Energy", [new DamagePercentEffect(0.1), new ExperiencePercentEffect(0.3)]));
+Equipment.equipments.push(new Equipment("Cosmic Guardian", SlotType.Body, "__sprite__", 90, 1, "Cosmic Energy", [new ExperiencePercentEffect(0.4), new GoldRawEffect(15000)]));
+Equipment.equipments.push(new Equipment("Cosmic Nebula", SlotType.Foot, "__sprite__", 90, 1, "Cosmic Energy", [new ExperienceRawEffect(25000)]));
 //#endregion

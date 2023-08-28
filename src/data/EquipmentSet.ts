@@ -1,6 +1,6 @@
 import Equipment from "./Equipment";
 import type Hero from "./Hero";
-import StatEffect, { DamagePercentEffect, DamageRawEffect, ExperiencePercentEffect, ExperienceRawEffect, GoldPercentEffect } from "./StatEffect";
+import StatEffect, { DamagePercentEffect, DamageRawEffect, ExperiencePercentEffect, ExperienceRawEffect, GoldPercentEffect, GoldRawEffect } from "./StatEffect";
 
 export default class EquipmentSet {
     public static sets: EquipmentSet[] = [];
@@ -57,8 +57,18 @@ export default class EquipmentSet {
     public static readonly PyroVanisherSet = ["Pyro Walker", "Pyro Chestplate"];
     public static readonly MistyMirageSet = ["Misty Vision", "Misty Trace", "Misty Pendulum", "Misty Pest"];
     public static readonly IslandMysterySet = ["Mystery Key-Sword", "Mystery Shuriken", "Mystery Horns", "Mystery Guards", "Mystery Traveller"];
+    
+    public static readonly PiratesTreasure = ["Pirates Wooden Leg", "Pirates Cutlasses", "Straw Hat"];
+    public static readonly MandibleAndDart = ["The Dart", "The Mandibule"];
+    public static readonly AstralRush = ["Astral Urbans", "Astral Glasses", "Astral Coat"];
+    public static readonly CristalizedEssence = ["Cristalized Chilblain", "Cristalized Cleats"];
+    public static readonly Triumvirat = ["Triumvirat Inferno", "Triumvirat Frostbites", "Triumvirat Silica", "Triumvirat Catalyser"];
+    public static readonly FairyDust = ["Fairy Nightmare", "Fairy Crusher"];
+    public static readonly HeavyAura = ["Aura of Shadow", "Aura of Death", "Aura of Unease", "Aura of Destruction"];
+    public static readonly CosmicEnergy = ["Cosmic Punition", "Cosmic Power", "Cosmic Eclipse", "Cosmic Guardian", "Cosmic Nebula"];
 }
 
+//#region Meivin
 EquipmentSet.sets.push(new EquipmentSet("Training Dummy",
     new Map<number, StatEffect>([
         [2, new GoldPercentEffect(0.05)],
@@ -101,7 +111,6 @@ EquipmentSet.sets.push(new EquipmentSet("Misty Mirage",
     ])
 ))
 
-
 EquipmentSet.sets.push(new EquipmentSet("Island Mystery",
     new Map<number, StatEffect>([
         [2, new DamageRawEffect(500)],
@@ -110,3 +119,63 @@ EquipmentSet.sets.push(new EquipmentSet("Island Mystery",
         [5, new DamagePercentEffect(0.5)],
     ])
 ))
+//#endregion
+
+//#region 
+EquipmentSet.sets.push(new EquipmentSet("Pirates Treasure",
+    new Map<number, StatEffect>([
+        [2, new GoldRawEffect(1500)],
+        [3, new GoldPercentEffect(0.5)],
+    ])
+))
+
+EquipmentSet.sets.push(new EquipmentSet("Mandible and Dart",
+    new Map<number, StatEffect>([
+        [2, new DamageRawEffect(3000)],
+    ])
+))
+
+EquipmentSet.sets.push(new EquipmentSet("Astral Rush",
+    new Map<number, StatEffect>([
+        [2, new DamageRawEffect(4000)],
+        [3, new DamagePercentEffect(0.4)],
+    ])
+))
+
+EquipmentSet.sets.push(new EquipmentSet("Cristalized Essence",
+    new Map<number, StatEffect>([
+        [2, new ExperiencePercentEffect(0.75)],
+    ])
+))
+
+EquipmentSet.sets.push(new EquipmentSet("Triumvirat",
+    new Map<number, StatEffect>([
+        [2, new DamageRawEffect(4000)],
+        [3, new GoldRawEffect(5000)],
+        [4, new ExperienceRawEffect(6000)],
+    ])
+))
+
+EquipmentSet.sets.push(new EquipmentSet("Fairy Dust",
+    new Map<number, StatEffect>([
+        [2, new DamageRawEffect(10000)],
+    ])
+))
+
+EquipmentSet.sets.push(new EquipmentSet("Heavy Aura",
+    new Map<number, StatEffect>([
+        [2, new ExperienceRawEffect(20000)],
+        [3, new ExperiencePercentEffect(0.5)],
+        [4, new DamagePercentEffect(0.35)],
+    ])
+))
+
+EquipmentSet.sets.push(new EquipmentSet("Cosmic Energy",
+    new Map<number, StatEffect>([
+        [2, new ExperienceRawEffect(30000)],
+        [3, new DamageRawEffect(20000)],
+        [4, new DamagePercentEffect(0.25)],
+        [5, new DamagePercentEffect(0.75)],
+    ])
+))
+//#endregion
