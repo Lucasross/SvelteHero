@@ -385,22 +385,31 @@ AreaData.areas.push(new AreaData("Pirate Bay", "pirate_bay.jpg",
 
 AreaData.areas.push(new AreaData("Desert Labyrinth", "desert_labyrinth.jpg",
 [
-    "dummy-pirate",
+    "desert-lizard",
+    "desert-skelet",
+    "desert-beetle",
+    
 ], 18, 43));
 
 AreaData.areas.push(new AreaData("Desertic lands", "desert_lands.jpg",
 [
-    "dummy-pirate",
+    "desert-mushrooms",
+    "desert-harvester",
+    "desert-worm",
 ], 4, 48));
 
 AreaData.areas.push(new AreaData("Dry rivers", "desert_rivers.jpg",
 [
-    "dummy-pirate",
+    "desert-scorpion",
+    "desert-golem",
+    "desert-griffin",
 ], 32, 48));
 
 AreaData.areas.push(new AreaData("Insectoid Tower", "insectoid_tower.jpg",
 [
-    "dummy-pirate",
+    "insectoid-beetle-a",
+    "insectoid-beetle-b",
+    "insectoid-beetle-c",
 ], 7, 33,
 30, "elite_helm.png"));
 //#endregion
@@ -408,22 +417,34 @@ AreaData.areas.push(new AreaData("Insectoid Tower", "insectoid_tower.jpg",
 //#region 61 - 70
 AreaData.areas.push(new AreaData("Astral South Side", "astral_south.jpg",
 [
-    "dummy-pirate",
+    "astral-bat",
+    "astral-rat",
+    "astral-boxcat",
+    "astral-feline",
 ], 34, 34));
 
 AreaData.areas.push(new AreaData("Astral North Side", "astral_north.jpg",
 [
-    "dummy-pirate",
+    "astral-cloud",
+    "astral-guard",
+    "astral-feline-north",
+    "astral-boxcat-north",
 ], 36, 22));
 
 AreaData.areas.push(new AreaData("Etheral lands", "ethereal_lands.jpg",
 [
-    "dummy-pirate",
+    "etheral-spirit",
+    "etheral-ghost",
+    "etheral-neko",
+    "etheral-eyed",
 ], 16, 22));
 
 AreaData.areas.push(new AreaData("Lava rivers", "volcano_lands.jpg",
 [
-    "dummy-pirate",
+    "lava-zombie",
+    "lava-cerbere",
+    "lava-demon",
+    "lava-highghost",
 ], 27, 15));
 
 AreaData.areas.push(new AreaData("Dragon's Lands", "volcano.jpg",

@@ -242,5 +242,38 @@ Monster.monsters.push(new Monster("shaanah-past", "Past's Shaanah", 55, "demon-l
 
 //#region 51 - 60
 Monster.monsters.push(new Monster("dummy-pirate", "Pirate dummy", 50, "dummy_white", 1, null))
+Monster.monsters.push(new Monster("desert-mushrooms", "mushrooms_orange", 51, "mushrooms_orange", 1, null))
+Monster.monsters.push(new Monster("desert-harvester", "Harvester", 52, "pumpkin_red", 1.2, null))
+Monster.monsters.push(new Monster("desert-worm", "Worm", 53, "worm_orange", 1.3, null))
+Monster.monsters.push(new Monster("desert-lizard", "Lizard", 54, "lizard_orange", 1.2, null))
+Monster.monsters.push(new Monster("desert-skelet", "Renforced Skeleton", 55, "skeleton_yellow", 0.9, null))
+Monster.monsters.push(new Monster("desert-beetle", "Sunny Bettle", 56, "beetle_gold", 1.2, null))
+Monster.monsters.push(new Monster("desert-scorpion", "Scorpio", 57, "scorpion_red", 1.3, null))
+Monster.monsters.push(new Monster("desert-golem", "Golem", 58, "golem_yellow", 1.5, null))
+Monster.monsters.push(new Monster("desert-griffin", "Griffin", 59, "griffin_brown", 1.4, null))
 
+Monster.monsters.push(new Monster("insectoid-beetle-a", "Enhanced Beetle", 59, "beetle_green", 5, null))
+Monster.monsters.push(new Monster("insectoid-beetle-b", "Powerfull Beetle", 60, "beetle_gold", 4, null))
+Monster.monsters.push(new Monster("insectoid-beetle-c", "Resistant Beetle", 61, "beetle-blue", 7, null))
+//#endregion
+
+//#region 61 - 70
+Monster.monsters.push(new Monster("astral-bat", "Astral Bat", 60, "bat_dark", 1, null))
+Monster.monsters.push(new Monster("astral-rat", "Strong Rat", 61, "mouse_gray", 0.9, null))
+Monster.monsters.push(new Monster("astral-boxcat", "Depressed Boxcat", 62, "boxcat_gray", 1.3, null))
+Monster.monsters.push(new Monster("astral-feline", "Depressed Feline", 63, "feline_white", 1.2, null))
+Monster.monsters.push(new Monster("astral-cloud", "Polluted Cloud", 64, "cloud_gray", 1, null))
+Monster.monsters.push(new Monster("astral-guard", "North Guard", 65, "soldier_black", 1.5, null))
+Monster.monsters.push(new Monster("astral-feline-north", "North Feline", 66, "feline_blue", 1.2, null))
+Monster.monsters.push(new Monster("astral-boxcat-north", "North Boxcat", 67, "boxcat_blue", 1.2, null))
+
+Monster.monsters.push(new Monster("etheral-spirit", "Ancient Spirit", 63, "spirit_blue", 1.2, null))
+Monster.monsters.push(new Monster("etheral-ghost", "Etheral Ghost", 64, "ghost_blue", 1, null))
+Monster.monsters.push(new Monster("etheral-neko", "Torturer", 65, "bakeneko_blue", 1.4, null))
+Monster.monsters.push(new Monster("etheral-eyed", "Psychic Eyed Terror", 66, "oneeyed_blue_white", 1.5, null))
+
+Monster.monsters.push(new Monster("lava-zombie", "Flaming Zombie", 66, "zombie_red", 1.5, null))
+Monster.monsters.push(new Monster("lava-cerbere", "Lava Cerbere", 67, "cerbere_red", 1.5, null))
+Monster.monsters.push(new Monster("lava-demon", "Red Demon", 68, "demon_red", 1.5, null))
+Monster.monsters.push(new Monster("lava-highghost", "Fire Ghost", 69, "highghost_red", 1.5, null))
 //#endregion
