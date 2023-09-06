@@ -157,7 +157,7 @@ Monster.monsters.push(new Monster("wolf-easy", "Wolf", 5, "wolf-brown", 1, LootT
 
 Monster.monsters.push(new Monster("plant-easy", "Angry plant", 6, "plant-green", 1.1, LootTable.normal_10));
 
-Monster.monsters.push(new Monster("snake-easy", "Snake", 7, "snake-pink",1, LootTable.normal_10));
+Monster.monsters.push(new Monster("snake-easy", "Snake", 7, "snake_green",1, LootTable.normal_10));
 
 Monster.monsters.push(new Monster("goblin-easy", "Goblin", 8, "goblin_yellow", 1.1, LootTable.normal_10));
 Monster.monsters.push(new Monster("spirit-elite", "Fire spirit", 8, "spirit_red", 3, LootTable.elite_10));
@@ -246,7 +246,7 @@ Monster.monsters.push(new Monster("desert-mushrooms", "mushrooms_orange", 51, "m
 Monster.monsters.push(new Monster("desert-harvester", "Harvester", 52, "pumpkin_red", 1.2, null))
 Monster.monsters.push(new Monster("desert-worm", "Worm", 53, "worm_orange", 1.3, null))
 Monster.monsters.push(new Monster("desert-lizard", "Lizard", 54, "lizard_orange", 1.2, null))
-Monster.monsters.push(new Monster("desert-skelet", "Renforced Skeleton", 55, "skeleton_yellow", 0.9, null))
+Monster.monsters.push(new Monster("desert-skelet", "Renforced Skeleton", 55, "skeleton_white", 0.9, null))
 Monster.monsters.push(new Monster("desert-beetle", "Sunny Bettle", 56, "beetle_gold", 1.2, null))
 Monster.monsters.push(new Monster("desert-scorpion", "Scorpio", 57, "scorpion_red", 1.3, null))
 Monster.monsters.push(new Monster("desert-golem", "Golem", 58, "golem_yellow", 1.5, null))
@@ -272,8 +272,46 @@ Monster.monsters.push(new Monster("etheral-ghost", "Etheral Ghost", 64, "ghost_b
 Monster.monsters.push(new Monster("etheral-neko", "Torturer", 65, "bakeneko_blue", 1.4, null))
 Monster.monsters.push(new Monster("etheral-eyed", "Psychic Eyed Terror", 66, "oneeyed_blue_white", 1.5, null))
 
-Monster.monsters.push(new Monster("lava-zombie", "Flaming Zombie", 66, "zombie_red", 1.5, null))
-Monster.monsters.push(new Monster("lava-cerbere", "Lava Cerbere", 67, "cerbere_red", 1.5, null))
-Monster.monsters.push(new Monster("lava-demon", "Red Demon", 68, "demon_red", 1.5, null))
-Monster.monsters.push(new Monster("lava-highghost", "Fire Ghost", 69, "highghost_red", 1.5, null))
+Monster.monsters.push(new Monster("lava-zombie", "Flaming Zombie", 65, "zombie_red", 0.8, null))
+Monster.monsters.push(new Monster("lava-oni", "Enraged Oni", 66, "oni_red", 1.3, null))
+Monster.monsters.push(new Monster("lava-cerbere", "Lava Cerbere", 67, "cerbere_red", 1.6, null))
+Monster.monsters.push(new Monster("lava-demon", "Red Demon", 68, "demon_red", 1.2, null))
+Monster.monsters.push(new Monster("lava-highghost", "Fire Ghost", 69, "highghost_red", 1, null))
+
+Monster.monsters.push(new Monster("boss-highdragon", "Elder Dragon", 72, "highdragon_red", 1.5, null))
 //#endregion
+
+//#region 71 - 80
+Monster.monsters.push(new Monster("ice-egg", "Hatching Ice Egg", 69, "egg_blue", 0.8, null))
+Monster.monsters.push(new Monster("ice-plant", "Ice Plant", 70, "plant_blue", 1, null))
+Monster.monsters.push(new Monster("ice-mimic", "Enhanced Mimic", 71, "mimic_blue", 1.2, null))
+Monster.monsters.push(new Monster("ice-golem", "Ice Golem", 72, "golem_blue", 1.5, null))
+
+Monster.monsters.push(new Monster("ice-jabu", "Jabu", 72, "jabu_green", 6, null))
+Monster.monsters.push(new Monster("ice-jelly", "Magic Jellyfish", 73, "jellyfish_cyan", 5, null))
+Monster.monsters.push(new Monster("ice-goblin", "Ice Goblin", 74, "goblin_blue", 6, null))
+Monster.monsters.push(new Monster("ice-ent", "Possessed Ent", 75, "ent_white", 8, null))
+
+Monster.monsters.push(new Monster("ice-river-plant", "Overgrown Plant", 73, "plant_white", 1.5, null))
+Monster.monsters.push(new Monster("ice-river-goblin", "Civilized Goblin", 74, "goblin_blue", 1.5, null))
+Monster.monsters.push(new Monster("ice-oni", "Civilized Oni", 75, "oni_blue", 1.5, null))
+
+Monster.monsters.push(new Monster("ice-spirit", "Antinomian Spirit", 75, "spirit_purple", 1, null))
+Monster.monsters.push(new Monster("desert-spirit", "Antinomian Spirit", 76, "spirit_red", 1.1, null))
+Monster.monsters.push(new Monster("ice-antinomian-golem", "Antinomian Golem", 76, "golem_blue", 1.5, null))
+Monster.monsters.push(new Monster("desert-antinomian-golem", "Antinomian Golem", 77, "golem_yellow", 1.6, null))
+
+Monster.monsters.push(new Monster("desert-sand-pig", "Desert Pig", 76, "pig_gold", 1, null))
+Monster.monsters.push(new Monster("desert-sand-skeleton", "Sand Skeleton", 77, "skeleton_yellow", 1, null))
+Monster.monsters.push(new Monster("desert-sand-sorcerer", "Necromancian", 78, "sorcerer_yellow", 1.3, null))
+Monster.monsters.push(new Monster("desert-sand-worm", "Giant Worm", 79, "worm_orange", 2, null))
+
+Monster.monsters.push(new Monster("desert-sand-zombie", "Zombie", 78, "zombie_red", 5.5, null))
+Monster.monsters.push(new Monster("desert-sand-elite-skeleton", "Renforced Skeleton", 79, "skeleton_red", 6, null))
+Monster.monsters.push(new Monster("desert-sand-ent", "Dryed Ent", 80, "ent_orange", 8, null))
+
+Monster.monsters.push(new Monster("desert-sand-lezard", "Oasis Lizard", 79, "lizard_green", 1.3, null))
+Monster.monsters.push(new Monster("desert-sand-snake", "Sand Snake", 80, "snake-pink", 1.2, null))
+Monster.monsters.push(new Monster("desert-sand-pumpkin", "Oasis Frightener", 81, "pumpkin_green", 1, null))
+
+

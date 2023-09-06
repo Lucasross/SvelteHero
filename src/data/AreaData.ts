@@ -449,46 +449,64 @@ AreaData.areas.push(new AreaData("Lava rivers", "volcano_lands.jpg",
 
 AreaData.areas.push(new AreaData("Dragon's Lands", "volcano.jpg",
 [
-    "dummy-pirate",
+    "boss-highdragon",
 ], 21, 0,
 60, "boss_skull.png"));
 
 AreaData.areas.push(new AreaData("Cavernal path", "cavern_01.jpg",
 [
-    "dummy-pirate",
+    "ice-egg",
+    "ice-plant",
+    "ice-mimic",
+    "ice-golem",
 ], 42, 10));
 //#endregion
 
 //#region 71 - 80
 AreaData.areas.push(new AreaData("Snows's den", "cavern_snow.jpg",
 [
-    "dummy-pirate",
+    "ice-jabu",
+    "ice-jelly",
+    "ice-goblin",
+    "ice-ent",
 ], 48, 1,
 30, "elite_helm.png"));
 
 AreaData.areas.push(new AreaData("Frozen river", "snow_lands.jpg",
 [
-    "dummy-pirate",
+    "ice-river-plant",
+    "ice-river-goblin",
+    "ice-oni",
 ], 50, 18));
 
 AreaData.areas.push(new AreaData("Antinomian Tunnel", "cavern_02.jpg",
 [
-    "dummy-pirate",
+    "ice-spirit",
+    "desert-spirit",
+    "ice-antinomian-golem",
+    "desert-antinomian-golem",
 ], 58, 10));
 
 AreaData.areas.push(new AreaData("Buried village", "desert_buried.jpg",
 [
-    "dummy-pirate",
+    "desert-sand-pig",
+    "desert-sand-skeleton",
+    "desert-sand-sorcerer",
+    "desert-sand-worm",
 ], 68, 8));
 
 AreaData.areas.push(new AreaData("Newborn oasis", "desert_oasis.jpg",
 [
-    "dummy-pirate",
+    "desert-sand-lezard",
+    "desert-sand-snake",
+    "desert-sand-pumpkin",
 ], 77, 10));
 
 AreaData.areas.push(new AreaData("Azoktun's sepulchre", "desert_pyramid.jpg",
 [
-    "dummy-pirate",
+    "desert-sand-zombie",
+    "desert-sand-elite-skeleton",
+    "desert-sand-ent",
 ], 73, 0,
 30, "elite_helm.png"));
 
