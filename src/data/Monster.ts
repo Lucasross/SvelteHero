@@ -292,8 +292,8 @@ Monster.monsters.push(new Monster("ice-jelly", "Magic Jellyfish", 73, "jellyfish
 Monster.monsters.push(new Monster("ice-goblin", "Ice Goblin", 74, "goblin_blue", 6, null))
 Monster.monsters.push(new Monster("ice-ent", "Possessed Ent", 75, "ent_white", 8, null))
 
-Monster.monsters.push(new Monster("ice-river-plant", "Overgrown Plant", 73, "plant_white", 1.5, null))
-Monster.monsters.push(new Monster("ice-river-goblin", "Civilized Goblin", 74, "goblin_blue", 1.5, null))
+Monster.monsters.push(new Monster("ice-river-plant", "Overgrown Plant", 73, "plant_white", 1.2, null))
+Monster.monsters.push(new Monster("ice-river-goblin", "Civilized Goblin", 74, "goblin_blue", 1.2, null))
 Monster.monsters.push(new Monster("ice-oni", "Civilized Oni", 75, "oni_blue", 1.5, null))
 
 Monster.monsters.push(new Monster("ice-spirit", "Antinomian Spirit", 75, "spirit_purple", 1, null))
@@ -313,5 +313,56 @@ Monster.monsters.push(new Monster("desert-sand-ent", "Dryed Ent", 80, "ent_orang
 Monster.monsters.push(new Monster("desert-sand-lezard", "Oasis Lizard", 79, "lizard_green", 1.3, null))
 Monster.monsters.push(new Monster("desert-sand-snake", "Sand Snake", 80, "snake-pink", 1.2, null))
 Monster.monsters.push(new Monster("desert-sand-pumpkin", "Oasis Frightener", 81, "pumpkin_green", 1, null))
+//#endregion
 
+//#region 81 - 90
+Monster.monsters.push(new Monster("fairyforest-worm", "Grass Eater", 80, "worm_green", 1.3, null))
+Monster.monsters.push(new Monster("fairyforest-ent", "Ent Walker", 81, "ent_green", 1.5, null))
+Monster.monsters.push(new Monster("fairyforest-imp", "Imp", 82, "imp_green", 1, null))
 
+Monster.monsters.push(new Monster("fairyforest-plant", "Plant Green", 81, "plant-green", 1, null))
+Monster.monsters.push(new Monster("fairyforest-bear", "Powerfull Bear", 82, "bear_brown", 1.2, null))
+Monster.monsters.push(new Monster("fairyforest-neko", "Nightmare", 83, "bakeneko_black", 1, null))
+Monster.monsters.push(new Monster("fairyforest-dragon", "Ancient Dragon", 84, "dragon_green", 1.5, null))
+
+Monster.monsters.push(new Monster("fairyforest-sorcerer", "Time Sorcerer", 84, "sorcerer_black", 0.8, null))
+Monster.monsters.push(new Monster("fairyforest-knight", "Time guardian", 85, "knight_black", 1.2, null))
+Monster.monsters.push(new Monster("fairyforest-demon", "Summoned Demon", 86, "demon_gray", 1, null))
+
+Monster.monsters.push(new Monster("fairyforest-spider", "Big Spider", 85, "spider_gray", 4, null))
+Monster.monsters.push(new Monster("fairyforest-tree", "Infused Tree", 86, "tree_green", 7, null))
+Monster.monsters.push(new Monster("fairyforest-highdragon", "Yggdrasil Protector", 88, "highdragon_green", 8, null))
+
+Monster.monsters.push(new Monster("worldend-tree", "Angry Tree", 85, "tree_dark", 1.2, null))
+Monster.monsters.push(new Monster("worldend-knight", "Land Destroyer", 86, "knight_red", 1.3, null))
+Monster.monsters.push(new Monster("worldend-highghost", "Living Memory", 87, "highghost_black", 0.8, null))
+
+Monster.monsters.push(new Monster("worldend-worm", "Gems Eater", 86, "worm_white", 1.5, null))
+Monster.monsters.push(new Monster("worldend-oni", "Treasure Hunter", 87, "oni_dark", 1.5, null))
+Monster.monsters.push(new Monster("worldend-mimic", "Malignant Mimic", 88, "mimic_black", 1, null))
+
+Monster.monsters.push(new Monster("worldend-egg", "Chaotic Egg", 86, "egg_dark", 0.8, null))
+Monster.monsters.push(new Monster("worldend-beach-reaper", "Soul Claimer", 87, "reaper_gold", 1.2, null))
+Monster.monsters.push(new Monster("worldend-lezard", "Evil Lizard", 89, "lizard_dark", 1, null))
+
+Monster.monsters.push(new Monster("worldend-dark-reaper", "Death's lord", 90, "reaper_purple", 3, null))
+Monster.monsters.push(new Monster("worldend-cerbere", "Cerberus Of Power", 90, "cerbere_purple", 3, null))
+Monster.monsters.push(new Monster("worldend-dragon", "Dominant dragon", 90, "dragon_dark", 3.5, null))
+Monster.monsters.push(new Monster("worldend-griffin", "Void Griffin", 90, "griffin_purple", 3.5, null))
+
+Monster.monsters.push(new Monster("observatory-bakene", "Clever Bakene", 83, "bakeneko_red", 5.6, null))
+Monster.monsters.push(new Monster("observatory-eyed", "Scientist Eyed", 84, "oneeyed_purple", 5, null))
+Monster.monsters.push(new Monster("observatory-demon", "Infused Demon", 85, "demon_red", 6, null))
+
+Monster.monsters.push(new Monster("cosmic-golem", "Bridge Protector", 89, "golem_red", 2.5, null))
+Monster.monsters.push(new Monster("cosmic-knight", "Bridge Guardian", 90, "knight_white", 2.3, null))
+
+Monster.monsters.push(new Monster("cosmic-zombie", "Cosmic Peon", 92, "zombie_purple", 6, null))
+Monster.monsters.push(new Monster("cosmic-dragon", "Cosmic Dragon", 92, "highdragon_purple", 10, null))
+Monster.monsters.push(new Monster("cosmic-imp", "Cosmic Imp", 92, "imp_dark", 7.5, null))
+Monster.monsters.push(new Monster("cosmic-demon", "Cosmic Demon", 92, "demon_purple", 9, null))
+
+Monster.monsters.push(new Monster("shaanah-present", "Shaanah", 95, "demon-lord", 100, null))
+
+Monster.monsters.push(new Monster("vortex-shalkols", "Shal'kols, the world's vortex", 92, "highdragon_cyan", 70, null))
+//#endregion

@@ -512,72 +512,97 @@ AreaData.areas.push(new AreaData("Azoktun's sepulchre", "desert_pyramid.jpg",
 
 AreaData.areas.push(new AreaData("Extinct volcano", "plains_volcano.jpg",
 [
-    "dummy-pirate",
+    "fairyforest-worm",
+    "fairyforest-ent",
+    "fairyforest-imp",
 ], 80, 20));
 
 AreaData.areas.push(new AreaData("Fairies dream", "plains_village.jpg",
 [
-    "dummy-pirate",
+    "fairyforest-plant",
+    "fairyforest-bear",
+    "fairyforest-neko",
+    "fairyforest-dragon",
 ], 72, 26));
 //#endregion
 
 //#region 81 - 90
 AreaData.areas.push(new AreaData("Waterfall of time", "plains_waterfall.jpg",
 [
-    "dummy-pirate",
+    "fairyforest-sorcerer",
+    "fairyforest-knight",
+    "fairyforest-demon",
 ], 63, 35));
 
 AreaData.areas.push(new AreaData("Yggdrasil sprout", "plains_yggdrasil.jpg",
 [
-    "dummy-pirate",
-], 85, 35));
+    "fairyforest-spider",
+    "fairyforest-tree",
+    "fairyforest-highdragon",
+], 85, 35,
+30, "elite_helm.png"));
 
 AreaData.areas.push(new AreaData("Devastated plains", "devastated_lands.jpg",
 [
-    "dummy-pirate",
+    "worldend-tree",
+    "worldend-knight",
+    "worldend-highghost",
 ], 76, 52));
 
 AreaData.areas.push(new AreaData("Open-pit mines", "devastated_mountains.jpg",
 [
-    "dummy-pirate",
+    "worldend-worm",
+    "worldend-oni",
+    "worldend-mimic",
 ], 80, 64));
 
 AreaData.areas.push(new AreaData("World's edge", "devastated_edge.jpg",
 [
-    "dummy-pirate",
+    "worldend-dark-reaper",
+    "worldend-cerbere",
+    "worldend-dragon",
+    "worldend-griffin",
 ], 86, 56));
 
 AreaData.areas.push(new AreaData("Arid beach", "devastated_beach.jpg",
 [
-    "dummy-pirate",
+    "worldend-egg",
+    "worldend-beach-reaper",
+    "worldend-lezard",
 ], 65, 59));
 
 AreaData.areas.push(new AreaData("The Observatory", "observatory.jpg",
 [
-    "dummy-pirate",
+    "observatory-bakene",
+    "observatory-eyed",
+    "observatory-demon",
 ], 56, 50,
 30, "elite_helm.png"));
 
 AreaData.areas.push(new AreaData("Cosmic Bridge", "cosmic_bridge.jpg",
 [
-    "dummy-pirate",
+    "cosmic-golem",
+    "cosmic-knight",
 ], 58, 63));
 
 AreaData.areas.push(new AreaData("Shaanah's stronghold", "cosmic_fortress.jpg",
 [
-    "dummy-pirate",
+    "cosmic-zombie",
+    "cosmic-dragon",
+    "cosmic-imp",
+    "cosmic-demon",
 ], 48, 57,
 30, "elite_helm.png"));
 
 AreaData.areas.push(new AreaData("Whirlwind Typhoon", "typhoon.jpg",
 [
-    "dummy-pirate",
+    "vortex-shalkols",
 ], 46, 46,
 60, "boss_skull.png"));
 
 AreaData.areas.push(new AreaData("Hot Spring", "hot_spring.jpg",
 [
-    "dummy-pirate",
+    "shaanah-present",
 ], 40, 69,
 60, "boss_skull.png"));
 //#endregion
