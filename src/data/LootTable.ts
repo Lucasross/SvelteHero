@@ -80,8 +80,8 @@ export default class LootTable {
     //#region Ekosma
     public static readonly desert_60 = new LootTable(EquipmentSet.PiratesTreasure.concat(Equipment.random60), Item.desert_60, 1, 2, 4)
     public static readonly insectoid_60 = new LootTable(EquipmentSet.MandibleAndDart.concat(Equipment.random60), Item.desert_60, 1, 1, 20)
-    public static readonly astral_60 = new LootTable(EquipmentSet.AstralRush.concat(Equipment.random60), Item.astral_70, 1, 2, 4)
-
+    
+    public static readonly astral_70 = new LootTable(EquipmentSet.AstralRush.concat(Equipment.random60), Item.astral_70, 1, 2, 4)
     public static readonly lava_70 = new LootTable(Equipment.random70, Item.volcano_70, 1, 2, 4)
     public static readonly lava_boss_70 = new LootTable(["Triumvirat Inferno", "Triumvirat Catalyser"].concat(Equipment.random70), Item.volcano_70, 1, 1, 10)
 
