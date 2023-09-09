@@ -7,7 +7,7 @@
     export let y: number;
     export let area_id: string;
 
-    let area = AreaData.getById(area_id);
+    $: area = AreaData.getById(area_id);
     
     function select() {
         storedArea.update(a => a = area_id);
