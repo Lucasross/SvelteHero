@@ -55,6 +55,7 @@ export default class LootTable {
         return targetLoot == null ? list[list.length - 1] : targetLoot;
     }
 
+    //#region Meivin
     public static readonly normal_10 = new LootTable(EquipmentSet.trainingDummySet, Item.upgrade10, 1, 4, 3);
     public static readonly elite_10 = new LootTable(EquipmentSet.trainingDummySet.concat(Equipment.random10), Item.upgrade10, 1, 2, 15); 
     public static readonly boss_10 = new LootTable(EquipmentSet.trainingDummySet.concat(Equipment.random10), null, 1, 0, 25);
@@ -74,5 +75,30 @@ export default class LootTable {
 
     public static readonly island_boss_50 = new LootTable(EquipmentSet.IslandMysterySet, Item.upgrade50_island, 1, 2, 3)
     public static readonly shaanah_boss_50 = new LootTable(EquipmentSet.IslandMysterySet, Item.upgrade50_shaanah, 1, 2, 5)
+    //#endregion
+
+    //#region Ekosma
+    public static readonly desert_60 = new LootTable(EquipmentSet.PiratesTreasure.concat(Equipment.random60), Item.desert_60, 1, 2, 4)
+    public static readonly insectoid_60 = new LootTable(EquipmentSet.MandibleAndDart.concat(Equipment.random60), Item.desert_60, 1, 1, 20)
+    public static readonly astral_60 = new LootTable(EquipmentSet.AstralRush.concat(Equipment.random60), Item.astral_70, 1, 2, 4)
+
+    public static readonly lava_70 = new LootTable(Equipment.random70, Item.volcano_70, 1, 2, 4)
+    public static readonly lava_boss_70 = new LootTable(["Triumvirat Inferno", "Triumvirat Catalyser"].concat(Equipment.random70), Item.volcano_70, 1, 1, 10)
+
+    public static readonly snow_80 = new LootTable(EquipmentSet.CristalizedEssence.concat(Equipment.random80), Item.snow_80, 1, 2, 4)
+    public static readonly snow_elite_80 = new LootTable(EquipmentSet.CristalizedEssence.concat(["Triumvirat Frostbites", "Triumvirat Catalyser"]).concat(Equipment.random80), Item.snow_80, 1, 1, 12)
+
+    public static readonly desert_80 = new LootTable(Equipment.random80, Item.desert_80, 1, 2, 4)
+    public static readonly desert_elite_80 = new LootTable(["Triumvirat Silica", "Triumvirat Catalyser"].concat(Equipment.random80), Item.desert_80, 1, 1, 8)
+
+    public static readonly observatory_90 = new LootTable(EquipmentSet.Triumvirat.concat(EquipmentSet.FairyDust).concat(Equipment.random90_fairy), Item.plains_90, 1, 1, 15)
+    public static readonly fairy_90 = new LootTable(Equipment.random90_fairy, Item.plains_90, 1, 2, 2)
+    public static readonly fairy_elite_90 = new LootTable(EquipmentSet.FairyDust.concat(Equipment.random90_fairy), Item.plains_90, 1, 1, 8)
+    public static readonly devastated_90 = new LootTable(Equipment.random90_worldend, Item.devastated_90, 1, 2, 8)
+    public static readonly worldedge_90 = new LootTable(EquipmentSet.HeavyAura.concat(Equipment.random90_worldend), Item.devastated_90, 1, 1, 3)
+    public static readonly stronghold_90 = new LootTable(EquipmentSet.CosmicEnergy, Item.stronghold_90, 1, 2, 2)
+    public static readonly shaanah_boss_90 = new LootTable(EquipmentSet.CosmicEnergy, Item.shaanah_90, 2, 1, 5)
+    public static readonly shalkols_boss_90 = new LootTable(null, Item.typhoon_90, 0, 1, 2)
+    //#endregion
 }
 

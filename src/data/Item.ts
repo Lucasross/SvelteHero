@@ -32,7 +32,7 @@ export default class Item extends Loot {
     public static readonly upgrade50_shaanah = ["Shaanah's echos"]
 
     public static readonly desert_60 = ["Desert Pearl","Red Mushes","Dry Branch"]
-    public static readonly cosmic_70 = ["Dandacier", "Cosmic Energy"]
+    public static readonly astral_70 = ["Dandacier", "Cosmic Energy"]
     public static readonly volcano_70 = ["Dandacier", "Ancient Flame"]
     public static readonly snow_80 = ["Sadanite", "Crystalized Snow"]
     public static readonly desert_80 = ["Sadanite", "Sand gems"]

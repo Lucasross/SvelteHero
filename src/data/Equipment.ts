@@ -102,6 +102,11 @@ export default class Equipment extends Loot {
     public static readonly random30_aqua = ["Silver Ring", "Closest to Depth"];
     public static readonly random30_pyro = ["Rocky Helmet", "Climbers"];
     public static readonly random40 = ["Core Slicer", "Stealth White Coat"];
+    public static readonly random60 = ["Dried Shoes", "Ethereal Aspect", "Delusion Breaker"];
+    public static readonly random70 = ["Thermal Vest", "Lava Rock Pendant", "Delusion Breaker"];
+    public static readonly random80 = ["Fluffy Ear Cover", "Flask", "Bones Fragment"];
+    public static readonly random90_fairy = ["Eternal Leaf", "Thorns Plate", "Antlers", ];
+    public static readonly random90_worldend = ["Infused pickaxe", "Dark Walker", "Lost Hopes", "Last View"];
 }
 
 export enum SlotType {
