@@ -89,7 +89,7 @@
                 <Progressbar
                     progress={$progress}
                     height={30}
-                    text="{currentMonster.getHealth() }/{currentMonster.maxHealth}"
+                    text="{currentMonster.getHealth().toLocaleString()}/{currentMonster.maxHealth.toLocaleString()}"
                 />
             </div>
         </div>

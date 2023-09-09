@@ -44,7 +44,7 @@
     {/each}
     <div class="recipe-container">
         <p style="font-size:xx-large"><b>·</b></p> 
-        <p style="font-size:large;"><i class="fa-solid fa-coins" style="color:#fcba03; margin: 0 5px 0 5px"></i> {recipe.gold}</p>
+        <p style="font-size:large;"><i class="fa-solid fa-coins" style="color:#fcba03; margin: 0 5px 0 5px"></i> {recipe.gold.toLocaleString()}</p>
     </div>
     <div class="recipe-container">
         <button on:click={UpgradeTarget} disabled={!$guild.canCraftRecipe(recipe)}>Upgrade</button>

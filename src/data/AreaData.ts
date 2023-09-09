@@ -5,6 +5,7 @@ import Monster from "./Monster";
 import type Guild from "./Guild";
 import Sprite from "./generic/Sprite";
 import type { ISprite } from "./generic/ISprite";
+import { Utility } from "../utility/Utility";
 
 export default class AreaData implements ISprite {
     public static areas: AreaData[] = [];
@@ -57,7 +58,7 @@ export default class AreaData implements ISprite {
         const sum = exps.reduce((sum, current) => sum + current, 0);
         const average = (sum / exps.length) || 0;
 
-        return `Experience: ~${average.toFixed(2)}/monster`
+        return `Experience: ~${Utility.toLocalFixed(average)}/monster`
     }
 
     isTimedArea(): boolean {

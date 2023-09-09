@@ -76,7 +76,7 @@
                 alt="cash"
             />
             <p class="gold-animation-container" bind:this={goldDisplay}>
-                {$guild.gold.toFixed(0)}
+                {$guild.gold.toLocaleString()}
             </p>
         {/if}
         {#if region != null && region.hasLeftRegion() && region.leftRegionUnlocked($guild)}

@@ -7,6 +7,7 @@
     import Progressbar from "./generic/Progressbar.svelte";
     import HeroEquipment from "./generic/HeroEquipment.svelte";
     import { EffectType } from "../data/StatEffect";
+    import { Utility } from "../utility/Utility";
 
     export let hero: Writable<Hero>;
     export let index: number;
@@ -103,10 +104,10 @@
             <div class="space"/>
             <p>{$hero.getLocation()} {$hero.isInLocation() ? "(farming...)" : "(waiting...)"}</p>
             <div class="space"/>
-            <p>{$hero.experience}/{$hero.experienceToNextLevel()} ({Math.round($hero.experience/$hero.experienceToNextLevel()*100)}%)</p>
+            <p>{Utility.toLocalFixed($hero.experience)}/{Utility.toLocalFixed($hero.experienceToNextLevel())} ({Math.round($hero.experience/$hero.experienceToNextLevel()*100)}%)</p>
             <Progressbar height={10} barColor="#77CDF3" borderPixel={1} progress={($hero.experience/$hero.experienceToNextLevel()) * 100}/>
             <div class="space"/>
-            <p>Damage : {$hero.getAttack()}</p>
+            <p>Damage : {$hero.getAttack().toLocaleString()}</p>
             <div class="space"/>
             <p><b>Bonus :</b></p>
             <p>Experience : +{($hero.getStat(EffectType.ExperiencePercent) * 100).toPrecision(2)}%</p>
