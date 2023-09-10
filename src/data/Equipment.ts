@@ -230,3 +230,9 @@ Equipment.equipments.push(new Equipment("Cosmic Eclipse", SlotType.Head, "head/c
 Equipment.equipments.push(new Equipment("Cosmic Guardian", SlotType.Body, "body/big_demon", 90, 1, "Cosmic Energy", [new ExperiencePercentEffect(0.4), new GoldRawEffect(15000)]));
 Equipment.equipments.push(new Equipment("Cosmic Nebula", SlotType.Foot, "feet/greaves", 90, 1, "Cosmic Energy", [new ExperienceRawEffect(25000)]));
 //#endregion
+
+//#region 100 - Kaelin
+Equipment.equipments.push(new Equipment("After Life Fang", SlotType.Weapon, "weapon/armored_pink", 100, 1, "After Life", [new DamageRawEffect(5000)]));
+Equipment.equipments.push(new Equipment("After Life Shell", SlotType.Body, "body/pink_armor_up", 100, 1, "After Life", [new ExperienceRawEffect(5000)]));
+Equipment.equipments.push(new Equipment("After Life Feather", SlotType.Jewelry, "jewelry/pendant_natural", 100, 1, "After Life", [new ExperienceRawEffect(5000)]));
+//#endregion

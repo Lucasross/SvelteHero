@@ -607,3 +607,20 @@ AreaData.areas.push(new AreaData("Hot Spring", "hot_spring.jpg",
 ], 40, 69,
 60, "boss_skull.png"));
 //#endregion
+
+//#region 100 - Kaelin
+AreaData.areas.push(new AreaData("Death's Gate", "desert_kaelin.jpg",
+[
+    "desert-kaelin-mage", //trash
+    "desert-kaelin-knight", //trash
+    "desert-kaelin-mummy", //trash
+    "desert-kaelin-axe", //trash
+
+    "desert-kaelin-trex", //boss
+    "desert-kaelin-sphinx", //boss
+    "desert-kaelin-dragon", //boss
+
+
+], 42, 74,
+180, "boss_skull.png"));
+//#endregion

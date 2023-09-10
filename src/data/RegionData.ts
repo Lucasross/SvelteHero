@@ -170,4 +170,7 @@ RegionData.regions.push(new EkosmaRegion("Meivin", "Kaelin",
 
 ], "world_map_ekosma"))
 
-RegionData.regions.push(new KaelinRegion("Ekosma", null, [], "world_map_kaelin"))
+RegionData.regions.push(new KaelinRegion("Ekosma", null, 
+[
+    "Death's Gate",
+], "world_map_kaelin"))

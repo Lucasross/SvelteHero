@@ -369,3 +369,14 @@ Monster.monsters.push(new Monster("shaanah-present", "Shaanah", 95, "demon-lord"
 
 Monster.monsters.push(new Monster("vortex-shalkols", "Shal'kols, the world's vortex", 92, "highdragon_cyan", 70, LootTable.shalkols_boss_90))
 //#endregion
+
+//#region 100 - Kaelin
+Monster.monsters.push(new Monster("desert-kaelin-mage", "Mage Guardian", 100, "egypt_mage", 40, null))
+Monster.monsters.push(new Monster("desert-kaelin-knight", "Knight Guardian", 100, "egypt_knight", 50, null))
+Monster.monsters.push(new Monster("desert-kaelin-mummy", "Resurrected Mummy", 100, "egypt_mummy", 35, null))
+Monster.monsters.push(new Monster("desert-kaelin-axe", "Warrior Guardian", 100, "egypt_axe", 55, null))
+
+Monster.monsters.push(new Monster("desert-kaelin-dragon", "Roshe, the after life", 100, "egypt_boss_dragonoriental", 450, LootTable.kaelin_roshe))
+Monster.monsters.push(new Monster("desert-kaelin-sphinx", "Saki, the judge", 100, "egypt_boss_hieracosphinx", 320, LootTable.kaelin_saki))
+Monster.monsters.push(new Monster("desert-kaelin-trex", "Kaani, the punisher", 100, "egypt_boss_trex", 280, LootTable.kaelin_kaani))
+//#endregion

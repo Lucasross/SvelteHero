@@ -66,6 +66,8 @@ export default class EquipmentSet {
     public static readonly FairyDust = ["Fairy Nightmare", "Fairy Crusher"];
     public static readonly HeavyAura = ["Aura of Shadow", "Aura of Death", "Aura of Unease", "Aura of Destruction"];
     public static readonly CosmicEnergy = ["Cosmic Punition", "Cosmic Power", "Cosmic Eclipse", "Cosmic Guardian", "Cosmic Nebula"];
+
+    public static readonly AfterLife = ["After Life Fang", "After Life Shell", "After Life Feather"]
 }
 
 //#region Meivin
@@ -176,6 +178,15 @@ EquipmentSet.sets.push(new EquipmentSet("Cosmic Energy",
         [3, new DamageRawEffect(20000)],
         [4, new DamagePercentEffect(0.25)],
         [5, new DamagePercentEffect(0.75)],
+    ])
+))
+//#endregion
+
+//#region Kaelin
+EquipmentSet.sets.push(new EquipmentSet("After Life", 
+    new Map<number, StatEffect>([
+        [2, new DamageRawEffect(20000)],
+        [3, new DamagePercentEffect(1)],
     ])
 ))
 //#endregion
