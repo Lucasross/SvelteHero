@@ -52,6 +52,7 @@
         width: 100%;
         text-align: left;
         padding-left: 1%;
+        white-space: nowrap;
     }
     
     .flex-center {
