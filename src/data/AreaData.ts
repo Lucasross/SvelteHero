@@ -5,6 +5,7 @@ import Monster from "./Monster";
 import type Guild from "./Guild";
 import Sprite from "./generic/Sprite";
 import type { ISprite } from "./generic/ISprite";
+import { Utility } from "../utility/Utility";
 
 export default class AreaData implements ISprite {
     public static areas: AreaData[] = [];
@@ -57,7 +58,7 @@ export default class AreaData implements ISprite {
         const sum = exps.reduce((sum, current) => sum + current, 0);
         const average = (sum / exps.length) || 0;
 
-        return `Experience: ~${average.toFixed(2)}/monster`
+        return `Experience: ~${Utility.toLocalFixed(average)}/monster`
     }
 
     isTimedArea(): boolean {
@@ -374,5 +375,235 @@ AreaData.areas.push(new AreaData("Meteor site", "crater.jpg",
 [
     "shaanah-past",
 ], 44, 38,
+60, "boss_skull.png"));
+//#endregion
+
+//#region 51 - 60
+AreaData.areas.push(new AreaData("Pirate Bay", "pirate_bay.jpg",
+[
+    "dummy-pirate",
+], 9, 66.5));
+
+AreaData.areas.push(new AreaData("Desert Labyrinth", "desert_labyrinth.jpg",
+[
+    "desert-lizard",
+    "desert-skelet",
+    "desert-beetle",
+    
+], 18, 43));
+
+AreaData.areas.push(new AreaData("Desertic lands", "desert_lands.jpg",
+[
+    "desert-mushrooms",
+    "desert-harvester",
+    "desert-worm",
+], 4, 48));
+
+AreaData.areas.push(new AreaData("Dry rivers", "desert_rivers.jpg",
+[
+    "desert-scorpion",
+    "desert-golem",
+    "desert-griffin",
+], 32, 48));
+
+AreaData.areas.push(new AreaData("Insectoid Tower", "insectoid_tower.jpg",
+[
+    "insectoid-beetle-a",
+    "insectoid-beetle-b",
+    "insectoid-beetle-c",
+], 7, 33,
+30, "elite_helm.png"));
+//#endregion
+
+//#region 61 - 70
+AreaData.areas.push(new AreaData("Astral South Side", "astral_south.jpg",
+[
+    "astral-bat",
+    "astral-rat",
+    "astral-boxcat",
+    "astral-feline",
+], 34, 34));
+
+AreaData.areas.push(new AreaData("Astral North Side", "astral_north.jpg",
+[
+    "astral-cloud",
+    "astral-guard",
+    "astral-feline-north",
+    "astral-boxcat-north",
+], 36, 22));
+
+AreaData.areas.push(new AreaData("Etheral lands", "ethereal_lands.jpg",
+[
+    "etheral-spirit",
+    "etheral-ghost",
+    "etheral-neko",
+    "etheral-eyed",
+], 16, 22));
+
+AreaData.areas.push(new AreaData("Lava rivers", "volcano_lands.jpg",
+[
+    "lava-zombie",
+    "lava-cerbere",
+    "lava-demon",
+    "lava-highghost",
+], 27, 15));
+
+AreaData.areas.push(new AreaData("Dragon's Lands", "volcano.jpg",
+[
+    "boss-highdragon",
+], 21, 0,
+60, "boss_skull.png"));
+
+AreaData.areas.push(new AreaData("Cavernal path", "cavern_01.jpg",
+[
+    "ice-egg",
+    "ice-plant",
+    "ice-mimic",
+    "ice-golem",
+], 42, 10));
+//#endregion
+
+//#region 71 - 80
+AreaData.areas.push(new AreaData("Snows's den", "cavern_snow.jpg",
+[
+    "ice-jabu",
+    "ice-jelly",
+    "ice-goblin",
+    "ice-ent",
+], 48, 1,
+30, "elite_helm.png"));
+
+AreaData.areas.push(new AreaData("Frozen river", "snow_lands.jpg",
+[
+    "ice-river-plant",
+    "ice-river-goblin",
+    "ice-oni",
+], 50, 18));
+
+AreaData.areas.push(new AreaData("Antinomian Tunnel", "cavern_02.jpg",
+[
+    "ice-spirit",
+    "desert-spirit",
+    "ice-antinomian-golem",
+    "desert-antinomian-golem",
+], 58, 10));
+
+AreaData.areas.push(new AreaData("Buried village", "desert_buried.jpg",
+[
+    "desert-sand-pig",
+    "desert-sand-skeleton",
+    "desert-sand-sorcerer",
+    "desert-sand-worm",
+], 68, 8));
+
+AreaData.areas.push(new AreaData("Newborn oasis", "desert_oasis.jpg",
+[
+    "desert-sand-lezard",
+    "desert-sand-snake",
+    "desert-sand-pumpkin",
+], 77, 10));
+
+AreaData.areas.push(new AreaData("Azoktun's sepulchre", "desert_pyramid.jpg",
+[
+    "desert-sand-zombie",
+    "desert-sand-elite-skeleton",
+    "desert-sand-ent",
+], 73, 0,
+30, "elite_helm.png"));
+
+AreaData.areas.push(new AreaData("Extinct volcano", "plains_volcano.jpg",
+[
+    "fairyforest-worm",
+    "fairyforest-ent",
+    "fairyforest-imp",
+], 80, 20));
+
+AreaData.areas.push(new AreaData("Fairies dream", "plains_village.jpg",
+[
+    "fairyforest-plant",
+    "fairyforest-bear",
+    "fairyforest-neko",
+    "fairyforest-dragon",
+], 72, 26));
+//#endregion
+
+//#region 81 - 90
+AreaData.areas.push(new AreaData("Waterfall of time", "plains_waterfall.jpg",
+[
+    "fairyforest-sorcerer",
+    "fairyforest-knight",
+    "fairyforest-demon",
+], 63, 35));
+
+AreaData.areas.push(new AreaData("Yggdrasil sprout", "plains_yggdrasil.jpg",
+[
+    "fairyforest-spider",
+    "fairyforest-tree",
+    "fairyforest-highdragon",
+], 85, 35,
+30, "elite_helm.png"));
+
+AreaData.areas.push(new AreaData("Devastated plains", "devastated_lands.jpg",
+[
+    "worldend-tree",
+    "worldend-knight",
+    "worldend-highghost",
+], 76, 52));
+
+AreaData.areas.push(new AreaData("Open-pit mines", "devastated_mountains.jpg",
+[
+    "worldend-worm",
+    "worldend-oni",
+    "worldend-mimic",
+], 80, 64));
+
+AreaData.areas.push(new AreaData("World's edge", "devastated_edge.jpg",
+[
+    "worldend-dark-reaper",
+    "worldend-cerbere",
+    "worldend-dragon",
+    "worldend-griffin",
+], 86, 56));
+
+AreaData.areas.push(new AreaData("Arid beach", "devastated_beach.jpg",
+[
+    "worldend-egg",
+    "worldend-beach-reaper",
+    "worldend-lezard",
+], 65, 59));
+
+AreaData.areas.push(new AreaData("The Observatory", "observatory.jpg",
+[
+    "observatory-bakene",
+    "observatory-eyed",
+    "observatory-demon",
+], 56, 50,
+30, "elite_helm.png"));
+
+AreaData.areas.push(new AreaData("Cosmic Bridge", "cosmic_bridge.jpg",
+[
+    "cosmic-golem",
+    "cosmic-knight",
+], 58, 63));
+
+AreaData.areas.push(new AreaData("Shaanah's stronghold", "cosmic_fortress.jpg",
+[
+    "cosmic-zombie",
+    "cosmic-dragon",
+    "cosmic-imp",
+    "cosmic-demon",
+], 48, 57,
+30, "elite_helm.png"));
+
+AreaData.areas.push(new AreaData("Whirlwind Typhoon", "typhoon.jpg",
+[
+    "vortex-shalkols",
+], 46, 46,
+60, "boss_skull.png"));
+
+AreaData.areas.push(new AreaData("Hot Spring", "hot_spring.jpg",
+[
+    "shaanah-present",
+], 40, 69,
 60, "boss_skull.png"));
 //#endregion

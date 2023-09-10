@@ -6,10 +6,14 @@
     import Sprite from "./generic/Sprite.svelte";
 
     $: region = RegionData.getById($region_id);
+
+    function travelTo(event) {
+        region_id.update(r => r = event.detail.regionId);
+    }
 </script>
 
 <div>
-    <Title label={region.name} />
+    <Title label={region.name} regionData={region} on:travel={travelTo}/>
     <div class="template worldmap">
         <Sprite sprite={region.getSprite()} />
         {#each region.areas as area}

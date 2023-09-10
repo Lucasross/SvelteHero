@@ -40,4 +40,8 @@ export class Utility {
             return [element, array2[index]];
         });
     }
+
+    public static toLocalFixed(number: number) {
+        return Math.floor(number).toLocaleString()/* + number.toFixed(fixed).slice(number.toString().indexOf('.'))*/
+    }
 }

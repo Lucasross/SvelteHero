@@ -11,6 +11,8 @@ export default class Guild {
     public inventory: Map<string, number>;
     public equipment: InventoryEquipment[] = [];
 
+    private shaanahPastDefeated: boolean;
+
     private savedInventory; // used in save
 
     constructor(gold: number) {
@@ -18,9 +20,9 @@ export default class Guild {
         this.inventory = new Map<string, number>();
     }
 
-    init(savedInventory, equipments): Guild {
+    init(savedInventory, equipments, shaanahPastDefeated): Guild {
         this.inventory = new Map(JSON.parse(savedInventory));
-
+        
         if (equipments == null) {
             this.equipment = [];
         } else {
@@ -28,6 +30,8 @@ export default class Guild {
                 this.equipment.push(new InventoryEquipment(e.equipment).init(e.upgradeLevel, e.lock));
             });
         }
+        
+        this.shaanahPastDefeated = shaanahPastDefeated;
 
         return this;
     }
@@ -96,6 +100,16 @@ export default class Guild {
         return this;
     }
     //#endregion
+
+    // #region Story
+    public GetShaanahPastFlag() : boolean {
+        return this.shaanahPastDefeated;
+    }
+    public SetShaanahPastFlag(value: boolean) : Guild {
+        this.shaanahPastDefeated = value;
+        return this;
+    }
+    // #endregion
 
     prepareForSave() {
         this.savedInventory = JSON.stringify([...this.inventory]);

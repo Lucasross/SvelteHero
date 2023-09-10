@@ -89,7 +89,9 @@
                 <Progressbar
                     progress={$progress}
                     height={30}
-                    text="{currentMonster.getHealth() }/{currentMonster.maxHealth}"
+                    leftText="{currentMonster.name}"
+                    text="{currentMonster.getHealth().toLocaleString()}/{currentMonster.maxHealth.toLocaleString()}"
+                    rightText="{currentMonster.level.toString()}"
                 />
             </div>
         </div>
@@ -103,7 +105,7 @@
     }
     :global(.container-area > img) {
         display: block;
-        height: 250px;
+        height: 300px;
         width: 100%;
         object-fit: cover;
     }
@@ -120,6 +122,7 @@
         position: absolute;
         width: 100%;
         display: flex;
+        top: 50px;
         justify-content: center;
     }
     .absolute-timer {
