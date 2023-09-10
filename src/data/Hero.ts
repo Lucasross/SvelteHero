@@ -9,6 +9,8 @@ import StatEffect, { EffectType } from "./StatEffect";
 import { InventoryEquipment } from "./Guild";
 
 export default class Hero {
+    public static readonly LEVEL_MAX : number = 100; 
+
     public readonly saveIndex: number;
 
     public name: string;
@@ -110,7 +112,7 @@ export default class Hero {
 
         this.experience += Math.round(stattedExp);
 
-        while (this.experience >= this.experienceToNextLevel()) {
+        while (this.experience >= this.experienceToNextLevel() && this.level < Hero.LEVEL_MAX) {
             this.levelup();
         }
         return this;
