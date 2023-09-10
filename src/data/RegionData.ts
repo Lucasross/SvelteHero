@@ -90,6 +90,16 @@ class EkosmaRegion extends RegionData {
     }
 }
 
+class KaelinRegion extends RegionData {
+    constructor(leftRegion: string, rightRegion: string, areas : string[], spritePath: string) {
+        super("Kaelin", leftRegion, rightRegion, areas, spritePath);    
+    }
+
+    protected isUnlocked(guild: Guild) {
+        return guild.GetShaanahPresentFlag();
+    }
+}
+
 RegionData.regions.push(new MeivinRegion(null, "Ekosma",
 [
     "Training center",
@@ -122,7 +132,7 @@ RegionData.regions.push(new MeivinRegion(null, "Ekosma",
     "Meteor site",
 ], "world_map"))
 
-RegionData.regions.push(new EkosmaRegion("Meivin", null,
+RegionData.regions.push(new EkosmaRegion("Meivin", "Kaelin",
 [
     "Pirate Bay",
     "Desert Labyrinth",
@@ -159,3 +169,5 @@ RegionData.regions.push(new EkosmaRegion("Meivin", null,
     "Hot Spring",
 
 ], "world_map_ekosma"))
+
+RegionData.regions.push(new KaelinRegion("Ekosma", null, [], "world_map_kaelin"))
