@@ -365,7 +365,7 @@ Monster.monsters.push(new Monster("cosmic-dragon", "Cosmic Dragon", 92, "highdra
 Monster.monsters.push(new Monster("cosmic-imp", "Cosmic Imp", 92, "imp_dark", 7.5, LootTable.stronghold_90))
 Monster.monsters.push(new Monster("cosmic-demon", "Cosmic Demon", 92, "demon_purple", 9, LootTable.stronghold_90))
 
-Monster.monsters.push(new Monster("shaanah-present", "Shaanah", 1, "demon-lord", 1, LootTable.shaanah_boss_90))
+Monster.monsters.push(new Monster("shaanah-present", "Shaanah", 95, "demon-lord", 100, LootTable.shaanah_boss_90))
 
 Monster.monsters.push(new Monster("vortex-shalkols", "Shal'kols, the world's vortex", 92, "highdragon_cyan", 70, LootTable.shalkols_boss_90))
 //#endregion
