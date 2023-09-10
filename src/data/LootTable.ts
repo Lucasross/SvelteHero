@@ -99,10 +99,17 @@ export default class LootTable {
     public static readonly stronghold_90 = new LootTable(EquipmentSet.CosmicEnergy, Item.stronghold_90, 1, 2, 2)
     public static readonly shaanah_boss_90 = new LootTable(EquipmentSet.CosmicEnergy, Item.shaanah_90, 2, 1, 5)
     public static readonly shalkols_boss_90 = new LootTable(null, Item.typhoon_90, 0, 1, 2)
+    //#endregion
 
-    public static readonly kaelin_roshe = new LootTable(["After Life Shell"], null, 1, 0, 1);
-    public static readonly kaelin_saki = new LootTable(["After Life Feather"], null, 1, 0, 1);
-    public static readonly kaelin_kaani = new LootTable(["After Life Fang"], null, 1, 0, 1);
+    //#region Kaelin 
+    public static readonly kaelin_saki = new LootTable(["After Life Feather"], null, 1, 0, 3);
+    public static readonly kaelin_kaani = new LootTable(["After Life Fang"], null, 1, 0, 3);
+    public static readonly kaelin_roshe = new LootTable(["After Life Shell"], null, 1, 0, 2);
+    
+    public static readonly kaelin_golem = new LootTable(["Eternity Step"], null, 1, 0, 3);
+    public static readonly kaelin_titan = new LootTable(["Eternity Clock"], null, 1, 0, 3);
+    public static readonly kaelin_ice_goddess = new LootTable(["Eternity Musical"], null, 1, 0, 3);
+    public static readonly kaelin_demeres = new LootTable(["Eternity Vision"], null, 1, 0, 2);
     //#endregion
 }
 

@@ -619,8 +619,22 @@ AreaData.areas.push(new AreaData("Death's Gate", "desert_kaelin.jpg",
     "desert-kaelin-trex", //boss
     "desert-kaelin-sphinx", //boss
     "desert-kaelin-dragon", //boss
-
-
 ], 42, 74,
+180, "boss_skull.png"));
+
+AreaData.areas.push(new AreaData("Eternity Palace", "ice_kaelin.jpg",
+[
+    "ice-kaelin-avian", //trash
+    "ice-kaelin-destroyer", //trash
+    "ice-kaelin-bull", //trash
+    "ice-kaelin-lion", //trash
+    "ice-kaelin-demon", //trash
+    "ice-kaelin-turtle", //trash
+
+    "ice-kaelin-titan", //boss
+    "ice-kaelin-golem", //boss
+    "ice-kaelin-goddess", //boss
+    "ice-kaelin-demeres", //boss
+], 77, 67,
 180, "boss_skull.png"));
 //#endregion

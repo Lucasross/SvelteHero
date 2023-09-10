@@ -375,8 +375,18 @@ Monster.monsters.push(new Monster("desert-kaelin-mage", "Mage Guardian", 100, "e
 Monster.monsters.push(new Monster("desert-kaelin-knight", "Knight Guardian", 100, "egypt_knight", 50, null))
 Monster.monsters.push(new Monster("desert-kaelin-mummy", "Resurrected Mummy", 100, "egypt_mummy", 35, null))
 Monster.monsters.push(new Monster("desert-kaelin-axe", "Warrior Guardian", 100, "egypt_axe", 55, null))
-
-Monster.monsters.push(new Monster("desert-kaelin-dragon", "Roshe, the after life", 100, "egypt_boss_dragonoriental", 450, LootTable.kaelin_roshe))
-Monster.monsters.push(new Monster("desert-kaelin-sphinx", "Saki, the judge", 100, "egypt_boss_hieracosphinx", 320, LootTable.kaelin_saki))
 Monster.monsters.push(new Monster("desert-kaelin-trex", "Kaani, the punisher", 100, "egypt_boss_trex", 280, LootTable.kaelin_kaani))
+Monster.monsters.push(new Monster("desert-kaelin-sphinx", "Saki, the judge", 100, "egypt_boss_hieracosphinx", 320, LootTable.kaelin_saki))
+Monster.monsters.push(new Monster("desert-kaelin-dragon", "Roshe, the after life", 100, "egypt_boss_dragonoriental", 450, LootTable.kaelin_roshe))
+
+Monster.monsters.push(new Monster("ice-kaelin-avian", "Ice Avian", 100, "ice_avian", 80, null))
+Monster.monsters.push(new Monster("ice-kaelin-destroyer", "Ice Destroyer", 100, "ice_destroyer", 85, null))
+Monster.monsters.push(new Monster("ice-kaelin-bull", "Ice Bull", 100, "ice_bull", 90, null))
+Monster.monsters.push(new Monster("ice-kaelin-lion", "Ice Lion", 100, "ice_lion", 92, null))
+Monster.monsters.push(new Monster("ice-kaelin-demon", "Ice Demon", 100, "ice_demon", 95, null))
+Monster.monsters.push(new Monster("ice-kaelin-turtle", "Ice Turtle", 100, "ice_turtle", 100, null))
+Monster.monsters.push(new Monster("ice-kaelin-golem", "The Golem", 100, "ice_boss_golem", 520, LootTable.kaelin_golem))
+Monster.monsters.push(new Monster("ice-kaelin-titan", "Glapes, the ice titan", 100, "ice_boss_titan", 580, LootTable.kaelin_titan))
+Monster.monsters.push(new Monster("ice-kaelin-goddess", "Ice Goddess", 100, "ice_boss_goddess", 600, LootTable.kaelin_ice_goddess))
+Monster.monsters.push(new Monster("ice-kaelin-demeres", "Demeres", 100, "ice_boss_demeres", 650, LootTable.kaelin_demeres))
 //#endregion

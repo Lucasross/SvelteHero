@@ -235,4 +235,9 @@ Equipment.equipments.push(new Equipment("Cosmic Nebula", SlotType.Foot, "feet/gr
 Equipment.equipments.push(new Equipment("After Life Fang", SlotType.Weapon, "weapon/armored_pink", 100, 1, "After Life", [new DamageRawEffect(5000)]));
 Equipment.equipments.push(new Equipment("After Life Shell", SlotType.Body, "body/pink_armor_up", 100, 1, "After Life", [new ExperienceRawEffect(5000)]));
 Equipment.equipments.push(new Equipment("After Life Feather", SlotType.Jewelry, "jewelry/pendant_natural", 100, 1, "After Life", [new ExperienceRawEffect(5000)]));
+
+Equipment.equipments.push(new Equipment("Eternity Step", SlotType.Foot, "feet/thieves_fur", 100, 1, "Eternity", [new ExperienceRawEffect(7000)]));
+Equipment.equipments.push(new Equipment("Eternity Clock", SlotType.Jewelry, "jewelry/pendant_blue_butterfly", 100, 1, "Eternity", [new ExperienceRawEffect(7000)]));
+Equipment.equipments.push(new Equipment("Eternity Musical", SlotType.Weapon, "weapon/musical", 100, 1, "Eternity", [new ExperienceRawEffect(7000), new ExperiencePercentEffect(0.2)]));
+Equipment.equipments.push(new Equipment("Eternity Vision", SlotType.Head, "head/warrior_flag_dark", 100, 1, "Eternity", [new ExperienceRawEffect(7000), new ExperiencePercentEffect(0.2)]));
 //#endregion

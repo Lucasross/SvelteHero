@@ -68,6 +68,7 @@ export default class EquipmentSet {
     public static readonly CosmicEnergy = ["Cosmic Punition", "Cosmic Power", "Cosmic Eclipse", "Cosmic Guardian", "Cosmic Nebula"];
 
     public static readonly AfterLife = ["After Life Fang", "After Life Shell", "After Life Feather"]
+    public static readonly Eternity = ["Eternity Step", "Eternity Clock", "Eternity Musical", "Eternity Vision"]
 }
 
 //#region Meivin
@@ -187,6 +188,14 @@ EquipmentSet.sets.push(new EquipmentSet("After Life",
     new Map<number, StatEffect>([
         [2, new DamageRawEffect(20000)],
         [3, new DamagePercentEffect(1)],
+    ])
+))
+
+EquipmentSet.sets.push(new EquipmentSet("Eternity", 
+    new Map<number, StatEffect>([
+        [2, new DamageRawEffect(25000)],
+        [3, new DamagePercentEffect(1)],
+        [4, new DamageRawEffect(20000)],
     ])
 ))
 //#endregion
