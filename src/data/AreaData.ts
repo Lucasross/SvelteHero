@@ -637,4 +637,23 @@ AreaData.areas.push(new AreaData("Eternity Palace", "ice_kaelin.jpg",
     "ice-kaelin-demeres", //boss
 ], 77, 67,
 180, "boss_skull.png"));
+
+AreaData.areas.push(new AreaData("Magma's Chambers", "kaelin_magma.jpg",
+[
+    "magma-kaelin-griffin", //trash
+    "magma-kaelin-elemental", //trash
+    "magma-kaelin-dragon", //trash
+    "magma-kaelin-tamer", //trash
+    "magma-kaelin-bear", //trash
+    "magma-kaelin-sabertooth", //trash
+    "magma-kaelin-knight", //trash
+    "magma-kaelin-golem", //trash
+
+    "magma-kaelin-slimegod", //boss
+    "magma-kaelin-kitsune", //boss
+    "magma-kaelin-worm", //boss
+    "magma-kaelin-titan", //boss
+    "magma-kaelin-tiamat", //boss
+], 65.5, 14,
+180, "boss_skull.png"));
 //#endregion

@@ -389,4 +389,19 @@ Monster.monsters.push(new Monster("ice-kaelin-golem", "The Golem", 100, "ice_bos
 Monster.monsters.push(new Monster("ice-kaelin-titan", "Glapes, the ice titan", 100, "ice_boss_titan", 580, LootTable.kaelin_titan))
 Monster.monsters.push(new Monster("ice-kaelin-goddess", "Ice Goddess", 100, "ice_boss_goddess", 600, LootTable.kaelin_ice_goddess))
 Monster.monsters.push(new Monster("ice-kaelin-demeres", "Demeres", 100, "ice_boss_demeres", 650, LootTable.kaelin_demeres))
+
+Monster.monsters.push(new Monster("magma-kaelin-griffin", "Magma Flyer", 100, "fire_griffin", 90, null))
+Monster.monsters.push(new Monster("magma-kaelin-elemental", "Magma Prism", 100, "fire_elemental", 92, null))
+Monster.monsters.push(new Monster("magma-kaelin-dragon", "Unborn Dragon", 100, "fire_dragon", 95, null))
+Monster.monsters.push(new Monster("magma-kaelin-tamer", "Magma Tamer", 100, "fire_tamer", 96, null))
+Monster.monsters.push(new Monster("magma-kaelin-bear", "Monstrous Bear", 100, "fire_bear", 98, null))
+Monster.monsters.push(new Monster("magma-kaelin-sabertooth", "Monstrous Sabertooth", 100, "fire_sabertooth", 98, null))
+Monster.monsters.push(new Monster("magma-kaelin-knight", "Magma Knight", 100, "fire_knight", 105, null))
+Monster.monsters.push(new Monster("magma-kaelin-golem", "Magma Rock Golem", 100, "fire_golem", 110, null))
+Monster.monsters.push(new Monster("magma-kaelin-slimegod", "Slime God", 100, "fire_boss_slimegod", 550, LootTable.kaelin_slimegod))
+Monster.monsters.push(new Monster("magma-kaelin-kitsune", "Kitsune, the ancient", 100, "fire_boss_kitsune", 580, LootTable.kaelin_kitsune))
+Monster.monsters.push(new Monster("magma-kaelin-worm", "Planet Eater", 100, "fire_boss_worm", 650, LootTable.kaelin_worm))
+Monster.monsters.push(new Monster("magma-kaelin-titan", "Agmy, the magma titan", 100, "fire_boss_titan", 690, LootTable.kaelin_titan_magma))
+Monster.monsters.push(new Monster("magma-kaelin-tiamat", "Tiamat", 100, "fire_boss_tiamat", 750, LootTable.kaelin_tiamat))
+
 //#endregion

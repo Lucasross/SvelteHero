@@ -110,6 +110,12 @@ export default class LootTable {
     public static readonly kaelin_titan = new LootTable(["Eternity Clock"], null, 1, 0, 3);
     public static readonly kaelin_ice_goddess = new LootTable(["Eternity Musical"], null, 1, 0, 3);
     public static readonly kaelin_demeres = new LootTable(["Eternity Vision"], null, 1, 0, 2);
+    
+    public static readonly kaelin_slimegod = new LootTable(["Implosion Accelerator"], null, 1, 0, 3);
+    public static readonly kaelin_kitsune = new LootTable(["Implosion Relativity"], null, 1, 0, 3);
+    public static readonly kaelin_worm = new LootTable(["Implosion Overview"], null, 1, 0, 3);
+    public static readonly kaelin_titan_magma = new LootTable(["Implosion Protector"], null, 1, 0, 3);
+    public static readonly kaelin_tiamat = new LootTable(["Implosion Point"], null, 1, 0, 2);
     //#endregion
 }
 

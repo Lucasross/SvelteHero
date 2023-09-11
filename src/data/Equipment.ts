@@ -236,8 +236,14 @@ Equipment.equipments.push(new Equipment("After Life Fang", SlotType.Weapon, "wea
 Equipment.equipments.push(new Equipment("After Life Shell", SlotType.Body, "body/pink_armor_up", 100, 1, "After Life", [new ExperienceRawEffect(5000)]));
 Equipment.equipments.push(new Equipment("After Life Feather", SlotType.Jewelry, "jewelry/pendant_natural", 100, 1, "After Life", [new ExperienceRawEffect(5000)]));
 
-Equipment.equipments.push(new Equipment("Eternity Step", SlotType.Foot, "feet/thieves_fur", 100, 1, "Eternity", [new ExperienceRawEffect(7000)]));
-Equipment.equipments.push(new Equipment("Eternity Clock", SlotType.Jewelry, "jewelry/pendant_blue_butterfly", 100, 1, "Eternity", [new ExperienceRawEffect(7000)]));
-Equipment.equipments.push(new Equipment("Eternity Musical", SlotType.Weapon, "weapon/musical", 100, 1, "Eternity", [new ExperienceRawEffect(7000), new ExperiencePercentEffect(0.2)]));
-Equipment.equipments.push(new Equipment("Eternity Vision", SlotType.Head, "head/warrior_flag_dark", 100, 1, "Eternity", [new ExperienceRawEffect(7000), new ExperiencePercentEffect(0.2)]));
+Equipment.equipments.push(new Equipment("Eternity Step", SlotType.Foot, "feet/thieves_fur", 100, 1, "Eternity", [new DamageRawEffect(7000)]));
+Equipment.equipments.push(new Equipment("Eternity Clock", SlotType.Jewelry, "jewelry/pendant_blue_butterfly", 100, 1, "Eternity", [new DamageRawEffect(7000)]));
+Equipment.equipments.push(new Equipment("Eternity Musical", SlotType.Weapon, "weapon/musical", 100, 1, "Eternity", [new DamageRawEffect(7000), new DamagePercentEffect(0.2)]));
+Equipment.equipments.push(new Equipment("Eternity Vision", SlotType.Head, "head/warrior_flag_dark", 100, 1, "Eternity", [new DamageRawEffect(7000), new DamagePercentEffect(0.2)]));
+
+Equipment.equipments.push(new Equipment("Implosion Point", SlotType.Weapon, "weapon/armored_lava", 100, 1, "Implosion", [new DamagePercentEffect(0.1), new DamageRawEffect(5000)]));
+Equipment.equipments.push(new Equipment("Implosion Relativity", SlotType.Jewelry, "jewelry/earring_sun", 100, 1, "Eternity", [new DamagePercentEffect(0.25)]));
+Equipment.equipments.push(new Equipment("Implosion Overview", SlotType.Head, "head/hood_gold", 100, 1, "Eternity", [new DamagePercentEffect(0.2)]));
+Equipment.equipments.push(new Equipment("Implosion Protector", SlotType.Body, "head/big_oni", 100, 1, "Eternity", [new DamagePercentEffect(0.2), new DamageRawEffect(5000)]));
+Equipment.equipments.push(new Equipment("Implosion Accelerator", SlotType.Foot, "feet/dragon", 100, 1, "Eternity", [new DamageRawEffect(0.25)]));
 //#endregion
