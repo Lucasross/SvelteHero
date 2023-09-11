@@ -70,6 +70,7 @@ export default class EquipmentSet {
     public static readonly AfterLife = ["After Life Fang", "After Life Shell", "After Life Feather"]
     public static readonly Eternity = ["Eternity Step", "Eternity Clock", "Eternity Musical", "Eternity Vision"]
     public static readonly Implosion = ["Implosion Point", "Implosion Relativity", "Implosion Overview", "Implosion Protector", "Implosion Accelerator"]
+    public static readonly DarkClan = ["Dark Divider", "Dark Enchantment", "Dark Mind", "Dark Obligation", "Dark Movement"]
 }
 
 //#region Meivin
@@ -203,9 +204,18 @@ EquipmentSet.sets.push(new EquipmentSet("Eternity",
 EquipmentSet.sets.push(new EquipmentSet("Implosion", 
     new Map<number, StatEffect>([
         [2, new DamageRawEffect(10000)],
+        [3, new DamagePercentEffect(1.5)],
         [4, new DamageRawEffect(0.5)],
         [5, new DamageRawEffect(25000)],
-        [3, new DamagePercentEffect(1.5)],
+    ])
+))
+
+EquipmentSet.sets.push(new EquipmentSet("Dark Clan", 
+    new Map<number, StatEffect>([
+        [2, new DamageRawEffect(25000)],
+        [3, new DamagePercentEffect(1)],
+        [4, new DamageRawEffect(25000)],
+        [5, new DamageRawEffect(2)],
     ])
 ))
 //#endregion

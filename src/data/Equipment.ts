@@ -245,5 +245,11 @@ Equipment.equipments.push(new Equipment("Implosion Point", SlotType.Weapon, "wea
 Equipment.equipments.push(new Equipment("Implosion Relativity", SlotType.Jewelry, "jewelry/earring_sun", 100, 1, "Eternity", [new DamagePercentEffect(0.25)]));
 Equipment.equipments.push(new Equipment("Implosion Overview", SlotType.Head, "head/hood_gold", 100, 1, "Eternity", [new DamagePercentEffect(0.2)]));
 Equipment.equipments.push(new Equipment("Implosion Protector", SlotType.Body, "head/big_oni", 100, 1, "Eternity", [new DamagePercentEffect(0.2), new DamageRawEffect(5000)]));
-Equipment.equipments.push(new Equipment("Implosion Accelerator", SlotType.Foot, "feet/dragon", 100, 1, "Eternity", [new DamageRawEffect(0.25)]));
+Equipment.equipments.push(new Equipment("Implosion Accelerator", SlotType.Foot, "feet/dragon", 100, 1, "Eternity", [new DamagePercentEffect(0.25)]));
+
+Equipment.equipments.push(new Equipment("Dark Divider", SlotType.Weapon, "weapon/bloody", 100, 1, "Dark Clan", [new DamagePercentEffect(0.5), new DamageRawEffect(5000)]));
+Equipment.equipments.push(new Equipment("Dark Enchantment", SlotType.Jewelry, "jewelry/earring_shuriken", 100, 1, "Dark Clan", [new DamagePercentEffect(0.25), new DamageRawEffect(1000)]));
+Equipment.equipments.push(new Equipment("Dark Mind", SlotType.Head, "head/wizard", 100, 1, "Dark Clan", [new DamagePercentEffect(0.25), new DamageRawEffect(2000)]));
+Equipment.equipments.push(new Equipment("Dark Obligation", SlotType.Body, "body/black_jacket_up", 100, 1, "Dark Clan", [new DamagePercentEffect(0.25), new DamageRawEffect(2000)]));
+Equipment.equipments.push(new Equipment("Dark Movement", SlotType.Foot, "feet/basic_leather_dark", 100, 1, "Dark Clan", [new DamagePercentEffect(0.25), new DamageRawEffect(1000)]));
 //#endregion

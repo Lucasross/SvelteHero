@@ -656,4 +656,21 @@ AreaData.areas.push(new AreaData("Magma's Chambers", "kaelin_magma.jpg",
     "magma-kaelin-tiamat", //boss
 ], 65.5, 14,
 180, "boss_skull.png"));
+
+AreaData.areas.push(new AreaData("Black World Clan", "kaelin_darkclan.jpg",
+[
+    "darkclan-kaelin-blader", //trash
+    "darkclan-kaelin-bookmaster", //trash
+    "darkclan-kaelin-healer", //trash
+    "darkclan-kaelin-minion", //trash
+    "darkclan-kaelin-moonblade", //trash
+    "darkclan-kaelin-summoner", //trash
+
+    "darkclan-kaelin-asselus", //boss
+    "darkclan-kaelin-jeanne", //boss
+    "darkclan-kaelin-pizarro", //boss
+    "darkclan-kaelin-regulus", //boss
+    "darkclan-kaelin-archwizard", //boss
+], 15, 58,
+120, "boss_skull.png"));
 //#endregion

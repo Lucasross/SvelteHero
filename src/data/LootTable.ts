@@ -116,6 +116,12 @@ export default class LootTable {
     public static readonly kaelin_worm = new LootTable(["Implosion Overview"], null, 1, 0, 3);
     public static readonly kaelin_titan_magma = new LootTable(["Implosion Protector"], null, 1, 0, 3);
     public static readonly kaelin_tiamat = new LootTable(["Implosion Point"], null, 1, 0, 2);
+
+    public static readonly kaelin_karmin = new LootTable(["Dark Mind"], null, 1, 0, 3);
+    public static readonly kaelin_izarro = new LootTable(["Dark Enchantment"], null, 1, 0, 3);
+    public static readonly kaelin_regulus = new LootTable(["Dark Obligation"], null, 1, 0, 2);
+    public static readonly kaelin_asselus = new LootTable(["Dark Movement"], null, 1, 0, 2);
+    public static readonly kaelin_jeanne = new LootTable(["Dark Divider"], null, 1, 0, 1);
     //#endregion
 }
 
