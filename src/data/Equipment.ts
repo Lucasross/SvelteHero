@@ -252,4 +252,10 @@ Equipment.equipments.push(new Equipment("Dark Enchantment", SlotType.Jewelry, "j
 Equipment.equipments.push(new Equipment("Dark Mind", SlotType.Head, "head/wizard", 100, 1, "Dark Clan", [new DamagePercentEffect(0.25), new DamageRawEffect(2000)]));
 Equipment.equipments.push(new Equipment("Dark Obligation", SlotType.Body, "body/black_jacket_up", 100, 1, "Dark Clan", [new DamagePercentEffect(0.25), new DamageRawEffect(2000)]));
 Equipment.equipments.push(new Equipment("Dark Movement", SlotType.Foot, "feet/basic_leather_dark", 100, 1, "Dark Clan", [new DamagePercentEffect(0.25), new DamageRawEffect(1000)]));
+
+Equipment.equipments.push(new Equipment("Reborn Pacifier", SlotType.Weapon, "weapon/aura_star", 100, 1, "Reborn", [new DamagePercentEffect(1)]));
+Equipment.equipments.push(new Equipment("Reborn Artefact", SlotType.Jewelry, "jewelry/pendant_angelic_cross", 100, 1, "Reborn", [new DamageRawEffect(10000)]));
+Equipment.equipments.push(new Equipment("Reborn Decree", SlotType.Head, "head/warrior_dragon", 100, 1, "Reborn", [new DamageRawEffect(5000)]));
+Equipment.equipments.push(new Equipment("Reborn Resolution", SlotType.Body, "body/stealth_coat_white_up", 100, 1, "Reborn", [new DamageRawEffect(5000)]));
+Equipment.equipments.push(new Equipment("Reborn Path", SlotType.Foot, "feet/guardian", 100, 1, "Reborn", [new DamageRawEffect(5000)]));
 //#endregion

@@ -71,6 +71,7 @@ export default class EquipmentSet {
     public static readonly Eternity = ["Eternity Step", "Eternity Clock", "Eternity Musical", "Eternity Vision"]
     public static readonly Implosion = ["Implosion Point", "Implosion Relativity", "Implosion Overview", "Implosion Protector", "Implosion Accelerator"]
     public static readonly DarkClan = ["Dark Divider", "Dark Enchantment", "Dark Mind", "Dark Obligation", "Dark Movement"]
+    public static readonly Reborn = ["Reborn Pacifier", "Reborn Artefact", "Reborn Decree", "Reborn Resolution", "Reborn Path"]
 }
 
 //#region Meivin
@@ -126,7 +127,7 @@ EquipmentSet.sets.push(new EquipmentSet("Island Mystery",
 ))
 //#endregion
 
-//#region 
+//#region Ekosma
 EquipmentSet.sets.push(new EquipmentSet("Pirates Treasure",
     new Map<number, StatEffect>([
         [2, new GoldRawEffect(1500)],
@@ -205,7 +206,7 @@ EquipmentSet.sets.push(new EquipmentSet("Implosion",
     new Map<number, StatEffect>([
         [2, new DamageRawEffect(10000)],
         [3, new DamagePercentEffect(1.5)],
-        [4, new DamageRawEffect(0.5)],
+        [4, new DamagePercentEffect(0.5)],
         [5, new DamageRawEffect(25000)],
     ])
 ))
@@ -215,7 +216,16 @@ EquipmentSet.sets.push(new EquipmentSet("Dark Clan",
         [2, new DamageRawEffect(25000)],
         [3, new DamagePercentEffect(1)],
         [4, new DamageRawEffect(25000)],
-        [5, new DamageRawEffect(2)],
+        [5, new DamagePercentEffect(2)],
+    ])
+))
+
+EquipmentSet.sets.push(new EquipmentSet("Reborn", 
+    new Map<number, StatEffect>([
+        [2, new DamageRawEffect(30000)],
+        [3, new DamageRawEffect(30000)],
+        [4, new DamagePercentEffect(2)],
+        [5, new DamagePercentEffect(2)],
     ])
 ))
 //#endregion

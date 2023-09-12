@@ -122,6 +122,12 @@ export default class LootTable {
     public static readonly kaelin_regulus = new LootTable(["Dark Obligation"], null, 1, 0, 2);
     public static readonly kaelin_asselus = new LootTable(["Dark Movement"], null, 1, 0, 2);
     public static readonly kaelin_jeanne = new LootTable(["Dark Divider"], null, 1, 0, 1);
+    
+    public static readonly kaelin_secret_god = new LootTable(["Reborn Artefact"], null, 1, 0, 2);
+    public static readonly kaelin_guardian = new LootTable(["Reborn Decree"], null, 1, 0, 2);
+    public static readonly kaelin_planet_god = new LootTable(["Reborn Resolution"], null, 1, 0, 2);
+    public static readonly kaelin_titan_forest = new LootTable(["Reborn Path"], null, 1, 0, 2);    
+    public static readonly kaelin_queen = new LootTable(["Reborn Pacifier"], null, 1, 0, 1);
     //#endregion
 }
 

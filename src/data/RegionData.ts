@@ -176,4 +176,5 @@ RegionData.regions.push(new KaelinRegion("Ekosma", null,
     "Eternity Palace",
     "Magma's Chambers",
     "Black World Clan",
+    "World's Cradle",
 ], "world_map_kaelin"))

@@ -410,10 +410,27 @@ Monster.monsters.push(new Monster("darkclan-kaelin-bookmaster", "Book Master", 1
 Monster.monsters.push(new Monster("darkclan-kaelin-summoner", "Summoner Teacher", 102, "darkclan_summoner", 128, null))
 Monster.monsters.push(new Monster("darkclan-kaelin-minion", "Clan's Guard", 102, "darkclan_minion", 130, null))
 Monster.monsters.push(new Monster("darkclan-kaelin-moonblade", "Captain Moonblade", 102, "darkclan_moonblade", 132, null))
-
 Monster.monsters.push(new Monster("darkclan-kaelin-archwizard", "Karmin, the director", 102, "darkclan_boss_archwizard", 880, LootTable.kaelin_karmin))
 Monster.monsters.push(new Monster("darkclan-kaelin-pizarro", "Izarro, magic master", 102, "darkclan_boss_pizarro", 920, LootTable.kaelin_izarro))
 Monster.monsters.push(new Monster("darkclan-kaelin-regulus", "Regulus, the flag bearer", 102, "darkclan_boss_regulus", 950, LootTable.kaelin_regulus))
 Monster.monsters.push(new Monster("darkclan-kaelin-asselus", "Asselus, scythe master", 102, "darkclan_boss_asselus", 990, LootTable.kaelin_asselus))
 Monster.monsters.push(new Monster("darkclan-kaelin-jeanne", "Jeanne, fight master", 102, "darkclan_boss_jeanne", 1010, LootTable.kaelin_jeanne))
+
+Monster.monsters.push(new Monster("elves-kaelin-archer", "Paths Scoot", 102, "elf_archer", 104, null))
+Monster.monsters.push(new Monster("elves-kaelin-transporter", "Transporter", 102, "elf_transporter", 107, null))
+Monster.monsters.push(new Monster("elves-kaelin-mage", "Mage Guard", 102, "elf_mage", 110, null))
+Monster.monsters.push(new Monster("elves-kaelin-spellcaster", "Natural Elf", 102, "elf_spellcaster", 112, null))
+Monster.monsters.push(new Monster("elves-kaelin-assasin", "Cities Assassin", 102, "elf_assasin", 118, null))
+Monster.monsters.push(new Monster("elves-kaelin-crossbow", "Marksman Guard", 102, "elf_crossbow", 120, null))
+Monster.monsters.push(new Monster("elves-kaelin-tree", "Living Tree", 102, "elf_tree", 124, null))
+Monster.monsters.push(new Monster("elves-kaelin-worker", "Worker", 102, "elf_worker", 130, null))
+Monster.monsters.push(new Monster("elves-kaelin-dual", "Duelist Guard", 102, "elf_dual", 134, null))
+Monster.monsters.push(new Monster("elves-kaelin-spear", "Spear Guard", 102, "elf_spear", 137, null))
+Monster.monsters.push(new Monster("elves-kaelin-rogue", "Road Murderer", 102, "elf_rogue", 140, null))
+
+Monster.monsters.push(new Monster("elves-kaelin-dragon", "High Guardian", 102, "elf_boss_dragon", 1250, null))
+Monster.monsters.push(new Monster("elves-kaelin-secretgod", "Ashi, dogma of secret", 102, "elf_boss_secretgod", 1325, null))
+Monster.monsters.push(new Monster("elves-kaelin-titan", "Tania, mother nature", 102, "elf_boss_titan", 1400, null))
+Monster.monsters.push(new Monster("elves-kaelin-queen", "Kamira, the queen", 102, "elf_boss_queen", 1470, null))
+Monster.monsters.push(new Monster("elves-kaelin-god", "Ezelia, planets's god", 102, "elf_boss_god", 1600, null))
 //#endregion

@@ -673,4 +673,26 @@ AreaData.areas.push(new AreaData("Black World Clan", "kaelin_darkclan.jpg",
     "darkclan-kaelin-archwizard", //boss
 ], 15, 58,
 120, "boss_skull.png"));
+
+AreaData.areas.push(new AreaData("World's Cradle", "kaelin_cradle.jpg",
+[
+    "elves-kaelin-archer", //trash
+    "elves-kaelin-assasin", //trash
+    "elves-kaelin-crossbow", //trash
+    "elves-kaelin-dual", //trash
+    "elves-kaelin-mage", //trash
+    "elves-kaelin-spear", //trash
+    "elves-kaelin-rogue", //trash
+    "elves-kaelin-spellcaster", //trash
+    "elves-kaelin-tree", //trash
+    "elves-kaelin-transporter", //trash
+    "elves-kaelin-worker", //trash
+
+    "elves-kaelin-dragon", //boss
+    "elves-kaelin-secretgod", //boss
+    "elves-kaelin-titan", //boss
+    "elves-kaelin-queen", //boss
+    "elves-kaelin-god", //boss
+], 31, 14,
+120, "boss_skull.png"));
 //#endregion
