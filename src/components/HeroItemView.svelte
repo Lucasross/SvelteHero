@@ -110,13 +110,14 @@
             <p>Damage : {$hero.getAttack().toLocaleString()}</p>
             <div class="space"/>
             <p><b>Bonus :</b></p>
-            <p>Experience : +{($hero.getStat(EffectType.ExperiencePercent) * 100).toPrecision(2)}%</p>
+            <p>Experience : +{($hero.getStat(EffectType.ExperiencePercent) * 100).toFixed(2)}%</p>
             <p>Flat Experience : +{$hero.getStat(EffectType.ExperienceRaw)}</p>
             <div class="space"/>
-            <p>Gold : +{($hero.getStat(EffectType.GoldPercent) * 100).toPrecision(2)}%</p>
+            <p>Gold : +{($hero.getStat(EffectType.GoldPercent) * 100).toFixed(2)}%</p>
             <p>Flat Gold : +{$hero.getStat(EffectType.GoldRaw)}</p>
             <div class="space"/>
-            <p>Damage : +{($hero.getStat(EffectType.DamagePercent) * 100).toPrecision(2)}%</p>
+            {console.log($hero.getStat(EffectType.DamagePercent))}
+            <p>Damage : +{($hero.getStat(EffectType.DamagePercent) * 100).toFixed(2)}%</p>
             <p>Flat Damage : +{$hero.getStat(EffectType.DamageRaw)}</p>
 
             <HeroEquipment bind:this={heroEquipment} hero={hero}/>
