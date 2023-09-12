@@ -166,7 +166,7 @@ Equipment.equipments.push(new Equipment("Stealth White Coat", SlotType.Body, "bo
 //#endregion
 
 //#region 41 - 50
-Equipment.equipments.push(new Equipment("Mystery Key-Sword", SlotType.Weapon, "weapon/key", 45, 1, "Island Mystery", [new DamageRawEffect(500)]));
+Equipment.equipments.push(new Equipment("Mystery Key-Sword", SlotType.Weapon, "sword/key", 45, 1, "Island Mystery", [new DamageRawEffect(500)]));
 Equipment.equipments.push(new Equipment("Mystery Shuriken", SlotType.Jewelry, "jewelry/earring_shuriken", 45, 1, "Island Mystery", [new DamagePercentEffect(0.1), new DamageRawEffect(150)]));
 Equipment.equipments.push(new Equipment("Mystery Horns", SlotType.Head, "head/barbarian", 45, 1, "Island Mystery", [new DamageRawEffect(300)]));
 Equipment.equipments.push(new Equipment("Mystery Guards", SlotType.Body, "body/worked_jacket_alt", 45, 1, "Island Mystery", [new ExperiencePercentEffect(0.2)]));
@@ -184,7 +184,7 @@ Equipment.equipments.push(new Equipment("The Dart", SlotType.Jewelry, "jewelry/p
 Equipment.equipments.push(new Equipment("The Mandibule", SlotType.Head, "head/warrior_horned", 59, 2, "Mandible and Dart", [new DamageRawEffect(1500)]));
 
 Equipment.equipments.push(new Equipment("Ethereal Aspect", SlotType.Body, "body/pink_shirt_up", 56, 2, null, [new ExperienceRawEffect(2500), new DamageRawEffect(1000)]));
-Equipment.equipments.push(new Equipment("Delusion Breaker", SlotType.Weapon, "weapon/eyed", 58, 2, null, [new DamagePercentEffect(0.2), new ExperienceRawEffect(2000)]));
+Equipment.equipments.push(new Equipment("Delusion Breaker", SlotType.Weapon, "sword/eyed", 58, 2, null, [new DamagePercentEffect(0.2), new ExperienceRawEffect(2000)]));
 //#endregion
 
 //#region 61 - 80
@@ -214,17 +214,17 @@ Equipment.equipments.push(new Equipment("Fairy Crusher", SlotType.Foot, "feet/el
 Equipment.equipments.push(new Equipment("Aura of Shadow", SlotType.Jewelry, "jewelry/pendant_skull", 84, 1, "Heavy Aura", [new ExperiencePercentEffect(0.3), new GoldRawEffect(5000)]));
 Equipment.equipments.push(new Equipment("Aura of Death", SlotType.Body, "body/lava_up", 85, 1, "Heavy Aura", [new DamageRawEffect(4500)]));
 Equipment.equipments.push(new Equipment("Aura of Unease", SlotType.Head, "head/demonic", 86, 1, "Heavy Aura", [new ExperienceRawEffect(9000)]));
-Equipment.equipments.push(new Equipment("Aura of Destruction", SlotType.Weapon, "weapon/aura_chaos", 88, 1, "Heavy Aura", [new DamageRawEffect(5000), new DamagePercentEffect(0.2)]));
+Equipment.equipments.push(new Equipment("Aura of Destruction", SlotType.Weapon, "sword/aura_chaos", 88, 1, "Heavy Aura", [new DamageRawEffect(5000), new DamagePercentEffect(0.2)]));
 
 Equipment.equipments.push(new Equipment("Eternal Leaf", SlotType.Jewelry, "jewelry/pendant_emerald", 82, 2, null, [new DamageRawEffect(3000), new ExperienceRawEffect(7500)]));
 Equipment.equipments.push(new Equipment("Thorns Plate", SlotType.Body, "body/turtle_jacket", 83, 2, null, [new DamagePercentEffect(0.4), new DamageRawEffect(2000)]));
-Equipment.equipments.push(new Equipment("Infused pickaxe", SlotType.Weapon, "weapon/thorn_rock", 84, 2, null, [new DamageRawEffect(5000), new GoldPercentEffect(0.4)]));
+Equipment.equipments.push(new Equipment("Infused pickaxe", SlotType.Weapon, "sword/thorn_rock", 84, 2, null, [new DamageRawEffect(5000), new GoldPercentEffect(0.4)]));
 Equipment.equipments.push(new Equipment("Antlers", SlotType.Head, "head/barbarian", 85, 2, null, [new ExperiencePercentEffect(0.4), new ExperienceRawEffect(5000), new DamageRawEffect(1250)]));
 Equipment.equipments.push(new Equipment("Dark Walker", SlotType.Foot, "feet/thieves_fur", 86, 2, null, [new ExperiencePercentEffect(0.4), new GoldRawEffect(10000)]));
 Equipment.equipments.push(new Equipment("Lost Hopes", SlotType.Jewelry, "jewelry/earring_angel", 87, 2, null, [new ExperiencePercentEffect(0.3), new ExperienceRawEffect(20000)]));
 Equipment.equipments.push(new Equipment("Last View", SlotType.Head, "head/hood_gold", 89, 2, null, [new ExperienceRawEffect(10000), new ExperiencePercentEffect(0.2), new DamageRawEffect(4500), new DamagePercentEffect(0.25), new GoldRawEffect(3500), new DamagePercentEffect(0.3)]));
 
-Equipment.equipments.push(new Equipment("Cosmic Punition", SlotType.Weapon, "weapon/cosmic", 90, 1, "Cosmic Energy", [new DamageRawEffect(3500), new ExperienceRawEffect(5000)]));
+Equipment.equipments.push(new Equipment("Cosmic Punition", SlotType.Weapon, "sword/cosmic", 90, 1, "Cosmic Energy", [new DamageRawEffect(3500), new ExperienceRawEffect(5000)]));
 Equipment.equipments.push(new Equipment("Cosmic Power", SlotType.Jewelry, "jewelry/pendant_blue_butterfly", 90, 1, "Cosmic Energy", [new DamageRawEffect(2000), new DamagePercentEffect(0.2)]));
 Equipment.equipments.push(new Equipment("Cosmic Eclipse", SlotType.Head, "head/chaos", 90, 1, "Cosmic Energy", [new DamagePercentEffect(0.1), new ExperiencePercentEffect(0.3)]));
 Equipment.equipments.push(new Equipment("Cosmic Guardian", SlotType.Body, "body/big_demon", 90, 1, "Cosmic Energy", [new ExperiencePercentEffect(0.4), new GoldRawEffect(15000)]));
@@ -232,28 +232,28 @@ Equipment.equipments.push(new Equipment("Cosmic Nebula", SlotType.Foot, "feet/gr
 //#endregion
 
 //#region 100 - Kaelin
-Equipment.equipments.push(new Equipment("After Life Fang", SlotType.Weapon, "weapon/armored_pink", 100, 1, "After Life", [new DamageRawEffect(5000)]));
+Equipment.equipments.push(new Equipment("After Life Fang", SlotType.Weapon, "sword/armored_pink", 100, 1, "After Life", [new DamageRawEffect(5000)]));
 Equipment.equipments.push(new Equipment("After Life Shell", SlotType.Body, "body/pink_armor_up", 100, 1, "After Life", [new ExperienceRawEffect(5000)]));
 Equipment.equipments.push(new Equipment("After Life Feather", SlotType.Jewelry, "jewelry/pendant_natural", 100, 1, "After Life", [new ExperienceRawEffect(5000)]));
 
 Equipment.equipments.push(new Equipment("Eternity Step", SlotType.Foot, "feet/thieves_fur", 100, 1, "Eternity", [new DamageRawEffect(7000)]));
 Equipment.equipments.push(new Equipment("Eternity Clock", SlotType.Jewelry, "jewelry/pendant_blue_butterfly", 100, 1, "Eternity", [new DamageRawEffect(7000)]));
-Equipment.equipments.push(new Equipment("Eternity Musical", SlotType.Weapon, "weapon/musical", 100, 1, "Eternity", [new DamageRawEffect(7000), new DamagePercentEffect(0.2)]));
+Equipment.equipments.push(new Equipment("Eternity Musical", SlotType.Weapon, "sword/musical", 100, 1, "Eternity", [new DamageRawEffect(7000), new DamagePercentEffect(0.2)]));
 Equipment.equipments.push(new Equipment("Eternity Vision", SlotType.Head, "head/warrior_flag_dark", 100, 1, "Eternity", [new DamageRawEffect(7000), new DamagePercentEffect(0.2)]));
 
-Equipment.equipments.push(new Equipment("Implosion Point", SlotType.Weapon, "weapon/armored_lava", 100, 1, "Implosion", [new DamagePercentEffect(0.1), new DamageRawEffect(5000)]));
+Equipment.equipments.push(new Equipment("Implosion Point", SlotType.Weapon, "sword/armored_lava", 100, 1, "Implosion", [new DamagePercentEffect(0.1), new DamageRawEffect(5000)]));
 Equipment.equipments.push(new Equipment("Implosion Relativity", SlotType.Jewelry, "jewelry/earring_sun", 100, 1, "Eternity", [new DamagePercentEffect(0.25)]));
 Equipment.equipments.push(new Equipment("Implosion Overview", SlotType.Head, "head/hood_gold", 100, 1, "Eternity", [new DamagePercentEffect(0.2)]));
 Equipment.equipments.push(new Equipment("Implosion Protector", SlotType.Body, "head/big_oni", 100, 1, "Eternity", [new DamagePercentEffect(0.2), new DamageRawEffect(5000)]));
 Equipment.equipments.push(new Equipment("Implosion Accelerator", SlotType.Foot, "feet/dragon", 100, 1, "Eternity", [new DamagePercentEffect(0.25)]));
 
-Equipment.equipments.push(new Equipment("Dark Divider", SlotType.Weapon, "weapon/bloody", 100, 1, "Dark Clan", [new DamagePercentEffect(0.5), new DamageRawEffect(5000)]));
+Equipment.equipments.push(new Equipment("Dark Divider", SlotType.Weapon, "sword/bloody", 100, 1, "Dark Clan", [new DamagePercentEffect(0.5), new DamageRawEffect(5000)]));
 Equipment.equipments.push(new Equipment("Dark Enchantment", SlotType.Jewelry, "jewelry/earring_shuriken", 100, 1, "Dark Clan", [new DamagePercentEffect(0.25), new DamageRawEffect(1000)]));
 Equipment.equipments.push(new Equipment("Dark Mind", SlotType.Head, "head/wizard", 100, 1, "Dark Clan", [new DamagePercentEffect(0.25), new DamageRawEffect(2000)]));
 Equipment.equipments.push(new Equipment("Dark Obligation", SlotType.Body, "body/black_jacket_up", 100, 1, "Dark Clan", [new DamagePercentEffect(0.25), new DamageRawEffect(2000)]));
 Equipment.equipments.push(new Equipment("Dark Movement", SlotType.Foot, "feet/basic_leather_dark", 100, 1, "Dark Clan", [new DamagePercentEffect(0.25), new DamageRawEffect(1000)]));
 
-Equipment.equipments.push(new Equipment("Reborn Pacifier", SlotType.Weapon, "weapon/aura_star", 100, 1, "Reborn", [new DamagePercentEffect(1)]));
+Equipment.equipments.push(new Equipment("Reborn Pacifier", SlotType.Weapon, "sword/aura_star", 100, 1, "Reborn", [new DamagePercentEffect(1)]));
 Equipment.equipments.push(new Equipment("Reborn Artefact", SlotType.Jewelry, "jewelry/pendant_angelic_cross", 100, 1, "Reborn", [new DamageRawEffect(10000)]));
 Equipment.equipments.push(new Equipment("Reborn Decree", SlotType.Head, "head/warrior_dragon", 100, 1, "Reborn", [new DamageRawEffect(5000)]));
 Equipment.equipments.push(new Equipment("Reborn Resolution", SlotType.Body, "body/stealth_coat_white_up", 100, 1, "Reborn", [new DamageRawEffect(5000)]));
