@@ -427,10 +427,9 @@ Monster.monsters.push(new Monster("elves-kaelin-worker", "Worker", 102, "elf_wor
 Monster.monsters.push(new Monster("elves-kaelin-dual", "Duelist Guard", 102, "elf_dual", 134, null))
 Monster.monsters.push(new Monster("elves-kaelin-spear", "Spear Guard", 102, "elf_spear", 137, null))
 Monster.monsters.push(new Monster("elves-kaelin-rogue", "Road Murderer", 102, "elf_rogue", 140, null))
-
-Monster.monsters.push(new Monster("elves-kaelin-dragon", "High Guardian", 102, "elf_boss_dragon", 1250, null))
-Monster.monsters.push(new Monster("elves-kaelin-secretgod", "Ashi, dogma of secret", 102, "elf_boss_secretgod", 1325, null))
-Monster.monsters.push(new Monster("elves-kaelin-titan", "Tania, mother nature", 102, "elf_boss_titan", 1400, null))
-Monster.monsters.push(new Monster("elves-kaelin-queen", "Kamira, the queen", 102, "elf_boss_queen", 1470, null))
-Monster.monsters.push(new Monster("elves-kaelin-god", "Ezelia, planets's god", 102, "elf_boss_god", 1600, null))
+Monster.monsters.push(new Monster("elves-kaelin-dragon", "High Guardian", 102, "elf_boss_dragon", 1250, LootTable.kaelin_guardian))
+Monster.monsters.push(new Monster("elves-kaelin-secretgod", "Ashi, dogma of secret", 102, "elf_boss_secretgod", 1325, LootTable.kaelin_secret_god))
+Monster.monsters.push(new Monster("elves-kaelin-titan", "Tania, mother nature", 102, "elf_boss_titan", 1400, LootTable.kaelin_titan_forest))
+Monster.monsters.push(new Monster("elves-kaelin-queen", "Kamira, the queen", 102, "elf_boss_queen", 1470, LootTable.kaelin_queen))
+Monster.monsters.push(new Monster("elves-kaelin-god", "Ezelia, planets's god", 102, "elf_boss_god", 1600, LootTable.kaelin_planet_god))
 //#endregion
