@@ -72,6 +72,7 @@ export default class EquipmentSet {
     public static readonly Implosion = ["Implosion Point", "Implosion Relativity", "Implosion Overview", "Implosion Protector", "Implosion Accelerator"]
     public static readonly DarkClan = ["Dark Divider", "Dark Enchantment", "Dark Mind", "Dark Obligation", "Dark Movement"]
     public static readonly Reborn = ["Reborn Pacifier", "Reborn Artefact", "Reborn Decree", "Reborn Resolution", "Reborn Path"]
+    public static readonly SoulEater = ["Soul Piercer", "Soul Possessor", "Soul Devourer", "Soul Territory", "Soul Land"]
 }
 
 //#region Meivin
@@ -226,6 +227,16 @@ EquipmentSet.sets.push(new EquipmentSet("Reborn",
         [3, new DamageRawEffect(30000)],
         [4, new DamagePercentEffect(2)],
         [5, new DamagePercentEffect(2)],
+    ])
+))
+
+EquipmentSet.sets.push(new EquipmentSet("Soul Eater", 
+    new Map<number, StatEffect>([
+        [1, new DamagePercentEffect(10000)],
+        [2, new DamagePercentEffect(20000)],
+        [3, new DamagePercentEffect(70000)],
+        [4, new DamagePercentEffect(100000)],
+        [5, new DamagePercentEffect(5)],
     ])
 ))
 //#endregion

@@ -128,6 +128,12 @@ export default class LootTable {
     public static readonly kaelin_planet_god = new LootTable(["Reborn Resolution"], null, 1, 0, 2);
     public static readonly kaelin_titan_forest = new LootTable(["Reborn Path"], null, 1, 0, 2);    
     public static readonly kaelin_queen = new LootTable(["Reborn Pacifier"], null, 1, 0, 1);
+
+    public static readonly kaelin_yoggoth = new LootTable(["Soul Land"], null, 1, 0, 2);
+    public static readonly kaelin_tank = new LootTable(["Soul Possessor"], null, 1, 0, 2);
+    public static readonly kaelin_dragon = new LootTable(["Soul Territory"], null, 1, 0, 2);
+    public static readonly kaelin_skeletqueen = new LootTable(["Soul Devourer"], null, 1, 0, 2);
+    public static readonly kaelin_thanatos = new LootTable(["Soul Piercer"], null, 1, 0, 1);
     //#endregion
 }
 

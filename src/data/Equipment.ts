@@ -258,4 +258,10 @@ Equipment.equipments.push(new Equipment("Reborn Artefact", SlotType.Jewelry, "je
 Equipment.equipments.push(new Equipment("Reborn Decree", SlotType.Head, "head/warrior_dragon", 100, 1, "Reborn", [new DamageRawEffect(5000)]));
 Equipment.equipments.push(new Equipment("Reborn Resolution", SlotType.Body, "body/stealth_coat_white_up", 100, 1, "Reborn", [new DamageRawEffect(5000)]));
 Equipment.equipments.push(new Equipment("Reborn Path", SlotType.Foot, "feet/guardian", 100, 1, "Reborn", [new DamageRawEffect(5000)]));
+
+Equipment.equipments.push(new Equipment("Soul Piercer", SlotType.Weapon, "sword/gigarme", 100, 1, "Soul Eater", [new DamagePercentEffect(1), new DamageRawEffect(10000)]));
+Equipment.equipments.push(new Equipment("Soul Possessor", SlotType.Jewelry, "jewelry/gigaclier", 100, 1, "Soul Eater", [new DamageRawEffect(10000)]));
+Equipment.equipments.push(new Equipment("Soul Devourer", SlotType.Head, "head/gigahelm", 100, 1, "Soul Eater", [new DamageRawEffect(10000)]));
+Equipment.equipments.push(new Equipment("Soul Territory", SlotType.Body, "body/gigarmor", 100, 1, "Soul Eater", [new DamageRawEffect(10000)]));
+Equipment.equipments.push(new Equipment("Soul Land", SlotType.Foot, "feet/gigafeet", 100, 1, "Soul Eater", [new DamageRawEffect(10000)]));
 //#endregion

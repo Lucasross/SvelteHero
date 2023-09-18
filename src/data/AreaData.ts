@@ -695,4 +695,31 @@ AreaData.areas.push(new AreaData("World's Cradle", "kaelin_cradle.jpg",
     "elves-kaelin-god", //boss
 ], 31, 14,
 120, "boss_skull.png"));
+
+AreaData.areas.push(new AreaData("The Pandemonium", "kaelin_pandemonium.jpg",
+[
+    "pande-kaelin-doppel", //trash
+    "pande-kaelin-abomination", //trash
+    "pande-kaelin-abomination1", //trash
+    "pande-kaelin-abomination2", //trash
+    "pande-kaelin-bloodmage", //trash
+    "pande-kaelin-blood", //trash
+    "pande-kaelin-hunter", //trash
+    "pande-kaelin-knight", //trash
+    "pande-kaelin-mage", //trash
+    "pande-kaelin-reaper", //trash
+    "pande-kaelin-skull", //trash
+    "pande-kaelin-warrior", //trash
+    "pande-kaelin-yoggoth", //trash
+
+    "pande-kaelin-boss-yoggoth", //boss
+    "pande-kaelin-tank", //boss
+    "pande-kaelin-dragon", //boss
+    "pande-kaelin-skeletqueen", //boss
+    "pande-kaelin-thanatos", //boss
+
+    
+], 52, 47,
+120, "boss_skull.png"));
+
 //#endregion
