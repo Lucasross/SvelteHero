@@ -232,10 +232,10 @@ EquipmentSet.sets.push(new EquipmentSet("Reborn",
 
 EquipmentSet.sets.push(new EquipmentSet("Soul Eater", 
     new Map<number, StatEffect>([
-        [1, new DamagePercentEffect(10000)],
-        [2, new DamagePercentEffect(20000)],
-        [3, new DamagePercentEffect(70000)],
-        [4, new DamagePercentEffect(100000)],
+        [1, new DamageRawEffect(10000)],
+        [2, new DamageRawEffect(20000)],
+        [3, new DamageRawEffect(70000)],
+        [4, new DamageRawEffect(100000)],
         [5, new DamagePercentEffect(5)],
     ])
 ))

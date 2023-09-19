@@ -42,6 +42,10 @@ export class Utility {
     }
 
     public static toLocalFixed(number: number) {
-        return Math.floor(number).toLocaleString()/* + number.toFixed(fixed).slice(number.toString().indexOf('.'))*/
+        return Math.floor(number).toLocaleString();
+    }
+
+    public static toLocalDigit(number: number) {
+        return number.toLocaleString("en-US", {maximumFractionDigits: 2});
     }
 }

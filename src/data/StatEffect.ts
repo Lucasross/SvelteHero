@@ -1,3 +1,5 @@
+import { Utility } from "../utility/Utility";
+
 export default abstract class StatEffect {
     public static readonly statMultiplierByLevel: number = 0.25;
     
@@ -10,7 +12,7 @@ export default abstract class StatEffect {
     }
 
     toValueString(): string {
-        return this.value.toString();
+        return this.value.toLocaleString();
     }
     abstract toShortString(): string;
     abstract toLongString(): string;
@@ -24,11 +26,11 @@ export class GoldRawEffect extends StatEffect {
     }
 
     toShortString(): string {
-        return `+${this.value} gold`;
+        return `+${this.value.toLocaleString()} gold`;
     }
 
     toLongString(): string {
-        return `Increase gold found on the area this hero stand by <b>+${this.value}.</b>`;
+        return `Increase gold found on the area this hero stand by <b>+${this.value.toLocaleString()}.</b>`;
     }
 
     upgrade(upgradeLevel: number): StatEffect {
@@ -44,15 +46,15 @@ export class GoldPercentEffect extends StatEffect {
     }
 
     toValueString(): string {
-        return `+${(this.value * 100).toPrecision(2)}%`;
+        return `+${(this.value * 100).toLocaleString()}%`;
     }
 
     toShortString(): string {
-        return `+${(this.value * 100).toPrecision(2)}% gold`;
+        return `+${(this.value * 100).toLocaleString()}% gold`;
     }
 
     toLongString(): string {
-        return `Increase gold found on the area this hero stand by <b>${Math.round(this.value * 100)}%</b>.`;
+        return `Increase gold found on the area this hero stand by <b>${Utility.toLocalFixed(this.value * 100)}%</b>.`;
     }
 
     upgrade(upgradeLevel: number): StatEffect {
@@ -68,11 +70,11 @@ export class DamageRawEffect extends StatEffect {
     }
 
     toShortString(): string {
-        return `+${this.value} damage`;
+        return `+${this.value.toLocaleString()} damage`;
     }
 
     toLongString(): string {
-        return `Increase damage dealt by <b>+${this.value}.</b>`;
+        return `Increase damage dealt by <b>+${this.value.toLocaleString()}.</b>`;
     }
     
     upgrade(upgradeLevel: number): StatEffect {
@@ -88,15 +90,15 @@ export class DamagePercentEffect extends StatEffect {
     }
 
     toValueString(): string {
-        return `+${(this.value * 100).toPrecision(2)}%`;
+        return `+${(this.value * 100).toLocaleString()}%`;
     }
 
     toShortString(): string {
-        return `+${(this.value * 100).toPrecision(2)}% damage`;
+        return `+${(this.value * 100).toLocaleString()}% damage`;
     }
 
     toLongString(): string {
-        return `Increase damage dealt by <b>${Math.round(this.value * 100)}%</b>.`;
+        return `Increase damage dealt by <b>${Utility.toLocalFixed(this.value * 100)}%</b>.`;
     }
 
     upgrade(upgradeLevel: number): StatEffect {
@@ -132,15 +134,15 @@ export class ExperiencePercentEffect extends StatEffect {
     }
 
     toValueString(): string {
-        return `+${(this.value * 100).toPrecision(2)}%`;
+        return `+${(this.value * 100).toLocaleString()}%`;
     }
 
     toShortString(): string {
-        return `+${(this.value * 100).toPrecision(2)}% experience`;
+        return `+${(this.value * 100).toLocaleString()}% experience`;
     }
 
     toLongString(): string {
-        return `Increase experience gained by <b>${Math.round(this.value * 100)}%</b>.`;
+        return `Increase experience gained by <b>${Utility.toLocalFixed(this.value * 100)}%</b>.`;
     }
 
     upgrade(upgradeLevel: number): StatEffect {

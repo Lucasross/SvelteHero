@@ -433,10 +433,10 @@ Monster.monsters.push(new Monster("elves-kaelin-titan", "Tania, mother nature", 
 Monster.monsters.push(new Monster("elves-kaelin-queen", "Kamira, the queen", 102, "elf_boss_queen", 1470, LootTable.kaelin_queen))
 Monster.monsters.push(new Monster("elves-kaelin-god", "Ezelia, planets's god", 102, "elf_boss_god", 1600, LootTable.kaelin_planet_god))
 
-Monster.monsters.push(new Monster("pande-kaelin-doppel", "Doppelganger", 105, "pande_doppel", 300, null))
+Monster.monsters.push(new Monster("pande-kaelin-doppel", "Doppelganger", 105, "pande_dopel", 300, null))
 Monster.monsters.push(new Monster("pande-kaelin-abomination", "Flying Abomination", 105, "pande_abomination", 301, null))
-Monster.monsters.push(new Monster("pande-kaelin-abomination1", "Snake Abomination", 105, "pande_abomination1", 312, null))
-Monster.monsters.push(new Monster("pande-kaelin-abomination2", "Troubled Abomination", 105, "pande_abomination2", 315, null))
+Monster.monsters.push(new Monster("pande-kaelin-abomination1", "Snake Abomination", 105, "pande_abomination2", 312, null))
+Monster.monsters.push(new Monster("pande-kaelin-abomination2", "Troubled Abomination", 105, "pande_abomination3", 315, null))
 Monster.monsters.push(new Monster("pande-kaelin-bloodmage", "Blood Lich", 105, "pande_bloodmage", 318, null))
 Monster.monsters.push(new Monster("pande-kaelin-blood", "Blood Seeker", 105, "pande_blood", 321, null))
 Monster.monsters.push(new Monster("pande-kaelin-hunter", "Abomination Tamer", 105, "pande_hunter", 328, null))
@@ -450,5 +450,5 @@ Monster.monsters.push(new Monster("pande-kaelin-boss-yoggoth", "Yoggoth, Final F
 Monster.monsters.push(new Monster("pande-kaelin-tank", "Koz, Wall of Dimensions", 105, "pande_boss_tank", 3210, LootTable.kaelin_tank))
 Monster.monsters.push(new Monster("pande-kaelin-dragon", "Akender, Dragon of Universes", 105, "pande_boss_dragon", 3620, LootTable.kaelin_dragon))
 Monster.monsters.push(new Monster("pande-kaelin-skeletqueen", "Tehys, Empress of Worlds", 105, "pande_boss_skeletqueen", 3890, LootTable.kaelin_skeletqueen))
-Monster.monsters.push(new Monster("pande-kaelin-thanatos", "Thanatos, The Death Bringer", 105, "pande_boss_ thanatos", 4380, LootTable.kaelin_thanatos))
+Monster.monsters.push(new Monster("pande-kaelin-thanatos", "Thanatos, The Death Bringer", 105, "pande_boss_thanatos", 4380, LootTable.kaelin_thanatos))
 //#endregion

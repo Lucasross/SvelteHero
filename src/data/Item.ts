@@ -82,7 +82,7 @@ Item.items.push(new Item("Magic bark", "tortium", Loot.golfForLevel(85) / 2, 6))
 Item.items.push(new Item("Kathril", "kathril", Loot.golfForLevel(85), 4));
 Item.items.push(new Item("Fairy gems", "veratium", Loot.golfForLevel(85) * 3, 2));
 Item.items.push(new Item("Magic ore", "tourmacier", Loot.golfForLevel(85) * 5, 2));
-Item.items.push(new Item("Ancient fossil", "grifacier", Loot.golfForLevel(85) * 4, 3));
+Item.items.push(new Item("Ancient Fossil", "grifacier", Loot.golfForLevel(85) * 4, 3));
 Item.items.push(new Item("Sharp water", "volium", Loot.golfForLevel(90) * 2, 4));
 Item.items.push(new Item("Shaanah's soul", "tolium", Loot.golfForLevel(95) * 5, 1));
 //#endregion
