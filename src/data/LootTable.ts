@@ -102,37 +102,43 @@ export default class LootTable {
     //#endregion
 
     //#region Kaelin 
+    public static readonly kaelin_deathGate = new LootTable(null, Item.kaelin_deathGate, 1, 0, 1);
     public static readonly kaelin_saki = new LootTable(["After Life Feather"], null, 1, 0, 3);
     public static readonly kaelin_kaani = new LootTable(["After Life Fang"], null, 1, 0, 3);
     public static readonly kaelin_roshe = new LootTable(["After Life Shell"], null, 1, 0, 2);
     
+    public static readonly kaelin_eternityPalace = new LootTable(null, Item.kaelin_eternityPalace, 1, 0, 1);
     public static readonly kaelin_golem = new LootTable(["Eternity Step"], null, 1, 0, 3);
     public static readonly kaelin_titan = new LootTable(["Eternity Clock"], null, 1, 0, 3);
     public static readonly kaelin_ice_goddess = new LootTable(["Eternity Musical"], null, 1, 0, 3);
     public static readonly kaelin_demeres = new LootTable(["Eternity Vision"], null, 1, 0, 2);
     
+    public static readonly kaelin_magmaChamber = new LootTable(null, Item.kaelin_magmaChamber, 1, 0, 1);
     public static readonly kaelin_slimegod = new LootTable(["Implosion Accelerator"], null, 1, 0, 3);
     public static readonly kaelin_kitsune = new LootTable(["Implosion Relativity"], null, 1, 0, 3);
     public static readonly kaelin_worm = new LootTable(["Implosion Overview"], null, 1, 0, 3);
     public static readonly kaelin_titan_magma = new LootTable(["Implosion Protector"], null, 1, 0, 3);
     public static readonly kaelin_tiamat = new LootTable(["Implosion Point"], null, 1, 0, 2);
 
+    public static readonly kaelin_darkClan = new LootTable(null, Item.kaelin_darkClan, 1, 0, 0.5);
     public static readonly kaelin_karmin = new LootTable(["Dark Mind"], null, 1, 0, 3);
     public static readonly kaelin_izarro = new LootTable(["Dark Enchantment"], null, 1, 0, 3);
     public static readonly kaelin_regulus = new LootTable(["Dark Obligation"], null, 1, 0, 2);
     public static readonly kaelin_asselus = new LootTable(["Dark Movement"], null, 1, 0, 2);
     public static readonly kaelin_jeanne = new LootTable(["Dark Divider"], null, 1, 0, 1);
     
+    public static readonly kaelin_worldCradle = new LootTable(null, Item.kaelin_worldCradle, 1, 0, 0.5);
     public static readonly kaelin_secret_god = new LootTable(["Reborn Artefact"], null, 1, 0, 2);
     public static readonly kaelin_guardian = new LootTable(["Reborn Decree"], null, 1, 0, 2);
     public static readonly kaelin_planet_god = new LootTable(["Reborn Resolution"], null, 1, 0, 2);
     public static readonly kaelin_titan_forest = new LootTable(["Reborn Path"], null, 1, 0, 2);    
     public static readonly kaelin_queen = new LootTable(["Reborn Pacifier"], null, 1, 0, 1);
 
-    public static readonly kaelin_yoggoth = new LootTable(["Soul Land"], null, 1, 0, 2);
-    public static readonly kaelin_tank = new LootTable(["Soul Possessor"], null, 1, 0, 2);
-    public static readonly kaelin_dragon = new LootTable(["Soul Territory"], null, 1, 0, 2);
-    public static readonly kaelin_skeletqueen = new LootTable(["Soul Devourer"], null, 1, 0, 2);
+    public static readonly kaelin_pandemonium = new LootTable(null, Item.kaelin_pandemonium, 1, 0, 0.25);
+    public static readonly kaelin_yoggoth = new LootTable(["Soul Land"], null, 1, 0, 1);
+    public static readonly kaelin_tank = new LootTable(["Soul Possessor"], null, 1, 0, 1);
+    public static readonly kaelin_dragon = new LootTable(["Soul Territory"], null, 1, 0, 1);
+    public static readonly kaelin_skeletqueen = new LootTable(["Soul Devourer"], null, 1, 0, 1);
     public static readonly kaelin_thanatos = new LootTable(["Soul Piercer"], null, 1, 0, 1);
     //#endregion
 }

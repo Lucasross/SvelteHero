@@ -41,6 +41,13 @@ export default class Item extends Loot {
     public static readonly typhoon_90 = ["Sharp water"]
     public static readonly stronghold_90 = ["Sharp water", "Magic ore", "Fairy gems"]
     public static readonly shaanah_90 = ["Shaanah's soul"]
+
+    public static readonly kaelin_deathGate = ["Elixir of time"]
+    public static readonly kaelin_eternityPalace = ["Elixir of ice"]
+    public static readonly kaelin_magmaChamber = ["Elixir of magma"]
+    public static readonly kaelin_darkClan = ["Elixir of death"]
+    public static readonly kaelin_worldCradle = ["Elixir of life"]
+    public static readonly kaelin_pandemonium = ["Elixir of universe"]
 }
 
 //#region Meivin
@@ -85,4 +92,11 @@ Item.items.push(new Item("Magic ore", "tourmacier", Loot.golfForLevel(85) * 5, 2
 Item.items.push(new Item("Ancient Fossil", "grifacier", Loot.golfForLevel(85) * 4, 3));
 Item.items.push(new Item("Sharp water", "volium", Loot.golfForLevel(90) * 2, 4));
 Item.items.push(new Item("Shaanah's soul", "tolium", Loot.golfForLevel(95) * 5, 1));
+
+Item.items.push(new Item("Elixir of time", "elixir_sand", Loot.golfForLevel(100) * 25, 1));
+Item.items.push(new Item("Elixir of ice", "elixir_ice", Loot.golfForLevel(100) * 30, 1));
+Item.items.push(new Item("Elixir of magma", "elixir_magma", Loot.golfForLevel(100) * 30, 1));
+Item.items.push(new Item("Elixir of death", "elixir_dark", Loot.golfForLevel(102) * 50, 1));
+Item.items.push(new Item("Elixir of life", "elixir_life", Loot.golfForLevel(102) * 100, 1));
+Item.items.push(new Item("Elixir of universe", "elixir_pande", Loot.golfForLevel(105) * 250, 1));
 //#endregion
