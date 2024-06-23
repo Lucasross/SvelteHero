@@ -4,10 +4,10 @@ import Guild from "../data/Guild";
 import AreaData from "../data/AreaData";
 import { Jobs } from "../data/Job";
 
-const key_heroes: string = "key_heroes";
-const key_area: string = "key_area";
-const key_guild: string = "key_guild";
-const key_region: string = "key_region";
+export const key_heroes: string = "key_heroes";
+export const key_area: string = "key_area";
+export const key_guild: string = "key_guild";
+export const key_region: string = "key_region";
 
 // #region Hero
 let rawHero = JSON.parse(localStorage.getItem(key_heroes));
