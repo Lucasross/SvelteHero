@@ -5,8 +5,7 @@
     import { logOut } from "./../services/firebase";
 
     // Firebase database
-    import { signInWithGoogle } from "../services/firebase.js";
-    import { saveGame } from "../services/firebase.js";
+    import { signInWithGoogle, saveGame, loadGame } from "../services/firebase.js";
 
     let userID;
 
@@ -27,6 +26,7 @@
     <div class="template sign-in">
         <div>
             {#if userID != null}
+                <button on:click={loadGame}>Load</button>
                 <button on:click={saveGame}>Save</button>
             {/if}
         </div>

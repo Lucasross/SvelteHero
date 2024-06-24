@@ -1,8 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { key_area, key_guild, key_region, key_heroes} from "../store/Stores.js"
+import { key_area, key_guild, key_region, key_heroes, loadPlayerSave } from "../store/Stores.js"
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
-import { setDoc, doc, getFirestore } from "firebase/firestore";
+import { getDoc, setDoc, doc, getFirestore } from "firebase/firestore";
 
 let env = env_var;
 env = env.env;
@@ -40,5 +40,20 @@ export const saveGame = async () => {
         await setDoc(doc(db, "saves", auth.currentUser.uid), data)
     } catch (e) {
         console.error("Error while saving to firestore: ", e)
+    }
+}
+
+export const loadGame = async () => {
+    try {
+        const playerSaveSnap = await getDoc(doc(db, "saves", auth.currentUser.uid))
+
+        if (playerSaveSnap.exists()) {
+            const playerSave = playerSaveSnap.data()
+            loadPlayerSave(playerSave)
+        } else {
+            console.error("No such document found for user ", auth.currentUser.uid);
+        }
+    } catch (e) {
+        console.error("Error while loading from firestore: ", e)
     }
 }

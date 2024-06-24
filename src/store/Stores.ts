@@ -13,24 +13,28 @@ export const key_region: string = "key_region";
 let rawHero = JSON.parse(localStorage.getItem(key_heroes));
 let savedHeroes: Array<Hero> = [];
 let storedHeroes: Array<Writable<Hero>> = [];
+loadHero(rawHero)
 
-if (rawHero != null) {
-    rawHero.forEach((h, i) => {
-        let hero: Hero = new Hero(i, h.name, h.level, h.experience, Jobs[h.job as string]).Init(h.area_id, h.weaponSlot, h.jewelrySlot, h.headSlot, h.bodySlot, h.footSlot);
-        let writableHero = writable<Hero>(hero);
-        if (hero.isInLocation()) {
-            AreaData.getById(hero.area_id).enter(writableHero);
-        }
-        storedHeroes.push(writableHero);
+function loadHero(rawHero) {
+    if (rawHero != null) {
+        rawHero.forEach((h, i) => {
+            let hero: Hero = new Hero(i, h.name, h.level, h.experience, Jobs[h.job as string]).Init(h.area_id, h.weaponSlot, h.jewelrySlot, h.headSlot, h.bodySlot, h.footSlot);
+            let writableHero = writable<Hero>(hero);
+            if (hero.isInLocation()) {
+                AreaData.getById(hero.area_id).enter(writableHero);
+            }
+            storedHeroes.push(writableHero);
+        });
+    }
+    
+    storedHeroes.forEach(h => {
+        h.subscribe(h => {
+            savedHeroes[h.saveIndex] = h;
+            localStorage.setItem(key_heroes, JSON.stringify(savedHeroes));
+        })
     });
 }
 
-storedHeroes.forEach(h => {
-    h.subscribe(h => {
-        savedHeroes[h.saveIndex] = h;
-        localStorage.setItem(key_heroes, JSON.stringify(savedHeroes));
-    })
-});
 
 export let createHero = (name: string, job: Jobs, level: number = 1, experience: number = 0) => {
     let hero: Hero = new Hero(storedHeroes.length, name, level, experience, job);
@@ -43,39 +47,53 @@ export let createHero = (name: string, job: Jobs, level: number = 1, experience:
 
 // #region Area
 let raw_area_id: string = localStorage.getItem(key_area);
-if (raw_area_id == null) {
-    raw_area_id = "Training center"
+let stored_areaId;
+loadArea(raw_area_id)
+
+function loadArea(rawAreaId) {
+    if (rawAreaId == null) {
+        rawAreaId = "Training center"
+    }
+    
+    stored_areaId = writable<string>(rawAreaId);
+    
+    stored_areaId.subscribe(id => localStorage.setItem(key_area, id))
 }
-
-let stored_areaId = writable<string>(raw_area_id);
-
-stored_areaId.subscribe(id => localStorage.setItem(key_area, id))
 // #endregion
 
 // #region Region
 let raw_region_id: string = localStorage.getItem(key_region);
-if (raw_region_id == null) {
-    raw_region_id = "Meivin"
+let stored_regionId;
+loadRegion(raw_region_id)
+
+function loadRegion(rawRegionId) {
+    if (rawRegionId == null) {
+        rawRegionId = "Meivin"
+    }
+    
+    stored_regionId = writable<string>(rawRegionId);
+    
+    stored_regionId.subscribe(id => localStorage.setItem(key_region, id))
 }
 
-let stored_regionId = writable<string>(raw_region_id);
-
-stored_regionId.subscribe(id => localStorage.setItem(key_region, id))
 // #endregion
 
 // #region Guild
 let rawGuild = JSON.parse(localStorage.getItem(key_guild));
 let storedGuild: Writable<Guild>;
+loadGuild(rawGuild)
 
-if (rawGuild == null)
-    storedGuild = writable<Guild>(new Guild(0));
-else 
-    storedGuild = writable<Guild>(new Guild(rawGuild.gold).init(rawGuild.savedInventory, rawGuild.equipment, rawGuild.shaanahPastDefeated, rawGuild.shaanahPresentDefeated));
-
-storedGuild.subscribe(guild => {
-    guild.prepareForSave();
-    localStorage.setItem(key_guild, JSON.stringify(guild))
-})
+function loadGuild(rawGuild) {
+    if (rawGuild == null)
+        storedGuild = writable<Guild>(new Guild(0));
+    else 
+        storedGuild = writable<Guild>(new Guild(rawGuild.gold).init(rawGuild.savedInventory, rawGuild.equipment, rawGuild.shaanahPastDefeated, rawGuild.shaanahPresentDefeated));
+    
+    storedGuild.subscribe(guild => {
+        guild.prepareForSave();
+        localStorage.setItem(key_guild, JSON.stringify(guild))
+    })
+}
 // #endregion 
 
 export const area_id = stored_areaId;
@@ -89,3 +107,11 @@ heroesUpdate.subscribe(u => {
         setTimeout(() => u = false, 100);
     }
 })
+
+export const loadPlayerSave = (playerSave) => {
+    loadHero(JSON.parse(playerSave.heroes))
+    loadArea(playerSave.area)
+    loadRegion(playerSave.region)
+    loadGuild(JSON.parse(playerSave.guild))
+    location.reload()
+}
