@@ -7,6 +7,8 @@ import livereload from 'rollup-plugin-livereload';
 import css from 'rollup-plugin-css-only';
 import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
+import replace from "@rollup/plugin-replace";
+import { config } from "dotenv";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -67,6 +69,14 @@ export default {
 			sourceMap: !production,
 			inlineSources: !production
 		}),
+		replace({
+			env_var: JSON.stringify({
+			  env: {
+				isProd: production,
+				...config().parsed,
+			  },
+			}),
+		  }),
 
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
