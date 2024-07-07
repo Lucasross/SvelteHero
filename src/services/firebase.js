@@ -19,7 +19,6 @@ const firebaseConfig = {
 
 console.log("App initialize firestore")
 initializeApp(firebaseConfig);
-getAnalytics(app);
 
 export const provider = new GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
