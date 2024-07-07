@@ -58,3 +58,5 @@ export const loadGame = async () => {
         console.error("Error while loading from firestore: ", e)
     }
 }
+
+console.log("App finish firebase file")
