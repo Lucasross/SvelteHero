@@ -13,6 +13,7 @@
 
     let userID;
 
+    console.log("App call firestore")
     const auth = getAuth();
     onMount(async () => {
         onAuthStateChanged(auth, async (user) => {

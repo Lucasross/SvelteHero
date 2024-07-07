@@ -17,6 +17,7 @@ const firebaseConfig = {
     measurementId: env.MEASUREMENT_ID
 };
 
+console.log("App initialize firestore")
 initializeApp(firebaseConfig);
 getAnalytics(app);
 
