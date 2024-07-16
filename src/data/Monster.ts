@@ -191,7 +191,7 @@ Monster.monsters.push(new Monster("boxcat-easy", "Boxing cat", 18, "boxcat_blue"
 Monster.monsters.push(new Monster("rat-elite-easy", "Chief rat", 19, "mouse_gray", 5, LootTable.elite_20));
 Monster.monsters.push(new Monster("rat-elite-medium", "Commander rat", 20, "mouse_brown", 6, LootTable.elite_20));
 
-Monster.monsters.push(new Monster("rat-boss", "Ratto Kingu", 22, "mouse_purple", 35, LootTable.boss_20));
+Monster.monsters.push(new Monster("rat-boss", "Ratto Kingu", 22, "mouse_purple", 25, LootTable.boss_20));
 //#endregion
 
 //#region 21 - 30

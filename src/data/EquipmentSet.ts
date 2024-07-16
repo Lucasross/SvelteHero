@@ -53,7 +53,7 @@ export default class EquipmentSet {
     public static readonly trainingDummySet = ["Training Boots", "Training Shirt", "Training Ring", "Training Sword"];
     public static readonly electricPowerSet = ["Electric Brogues", "Electric Headset", "Electric Surcoat"];
     public static readonly plagueInfestationSet = ["Plague Footwraps", "Plague Damnation", "Plague Slicer"];
-    public static readonly AquaVanitySet = ["Aqua Destroyer", "Aqua Bubbles"];
+    public static readonly AquaVanitySet = ["Aqua Destroyer", "Aqua Diamond"];
     public static readonly PyroVanisherSet = ["Pyro Walker", "Pyro Chestplate"];
     public static readonly MistyMirageSet = ["Misty Vision", "Misty Trace", "Misty Pendulum", "Misty Pest"];
     public static readonly IslandMysterySet = ["Mystery Key-Sword", "Mystery Shuriken", "Mystery Horns", "Mystery Guards", "Mystery Traveller"];
@@ -113,8 +113,8 @@ EquipmentSet.sets.push(new EquipmentSet("Pyro Vanisher",
 EquipmentSet.sets.push(new EquipmentSet("Misty Mirage",
     new Map<number, StatEffect>([
         [2, new DamagePercentEffect(0.35)],
-        [4, new ExperiencePercentEffect(0.4)],
         [3, new DamageRawEffect(1000)],
+        [4, new ExperiencePercentEffect(0.4)],
     ])
 ))
 

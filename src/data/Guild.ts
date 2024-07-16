@@ -56,7 +56,7 @@ export default class Guild {
 
     public hasItems(items: [string, number][]): boolean {
         return items.every(item => {
-            return this.inventory.has(item[0]) && this.inventory.get(item[0]) >= item[1];
+            return (!this.inventory.has(item[0]) && item[1] == 0) || this.inventory.get(item[0]) >= item[1];
         });
     }
 

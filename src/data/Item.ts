@@ -27,7 +27,7 @@ export default class Item extends Loot {
     public static readonly upgrade10 = ["Granacier", "Jabacite"]
     public static readonly upgrade20 = ["Primavite", "Patium", "Morvite"]
     public static readonly upgrade30 = ["Pepitium", "Triarite", "Ronavite"]
-    public static readonly upgrade40 = ["corite", "lunacier", "carapium"]
+    public static readonly upgrade40 = ["Corite", "Lunacier", "Carapium"]
     public static readonly upgrade50_island = ["Seed of risk", "Seed of savagery", "Seed of dispair"]
     public static readonly upgrade50_shaanah = ["Shaanah's echos"]
 
