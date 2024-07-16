@@ -17,7 +17,6 @@ const firebaseConfig = {
     measurementId: env.MEASUREMENT_ID
 };
 
-console.log("App initialize firestore")
 initializeApp(firebaseConfig);
 getAnalytics(app);
 
@@ -58,5 +57,3 @@ export const loadGame = async () => {
         console.error("Error while loading from firestore: ", e)
     }
 }
-
-console.log("App finish firebase file")
