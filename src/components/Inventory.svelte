@@ -245,7 +245,7 @@
 <div class="template">
     <Title
         label={isItems ? "Inventory" : "Equipment"}
-        dismantleAll={true}
+        dismantleAll={!isItems}
         sellAll={true}
         on:sellAll={isItems ? sellAllItems : sellAll}
         on:dismantleAll={dismantleAllEquipment}

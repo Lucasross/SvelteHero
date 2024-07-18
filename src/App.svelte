@@ -7,6 +7,7 @@
     import CharacterCreation from "./components/CharacterCreation.svelte";
     import Inventory from "./components/Inventory.svelte";
     import Settings from "./components/Settings.svelte";
+    import Shop from "./components/Shop.svelte";
 
 	let frameSpeed = 1; //in seconds
 	let area : Area;
@@ -41,6 +42,7 @@
 		</div>
 		<div class="sidecol vertical-list">
 			<Inventory />
+			<Shop />
 			<Settings />
 		</div>
 	</content>
