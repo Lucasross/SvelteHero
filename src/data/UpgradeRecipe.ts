@@ -74,17 +74,17 @@ export class ExportRecipe {
     }
 }
 
-UpgradeRecipe.recipes.push(new UpgradeRecipe(1, 10, SlotType.All, null, 5000, [["Granacier", 4], ["Jabacite", 0.5]]))
+UpgradeRecipe.recipes.push(new UpgradeRecipe(1, 10, SlotType.All, null, 10000, [["Granacier", 4], ["Jabacite", 0.5]]))
 
-UpgradeRecipe.recipes.push(new UpgradeRecipe(11, 20, SlotType.All, null, 13500, [["Morvite", 3], ["Patium", 1], ["Primavite", 0.5]]))
+UpgradeRecipe.recipes.push(new UpgradeRecipe(11, 20, SlotType.All, null, 20500, [["Morvite", 3], ["Patium", 1], ["Primavite", 0.5]]))
 
-UpgradeRecipe.recipes.push(new UpgradeRecipe(21, 30, SlotType.All, null, 24700, [["Pepitium", 5], ["Patium", 1.35], ["Primavite", 0.25]]))
+UpgradeRecipe.recipes.push(new UpgradeRecipe(21, 30, SlotType.All, null, 45700, [["Pepitium", 5], ["Ronavite", 1.35], ["Triarite", 0.25]]))
 
-UpgradeRecipe.recipes.push(new UpgradeRecipe(31, 40, SlotType.All, null, 51300, [["Corite", 4], ["Lunacier", 2], ["Carapium", 0.33]]))
+UpgradeRecipe.recipes.push(new UpgradeRecipe(31, 40, SlotType.All, null, 90300, [["Corite", 4], ["Lunacier", 2], ["Carapium", 0.33]]))
 
-UpgradeRecipe.recipes.push(new UpgradeRecipe(41, 50, SlotType.All, null, 125000, [["Seed of risk", 1], ["Seed of savagery", 1], ["Seed of dispair", 1], ["Shaanah's echos", 0.25]]))
+UpgradeRecipe.recipes.push(new UpgradeRecipe(41, 50, SlotType.All, null, 150000, [["Seed of risk", 1], ["Seed of savagery", 1], ["Seed of dispair", 1], ["Shaanah's echos", 0.5]]))
 
-UpgradeRecipe.recipes.push(new UpgradeRecipe(51, 60, SlotType.All, null, 151000, [["Desert Pearl", 2], ["Red Mushes", 3], ["Dry Branch", 3.5]]))
+UpgradeRecipe.recipes.push(new UpgradeRecipe(51, 60, SlotType.All, null, 191250, [["Desert Pearl", 2], ["Red Mushes", 3], ["Dry Branch", 3.5]]))
 
 UpgradeRecipe.recipes.push(new UpgradeRecipe(61, 70, SlotType.All, null, 225000, [["Ancient Flame", 1], ["Dandacier", 4], ["Cosmic Energy", 2.34]]))
 

@@ -248,10 +248,10 @@ export default class Hero {
 
     //Formula: cx^{3}+ae^{bx}
     //a = 10 000
-    //b = 0.7
+    //b = 1
     //c = 70 000
     static goldForNextHero(nbHero: number) {
-        return 70_000 * Math.pow(nbHero, 3) + Utility.Exp(10_000, 0.7, nbHero);
+        return 70_000 * Math.pow(nbHero, 3) + Utility.Exp(10_000, 1.38, nbHero);
     }
 }
 

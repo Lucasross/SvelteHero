@@ -51,20 +51,20 @@ export default class Item extends Loot {
 }
 
 //#region Meivin
-Item.items.push(new Item("Granacier", "granacier", Loot.golfForLevel(5) / 5, 2));
-Item.items.push(new Item("Jabacite", "jabacite", Loot.golfForLevel(5) / 3, 1));
+Item.items.push(new Item("Granacier", "granacier", Loot.golfForLevel(5) / 4, 2));
+Item.items.push(new Item("Jabacite", "jabacite", Loot.golfForLevel(5) / 2, 1));
 
 Item.items.push(new Item("Morvite", "morvite", Loot.golfForLevel(15) / 5, 4));
 Item.items.push(new Item("Patium", "patium", Loot.golfForLevel(15) / 2.5, 2));
 Item.items.push(new Item("Primavite", "primavite", Loot.golfForLevel(15), 1));
 
-Item.items.push(new Item("Pepitium", "pepitium", Loot.golfForLevel(25) / 5, 6));
-Item.items.push(new Item("Ronavite", "ronavite", Loot.golfForLevel(25) / 3, 3));
-Item.items.push(new Item("Triarite", "triarite", Loot.golfForLevel(25) / 2, 1));
+Item.items.push(new Item("Pepitium", "pepitium", Loot.golfForLevel(25) / 4, 6));
+Item.items.push(new Item("Ronavite", "ronavite", Loot.golfForLevel(25) / 2, 3));
+Item.items.push(new Item("Triarite", "triarite", Loot.golfForLevel(25), 1));
 
 Item.items.push(new Item("Corite", "corite", Loot.golfForLevel(35) / 5, 4));
 Item.items.push(new Item("Lunacier", "lunacier", Loot.golfForLevel(35) / 3, 3));
-Item.items.push(new Item("Carapium", "carapium", Loot.golfForLevel(35) / 2, 1));
+Item.items.push(new Item("Carapium", "carapium", Loot.golfForLevel(35), 1));
 
 Item.items.push(new Item("Seed of risk", "exalde", Loot.golfForLevel(45) * 2, 1));
 Item.items.push(new Item("Seed of savagery", "florathril", Loot.golfForLevel(45) * 2, 1));
@@ -73,23 +73,23 @@ Item.items.push(new Item("Shaanah's echos", "vionatite", Loot.golfForLevel(55) *
 //#endregion
 
 //#region Ekosma
-Item.items.push(new Item("Desert Pearl", "boatite", Loot.golfForLevel(55), 3));
+Item.items.push(new Item("Dry Branch", "branium", Loot.golfForLevel(55) / 3, 5));
 Item.items.push(new Item("Red Mushes", "chamavite", Loot.golfForLevel(55) / 2, 4));
-Item.items.push(new Item("Dry Branch", "branium", Loot.golfForLevel(55), 5));
+Item.items.push(new Item("Desert Pearl", "boatite", Loot.golfForLevel(55), 3));
 
-Item.items.push(new Item("Ancient Flame", "flamite", Loot.golfForLevel(65) * 2, 2));
 Item.items.push(new Item("Dandacier", "dandacier", Loot.golfForLevel(65) / 2, 5));
 Item.items.push(new Item("Cosmic Energy", "khosium", Loot.golfForLevel(65), 3));
+Item.items.push(new Item("Ancient Flame", "flamite", Loot.golfForLevel(65) * 2, 2));
 
+Item.items.push(new Item("Sadanite", "pikthril", Loot.golfForLevel(75) / 2, 6));
 Item.items.push(new Item("Crystalized Snow", "vagacier", Loot.golfForLevel(75), 3));
 Item.items.push(new Item("Sand gems", "doralde", Loot.golfForLevel(75) * 2, 2));
-Item.items.push(new Item("Sadanite", "pikthril", Loot.golfForLevel(75) / 2, 6));
 
 Item.items.push(new Item("Magic bark", "tortium", Loot.golfForLevel(85) / 2, 6));
 Item.items.push(new Item("Kathril", "kathril", Loot.golfForLevel(85), 4));
+Item.items.push(new Item("Ancient Fossil", "grifacier", Loot.golfForLevel(85) * 4, 3));
 Item.items.push(new Item("Fairy gems", "veratium", Loot.golfForLevel(85) * 3, 2));
 Item.items.push(new Item("Magic ore", "tourmacier", Loot.golfForLevel(85) * 5, 2));
-Item.items.push(new Item("Ancient Fossil", "grifacier", Loot.golfForLevel(85) * 4, 3));
 Item.items.push(new Item("Sharp water", "volium", Loot.golfForLevel(90) * 2, 4));
 Item.items.push(new Item("Shaanah's soul", "tolium", Loot.golfForLevel(95) * 5, 1));
 

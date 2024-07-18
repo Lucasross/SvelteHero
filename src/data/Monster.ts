@@ -33,7 +33,7 @@ export default class Monster implements ISprite {
         this.maxHealth = Math.round(Monster.getMaxHealth(level) * healthScale);
         this.lootTable = lootTable;
 
-        this.gold = Math.round(level * (5 + (level/2)));
+        this.gold = Math.round(level * 5);
         this.experience = Math.round(Monster.getBaseExperience(level) * this.experienceScalerBasedOnHealthScale(healthScale));
         this.currentHealth = this.maxHealth;
 

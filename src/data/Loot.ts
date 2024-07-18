@@ -27,8 +27,8 @@ export default abstract class Loot implements ISprite {
     }
 
     public static golfForLevel(level: number) {
-        let a: number = 0.01;
-        let b: number = 0.04;
+        let a: number = 0.11;
+        let b: number = 0.08;
         let c: number = 6;
         let d: number = 190;
         return Utility.Polynome3(a, b, c, d, level);

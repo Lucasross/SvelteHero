@@ -38,6 +38,7 @@ export const saveGame = async () => {
             "heroes": localStorage.getItem(key_heroes),
         }
         await setDoc(doc(db, "saves", auth.currentUser.uid), data)
+        alert("Game saved successfully")
     } catch (e) {
         console.error("Error while saving to firestore: ", e)
     }
