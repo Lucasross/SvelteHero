@@ -41,7 +41,7 @@
     function resizeItem() {
         grid.style.setProperty(
             "--grid-item-height",
-            grid.firstChild.offsetWidth + "px"
+            grid.firstChild.offsetWidth + "px",
         );
     }
 
@@ -60,24 +60,36 @@
     }
 
     function dismantle() {
-        if(selectedEquipment.lock) {
+        if (selectedEquipment.lock) {
             alert("This equipment can't be dismantle as it is lock, unlock it and try again.");
             return;
         }
 
         let recipe: ExportRecipe = UpgradeRecipe.getDismantleFor(selectedEquipment);
-        guild.update(g => {
+
+        guild.update((g) => {
             // Add all items from recipe (divided by 2)
-            recipe.recipes.forEach(item => {
+            recipe.recipes.forEach((item) => {
                 for (let i = 0; i < item[1]; i++) {
-                    g.addItem(Item.getById(item[0]));                   
+                    g.addItem(Item.getById(item[0]));
                 }
             });
 
             //Remove equipment from guild
             g.removeEquipment(selectedEquipment);
             return g;
-        })
+        });
+    }
+
+    function dismantleEquipment(equipment: InventoryEquipment, g) {
+        let recipe: ExportRecipe = UpgradeRecipe.getDismantleFor(equipment);
+
+        // Add all items from recipe (divided by 2)
+        recipe.recipes.forEach((item) => {
+            for (let i = 0; i < item[1]; i++) {
+                g.addItem(Item.getById(item[0]));
+            }
+        });
     }
 
     function sell() {
@@ -100,22 +112,25 @@
     }
 
     function sellItems(loot: Loot, guild: Guild, amount: number) {
-        if(loot != null && guild.inventory.has(loot.id) && guild.inventory.get(loot.id) > amount) {
+        if (
+            loot != null &&
+            guild.inventory.has(loot.id) &&
+            guild.inventory.get(loot.id) > amount
+        ) {
             guild.gold += loot.gold * amount;
             Utility.setOrAdd(guild.inventory, loot.id, -amount);
         }
     }
 
     function upgrade() {
-        if(selectedEquipment.upgradeLevel < 4)
-            showUpgradeModal = true;
-        else
-            alert("Equipment is already maxed.")
+        if (selectedEquipment.upgradeLevel < 4) showUpgradeModal = true;
+        else alert("Equipment is already maxed.");
     }
 
     function lock() {
         guild.update((g) => {
-            g.getEquipment(selectedEquipment).lock = !g.getEquipment(selectedEquipment).lock;
+            g.getEquipment(selectedEquipment).lock =
+                !g.getEquipment(selectedEquipment).lock;
             return g;
         });
     }
@@ -134,7 +149,7 @@
             displayText: "Upgrade",
             class: "fa-solid fa-screwdriver-wrench",
             style: "",
-        }, 
+        },
         {
             name: "dismantle",
             onClick: dismantle,
@@ -190,10 +205,12 @@
 
     function sellAll() {
         guild.update((g) => {
-            g.equipment.filter(ie => !ie.lock).forEach((invEquipment) => {
-                g.gold += invEquipment.getEquipment().gold;
-                g.nullifyEquipment(invEquipment);
-            });
+            g.equipment
+                .filter((ie) => !ie.lock)
+                .forEach((invEquipment) => {
+                    g.gold += invEquipment.getEquipment().gold;
+                    g.nullifyEquipment(invEquipment);
+                });
             g.equipment = g.equipment.filter((e) => e != null);
             return g;
         });
@@ -209,14 +226,29 @@
             return g;
         });
     }
+
+    function dismantleAllEquipment() {
+        guild.update((g) => {
+            g.equipment
+                .filter((ie) => !ie.lock)
+                .forEach((invEquipment) => {
+                    dismantleEquipment(invEquipment, g);
+                    g.nullifyEquipment(invEquipment);
+                });
+            g.equipment = g.equipment.filter((e) => e != null);
+            return g;
+        });
+    }
 </script>
 
 <svelte:window on:resize={resizeItem} />
 <div class="template">
     <Title
         label={isItems ? "Inventory" : "Equipment"}
+        dismantleAll={true}
         sellAll={true}
         on:sellAll={isItems ? sellAllItems : sellAll}
+        on:dismantleAll={dismantleAllEquipment}
     />
     <ContextMenu
         bind:this={contextMenu}
@@ -261,7 +293,13 @@
                     class:lock={key.lock}
                 >
                     <Sprite
-                        tooltipText={key.getEquipment().getTooltip(null, key.getStatsEffects(), key.upgradeLevel)}
+                        tooltipText={key
+                            .getEquipment()
+                            .getTooltip(
+                                null,
+                                key.getStatsEffects(),
+                                key.upgradeLevel,
+                            )}
                         sprite={key.getEquipment().getSprite()}
                     />
                 </div>

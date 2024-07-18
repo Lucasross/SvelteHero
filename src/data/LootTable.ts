@@ -60,7 +60,7 @@ export default class LootTable {
     public static readonly elite_10 = new LootTable(EquipmentSet.trainingDummySet.concat(Equipment.random10), Item.upgrade10, 1, 2, 15); 
     public static readonly boss_10 = new LootTable(EquipmentSet.trainingDummySet.concat(Equipment.random10), null, 1, 0, 25);
 
-    public static readonly normal_20 = new LootTable(EquipmentSet.electricPowerSet.concat(Equipment.random20), Item.upgrade20, 1, 4, 2);
+    public static readonly normal_20 = new LootTable(EquipmentSet.electricPowerSet.concat(Equipment.random20), Item.upgrade20, 1, 4, 100);
     public static readonly elite_20 = new LootTable(EquipmentSet.plagueInfestationSet.concat(Equipment.random20), Item.upgrade20, 1, 2, 10);
     public static readonly boss_20 = new LootTable(EquipmentSet.plagueInfestationSet, null, 1, 0, 25);
 

@@ -3,11 +3,13 @@
     import AreaData from "../../data/AreaData";
     import { area_id, region_id, guild, heroes } from "../../store/Stores";
     import { get } from "svelte/store";
+    import { Utility } from "../../utility/Utility";
     import type RegionData from "../../data/RegionData";
 
     export let label: String;
     export let enableGold: boolean = false;
     export let area: AreaData = null;
+    export let dismantleAll: boolean = null;
     export let sellAll: boolean = null;
     export let regionData: RegionData = null;
 
@@ -34,6 +36,8 @@
     let prevGold: number;
     prevGold = get(guild).gold;
 
+    console.log(dismantleAll)
+
     guild.subscribe(g => {
         if(goldDisplay != null && prevGold != g.gold) {
             let delta = Math.abs(g.gold - prevGold);
@@ -59,6 +63,10 @@
         dispatch('sellAll');
     }
 
+    function dismantleAllItem() {
+        dispatch('dismantleAll');
+    }
+
     function travelTo(regionId: string) {
         dispatch('travel', {
             regionId: regionId
@@ -69,15 +77,13 @@
 <div class="container">
     <div class="title">
         {#if enableGold}
-            <img
-                style="display: inline-block"
-                height="16px"
-                src="pictures/cash.png"
-                alt="cash"
-            />
             <p class="gold-animation-container" bind:this={goldDisplay}>
-                {$guild.gold.toLocaleString()}
+                {Utility.toLocalFixed($guild.gold)}
+                <i class="fa-solid fa-coins" style="color: #fcba03"></i>
             </p>
+        {/if}
+        {#if dismantleAll != null && dismantleAll == true}
+            <button on:click={dismantleAllItem}><i class="fa-solid fa-hammer"></i>All</button>
         {/if}
         {#if region != null && region.hasLeftRegion() && region.leftRegionUnlocked($guild)}
             <button on:click={() => travelTo(region.leftRegion)}><i class="fa-solid fa-arrow-left"></i> {region.getLeftRegion().name}</button>
