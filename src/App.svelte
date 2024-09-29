@@ -34,7 +34,8 @@
 		<div class="sidecol vertical-list">
 			<HeroesList />
 			<Inventory isItems={false}/>
-			<div style="margin-bottom: 500px"/>
+			<Settings />
+			<div style="margin-bottom: 300px"/>
 		</div>
 		<div class="maincol vertical-list">
 			<Area bind:this={area} />
@@ -43,7 +44,6 @@
 		<div class="sidecol vertical-list">
 			<Inventory />
 			<Shop />
-			<Settings />
 		</div>
 	</content>
 </main>
