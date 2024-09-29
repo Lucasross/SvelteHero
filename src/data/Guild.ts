@@ -1,3 +1,4 @@
+import { heroes } from "../store/Stores";
 import { Utility } from "../utility/Utility";
 import Equipment from "./Equipment";
 import Hero from "./Hero";
@@ -128,6 +129,10 @@ export default class Guild {
     recruit(nbHero: number): Guild {
         this.gold -= Hero.goldForNextHero(nbHero);
         return this;
+    }
+
+    pastShaanahHeroesCapacityReach(): Boolean {
+        return heroes.length >= 5
     }
 }
 

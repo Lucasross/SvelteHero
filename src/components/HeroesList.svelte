@@ -17,8 +17,15 @@
   });
 
   function recruitHero() {
+    if (!$guild.GetShaanahPastFlag() && $guild.pastShaanahHeroesCapacityReach()) {
+      alert("Beat Past's Shaanah to recruit more heroes")
+      return
+    }
+
     if(get(guild).gold > Hero.goldForNextHero(heroes.length)) {
       showModal = true;
+    } else {
+      alert("Not enough gold to recruit")
     }
   }
   
@@ -37,6 +44,9 @@
     <div class="recruit-container background-color-{heroes.length % 2}">
       <button on:click={recruitHero}> 
         Recruit
+        {#if !$guild.GetShaanahPastFlag() && $guild.pastShaanahHeroesCapacityReach()}
+        (Lock)
+        {/if}
         <br>
         <img width="16px" src="pictures/cash.png" alt="cash-icon" style="vertical-align: middle;"> 
         {#if heroes.length > 0}
