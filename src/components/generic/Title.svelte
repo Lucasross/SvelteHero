@@ -36,8 +36,6 @@
     let prevGold: number;
     prevGold = get(guild).gold;
 
-    console.log(dismantleAll)
-
     guild.subscribe(g => {
         if(goldDisplay != null && prevGold != g.gold) {
             let delta = Math.abs(g.gold - prevGold);
