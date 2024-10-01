@@ -34,16 +34,18 @@
 		<div class="sidecol vertical-list">
 			<HeroesList />
 			<Inventory isItems={false}/>
-			<Settings />
 			<div style="margin-bottom: 300px"/>
 		</div>
 		<div class="maincol vertical-list">
 			<Area bind:this={area} />
 			<WorldMap />
+			<Settings />
+			<div style="margin-bottom: 50px"/>
 		</div>
 		<div class="sidecol vertical-list">
 			<Inventory />
 			<Shop />
+			<div style="margin-bottom: 50px"/>
 		</div>
 	</content>
 </main>
